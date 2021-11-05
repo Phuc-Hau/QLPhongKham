@@ -2,7 +2,7 @@ package com.qlpk.entity;
 
 public class NhanVien {
     
-    public static void name() {
+    public static void NhanVien() {
         
     }
 }
