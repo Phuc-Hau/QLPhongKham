@@ -11,5 +11,5 @@ package com.qlpk.entity;
  */
 public class NhanVien {
     private String maNV;
-    private String maPk;
+    private String maPk; 
 }
