@@ -61,7 +61,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public PhieuKham selectByID(Integer id) {
-        String SelectID ="SELECT PhieuKham.* FROM hieuKham WHERE (MaPhieuKham = ?)";
+        String SelectID ="SELECT PhieuKham.* FROM PhieuKham WHERE (MaPhieuKham = ?)";
         List<PhieuKham> list =selectBySql(SelectID, id);
         return list.size()>0?list.get(0):null;
     }
