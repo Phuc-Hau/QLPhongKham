@@ -10,5 +10,5 @@ package com.qlpk.entity;
  * @author Administrator
  */
 public class NhanVien {
-    
+    private String maNV;
 }
