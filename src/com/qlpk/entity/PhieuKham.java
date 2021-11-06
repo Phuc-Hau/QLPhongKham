@@ -11,7 +11,8 @@ package com.qlpk.entity;
  */
 public class PhieuKham {
 
-    private int maPhieuKham;
+    private String MaNV;
+    private String maPK;
     
     
 }
