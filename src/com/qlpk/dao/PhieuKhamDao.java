@@ -11,9 +11,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public void insert(PhieuKham entity) {
-        String Insert ="INSERT INTO PhieuKham\n" +
-"                      (MaPhieuKham, MABN, MaPK, MaNV, BS, NgayKham, KhamLamSang, BenhKem, ChuanDoanICD, NhipTim, NhietDo, HuyenAp, CanNang, ChieuCao, KetLuan_DieuTri)\n" +
-"VALUES    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String Insert ="INSERT INTO PhieuKham (MaPhieuKham, MABN, MaPK, MaNV, BS, NgayKham, KhamLamSang, BenhKem, ChuanDoanICD, NhipTim, NhietDo, HuyenAp, CanNang, ChieuCao, KetLuan_DieuTri) VALUES    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         JdbcHelper.Update(Insert, 
                 entity.getMaPhieuKham(),
                 entity.getMaBN(),
@@ -35,9 +33,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public void update(PhieuKham entity) {
-        String Update ="UPDATE    PhieuKham\n" +
-"SET             MABN =?, MaPK =?, MaNV =?, BS =?, NgayKham =?, KhamLamSang =?, BenhKem =?, ChuanDoanICD =?, NhipTim =?, NhietDo =?, HuyenAp =?, CanNang =?, ChieuCao =?, KetLuan_DieuTri =? \n" +
-"WHERE     (MaPhieuKham = ?)";
+        String Update ="UPDATE PhieuKham SET MABN =?, MaPK =?, MaNV =?, BS =?, NgayKham =?, KhamLamSang =?, BenhKem =?, ChuanDoanICD =?, NhipTim =?, NhietDo =?, HuyenAp =?, CanNang =?, ChieuCao =?, KetLuan_DieuTri =? WHERE (MaPhieuKham = ?)";
         JdbcHelper.Update(Update, 
                 entity.getMaBN(),
                 entity.getMaPK(),
@@ -65,7 +61,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public PhieuKham selectByID(Integer id) {
-        String SelectID ="SELECT    PhieuKham.* FROM hieuKham WHERE (MaPhieuKham = ?)";
+        String SelectID ="SELECT PhieuKham.* FROM hieuKham WHERE (MaPhieuKham = ?)";
         List<PhieuKham> list =selectBySql(SelectID, id);
         return list.size()>0?list.get(0):null;
     }
