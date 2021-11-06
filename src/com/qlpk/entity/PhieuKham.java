@@ -11,6 +11,7 @@ package com.qlpk.entity;
  */
 public class PhieuKham {
 
+    
     private String maNV;
     
 }
