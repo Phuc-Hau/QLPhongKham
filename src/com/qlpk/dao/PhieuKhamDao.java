@@ -1,4 +1,4 @@
-
+//
 package com.qlpk.dao;
 import com.qlpk.entity.PhieuKham;
 import com.qlpk.utils.JdbcHelper;
