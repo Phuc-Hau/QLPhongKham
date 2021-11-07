@@ -260,6 +260,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         lblExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblExit.setForeground(new java.awt.Color(255, 255, 255));
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
         lblExit.setText("Thoát");
 
         javax.swing.GroupLayout ChucNangLayout = new javax.swing.GroupLayout(ChucNang);
@@ -274,8 +275,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(NhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ChucNangLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ChucNangLayout.setVerticalGroup(
