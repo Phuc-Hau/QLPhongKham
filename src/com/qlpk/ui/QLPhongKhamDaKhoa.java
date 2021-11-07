@@ -51,6 +51,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -67,6 +68,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         ChucNang.setBackground(new java.awt.Color(65, 3, 88));
 
         BenhNhan.setBackground(new java.awt.Color(160, 126, 173));
+        BenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BenhNhanMousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Bệnh Nhân");
@@ -252,6 +258,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
+        lblExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblExit.setForeground(new java.awt.Color(255, 255, 255));
+        lblExit.setText("Thoát");
+
         javax.swing.GroupLayout ChucNangLayout = new javax.swing.GroupLayout(ChucNang);
         ChucNang.setLayout(ChucNangLayout);
         ChucNangLayout.setHorizontalGroup(
@@ -263,6 +273,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(Thuoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(NhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ChucNangLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ChucNangLayout.setVerticalGroup(
             ChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +295,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addComponent(Thuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(ChucNang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, -1));
@@ -341,11 +357,16 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BenhNhanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BenhNhanMousePressed
+        // TODO add your handling code here:
+        System.out.println("com.qlpk.ui.QLPhongKhamDaKhoa.BenhNhanMousePressed()");
+    }//GEN-LAST:event_BenhNhanMousePressed
 
     /**
      * @param args the command line arguments
@@ -412,5 +433,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblExit;
     // End of variables declaration//GEN-END:variables
 }
