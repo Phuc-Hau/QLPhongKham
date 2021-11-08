@@ -796,7 +796,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlNhanVien});// reser color
         tabs.setSelectedIndex(5);
-        lblChucNang.setText("Thuốc");
     }//GEN-LAST:event_pnlThuocMousePressed
 
     private void pnlNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMousePressed
@@ -805,7 +804,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc}, 
                 new JPanel[]{pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc,pnlThuoc});// reser color
         tabs.setSelectedIndex(6);
-        lblChucNang.setText("Nhân Viên");
         
     }//GEN-LAST:event_pnlNhanVienMousePressed
 
