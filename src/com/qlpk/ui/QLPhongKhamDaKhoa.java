@@ -22,7 +22,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setTitle("Phòng Khám Đa Khoa");
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\com\\qlpk\\icon\\logo.png"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\com\\qlpk\\icon\\logo36.png"));
         inti();
     }
 
@@ -70,6 +70,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         pnlcolorPhongKham = new javax.swing.JPanel();
         pnlTieu = new javax.swing.JPanel();
+        lblChucNang = new javax.swing.JLabel();
         pnlFrom = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
         pnlFromHome = new javax.swing.JPanel();
@@ -501,15 +502,26 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         pnlTieu.setBackground(new java.awt.Color(207, 81, 255));
 
+        lblChucNang.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblChucNang.setForeground(new java.awt.Color(229, 248, 4));
+        lblChucNang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblChucNang.setText("Home");
+
         javax.swing.GroupLayout pnlTieuLayout = new javax.swing.GroupLayout(pnlTieu);
         pnlTieu.setLayout(pnlTieuLayout);
         pnlTieuLayout.setHorizontalGroup(
             pnlTieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTieuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(327, 327, 327))
         );
         pnlTieuLayout.setVerticalGroup(
             pnlTieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(pnlTieuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pnlFrom.setBackground(new java.awt.Color(255, 255, 255));
@@ -563,7 +575,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         pnlFromPhieuKham.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel18.setText("Benh nhan");
+        jLabel18.setText("phieu kham");
 
         javax.swing.GroupLayout pnlFromPhieuKhamLayout = new javax.swing.GroupLayout(pnlFromPhieuKham);
         pnlFromPhieuKham.setLayout(pnlFromPhieuKhamLayout);
@@ -692,7 +704,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlChinhLayout.setVerticalGroup(
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -752,6 +764,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlBenhNhan,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien}); // reser color
         tabs.setSelectedIndex(0);
+        lblChucNang.setText("Home");
     }//GEN-LAST:event_pnlHomeMousePressed
 
     private void pnlBenhNhanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBenhNhanMousePressed
@@ -760,7 +773,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(1);
-        
+        lblChucNang.setText("Bệnh Nhân");
     }//GEN-LAST:event_pnlBenhNhanMousePressed
 
     private void pnlPhieuKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhieuKhamMousePressed
@@ -873,6 +886,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblChucNang;
     private javax.swing.JLabel lblExit;
     private javax.swing.JPanel pnlBenhNhan;
     private javax.swing.JPanel pnlChinh;
