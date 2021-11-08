@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     
     String INSERT_SQL = "INSERT INTO BenhNhan(MaBN, TenBenhNhan, GioiTinh, SDT, NgaySinh, Tuoi, DiaChi, NgheNghiep, GhiChu) VALUES(?,?,?,?,?,?,?,?,?)";
-    String UPDATE_SQL = "UPDATE CHUYENDE SET  TenBenhNhan=?, GioiTinh=?, SDT=?, NgaySinh=?,"
+    String UPDATE_SQL = "UPDATE BenhNhan SET  TenBenhNhan=?, GioiTinh=?, SDT=?, NgaySinh=?,"
             + " Tuoi=?, DiaChi=?, NgheNghiep=?, GhiChu=? WHERE MaBN=?";
     String DELETE_SQL = "DELETE FROM BenhNhan WHERE MaBN=?";
     String SELECT_ALL_SQL = "SELECT * FROM BenhNhan";
