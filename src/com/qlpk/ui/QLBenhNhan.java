@@ -221,7 +221,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private void txtMaBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaBNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaBNActionPerformed
- 
+  
     /**
      * @param args the command line arguments
      */
