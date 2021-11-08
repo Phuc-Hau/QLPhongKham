@@ -787,7 +787,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlPhongKham,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(4);
-        
+        lblChucNang.setText("Thuốc");
     }//GEN-LAST:event_pnlDonThuocMousePressed
 
     private void pnlThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThuocMousePressed
