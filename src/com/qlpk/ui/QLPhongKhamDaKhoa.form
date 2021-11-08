@@ -66,7 +66,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="ChucNang">
+        <Container class="javax.swing.JPanel" name="pnlChucNang">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="58" green="3" red="41" type="rgb"/>
@@ -81,13 +81,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BenhNhan" max="32767" attributes="0"/>
-                  <Component id="PhongKham" max="32767" attributes="0"/>
-                  <Component id="PhieuKham" alignment="0" max="32767" attributes="0"/>
-                  <Component id="DonThioc" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Thuoc" alignment="0" max="32767" attributes="0"/>
-                  <Component id="NhanVien" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel10" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlBenhNhan" max="32767" attributes="0"/>
+                  <Component id="pnlPhongKham" max="32767" attributes="0"/>
+                  <Component id="pnlPhieuKham" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlDonThuoc" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlThuoc" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlNhanVien" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlDichvu" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="lblExit" min="-2" pref="79" max="-2" attributes="0"/>
@@ -99,20 +99,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlDichvu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BenhNhan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="PhieuKham" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="PhongKham" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="DonThioc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Thuoc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="NhanVien" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <Component id="pnlBenhNhan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Component id="pnlPhieuKham" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlPhongKham" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlDonThuoc" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlThuoc" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlNhanVien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
                       <Component id="lblExit" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -120,21 +120,22 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="BenhNhan">
+            <Container class="javax.swing.JPanel" name="pnlBenhNhan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BenhNhanMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlBenhNhanMousePressed"/>
               </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <Component id="pnlColorBenhNhan" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel9" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="112" max="-2" attributes="0"/>
@@ -152,6 +153,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="pnlColorBenhNhan" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -171,19 +173,43 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlColorBenhNhan">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="PhongKham">
+            <Container class="javax.swing.JPanel" name="pnlPhongKham">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlPhongKhamMousePressed"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <Component id="pnlcolorPhongKham" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel11" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -202,6 +228,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="pnlcolorPhongKham" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -221,19 +248,43 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlcolorPhongKham">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="PhieuKham">
+            <Container class="javax.swing.JPanel" name="pnlPhieuKham">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlPhieuKhamMousePressed"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <Component id="pnlcolorPhieuKham" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel10" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -252,6 +303,7 @@
                           </Group>
                           <EmptySpace pref="22" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="pnlcolorPhieuKham" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -271,19 +323,43 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlcolorPhieuKham">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="DonThioc">
+            <Container class="javax.swing.JPanel" name="pnlDonThuoc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlDonThuocMousePressed"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <Component id="pnlcolorDonThuoc" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel12" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -302,6 +378,7 @@
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="pnlcolorDonThuoc" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -321,24 +398,48 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlcolorDonThuoc">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="Thuoc">
+            <Container class="javax.swing.JPanel" name="pnlThuoc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlThuocMousePressed"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="pnlcolorThuoc" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="112" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="61" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -352,6 +453,7 @@
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="pnlcolorThuoc" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -371,24 +473,48 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlcolorThuoc">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="NhanVien">
+            <Container class="javax.swing.JPanel" name="pnlNhanVien">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="7e" red="a0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlNhanVienMousePressed"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="pnlcolorNhanVien" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" pref="112" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="66" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -402,6 +528,7 @@
                           </Group>
                           <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="pnlcolorNhanVien" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -421,9 +548,29 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Container class="javax.swing.JPanel" name="pnlcolorNhanVien">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel10">
+            <Container class="javax.swing.JPanel" name="pnlDichvu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="99" type="rgb"/>
