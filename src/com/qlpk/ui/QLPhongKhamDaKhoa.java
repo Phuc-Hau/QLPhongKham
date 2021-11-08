@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.qlpk.ui;
-
+ 
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
