@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.qlpk.ui;
-
+ 
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -923,22 +923,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblThang.setText(String.valueOf(Thang));
         lblNam.setText(String.valueOf(Nam));
         
-        // hiển thị giờ hiện tại
-        // HOUR sẽ hiển thị theo khung giờ 12 giờ, ví dụ 11 giờ tối sẽ hiển thị là 11
-        // còn HOUR_OF_DAY sẽ hiển thị theo khung giờ 23 giờ, ví dụ 11 giờ tối sẽ hiển thị là 23
-        
-//        new Timer(1000, new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int Gio = cal.get(Calendar.HOUR_OF_DAY);
-//                int Phuc = cal.get(Calendar.MINUTE);
-//                int Giay = cal.get(Calendar.SECOND);
-//                lblGio.setText(String.valueOf(Gio));
-//                lblPhuc.setText(String.valueOf(Phuc));
-//                lblGiay.setText(String.valueOf(Giay));
-//            }
-//        }).start();
-        
+        // hiển thị giờ hiện tại   
         new Timer(1000, new ActionListener() {
             SimpleDateFormat Hour = new SimpleDateFormat("hh");
             SimpleDateFormat Minite = new SimpleDateFormat("mm");
