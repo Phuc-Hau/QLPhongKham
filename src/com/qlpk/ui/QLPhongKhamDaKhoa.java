@@ -782,7 +782,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(2);
-        
     }//GEN-LAST:event_pnlPhieuKhamMousePressed
 
     private void pnlPhongKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhongKhamMousePressed
@@ -791,7 +790,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(3);
-        
     }//GEN-LAST:event_pnlPhongKhamMousePressed
 
     private void pnlDonThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDonThuocMousePressed
@@ -800,7 +798,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlPhongKham,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(4);
-        lblChucNang.setText("Thuốc");
+        lblChucNang.setText("Đơn Thuốc");
     }//GEN-LAST:event_pnlDonThuocMousePressed
 
     private void pnlThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThuocMousePressed
@@ -809,6 +807,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlNhanVien});// reser color
         tabs.setSelectedIndex(5);
+        lblChucNang.setText("Thuốc");
     }//GEN-LAST:event_pnlThuocMousePressed
 
     private void pnlNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMousePressed
