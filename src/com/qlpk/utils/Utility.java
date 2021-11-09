@@ -31,7 +31,7 @@ public class Utility {
         txtPassword.setBackground(Color.white);
         if(pass.matches(pattern)==false){
             txtPassword.setBackground(Color.yellow);
-            MsgBox.alert(txtPassword, "-Mật khẩu bắt đầu bằng chử \n"
+            Msgbox.alert(txtPassword, "-Mật khẩu bắt đầu bằng chử \n"
                     + "-bao gồm cả số \n"
                     + "-ít nhất 8 ký tự\n"
                     + "-Không chứa khoảng trắng");
@@ -47,7 +47,7 @@ public class Utility {
         txtEmal.setBackground(white);
         if(email.matches(rgx)==false){
             txtEmal.setBackground(Color.yellow);
-            MsgBox.alert(txtEmal.getRootPane(), txtEmal.getName() + " không đúng định dạng");
+            Msgbox.alert(txtEmal.getRootPane(), txtEmal.getName() + " không đúng định dạng");
             return false;
         } else return true;
     }
@@ -62,7 +62,7 @@ public class Utility {
             return true;
         } else {
             txtSDT.setBackground(Color.yellow);
-            MsgBox.alert(txtSDT.getRootPane(), txtSDT.getName() + " phải gồm 10 số\nđúng các đầu số của nhà mạng.");
+            Msgbox.alert(txtSDT.getRootPane(), txtSDT.getName() + " phải gồm 10 số\nđúng các đầu số của nhà mạng.");
             return false;
         }
     }
