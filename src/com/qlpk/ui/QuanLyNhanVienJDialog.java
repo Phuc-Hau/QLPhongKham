@@ -7,7 +7,9 @@ package com.qlpk.ui;
 
 import com.qlpk.dao.NhanVienDao;
 import com.qlpk.entity.NhanVien;
-import com.qlpk.utils.*;
+import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.XDate;
+import com.qlpk.utils.Ximage;
 import java.io.File;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -19,16 +21,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Administrator
  */
-public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
+public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
+    
     NhanVienDao dao = new NhanVienDao();
     int row = -1;
-
     /**
-     * Creates new form QuanLyNhanVienJDialog
+     * Creates new form NewJFrame
      */
-    public QuanLyNhanVienJDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public QuanLyNhanVienJDialog() {
         initComponents();
         this.init();
     }
@@ -42,7 +43,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -82,7 +82,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
@@ -98,11 +98,9 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
 
         jLabel4.setText("Giới Tính");
 
-        buttonGroup1.add(rdoNam);
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
-        buttonGroup1.add(rdoNu);
         rdoNu.setText("Nữ");
 
         jLabel5.setText("Ngày Sinh (DD/MM/YYY)");
@@ -125,7 +123,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
 
         jLabel13.setText("Lương");
 
-        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/Hinh/Add.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +130,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/Hinh/Delete.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +137,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/Hinh/Edit.png"))); // NOI18N
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +144,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/Hinh/Create.png"))); // NOI18N
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,7 +310,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
                     .addComponent(btnXoa)
@@ -363,7 +357,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -371,7 +365,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", jPanel2);
@@ -384,7 +378,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(tabs)
+            .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,7 +386,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(tabs))
+                .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))
         );
 
         pack();
@@ -438,18 +432,18 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
         this.last();
     }//GEN-LAST:event_btnLastActionPerformed
 
-    private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
-        // TODO add your handling code here:
-           if (evt.getClickCount()==2) {
-            this.row = tblNhanVien.getSelectedRow();
-            this.edit();
-        }
-    }//GEN-LAST:event_tblNhanVienMouseClicked
-
     private void lblAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhMouseClicked
         // TODO add your handling code here:
         this.chonAnh();
     }//GEN-LAST:event_lblAnhMouseClicked
+
+    private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2) {
+            this.row = tblNhanVien.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblNhanVienMouseClicked
 
     /**
      * @param args the command line arguments
@@ -477,18 +471,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(QuanLyNhanVienJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                QuanLyNhanVienJDialog dialog = new QuanLyNhanVienJDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new QuanLyNhanVienJDialog().setVisible(true);
             }
         });
     }
@@ -502,7 +490,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboChucVu;
     private javax.swing.JComboBox<String> cboChuyenNganh;
     private javax.swing.JLabel jLabel1;
@@ -534,7 +521,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtSoDT;
     // End of variables declaration//GEN-END:variables
-
     private void init() {
         this.setLocationRelativeTo(null);
         this.fillTable();
@@ -740,5 +726,4 @@ public class QuanLyNhanVienJDialog extends javax.swing.JDialog {
             path=file.getAbsolutePath();
         }
     }
-
 }
