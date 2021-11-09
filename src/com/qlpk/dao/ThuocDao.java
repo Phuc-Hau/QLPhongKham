@@ -16,24 +16,26 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 
     @Override
     public void insert(Thuoc entity) {
-        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu) VALUES (?,?,?,?,?)";
+        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu, Hinh) VALUES (?,?,?,?,?,?)";
         JdbcHelper.Update(Insert, 
                 entity.getLoaiThuoc(),
                 entity.getTenThuoc(),
                 entity.getGiaNhap(),
                 entity.getGiaBan(),
-                entity.getGhiChu()
+                entity.getGhiChu(),
+                entity.getHinh()
                 );
     }
 
     @Override
     public void update(Thuoc entity) {
-        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =? WHERE (LoaiThuoc = ?)";
+        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =?, Hinh =? WHERE (LoaiThuoc = ?)";
         JdbcHelper.Update(Update, 
                 entity.getTenThuoc(),
                 entity.getGiaNhap(),
                 entity.getGiaBan(),
                 entity.getGhiChu(),
+                entity.getHinh(),
                 entity.getLoaiThuoc()
                 );
     }
@@ -70,6 +72,7 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
                 th.setGiaNhap(rs.getInt("GiaNhap"));
                 th.setGiaBan(rs.getInt("GiaBan"));       
                 th.setGhiChu(rs.getString("GhiChu"));
+                th.setHinh(rs.getString("Hinh"));
                 list.add(th);
             } finally {
                 rs.getStatement().getConnection().close();

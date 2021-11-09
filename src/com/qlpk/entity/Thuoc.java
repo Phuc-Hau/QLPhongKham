@@ -11,6 +11,15 @@ public class Thuoc {
 	private int GiaNhap;
 	private int GiaBan;
 	private String GhiChu;
+        private String Hinh;
+
+    public String getHinh() {
+        return Hinh;
+    }
+
+    public void setHinh(String Hinh) {
+        this.Hinh = Hinh;
+    }
 
     public String getLoaiThuoc() {
         return LoaiThuoc;
