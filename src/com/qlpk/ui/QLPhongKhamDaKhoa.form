@@ -801,7 +801,7 @@
             <Container class="javax.swing.JTabbedPane" name="tabs">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="-35" width="860" height="590"/>
+                  <AbsoluteConstraints x="0" y="-35" width="910" height="640"/>
                 </Constraint>
               </Constraints>
 
@@ -824,7 +824,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel23" pref="855" max="32767" attributes="0"/>
+                          <Component id="jLabel23" pref="905" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="lblTill" min="-2" pref="402" max="-2" attributes="0"/>
@@ -892,7 +892,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1070,7 +1070,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1079,7 +1079,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1112,7 +1112,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1121,7 +1121,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1154,7 +1154,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1163,7 +1163,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1196,7 +1196,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1205,7 +1205,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1238,7 +1238,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1247,7 +1247,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1280,7 +1280,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="jLabel22" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="634" max="32767" attributes="0"/>
+                              <EmptySpace pref="684" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1289,7 +1289,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="506" max="32767" attributes="0"/>
+                              <EmptySpace pref="556" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

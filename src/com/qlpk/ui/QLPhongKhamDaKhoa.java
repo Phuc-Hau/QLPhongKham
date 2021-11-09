@@ -625,7 +625,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromHome.setLayout(pnlFromHomeLayout);
         pnlFromHomeLayout.setHorizontalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
+            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 905, Short.MAX_VALUE)
             .addGroup(pnlFromHomeLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -683,7 +683,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                             .addComponent(lblGio)
                             .addComponent(lblPhuc)
                             .addComponent(lblGiay))))
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addGap(0, 85, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab1", pnlFromHome);
@@ -699,14 +699,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromBenhNhanLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromBenhNhanLayout.setVerticalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromBenhNhanLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel17)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", pnlFromBenhNhan);
@@ -722,14 +722,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhieuKhamLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromPhieuKhamLayout.setVerticalGroup(
             pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromPhieuKhamLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel18)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab3", pnlFromPhieuKham);
@@ -745,14 +745,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromPhongKhamLayout.setVerticalGroup(
             pnlFromPhongKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel19)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab4", pnlFromPhongKham);
@@ -768,14 +768,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromDonThuocLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromDonThuocLayout.setVerticalGroup(
             pnlFromDonThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromDonThuocLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel20)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab5", pnlFromDonThuoc);
@@ -791,14 +791,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromThuocLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromThuocLayout.setVerticalGroup(
             pnlFromThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromThuocLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel21)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab6", pnlFromThuoc);
@@ -814,19 +814,19 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromNhanVienLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(684, Short.MAX_VALUE))
         );
         pnlFromNhanVienLayout.setVerticalGroup(
             pnlFromNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromNhanVienLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel22)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab7", pnlFromNhanVien);
 
-        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 860, 590));
+        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 910, 640));
 
         javax.swing.GroupLayout pnlChinhLayout = new javax.swing.GroupLayout(pnlChinh);
         pnlChinh.setLayout(pnlChinhLayout);
