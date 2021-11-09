@@ -18,6 +18,7 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
      String SELECT_ALL_SQL="SELECT*FROM NhanVien";
      String SELECT_BY_ID_SQL="SELECT*FROM NhanVien WHERE MaNV=?";
 
+     
     @Override
     public void insert(NhanVien entity) {
        JdbcHelper.Update(INSERT_SQL,
