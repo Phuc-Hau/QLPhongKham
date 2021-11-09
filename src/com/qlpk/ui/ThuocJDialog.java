@@ -1,8 +1,17 @@
 //
 package com.qlpk.ui;
 
+import com.qlpk.dao.ThuocDao;
+import com.qlpk.entity.Thuoc;
+import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.XImage;
 import java.awt.Image;
+import java.io.File;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,9 +25,18 @@ public class ThuocJDialog extends javax.swing.JDialog {
     public ThuocJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        init();
+    }
+    void init() {
+        setLocationRelativeTo(null);
+
+        this.fillTable();
+        this.row = -1;
+        this.updateStatus();
+        Tabs.setSelectedIndex(1);
     }
     int row = -1;
-    
+    ThuocDao dao = new ThuocDao();
     void clearForm() {
         txt_loaithuoc.setText("");
         txt_tenthuoc.setText("");
@@ -38,31 +56,154 @@ public class ThuocJDialog extends javax.swing.JDialog {
     }
     void first() {
         this.row = 0;
-        //this.edit();
+        this.edit();
     }
 
     void prev() {
         if (this.row > 0) {
             this.row--;
-            //this.edit();
+           this.edit();
         }
     }
 
     void next() {
         if (this.row < tbl_danhsach.getRowCount() - 1) {
             this.row++;
-            //this.edit();
+            this.edit();
         }
     }
 
     void last() {
         this.row = tbl_danhsach.getRowCount() - 1;
-        //this.edit();
+        this.edit();
+    }
+    
+    void edit() {
+        String th = (String) tbl_danhsach.getValueAt(this.row, 0);
+        Thuoc cd = dao.selectByID(th);
+        this.setForm(cd);
+        Tabs.setSelectedIndex(0);
+        this.updateStatus();
+    }
+    
+    void selectImage() {
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            XImage.save(file);
+            ImageIcon icon = XImage.read(file.getName());
+            lbl_anh.setIcon(icon);
+            lbl_anh.setToolTipText(file.getName());
+                     
+        }
+    }
+    
+    void insert() {
+        //if (kt()) {
+        Thuoc th = getForm();
+        //boolean kt = false;
+        try {
+            //kt=true;
+            dao.insert(th);
+            this.fillTable();
+            this.clearForm();
+            Msgbox.alert(this, "Thêm mới thành công!");
+        } catch (Exception e) {
+            //kt=false;
+            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");
+        //}       
+        }
+    }
+    
+    void update() {
+        Thuoc cd = getForm();
+        try {
+            dao.update(cd);
+            this.fillTable();
+            //this.clearForm();
+            Msgbox.alert(this, "Cập nhật thành công!");
+        } catch (Exception e) {
+            Msgbox.alert(this, "Cập nhật thất bại!");
+        }
+    }
+
+    void delete() {
+        //if (!Auth.isManager()) {
+        //    MsgBox.alert(this, "Bạn không có quyền xóa Loại thuốc này!");
+        //} else {
+            String loaith = txt_loaithuoc.getText();
+            if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
+                try {
+                    dao.delete(loaith);
+                    this.fillTable();
+                    this.clearForm();
+                    Msgbox.alert(this, "Xoá thành công!");
+                } catch (Exception e) {
+                    Msgbox.alert(this, "Xóa thất bại!");
+                }
+            //}
+        }
+    }
+    
+    //Đỗ dữ liệu vào tbl_danhsach
+    void fillTable() {
+        DefaultTableModel model = (DefaultTableModel) tbl_danhsach.getModel();
+        model.setRowCount(0);
+        try {
+            List<Thuoc> list = dao.selectAll();
+            for (Thuoc th : list) {
+                Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    //Hien thi thuoc len form
+    void setForm(Thuoc th) {
+        txt_loaithuoc.setText(th.getLoaiThuoc());
+        txt_tenthuoc.setText(th.getTenThuoc());
+        txt_gianhap.setText(String.valueOf(th.getGiaNhap()));
+        txt_giaban.setText(String.valueOf(th.getGiaBan()));
+        txt_ghichu.setText(th.getGhiChu());
+        if (th.getHinh() != null) {
+            lbl_anh.setToolTipText(th.getHinh());
+            lbl_anh.setIcon(XImage.read(th.getHinh()));
+        }
+    }
+
+    //tao thuoc tu form
+    Thuoc getForm() {
+        Thuoc th = new Thuoc();
+        th.setLoaiThuoc(txt_loaithuoc.getText());
+        th.setTenThuoc(txt_tenthuoc.getText());
+        th.setGiaNhap(Integer.valueOf(txt_gianhap.getText()));
+        th.setGiaBan(Integer.valueOf(txt_giaban.getText()));
+        return th;
+    }
+
+    //cap nhap trang thai cac nut
+    void updateStatus() {
+        boolean edit = (this.row >= 0);
+        boolean first = (this.row == 0);
+        boolean last = (this.row == tbl_danhsach.getRowCount() - 1);
+        //Trang thai form
+        txt_loaithuoc.setEditable(!edit);
+        btn_them.setEnabled(!edit);
+        btn_sua.setEnabled(edit);
+        btn_xoa.setEnabled(edit);
+        //Trang thai dieu huong
+        btn_first.setEnabled(edit && !first);
+        btn_prev.setEnabled(edit && !first);
+        btn_next.setEnabled(edit && !last);
+        btn_last.setEnabled(edit && !last);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fileChooser = new javax.swing.JFileChooser();
         Tabs = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -120,7 +261,12 @@ public class ThuocJDialog extends javax.swing.JDialog {
         txt_ghichu.setRows(5);
         jScrollPane2.setViewportView(txt_ghichu);
 
-        lbl_anh.setText("                     (CHỌN ẢNH)");
+        lbl_anh.setText("                  (CHỌN ẢNH)");
+        lbl_anh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_anhMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -200,6 +346,11 @@ public class ThuocJDialog extends javax.swing.JDialog {
         });
 
         btn_sua.setText("SỬA");
+        btn_sua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_suaActionPerformed(evt);
+            }
+        });
 
         btn_xoa.setText("XÓA");
         btn_xoa.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +360,11 @@ public class ThuocJDialog extends javax.swing.JDialog {
         });
 
         btn_them.setText("THÊM");
+        btn_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_themActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -338,7 +494,15 @@ public class ThuocJDialog extends javax.swing.JDialog {
             new String [] {
                 "Loại thuốc", "Tên thuốc", "Giá nhập", "Giá bán"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbl_danhsach);
 
         Tabs.addTab("Danh sách", jScrollPane1);
@@ -369,6 +533,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
     private void btn_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoaActionPerformed
         // TODO add your handling code here:
+        this.delete();
     }//GEN-LAST:event_btn_xoaActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
@@ -385,6 +550,21 @@ public class ThuocJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.clearForm();
     }//GEN-LAST:event_btn_newActionPerformed
+
+    private void lbl_anhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_anhMouseClicked
+        // TODO add your handling code here:
+        this.selectImage();
+    }//GEN-LAST:event_lbl_anhMouseClicked
+
+    private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
+        // TODO add your handling code here:
+        this.insert();
+    }//GEN-LAST:event_btn_themActionPerformed
+
+    private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
+        // TODO add your handling code here:
+        this.update();
+    }//GEN-LAST:event_btn_suaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,6 +621,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
     private javax.swing.JButton btn_xoa;
+    private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
