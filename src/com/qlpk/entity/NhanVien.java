@@ -23,6 +23,8 @@ public class NhanVien {
     String chuyenNganh;
     float Luong;
     String Pass;
+    String Hinh;
+    
 
     public String getMaNV() {
         return maNV;
@@ -110,6 +112,14 @@ public class NhanVien {
 
     public void setPass(String Pass) {
         this.Pass = Pass;
+    }
+
+    public String getHinh() {
+        return Hinh;
+    }
+
+    public void setHinh(String Hinh) {
+        this.Hinh = Hinh;
     }
     
     

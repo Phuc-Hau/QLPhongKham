@@ -12,8 +12,8 @@ import java.sql.*;
  * @author Administrator
  */
 public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
-     String INSERT_SQL="INSERT INTO NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, SoDT, Email, DiaChi, ChucVu, ChuyenNganh, Luong, Pass) VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
-     String UPDATE_SQL="UPDATE NhanVien SET HoTen =?, GioiTinh =?, NgaySinh =?, SoDT =?, Email =?, DiaChi =?, ChucVu =?, ChuyenNganh =?, Luong =?, Pass =? WHERE MaNV=?";
+     String INSERT_SQL="INSERT INTO NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, SoDT, Email, DiaChi, ChucVu, ChuyenNganh, Luong, Pass, Hinh) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+     String UPDATE_SQL="UPDATE NhanVien SET HoTen =?, GioiTinh =?, NgaySinh =?, SoDT =?, Email =?, DiaChi =?, ChucVu =?, ChuyenNganh =?, Luong =?, Pass =?, Hinh =? WHERE MaNV=?";
      String DELETE_SQL="DELETE FROM NhanVien WHERE MaNV=?";
      String SELECT_ALL_SQL="SELECT*FROM NhanVien";
      String SELECT_BY_ID_SQL="SELECT*FROM NhanVien WHERE MaNV=?";
@@ -31,7 +31,8 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
                entity.getChucVu(),
                entity.getChuyenNganh(),
                entity.getLuong(),
-               entity.getPass()
+               entity.getPass(),
+               entity.getHinh()
                ); 
     }
 
@@ -48,6 +49,7 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
                entity.getChuyenNganh(),
                entity.getLuong(),
                entity.getPass(),
+               entity.getHinh(),
                entity.getMaNV()
                 );
     }
@@ -88,7 +90,8 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
                 entity.setChucVu(rs.getString("ChucVu"));
                 entity.setChuyenNganh(rs.getString("ChuyenNganh"));
                 entity.setLuong(rs.getFloat("Luong"));
-                entity.setPass(rs.getString("Pass"));      
+                entity.setPass(rs.getString("Pass")); 
+                entity.setHinh(rs.getString("Hinh"));
                 list.add(entity);     
             }
              rs.getStatement().getConnection().close();
