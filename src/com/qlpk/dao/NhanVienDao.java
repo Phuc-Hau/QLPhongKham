@@ -36,7 +36,7 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
                entity.getHinh()
                ); 
     }
-
+// hiep
     @Override
     public void update(NhanVien entity) {
         JdbcHelper.Update(UPDATE_SQL,
