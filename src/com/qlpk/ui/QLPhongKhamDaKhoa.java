@@ -550,7 +550,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             pnlTieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTieuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addComponent(lblChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
