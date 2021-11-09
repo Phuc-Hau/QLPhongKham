@@ -53,7 +53,7 @@ public class Utility {
     }
     
     //gồm 10 số 
-    //các đầu 3 số của nhà mạng
+    //các đầu 3 số của nhà mạng 
     public static boolean checkSDT(JTextField txtSDT) {
         txtSDT.setBackground(white);
         String id = txtSDT.getText();
