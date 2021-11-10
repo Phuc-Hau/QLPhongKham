@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Huy PC
+ * @author 
  */
 public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 

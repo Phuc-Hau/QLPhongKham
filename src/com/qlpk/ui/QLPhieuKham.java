@@ -8,6 +8,7 @@ package com.qlpk.ui;
 import javax.swing.table.DefaultTableModel;
 import com.qlpk.entity.PhieuKham;
 import com.qlpk.dao.PhieuKhamDao;
+import com.qlpk.dao.BenhNhanDao;
 import com.qlpk.utils.*;
 import java.util.List;
 /**
@@ -635,7 +636,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    PhieuKhamDao dao = new PhieuKhamDao();
+    PhieuKhamDao daoPK = new PhieuKhamDao();
+    BenhNhanDao daoBN = new BenhNhanDao();
     void inti(){
         fillTable();
     }
@@ -643,9 +645,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
     void fillTable(){
         DefaultTableModel model = (DefaultTableModel) tbtPhieuKham.getModel();
         model.removeRow(0);
-        List<PhieuKham> list = dao.selectAll();
-        for (PhieuKham pk : list) {
-            model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),pk.getNgayKham()});
+        try {
+            List<PhieuKham> list = daoPK.selectAll();
+            for (PhieuKham pk : list) {
+                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),pk.getNgayKham()});
+            }
+        } catch (Exception e) {
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu");
         }
     }
     

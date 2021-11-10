@@ -95,7 +95,6 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
                 pk.setCanNang(rs.getFloat("CanNang"));
                 pk.setChieuCao(rs.getFloat("ChieuCao"));
                 pk.setKetQuaDieuTri(rs.getString("KetLuan_DieuTri"));
-                
                 list.add(pk);
             } finally {
                 rs.getStatement().getConnection().close();
