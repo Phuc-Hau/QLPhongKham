@@ -680,7 +680,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                 Msgbox.alert(this, "Xóa thất bại!");
                 e.printStackTrace();
                 // btn Xoa
-            }
+            } 
         }
 
     }

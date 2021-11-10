@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class NhanVien {
     String maNV;
-    String hoTen;
+    String hoTen; 
     boolean gioiTinh;
     Date ngaySinh;
     String soDT;
