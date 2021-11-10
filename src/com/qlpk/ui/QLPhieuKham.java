@@ -685,7 +685,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     private void btnInsert2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsert2ActionPerformed
         // TODO add your handling code here:
-        
+         
     }//GEN-LAST:event_btnInsert2ActionPerformed
 
     private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed

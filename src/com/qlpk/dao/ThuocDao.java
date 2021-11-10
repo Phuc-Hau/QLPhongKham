@@ -41,9 +41,9 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
     }
 
     @Override
-    public void detele(String id) {
-        String Delete ="DELETE FROM Thuoc WHERE (LoaiThuoc = ?";
-        JdbcHelper.Update(Delete, id);
+    public void detele(String loaith) {
+        String Delete ="DELETE FROM Thuoc WHERE (LoaiThuoc = ?)";
+        JdbcHelper.Update(Delete, loaith);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 
     @Override
     public List<Thuoc> selectAll() {
-        String SelectAll ="selsect * from Thuoc";
+        String SelectAll ="Select * from Thuoc";
         return selectBySql(SelectAll);
     }
 
@@ -82,5 +82,11 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
         }
         return list;
     }
+
+    public void delete(String loaith) {
+        String Delete ="DELETE FROM Thuoc WHERE (LoaiThuoc = ?)";
+        JdbcHelper.Update(Delete, loaith);
+    }
+
     
 }

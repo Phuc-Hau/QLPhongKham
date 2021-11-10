@@ -9,7 +9,7 @@ import com.qlpk.dao.NhanVienDao;
 import com.qlpk.entity.NhanVien;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.XDate;
-import com.qlpk.utils.Ximage;
+import com.qlpk.utils.XImage;
 import java.io.File;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -590,7 +590,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         txtPass.setText(nv.getPass());
          if (nv.getHinh() != null) {
             lblAnh.setToolTipText(nv.getHinh());
-            lblAnh.setIcon(Ximage.read(nv.getHinh()));
+            lblAnh.setIcon(XImage.read(nv.getHinh()));
         }
     }
 
@@ -625,7 +625,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         txtLuong.setText("");
         txtPass.setText("");
         lblAnh.setToolTipText("");
-        lblAnh.setIcon(Ximage.read(""));
+        lblAnh.setIcon(XImage.read(""));
        
         this.row = -1;
         this.updateStatus();
@@ -719,8 +719,8 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         fileChooser.setDialogTitle("File Ảnh");
         if(fileChooser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File file =fileChooser.getSelectedFile();
-            Ximage.save(file);
-            ImageIcon icon=Ximage.read(file.getName());
+            XImage.save(file);
+            ImageIcon icon=XImage.read(file.getName());
             lblAnh.setIcon(icon);
             lblAnh.setToolTipText(file.getName());
             path=file.getAbsolutePath();
