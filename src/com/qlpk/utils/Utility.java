@@ -8,16 +8,9 @@ package com.qlpk.utils;
 import java.awt.Color;
 import javax.swing.JPasswordField;
 import com.qlpk.utils.Msgbox;
-import static java.awt.Color.pink;
-import static java.awt.Color.white;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import static java.awt.Color.*;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 /**
  *
  * @author fptshop
