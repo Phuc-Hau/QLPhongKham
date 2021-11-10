@@ -5,6 +5,15 @@
  */
 package com.qlpk.ui;
 
+import com.qlpk.dao.DonThuocDao;
+import com.qlpk.dao.ThuocDao;
+import com.qlpk.entity.DonThuoc;
+import com.qlpk.entity.Thuoc;
+import com.qlpk.utils.Msgbox;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author My PC
@@ -40,18 +49,20 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         txtMaPhieuKham = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbsDonThuoc = new javax.swing.JTable();
+        tblThuoc = new javax.swing.JTable();
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
         pnlDanhsach = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        btnDSDonThuoc = new javax.swing.JTable();
+        tblDonThuoc = new javax.swing.JTable();
         pnlThuoc = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         btnThemThuoc = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbl_danhsach = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,7 +78,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
         jLabel5.setText("Mã Phiếu Khám :");
 
-        tbsDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
+        tblThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -93,7 +104,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbsDonThuoc);
+        jScrollPane1.setViewportView(tblThuoc);
 
         btnThem.setText("Thêm");
 
@@ -168,7 +179,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
         tabs.addTab("Cập nhập", pnlCapnhap);
 
-        btnDSDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
+        tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -187,7 +198,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(btnDSDonThuoc);
+        jScrollPane2.setViewportView(tblDonThuoc);
 
         javax.swing.GroupLayout pnlDanhsachLayout = new javax.swing.GroupLayout(pnlDanhsach);
         pnlDanhsach.setLayout(pnlDanhsachLayout);
@@ -226,25 +237,48 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
         btnThemThuoc.setText("Thêm");
 
+        tbl_danhsach.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Loại thuốc", "Tên thuốc", "Giá nhập", "Giá bán"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tbl_danhsach);
+
         javax.swing.GroupLayout pnlThuocLayout = new javax.swing.GroupLayout(pnlThuoc);
         pnlThuoc.setLayout(pnlThuocLayout);
         pnlThuocLayout.setHorizontalGroup(
             pnlThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlThuocLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlThuocLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnThemThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGroup(pnlThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlThuocLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnThemThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
+                    .addGroup(pnlThuocLayout.createSequentialGroup()
+                        .addGroup(pnlThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlThuocLayout.setVerticalGroup(
             pnlThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlThuocLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnThemThuoc)
                 .addContainerGap())
         );
@@ -318,7 +352,6 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable btnDSDonThuoc;
     private javax.swing.JButton btnMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
@@ -332,15 +365,168 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel pnlCapnhap;
     private javax.swing.JPanel pnlDanhsach;
     private javax.swing.JPanel pnlThuoc;
     private javax.swing.JTabbedPane tabs;
-    private javax.swing.JTable tbsDonThuoc;
+    private javax.swing.JTable tblDonThuoc;
+    private javax.swing.JTable tblThuoc;
+    private javax.swing.JTable tbl_danhsach;
     private javax.swing.JTextField txtDonThuoc;
     private javax.swing.JTextField txtMaBN;
     private javax.swing.JTextField txtMaNV;
     private javax.swing.JTextField txtMaPhieuKham;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
+    
+    void init() {
+        setLocationRelativeTo(null);
+
+        this.fillTableDonThuoc();
+        this.fillTableThuoc();
+        this.row = -1;
+        this.updateStatus();
+        tabs.setSelectedIndex(1);
+    }
+    int row = -1;
+    ThuocDao dao = new ThuocDao();
+    DonThuocDao dtdao = new DonThuocDao();
+    void clearForm() {
+        txtMaBN.setText("");
+        txtDonThuoc.setText("");
+        txtMaNV.setText("");
+        txtMaPhieuKham.setText("");
+        DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
+        model.setRowCount(0);
+        this.row = -1;
+        //this.UpdateStatus();
+    }
+    
+    void first() {
+        this.row = 0;
+        this.edit();
+    }
+
+    void prev() {
+        if (this.row > 0) {
+            this.row--;
+           this.edit();
+        }
+    }
+
+    void next() {
+        if (this.row < tbl_danhsach.getRowCount() - 1) {
+            this.row++;
+            this.edit();
+        }
+    }
+
+    void last() {
+        this.row = tbl_danhsach.getRowCount() - 1;
+        this.edit();
+    }
+    
+    void edit() {
+        int th =   (int) tblDonThuoc.getValueAt(this.row, 0);
+        DonThuoc dt = dtdao.selectByID(th);
+        this.setForm(dt);
+        tabs.setSelectedIndex(0);
+        this.updateStatus();
+    }
+    
+    
+    void insert() {
+        //if (kt()) {
+        DonThuoc th = getForm();
+        //boolean kt = false;
+        try {
+            //kt=true;
+            dtdao.insert(th);
+            this.fillTableDonThuoc();
+            this.clearForm();
+            Msgbox.alert(this, "Thêm mới thành công!");
+        } catch (Exception e) {
+            //kt=false;
+            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");
+        //}       
+        }
+    }
+    
+    void update() {
+        DonThuoc th = getForm();
+        try {
+            dtdao.update(th);
+            this.fillTableDonThuoc();
+            //this.clearForm();
+            Msgbox.alert(this, "Cập nhật thành công!");
+        } catch (Exception e) {
+            Msgbox.alert(this, "Cập nhật thất bại!");
+        }
+    }
+
+    void delete() {
+        //if (!Auth.isManager()) {
+        //    MsgBox.alert(this, "Bạn không có quyền xóa Loại thuốc này!");
+        //} else {
+            int MaDT = Integer.valueOf(txtDonThuoc.getText());
+            if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
+                try {
+                    dtdao.detele(MaDT);
+                    this.fillTableDonThuoc();
+                    this.clearForm();
+                    Msgbox.alert(this, "Xoá thành công!");
+                } catch (Exception e) {
+                    Msgbox.alert(this, "Xóa thất bại!");
+                }
+            //}
+        }
+    }
+    //Đỗ dữ liệu vào tblDonThuoc
+    void fillTableDonThuoc() {
+        DefaultTableModel model = (DefaultTableModel) tblDonThuoc.getModel();
+        model.setRowCount(0);
+        try {
+            List<DonThuoc> list = dtdao.selectAll();
+            for (DonThuoc th : list) {
+                Object[] row = {th.getDonThuoc(), th.getMaPhieuKham(), th.getMaBN(), th.()};
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    //Đỗ dữ liệu vào tbl_danhSach
+    void fillTableThuoc() {
+        DefaultTableModel model = (DefaultTableModel) tbl_danhsach.getModel();
+        model.setRowCount(0);
+        try {
+            List<Thuoc> list = dao.selectAll();
+            for (Thuoc th : list) {
+                Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    //Hien thi donthuoc len form
+    void setForm(DonThuoc th) {
+        
+    }
+
+    //tao donthuoc tu form
+    Thuoc getForm() {
+        
+        return null;
+        
+    }
+
+    //cap nhap trang thai cac nut
+    void updateStatus() {
+   
+    }
 }
