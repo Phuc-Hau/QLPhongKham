@@ -21,7 +21,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     String DELETE_SQL = "DELETE FROM BenhNhan WHERE MaBN=?";
     String SELECT_ALL_SQL = "SELECT * FROM BenhNhan";
     String SELECT_BY_ID_SQL = "SELECT * FROM BenhNhan WHERE MaBN=?";
-    String SELECT_BY_NOTPHIEUKHAM ="select * from BenhNhan left join PhieuKham on BenhNhan.MaBN = PhieuKham.MABN";
+    String SELECT_BY_NOTPHIEUKHAM ="select BenhNhan.* from BenhNhan left join PhieuKham on BenhNhan.MaBN = PhieuKham.MABN";
 
     @Override
     public void insert(BenhNhan entity) {
