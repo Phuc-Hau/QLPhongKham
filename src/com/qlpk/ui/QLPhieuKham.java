@@ -5,6 +5,11 @@
  */
 package com.qlpk.ui;
 
+import javax.swing.table.DefaultTableModel;
+import com.qlpk.entity.PhieuKham;
+import com.qlpk.dao.PhieuKhamDao;
+import com.qlpk.utils.*;
+import java.util.List;
 /**
  *
  * @author fptshop
@@ -16,6 +21,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
      */
     public QLPhieuKham() {
         initComponents();
+        inti();
     }
 
     /**
@@ -38,16 +44,16 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtMaPhieuKham = new javax.swing.JTextField();
-        txtPhongKham = new javax.swing.JTextField();
         txtNhanVien = new javax.swing.JTextField();
         txtBS = new javax.swing.JTextField();
         txtNgayKham = new javax.swing.JTextField();
+        cboPhongKham = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtKhamLamSang = new javax.swing.JTextArea();
         txtBenhKem = new javax.swing.JTextField();
         txtChuanDoan = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -68,7 +74,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtKetQuaDieuTri = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtMaBenhNhan = new javax.swing.JTextField();
@@ -83,7 +89,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtGT = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         txtTuoi = new javax.swing.JTextField();
-        cboHoTen = new javax.swing.JComboBox<>();
+        txtHoTen = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
@@ -92,9 +98,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnInsert2 = new javax.swing.JButton();
         btnUpdate2 = new javax.swing.JButton();
         btnDelete2 = new javax.swing.JButton();
-        btnNew2 = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
         btnInPhieuKham = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbtPhieuKham = new javax.swing.JTable();
 
         jLabel11.setText("jLabel11");
 
@@ -120,6 +128,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel6.setText("Ngày Khám");
 
+        cboPhongKham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -127,14 +137,12 @@ public class QLPhieuKham extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPhongKham, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(cboPhongKham, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
@@ -165,10 +173,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(txtPhongKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboPhongKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -181,9 +189,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel9.setText("Chuẩn Đoán");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtKhamLamSang.setColumns(20);
+        txtKhamLamSang.setRows(5);
+        jScrollPane1.setViewportView(txtKhamLamSang);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -282,9 +290,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel16.setText("Kết Luận Điều Trị");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtKetQuaDieuTri.setColumns(20);
+        txtKetQuaDieuTri.setRows(5);
+        jScrollPane2.setViewportView(txtKetQuaDieuTri);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -364,6 +372,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         txtTuoi.setEditable(false);
 
+        txtHoTen.setEditable(false);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -383,8 +393,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cboHoTen, 0, 190, Short.MAX_VALUE)
-                    .addComponent(txtDiaChi))
+                    .addComponent(txtDiaChi, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(txtHoTen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
@@ -403,16 +413,16 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtMaBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
-                    .addComponent(cboHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
                     .addComponent(txtGT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(txtTuoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTuoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -476,10 +486,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
             }
         });
 
-        btnNew2.setText("Mới");
-        btnNew2.addActionListener(new java.awt.event.ActionListener() {
+        btnNew.setText("Mới");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNew2ActionPerformed(evt);
+                btnNewActionPerformed(evt);
             }
         });
 
@@ -497,7 +507,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNew2)
+                .addComponent(btnNew)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInPhieuKham)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -510,7 +520,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(btnInsert2)
                     .addComponent(btnUpdate2)
                     .addComponent(btnDelete2)
-                    .addComponent(btnNew2)
+                    .addComponent(btnNew)
                     .addComponent(btnInPhieuKham))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -566,18 +576,37 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Phiếu Khám", jPanel2);
 
+        tbtPhieuKham.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Mã Phiếu Khám", "Mã Bệnh Nhân", "Bác Sĩ", "Ngày Khám"
+            }
+        ));
+        jScrollPane3.setViewportView(tbtPhieuKham);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("tab2", jPanel3);
+        jTabbedPane3.addTab("Danh Sách", jPanel3);
 
         javax.swing.GroupLayout pnlFromBenhNhanLayout = new javax.swing.GroupLayout(pnlFromBenhNhan);
         pnlFromBenhNhan.setLayout(pnlFromBenhNhanLayout);
@@ -589,6 +618,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
         );
+
+        jTabbedPane3.getAccessibleContext().setAccessibleName("Danh Sách");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -604,32 +635,110 @@ public class QLPhieuKham extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    PhieuKhamDao dao = new PhieuKhamDao();
+    void inti(){
+        fillTable();
+    }
+    
+    void fillTable(){
+        DefaultTableModel model = (DefaultTableModel) tbtPhieuKham.getModel();
+        model.removeRow(0);
+        List<PhieuKham> list = dao.selectAll();
+        for (PhieuKham pk : list) {
+            model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),pk.getNgayKham()});
+        }
+    }
     
     void edit(){
         
     }
     
+    void setModelPK(PhieuKham pk){
+        // Thong tin Benh Nhan
+        txtMaBenhNhan.setText("");
+        txtHoTen.setText("");
+        txtGT.setText("");
+        txtTuoi.setText("");
+        txtSDT.setText("");
+        txtDiaChi.setText("");
+        txtNgheNghiep.setText("");
+        
+        // Thong Tin Kham Benh
+        txtMaPhieuKham.setText("");
+        txtBS.setText("");
+        txtNhanVien.setText("");
+        cboPhongKham.setSelectedItem("");
+        txtNgayKham.setText("");
+        
+        // Kham Lam Sang
+        txtKhamLamSang.setText("");
+        txtBenhKem.setText("");
+        txtChuanDoan.setText("");
+        txtNhipTim.setText("");
+        txtNhietDo.setText("");
+        txtHuyetAp.setText("");
+        txtChieuCao.setText("");
+        txtCanNang.setText("");
+        txtKetQuaDieuTri.setText("");
+    }
+    
+    public PhieuKham getModelPK(){
+        PhieuKham pk = new PhieuKham();
+        pk.setMaBN(txtMaBenhNhan.getText());
+        pk.setMaPK(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
+        pk.setMaNV(txtNhanVien.getText());
+        pk.setBS(txtBS.getText());
+        pk.setNgayKham(XDate.toDate(txtNgayKham.getText(), "dd-MM-yyyy"));
+        pk.setKhamLamSang(txtKhamLamSang.getText());
+        pk.setBenhKem(txtBenhKem.getText());
+        pk.setChuanDoan(txtChuanDoan.getText());
+        pk.setNhipTim(Integer.valueOf(txtNhipTim.getText()));
+        pk.setNhietDo(Integer.valueOf(txtNhietDo.getText()));
+        pk.setHuyetAp(Integer.valueOf(txtHuyetAp.getText()));
+        pk.setCanNang(Float.valueOf(txtCanNang.getText()));
+        pk.setChieuCao(Float.valueOf(txtChieuCao.getText()));
+        pk.setKetQuaDieuTri(txtKetQuaDieuTri.getText());
+        return pk;
+    }
+    
     int index =-1;
     private void btnInsert2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsert2ActionPerformed
         // TODO add your handling code here:
-         
+         this.insert();
     }//GEN-LAST:event_btnInsert2ActionPerformed
 
+    void insert(){
+        
+    }
+    
     private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
         // TODO add your handling code here:
-        
+        this.update();
     }//GEN-LAST:event_btnUpdate2ActionPerformed
 
+    void update(){
+        
+    }
+    
+    
     private void btnDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete2ActionPerformed
         // TODO add your handling code here:
-        
+        this.delete();
     }//GEN-LAST:event_btnDelete2ActionPerformed
 
-    private void btnNew2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNew2ActionPerformed
-        // TODO add your handling code here:
+    void delete(){
         
-    }//GEN-LAST:event_btnNew2ActionPerformed
+    }
+    
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+        this.Clear();
+    }//GEN-LAST:event_btnNewActionPerformed
 
+    void Clear(){
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -669,9 +778,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete2;
     private javax.swing.JButton btnInPhieuKham;
     private javax.swing.JButton btnInsert2;
-    private javax.swing.JButton btnNew2;
+    private javax.swing.JButton btnNew;
     private javax.swing.JButton btnUpdate2;
-    private javax.swing.JComboBox<String> cboHoTen;
+    private javax.swing.JComboBox<String> cboPhongKham;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -710,11 +819,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel pnlDieuchinh2;
     private javax.swing.JPanel pnlFromBenhNhan;
+    private javax.swing.JTable tbtPhieuKham;
     private javax.swing.JTextField txtBS;
     private javax.swing.JTextField txtBenhKem;
     private javax.swing.JTextField txtCanNang;
@@ -722,7 +831,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JTextField txtChuanDoan;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtGT;
+    private javax.swing.JTextField txtHoTen;
     private javax.swing.JTextField txtHuyetAp;
+    private javax.swing.JTextArea txtKetQuaDieuTri;
+    private javax.swing.JTextArea txtKhamLamSang;
     private javax.swing.JTextField txtMaBenhNhan;
     private javax.swing.JTextField txtMaPhieuKham;
     private javax.swing.JTextField txtNgayKham;
@@ -730,7 +842,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JTextField txtNhanVien;
     private javax.swing.JTextField txtNhietDo;
     private javax.swing.JTextField txtNhipTim;
-    private javax.swing.JTextField txtPhongKham;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtTimKiem;
     private javax.swing.JTextField txtTuoi;
