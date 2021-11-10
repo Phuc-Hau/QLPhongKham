@@ -273,6 +273,7 @@
                     <Component class="javax.swing.JLabel" name="lbl_anh">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="                  (CH&#x1ecc;N &#x1ea2;NH)"/>
+                        <Property name="toolTipText" type="java.lang.String" value=" "/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_anhMouseClicked"/>

@@ -155,7 +155,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 model.addRow(row);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
+            e.printStackTrace();
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
@@ -180,6 +180,8 @@ public class ThuocJDialog extends javax.swing.JDialog {
         th.setTenThuoc(txt_tenthuoc.getText());
         th.setGiaNhap(Integer.valueOf(txt_gianhap.getText()));
         th.setGiaBan(Integer.valueOf(txt_giaban.getText()));
+        th.setGhiChu(txt_ghichu.getText());
+        th.setHinh(lbl_anh.getToolTipText());
         return th;
     }
 
@@ -262,6 +264,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         jScrollPane2.setViewportView(txt_ghichu);
 
         lbl_anh.setText("                  (CHỌN ẢNH)");
+        lbl_anh.setToolTipText(" ");
         lbl_anh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_anhMouseClicked(evt);

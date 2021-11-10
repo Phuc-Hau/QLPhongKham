@@ -66,14 +66,16 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
             ResultSet rs =null;
             try {
                 rs = JdbcHelper.query(sql, args);
-                Thuoc th = new Thuoc();
-                th.setLoaiThuoc(rs.getString("LoaiThuoc"));
-                th.setTenThuoc(rs.getString("TenThuoc"));
-                th.setGiaNhap(rs.getInt("GiaNhap"));
-                th.setGiaBan(rs.getInt("GiaBan"));       
-                th.setGhiChu(rs.getString("GhiChu"));
-                th.setHinh(rs.getString("Hinh"));
-                list.add(th);
+                while (rs.next()) {                    
+                    Thuoc th = new Thuoc();
+                    th.setLoaiThuoc(rs.getString("LoaiThuoc"));
+                    th.setTenThuoc(rs.getString("TenThuoc"));
+                    th.setGiaNhap(rs.getInt("GiaNhap"));
+                    th.setGiaBan(rs.getInt("GiaBan"));       
+                    th.setGhiChu(rs.getString("GhiChu"));
+                    th.setHinh(rs.getString("Hinh"));
+                    list.add(th);
+                }
             } finally {
                 rs.getStatement().getConnection().close();
             }
