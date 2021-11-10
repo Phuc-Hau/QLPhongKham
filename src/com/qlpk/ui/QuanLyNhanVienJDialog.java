@@ -608,7 +608,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         nv.setLuong(Float.valueOf(txtLuong.getText()));
         nv.setPass(new String(txtPass.getPassword()));
         nv.setHinh(lblAnh.getToolTipText());
-        return nv;
+        return nv; 
     }
 
     void clearForm() {
