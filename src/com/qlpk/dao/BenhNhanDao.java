@@ -53,6 +53,10 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     public List<BenhNhan> selectAll() {
         return this.selectBySql(SELECT_ALL_SQL);
     }
+    
+    public List<BenhNhan> select_BenhNhan_NotPK(){
+        return this.selectBySql(SELECT_BY_NOTPHIEUKHAM);
+    }
 
     @Override
     protected List<BenhNhan> selectBySql(String sql, Object... args) {
