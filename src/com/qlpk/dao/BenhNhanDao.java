@@ -87,6 +87,10 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
             
         }
     }
-
+    
+    public List<BenhNhan> selectByKeyword(String Keyword){
+        String sql = "SELECT * FROM BenhNhan WHERE TenBenhNhan LIKE ? ";
+        return this.selectBySql(sql, "%" + Keyword + "%");
+    }
     
 }

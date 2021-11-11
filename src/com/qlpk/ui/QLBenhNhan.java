@@ -71,6 +71,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
         btnlast = new javax.swing.JButton();
         txtDienthoai = new javax.swing.JTextField();
         txtGhichu = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        txttimkiem = new javax.swing.JTextField();
+        btntim = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -198,6 +201,45 @@ public class QLBenhNhan extends javax.swing.JDialog {
             }
         });
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        txttimkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txttimkiemKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txttimkiemKeyReleased(evt);
+            }
+        });
+
+        btntim.setText("Tìm");
+        btntim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntimActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txttimkiem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btntim)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btntim))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -239,8 +281,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
                             .addComponent(txtDiachi)
                             .addComponent(txtDienthoai)
                             .addComponent(txtGhichu)))
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
                         .addComponent(btnthemmoi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnthem)
@@ -248,7 +290,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
                         .addComponent(btnxoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnsua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                         .addComponent(btnfirst)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnprev)
@@ -257,7 +299,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnlast)
                         .addGap(81, 81, 81)
-                        .addComponent(btnthoat)))
+                        .addComponent(btnthoat))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -292,20 +336,23 @@ public class QLBenhNhan extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(txtGhichu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnthemmoi)
-                    .addComponent(btnthem)
-                    .addComponent(btnxoa)
-                    .addComponent(btnsua)
-                    .addComponent(btnthoat)
-                    .addComponent(btnfirst)
-                    .addComponent(btnprev)
-                    .addComponent(btnnext)
-                    .addComponent(btnlast))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnfirst, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnthemmoi)
+                        .addComponent(btnthem)
+                        .addComponent(btnxoa)
+                        .addComponent(btnsua))
+                    .addComponent(btnprev, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnnext, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnlast, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnthoat, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
         tabs.addTab("Nhập thông tin", jPanel1);
@@ -340,7 +387,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnthemmoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemmoiActionPerformed
         // TODO add your handling code here:
-        this.clearForm();
+        this.clearFormBenhNhan();
     }//GEN-LAST:event_btnthemmoiActionPerformed
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
@@ -387,9 +434,23 @@ public class QLBenhNhan extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.row = tblDanhsach.getSelectedRow();
-            this.edit();
+            this.editFormBenhNhan();
         }
     }//GEN-LAST:event_tblDanhsachMouseClicked
+
+    private void txttimkiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttimkiemKeyPressed
+
+    private void txttimkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyReleased
+        // TODO add your handling code here:
+        this.timKiem();
+    }//GEN-LAST:event_txttimkiemKeyReleased
+
+    private void btntimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntimActionPerformed
+        // TODO add your handling code here:
+        this.timKiem();
+    }//GEN-LAST:event_btntimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,6 +503,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JButton btnthem;
     private javax.swing.JButton btnthemmoi;
     private javax.swing.JButton btnthoat;
+    private javax.swing.JButton btntim;
     private javax.swing.JButton btnxoa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
@@ -455,6 +517,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
@@ -468,6 +531,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JTextField txtNgaysinh;
     private javax.swing.JTextField txtNgheNghiep;
     private javax.swing.JTextField txtTuoi;
+    private javax.swing.JTextField txttimkiem;
     // End of variables declaration//GEN-END:variables
 
     BenhNhanDao dao = new BenhNhanDao();
@@ -475,15 +539,16 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void init() {
         this.setLocationRelativeTo(null);
-        this.FillToTable();
-        this.UpdateStatus();
+        this.FillTableBenhNhan();
+        this.UpdateStatusBenhNhan();
     }
 
-    void FillToTable() {
+    void FillTableBenhNhan() {
         DefaultTableModel model = (DefaultTableModel) tblDanhsach.getModel();
         model.setRowCount(0);
         try {
-            List<BenhNhan> list = dao.selectAll();
+            String keyword = txttimkiem.getText();
+            List<BenhNhan> list = dao.selectByKeyword(keyword);
             for (BenhNhan bn : list) {
                 Object[] row = {
                     bn.getMaBN(),
@@ -504,11 +569,11 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void insert() {
-        BenhNhan bn = this.getform();
+        BenhNhan bn = this.getformBenhNhan();
         try {
             dao.insert(bn);
-            FillToTable();
-            this.clearForm();
+            FillTableBenhNhan();
+            this.clearFormBenhNhan();
             Msgbox.alert(this, "Thêm thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Thêm thất bại!");
@@ -517,10 +582,10 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void update() {
-        BenhNhan bn = this.getform();
+        BenhNhan bn = this.getformBenhNhan();
         try {
             dao.update(bn);
-            FillToTable();
+            FillTableBenhNhan();
             Msgbox.alert(this, "Sửa thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Sửa thất bại!");
@@ -533,8 +598,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
         if (Msgbox.confirm(this, "Bạn thực sự muốn xóa bệnh nhân này?")) {
             try {
                 dao.detele(mabn);
-                FillToTable();
-                this.clearForm();
+                FillTableBenhNhan();
+                this.clearFormBenhNhan();
                 Msgbox.alert(this, "Xóa thành công!");
             } catch (Exception e) {
                 Msgbox.alert(this, "Xóa thất bại!");
@@ -542,7 +607,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         }
     }
 
-    BenhNhan getform() {
+    BenhNhan getformBenhNhan() {
         BenhNhan bn = new BenhNhan();
         bn.setMaBN(txtMaBN.getText());
         bn.setTenBenhNhan(txtHoten.getText());
@@ -556,7 +621,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         return bn;
     }
 
-    void setForm(BenhNhan bn) {
+    void setFormBenhNhan(BenhNhan bn) {
         txtMaBN.setText(bn.getMaBN());
         txtHoten.setText(bn.getTenBenhNhan());
         rdoNam.setSelected(bn.isGioiTinh());
@@ -569,7 +634,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtGhichu.setText(bn.getGhiChu());
     }
 
-    void clearForm() {
+    void clearFormBenhNhan() {
         txtMaBN.setText("");
         txtHoten.setText("");
         txtGhichu.setText("");
@@ -580,18 +645,18 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtDienthoai.setText("");
         rdoNam.setSelected(true);
         this.row = -1;
-        this.UpdateStatus();
+        this.UpdateStatusBenhNhan();
     }
 
-    void edit() {
+    void editFormBenhNhan() {
         String mabn = (String) tblDanhsach.getValueAt(this.row, 0);
         BenhNhan bn = dao.selectByID(mabn);
-        this.setForm(bn);
+        this.setFormBenhNhan(bn);
         tabs.setSelectedIndex(0);
-        this.UpdateStatus();
+        this.UpdateStatusBenhNhan();
     }
 
-    void UpdateStatus() {
+    void UpdateStatusBenhNhan() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
         boolean last = (this.row == tblDanhsach.getRowCount() - 1);
@@ -610,25 +675,32 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     void first() {
         this.row = 0;
-        this.edit();
+        this.editFormBenhNhan();
     }
 
     void prev() {
         if (this.row > 0) {
             this.row--;
-            this.edit();
+            this.editFormBenhNhan();
         }
     }
 
     void next() {
         if (this.row < tblDanhsach.getRowCount() - 1) {
             this.row++;
-            this.edit();
+            this.editFormBenhNhan();
         }
     }
 
     void last() {
         this.row = tblDanhsach.getRowCount() - 1;
-        this.edit();
+        this.editFormBenhNhan();
+    }
+    
+    private void timKiem() {
+        this.FillTableBenhNhan();
+        this.clearFormBenhNhan();
+        this.row = -1;
+        UpdateStatusBenhNhan();
     }
 }
