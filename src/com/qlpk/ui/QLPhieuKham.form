@@ -872,6 +872,7 @@
                         <Component class="javax.swing.JButton" name="btnInsert">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertActionPerformed"/>
@@ -880,6 +881,7 @@
                         <Component class="javax.swing.JButton" name="btnUpdate">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
@@ -888,6 +890,7 @@
                         <Component class="javax.swing.JButton" name="btnDelete">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
@@ -896,6 +899,7 @@
                         <Component class="javax.swing.JButton" name="btnNew">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="M&#x1edb;i"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewActionPerformed"/>
@@ -904,6 +908,7 @@
                         <Component class="javax.swing.JButton" name="btnInPhieuKham">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="In phi&#x1ebf;u Kh&#xe1;m"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnBatDau">
@@ -919,6 +924,9 @@
                             <Property name="text" type="java.lang.String" value="B&#x1ec7;nh Nh&#xe2;n Ti&#x1ebf;p Theo"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

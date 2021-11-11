@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import com.qlpk.entity.*;
 import com.qlpk.dao.*;
 import com.qlpk.utils.*;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 /**
@@ -475,6 +476,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         pnlDieuchinh2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnInsert.setText("Thêm");
+        btnInsert.setEnabled(false);
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertActionPerformed(evt);
@@ -482,6 +484,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("Sửa");
+        btnUpdate.setEnabled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -489,6 +492,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Xóa");
+        btnDelete.setEnabled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -496,6 +500,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         });
 
         btnNew.setText("Mới");
+        btnNew.setEnabled(false);
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewActionPerformed(evt);
@@ -503,6 +508,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         });
 
         btnInPhieuKham.setText("In phiếu Khám");
+        btnInPhieuKham.setEnabled(false);
 
         btnBatDau.setText("Bắt Đầu Khám");
         btnBatDau.addActionListener(new java.awt.event.ActionListener() {
@@ -513,6 +519,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         btnNext.setText("Bệnh Nhân Tiếp Theo");
         btnNext.setEnabled(false);
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlDieuchinh2Layout = new javax.swing.GroupLayout(pnlDieuchinh2);
         pnlDieuchinh2.setLayout(pnlDieuchinh2Layout);
@@ -664,6 +675,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     BenhNhanDao daoBN = new BenhNhanDao();
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
     NhanVienDao daoNV = new NhanVienDao();
+    
     void inti(){
         fillTable();
     }
@@ -685,7 +697,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         
     }
     
-    void setModelPK(BenhNhan bn){
+    void setModelThongTinBN(BenhNhan bn){
         // Thong tin Benh Nhan
         txtMaBenhNhan.setText(bn.getMaBN());
         txtHoTen.setText(bn.getTenBenhNhan());
@@ -723,7 +735,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         pk.setMaPK(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
         pk.setMaNV(cboNhanVien.getItemAt(cboNhanVien.getSelectedIndex()));
         pk.setBS(cboBacSi.getItemAt(cboBacSi.getSelectedIndex()));
-        pk.setNgayKham(XDate.toDate(txtNgayKham.getText(), "dd-MM-yyyy"));
+        pk.setNgayKham(new Date());
         pk.setKhamLamSang(txtKhamLamSang.getText());
         pk.setBenhKem(txtBenhKem.getText());
         pk.setChuanDoan(txtChuanDoan.getText());
@@ -737,54 +749,80 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void Clear(){
-        
+        this.setModelThongTinBN(new BenhNhan());
     }
     int index =-1;
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-         this.insert();
+         this.insertPK();
     }//GEN-LAST:event_btnInsertActionPerformed
 
-    void insert(){
-        
+    void insertPK(){
+        PhieuKham pk = this.getModelPK();
+        try {
+            daoPK.insert(pk);
+            Msgbox.alert(this, "Thêm Thành công");
+            this.fillTable();
+            this.Clear();
+        } catch (Exception e) {
+        }
     }
     
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        this.update();
+        this.updatePK();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    void update(){
+    void updatePK(){
         
     }
     
     
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        this.delete();
+        this.deletePK();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    void delete(){
+    void deletePK(){
         
     }
     
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         // TODO add your handling code here:
         this.Clear();
+        
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
         // TODO add your handling code here:
+        this.setStatus(true);
         fillBenhNhan();
         fillCboPhongKham();
         fillBS();
+        fillNV();
+        txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }//GEN-LAST:event_btnBatDauActionPerformed
 
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+        fillBenhNhan();
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    
+    void setStatus(boolean x){
+        btnBatDau.setEnabled(!x);
+        btnNext.setEnabled(x);
+        btnInsert.setEnabled(x);
+        btnUpdate.setEnabled(!x);
+        btnDelete.setEnabled(!x);
+        btnNew.setEnabled(x);
+        btnInPhieuKham.setEnabled(!x);
+        txtNgayKham.setEditable(!x);
+    }
     void fillBenhNhan(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
-        this.setModelPK(bn);
-        btnBatDau.setEnabled(false);
-        btnNext.setEnabled(true);
+        this.setModelThongTinBN(bn);
+        
     }
     
     void fillCboPhongKham(){
