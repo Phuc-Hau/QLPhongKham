@@ -5,8 +5,8 @@
  */
 package com.qlpk.ui;
 
-import com.qlpk.dao.NhanVienDao;
-import com.qlpk.entity.NhanVien;
+import com.qlpk.dao.*;
+import com.qlpk.entity.*;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import com.qlpk.utils.XDate;
@@ -15,6 +15,7 @@ import java.awt.Color;
 import static java.awt.Color.white;
 import java.io.File;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
@@ -28,7 +29,9 @@ import javax.swing.table.DefaultTableModel;
 public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     
-    NhanVienDao dao = new NhanVienDao();
+    NhanVienDao daoNV = new NhanVienDao();
+    PhongKhamBenhDao daoPK = new PhongKhamBenhDao();
+    
     int row = -1;
     /**
      * Creates new form NewJFrame
@@ -125,11 +128,14 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
         jLabel9.setText("Chức Vụ");
 
-        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giám Đốc", "Phó Giám Đốc", "Bác Sĩ", "Điều Dưỡng", "Y Sĩ", "Kế Toán", "Lao Công ", "Bảo Vệ", "Giữ Xe", "Tình Nguyện Viên" }));
+        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giám Đốc", "Phó Giám Đốc", "Bác Sĩ", "Điều Dưỡng", "Y Sĩ", "Kế Toán", "Bảo Vệ", "Lao Công", "Giữ Xe", "Tình Nguyện Viên" }));
+        cboChucVu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboChucVuActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Chuyên Ngành");
-
-        cboChuyenNganh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cấp Cứu", "Phụ Sản", "Gây mê-Điều trị đau", "Nội Cơ xương khớp", "Răng-Hàm-Mặt", "Da liễu", "Y học cổ truyền", "Phục hồi chức năng", "Thẩm Mỹ", "Tiêu Hóa", "Nhi Khoa", "Ngoại Thần Kinh", "Ngoại Tổng Quát", "Nội Khoa", "Nội Tiết", "Tim Mạch", "Siêu Âm", "Xét Nghiệm", "X-Quang", " " }));
 
         jLabel11.setText("Số Điện Thoại");
 
@@ -201,6 +207,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
         lblAnh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAnh.setText("(Chọn Ảnh)");
+        lblAnh.setToolTipText(" ");
         lblAnh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblAnh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -413,8 +420,14 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (Error()) {
-            this.Insert();
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+            if (Error()) {
+                this.InsertNV();
+            }
+        } else{
+            if (Error()&&Utility.CheckPass(txtPass)) {
+                this.InsertNV();
+            }
         }
     }//GEN-LAST:event_btnThemActionPerformed
    
@@ -430,8 +443,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                 && Utility.checkNullText(txtDiaChi)
                 //&& Utility.checkNullText(cboChucVu)
                 && Utility.checkNullText(txtLuong)
-                && Utility.CheckPass(txtPass)
-                &&Utility.CheckPass(txtPass)
+                
                 ) {
             return true;
         }else return false;  
@@ -439,7 +451,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
      
     public  boolean checkTrungMa(JTextField txt){
         txt.setBackground(white);
-        if (dao.selectByID(txt.getText())==null) {
+        if (daoNV.selectByID(txt.getText())==null) {
             return true;    
         }else{
             txt.setBackground(Color.red);
@@ -450,12 +462,20 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        this.Delete();
+        this.DeleteNV();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        this.Update();
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+            if (Error()) {
+                this.UpdateNV();
+            }
+        } else{
+            if (Error()&&Utility.CheckPass(txtPass)) {
+                this.UpdateNV();
+            }
+        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -492,9 +512,29 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getClickCount()==2) {
             this.row = tblNhanVien.getSelectedRow();
-            this.edit();
+            this.editNV();
         }
     }//GEN-LAST:event_tblNhanVienMouseClicked
+
+    private void cboChucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChucVuActionPerformed
+        // TODO add your handling code here:
+        String []chucvu ={"Kế Toán","Bảo Vệ","Giữ Xe","Tình Nguyện Viên","Lao Công"};
+        int cv=0;
+        for (int i = 0; i < chucvu.length; i++) {
+            if(cboChucVu.getItemAt(cboChucVu.getSelectedIndex()).equals(chucvu[i])){
+                cv++;
+            }
+        }
+        
+        if(cv==0){
+            fillCboChuyenNganh();
+            txtPass.setEnabled(true);
+        } else{
+            cboChuyenNganh.removeAllItems();
+            txtPass.setEnabled(false);
+        }
+    }//GEN-LAST:event_cboChucVuActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -575,16 +615,26 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private void init() {
         this.setLocationRelativeTo(null);
         this.fillTable();
+        this.fillCboChuyenNganh();
         this.row = -1;
         this.updateStatus();
         
     }
 
+    void fillCboChuyenNganh(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboChuyenNganh.getModel();
+        model.removeAllElements();
+        List<PhongKham> list = daoPK.selectAll();
+        for (PhongKham pk : list) {
+            model.addElement(pk.getTenPhongKham());
+        }
+    }
+    
     void fillTable() {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
-            List<NhanVien> list = dao.selectAll();
+            List<NhanVien> list = daoNV.selectAll();
             for (NhanVien nv : list) {
                 Object[] row = {
                     nv.getMaNV(),
@@ -655,7 +705,9 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         nv.setSoDT(txtSoDT.getText());
         nv.setDiaChi(txtDiaChi.getText());
         nv.setChucVu(cboChucVu.getItemAt(cboChucVu.getSelectedIndex()));
-        nv.setChuyenNganh(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()));
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+            nv.setChuyenNganh("");
+        } else nv.setChuyenNganh(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()));
         nv.setLuong(Float.valueOf(txtLuong.getText()));
         nv.setPass(new String(txtPass.getPassword()));
         nv.setHinh(lblAnh.getToolTipText());
@@ -683,19 +735,19 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         // btnMoi
     }
 
-    void edit() {
+    void editNV() {
         String manv = (String) tblNhanVien.getValueAt(this.row, 0);
-        NhanVien nv = dao.selectByID(manv);
+        NhanVien nv = daoNV.selectByID(manv);
         this.setForm(nv);
         tabs.setSelectedIndex(0);
         this.updateStatus();
         // tblNhanVien
     }
 
-    void Insert() {
+    void InsertNV() {
         NhanVien nv = getForm();
         try {
-            dao.insert(nv);
+            daoNV.insert(nv);
             this.fillTable();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
@@ -706,10 +758,10 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         }
     }
 
-    void Update() {
+    void UpdateNV() {
         NhanVien nv = getForm();
         try {
-            dao.update(nv);
+            daoNV.update(nv);
             this.fillTable();
             Msgbox.alert(this, "Cập nhật thành công!");
 
@@ -719,11 +771,11 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         }
     }
 
-    void Delete() {
+    void DeleteNV() {
         String manv = txtMaNV.getText();
         if (Msgbox.confirm(this, "Bạn có muốn xóa nhân viên này không!!!")) {
             try {
-                dao.detele(manv);
+                daoNV.detele(manv);
                 this.fillTable();
                 this.clearForm();
                 Msgbox.alert(this, "Xóa thành công!");
@@ -738,27 +790,27 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     void first() {
         this.row = 0;
-        this.edit();
+        this.editNV();
     }
 
     void next() {
         if (this.row < tblNhanVien.getRowCount() - 1) {
             this.row++;
-            this.edit();
+            this.editNV();
         }
     }
 
     void prev() {
         if (this.row > 0) {
             this.row--;
-            this.edit();
+            this.editNV();
 
         }
     }
 
     void last() {
         this.row = tblNhanVien.getRowCount() - 1;
-        this.edit();
+        this.editNV();
     }
     
   
