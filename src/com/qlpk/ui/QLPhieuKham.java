@@ -838,7 +838,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboBacSi.getModel();
         model.removeAllElements();
         List<NhanVien> list = daoNV.selectBS();
-        for (NhanVien nv: list) {
+        for (NhanVien nv: list) { 
             model.addElement(nv.getHoTen());
         }
     }
