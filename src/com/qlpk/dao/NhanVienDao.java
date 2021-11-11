@@ -72,6 +72,14 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
     public List<NhanVien> selectAll() {
         return  this.selectBySql(SELECT_ALL_SQL);
     }
+    
+    public List<NhanVien> selectBS() {
+        return  this.selectBySql("select * from NhanVien where ChucVu = N'Bác Sĩ'");
+    }
+    
+    public List<NhanVien> selectNV() {
+        return  this.selectBySql("select * from NhanVien where not ChucVu = N'Bác Sĩ'");
+    }
 
     @Override
     protected List<NhanVien> selectBySql(String sql, Object... args) {

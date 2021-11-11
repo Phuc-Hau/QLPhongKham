@@ -45,10 +45,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtMaPhieuKham = new javax.swing.JTextField();
-        txtNhanVien = new javax.swing.JTextField();
-        txtBS = new javax.swing.JTextField();
         txtNgayKham = new javax.swing.JTextField();
         cboPhongKham = new javax.swing.JComboBox<>();
+        cboBacSi = new javax.swing.JComboBox<>();
+        cboNhanVien = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -135,6 +135,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         cboPhongKham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        cboBacSi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboNhanVien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -153,14 +157,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtBS, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNgayKham, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(cboBacSi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
         );
         jPanel4Layout.setVerticalGroup(
@@ -172,9 +175,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5)
-                        .addComponent(txtBS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
-                        .addComponent(txtNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cboBacSi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -693,11 +696,12 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtSDT.setText(bn.getSDT());
         txtDiaChi.setText(bn.getDiaChi());
         txtNgheNghiep.setText(bn.getNgheNghiep());
-        
+    }
+
+    void setModelThongTinPk(NhanVien nv){
         // Thong Tin Kham Benh
         txtMaPhieuKham.setText("");
-        txtBS.setText("");
-        txtNhanVien.setText("");
+        
         cboPhongKham.setSelectedItem("");
         txtNgayKham.setText("");
         
@@ -717,8 +721,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
         PhieuKham pk = new PhieuKham();
         pk.setMaBN(txtMaBenhNhan.getText());
         pk.setMaPK(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
-        pk.setMaNV(txtNhanVien.getText());
-        pk.setBS(txtBS.getText());
+        pk.setMaNV(cboNhanVien.getItemAt(cboNhanVien.getSelectedIndex()));
+        pk.setBS(cboBacSi.getItemAt(cboBacSi.getSelectedIndex()));
         pk.setNgayKham(XDate.toDate(txtNgayKham.getText(), "dd-MM-yyyy"));
         pk.setKhamLamSang(txtKhamLamSang.getText());
         pk.setBenhKem(txtBenhKem.getText());
@@ -773,6 +777,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         // TODO add your handling code here:
         fillBenhNhan();
         fillCboPhongKham();
+        fillBS();
     }//GEN-LAST:event_btnBatDauActionPerformed
 
     void fillBenhNhan(){
@@ -791,6 +796,23 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
+    void fillBS(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboBacSi.getModel();
+        model.removeAllElements();
+        List<NhanVien> list = daoNV.selectBS();
+        for (NhanVien nv: list) {
+            model.addElement(nv.getHoTen());
+        }
+    }
+    
+    void fillNV(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboNhanVien.getModel();
+        model.removeAllElements();
+        List<NhanVien> list = daoNV.selectNV();
+        for (NhanVien nv: list) {
+            model.addElement(nv.getHoTen());
+        }
+    }
     
     /**
      * @param args the command line arguments
@@ -835,6 +857,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboBacSi;
+    private javax.swing.JComboBox<String> cboNhanVien;
     private javax.swing.JComboBox<String> cboPhongKham;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -879,7 +903,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDieuchinh2;
     private javax.swing.JPanel pnlFromBenhNhan;
     private javax.swing.JTable tbtPhieuKham;
-    private javax.swing.JTextField txtBS;
     private javax.swing.JTextField txtBenhKem;
     private javax.swing.JTextField txtCanNang;
     private javax.swing.JTextField txtChieuCao;
@@ -894,7 +917,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaPhieuKham;
     private javax.swing.JTextField txtNgayKham;
     private javax.swing.JTextField txtNgheNghiep;
-    private javax.swing.JTextField txtNhanVien;
     private javax.swing.JTextField txtNhietDo;
     private javax.swing.JTextField txtNhipTim;
     private javax.swing.JTextField txtSDT;
