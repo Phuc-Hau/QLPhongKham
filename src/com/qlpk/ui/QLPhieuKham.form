@@ -231,6 +231,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtMaPhieuKham">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNhanVien">
                     </Component>
@@ -708,6 +711,7 @@
                     <Component class="javax.swing.JTextField" name="txtTuoi">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtHoTen">
@@ -805,16 +809,20 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnInsert2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnInsert" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnUpdate2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnDelete2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnNew" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnInPhieuKham" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                                  <Component id="btnBatDau" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnNext" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="69" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -823,11 +831,13 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnInsert2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnUpdate2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnDelete2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnNew" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnInPhieuKham" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnBatDau" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -835,28 +845,28 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="btnInsert2">
+                        <Component class="javax.swing.JButton" name="btnInsert">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsert2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnUpdate2">
+                        <Component class="javax.swing.JButton" name="btnUpdate">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdate2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnDelete2">
+                        <Component class="javax.swing.JButton" name="btnDelete">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnNew">
@@ -870,6 +880,20 @@
                         <Component class="javax.swing.JButton" name="btnInPhieuKham">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="In phi&#x1ebf;u Kh&#xe1;m"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnBatDau">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="B&#x1eaf;t &#x110;&#x1ea7;u Kh&#xe1;m"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBatDauActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btnNext">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="B&#x1ec7;nh Nh&#xe2;n Ti&#x1ebf;p Theo"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                       </SubComponents>

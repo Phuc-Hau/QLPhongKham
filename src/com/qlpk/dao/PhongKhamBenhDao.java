@@ -20,7 +20,7 @@ public class PhongKhamBenhDao  extends PhongKhamDao<PhongKham, String>{
 
     @Override
     public void insert(PhongKham entity) {
-        String sql = "INSERT INTO PhongKham ( MaPhongKham, TenPhongKham, GhiChu) VALUES (?,?,?)";
+        String sql = "INSERT INTO PhongKham ( MaPK, TenPhongKham, GhiChu) VALUES (?,?,?)";
         JdbcHelper.Update(sql, entity.getMaPK(),
                                 entity.getTenPhongKham(),
                                 entity.getGhiChu());

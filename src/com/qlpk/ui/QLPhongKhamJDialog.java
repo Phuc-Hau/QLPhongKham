@@ -411,7 +411,8 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             //kt=false;
-            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");
+            e.printStackTrace();
+            Msgbox.alert(this, "Thêm mới thất bại!");
         //}       
         }
     }

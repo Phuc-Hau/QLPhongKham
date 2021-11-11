@@ -6,11 +6,11 @@
 package com.qlpk.ui;
 
 import javax.swing.table.DefaultTableModel;
-import com.qlpk.entity.PhieuKham;
-import com.qlpk.dao.PhieuKhamDao;
-import com.qlpk.dao.BenhNhanDao;
+import com.qlpk.entity.*;
+import com.qlpk.dao.*;
 import com.qlpk.utils.*;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author fptshop
@@ -96,11 +96,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtTimKiem = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         pnlDieuchinh2 = new javax.swing.JPanel();
-        btnInsert2 = new javax.swing.JButton();
-        btnUpdate2 = new javax.swing.JButton();
-        btnDelete2 = new javax.swing.JButton();
+        btnInsert = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnNew = new javax.swing.JButton();
         btnInPhieuKham = new javax.swing.JButton();
+        btnBatDau = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbtPhieuKham = new javax.swing.JTable();
@@ -128,6 +130,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel5.setText("Bác Sĩ");
 
         jLabel6.setText("Ngày Khám");
+
+        txtMaPhieuKham.setEditable(false);
 
         cboPhongKham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -372,6 +376,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel22.setText("Tuổi");
 
         txtTuoi.setEditable(false);
+        txtTuoi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtHoTen.setEditable(false);
 
@@ -466,24 +471,24 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         pnlDieuchinh2.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnInsert2.setText("Thêm");
-        btnInsert2.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.setText("Thêm");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsert2ActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
 
-        btnUpdate2.setText("Sửa");
-        btnUpdate2.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Sửa");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdate2ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
-        btnDelete2.setText("Xóa");
-        btnDelete2.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Xóa");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete2ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -496,33 +501,49 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         btnInPhieuKham.setText("In phiếu Khám");
 
+        btnBatDau.setText("Bắt Đầu Khám");
+        btnBatDau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatDauActionPerformed(evt);
+            }
+        });
+
+        btnNext.setText("Bệnh Nhân Tiếp Theo");
+        btnNext.setEnabled(false);
+
         javax.swing.GroupLayout pnlDieuchinh2Layout = new javax.swing.GroupLayout(pnlDieuchinh2);
         pnlDieuchinh2.setLayout(pnlDieuchinh2Layout);
         pnlDieuchinh2Layout.setHorizontalGroup(
             pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDieuchinh2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnInsert2)
+                .addComponent(btnInsert)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdate2)
+                .addComponent(btnUpdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelete2)
+                .addComponent(btnDelete)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNew)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInPhieuKham)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(183, 183, 183)
+                .addComponent(btnBatDau)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNext)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         pnlDieuchinh2Layout.setVerticalGroup(
             pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDieuchinh2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsert2)
-                    .addComponent(btnUpdate2)
-                    .addComponent(btnDelete2)
+                    .addComponent(btnInsert)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete)
                     .addComponent(btnNew)
-                    .addComponent(btnInPhieuKham))
+                    .addComponent(btnInPhieuKham)
+                    .addComponent(btnBatDau)
+                    .addComponent(btnNext))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -638,6 +659,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     PhieuKhamDao daoPK = new PhieuKhamDao();
     BenhNhanDao daoBN = new BenhNhanDao();
+    PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
+    NhanVienDao daoNV = new NhanVienDao();
     void inti(){
         fillTable();
     }
@@ -659,15 +682,17 @@ public class QLPhieuKham extends javax.swing.JFrame {
         
     }
     
-    void setModelPK(PhieuKham pk){
+    void setModelPK(BenhNhan bn){
         // Thong tin Benh Nhan
-        txtMaBenhNhan.setText("");
-        txtHoTen.setText("");
-        txtGT.setText("");
-        txtTuoi.setText("");
-        txtSDT.setText("");
-        txtDiaChi.setText("");
-        txtNgheNghiep.setText("");
+        txtMaBenhNhan.setText(bn.getMaBN());
+        txtHoTen.setText(bn.getTenBenhNhan());
+        if(bn.isGioiTinh()==true){
+            txtGT.setText("Nam");
+        } else txtGT.setText("Nữ");
+        txtTuoi.setText(String.valueOf(bn.getTuoi()));
+        txtSDT.setText(bn.getSDT());
+        txtDiaChi.setText(bn.getDiaChi());
+        txtNgheNghiep.setText(bn.getNgheNghiep());
         
         // Thong Tin Kham Benh
         txtMaPhieuKham.setText("");
@@ -707,30 +732,33 @@ public class QLPhieuKham extends javax.swing.JFrame {
         return pk;
     }
     
+    void Clear(){
+        
+    }
     int index =-1;
-    private void btnInsert2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsert2ActionPerformed
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
          this.insert();
-    }//GEN-LAST:event_btnInsert2ActionPerformed
+    }//GEN-LAST:event_btnInsertActionPerformed
 
     void insert(){
         
     }
     
-    private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         this.update();
-    }//GEN-LAST:event_btnUpdate2ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     void update(){
         
     }
     
     
-    private void btnDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete2ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         this.delete();
-    }//GEN-LAST:event_btnDelete2ActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     void delete(){
         
@@ -741,9 +769,28 @@ public class QLPhieuKham extends javax.swing.JFrame {
         this.Clear();
     }//GEN-LAST:event_btnNewActionPerformed
 
-    void Clear(){
-        
+    private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
+        // TODO add your handling code here:
+        fillBenhNhan();
+        fillCboPhongKham();
+    }//GEN-LAST:event_btnBatDauActionPerformed
+
+    void fillBenhNhan(){
+        BenhNhan bn = daoBN.select_BenhNhan_NotPK();
+        this.setModelPK(bn);
+        btnBatDau.setEnabled(false);
+        btnNext.setEnabled(true);
     }
+    
+    void fillCboPhongKham(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongKham.getModel();
+        model.removeAllElements();
+        List<PhongKham> list = daoPKBenh.selectAll();
+        for (PhongKham pk : list) {
+            model.addElement(pk.getTenPhongKham());
+        }
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -781,11 +828,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete2;
+    private javax.swing.JButton btnBatDau;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInPhieuKham;
-    private javax.swing.JButton btnInsert2;
+    private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnNew;
-    private javax.swing.JButton btnUpdate2;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cboPhongKham;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
