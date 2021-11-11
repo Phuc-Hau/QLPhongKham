@@ -340,7 +340,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnthemmoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemmoiActionPerformed
         // TODO add your handling code here:
-        this.clearForm();
+        this.clearFormBenhNhan();
     }//GEN-LAST:event_btnthemmoiActionPerformed
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
@@ -387,7 +387,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.row = tblDanhsach.getSelectedRow();
-            this.edit();
+            this.editFormBenhNhan();
         }
     }//GEN-LAST:event_tblDanhsachMouseClicked
 
@@ -475,11 +475,11 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void init() {
         this.setLocationRelativeTo(null);
-        this.FillToTable();
-        this.UpdateStatus();
+        this.FillTableBenhNhan();
+        this.UpdateStatusBenhNhan();
     }
 
-    void FillToTable() {
+    void FillTableBenhNhan() {
         DefaultTableModel model = (DefaultTableModel) tblDanhsach.getModel();
         model.setRowCount(0);
         try {
@@ -504,11 +504,11 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void insert() {
-        BenhNhan bn = this.getform();
+        BenhNhan bn = this.getformBenhNhan();
         try {
             dao.insert(bn);
-            FillToTable();
-            this.clearForm();
+            FillTableBenhNhan();
+            this.clearFormBenhNhan();
             Msgbox.alert(this, "Thêm thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Thêm thất bại!");
@@ -517,10 +517,10 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void update() {
-        BenhNhan bn = this.getform();
+        BenhNhan bn = this.getformBenhNhan();
         try {
             dao.update(bn);
-            FillToTable();
+            FillTableBenhNhan();
             Msgbox.alert(this, "Sửa thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Sửa thất bại!");
@@ -533,8 +533,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
         if (Msgbox.confirm(this, "Bạn thực sự muốn xóa bệnh nhân này?")) {
             try {
                 dao.detele(mabn);
-                FillToTable();
-                this.clearForm();
+                FillTableBenhNhan();
+                this.clearFormBenhNhan();
                 Msgbox.alert(this, "Xóa thành công!");
             } catch (Exception e) {
                 Msgbox.alert(this, "Xóa thất bại!");
@@ -542,7 +542,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         }
     }
 
-    BenhNhan getform() {
+    BenhNhan getformBenhNhan() {
         BenhNhan bn = new BenhNhan();
         bn.setMaBN(txtMaBN.getText());
         bn.setTenBenhNhan(txtHoten.getText());
@@ -556,7 +556,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         return bn;
     }
 
-    void setForm(BenhNhan bn) {
+    void setFormBenhNhan(BenhNhan bn) {
         txtMaBN.setText(bn.getMaBN());
         txtHoten.setText(bn.getTenBenhNhan());
         rdoNam.setSelected(bn.isGioiTinh());
@@ -569,7 +569,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtGhichu.setText(bn.getGhiChu());
     }
 
-    void clearForm() {
+    void clearFormBenhNhan() {
         txtMaBN.setText("");
         txtHoten.setText("");
         txtGhichu.setText("");
@@ -580,18 +580,18 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtDienthoai.setText("");
         rdoNam.setSelected(true);
         this.row = -1;
-        this.UpdateStatus();
+        this.UpdateStatusBenhNhan();
     }
 
-    void edit() {
+    void editFormBenhNhan() {
         String mabn = (String) tblDanhsach.getValueAt(this.row, 0);
         BenhNhan bn = dao.selectByID(mabn);
-        this.setForm(bn);
+        this.setFormBenhNhan(bn);
         tabs.setSelectedIndex(0);
-        this.UpdateStatus();
+        this.UpdateStatusBenhNhan();
     }
 
-    void UpdateStatus() {
+    void UpdateStatusBenhNhan() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
         boolean last = (this.row == tblDanhsach.getRowCount() - 1);
@@ -610,25 +610,25 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     void first() {
         this.row = 0;
-        this.edit();
+        this.editFormBenhNhan();
     }
 
     void prev() {
         if (this.row > 0) {
             this.row--;
-            this.edit();
+            this.editFormBenhNhan();
         }
     }
 
     void next() {
         if (this.row < tblDanhsach.getRowCount() - 1) {
             this.row++;
-            this.edit();
+            this.editFormBenhNhan();
         }
     }
 
     void last() {
         this.row = tblDanhsach.getRowCount() - 1;
-        this.edit();
+        this.editFormBenhNhan();
     }
 }
