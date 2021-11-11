@@ -56,7 +56,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     
     public BenhNhan select_BenhNhan_NotPK(){
         List<BenhNhan> list = this.selectBySql(SELECT_BY_NOTPHIEUKHAM);
-        if (list.isEmpty()) {
+        if (list.size()<=0) {
             return null;
         }
         return list.get(0);
@@ -84,6 +84,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
             return list; 
         } catch (Exception e) {
             throw new RuntimeException();
+            
         }
     }
 

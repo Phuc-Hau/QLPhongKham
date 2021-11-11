@@ -152,8 +152,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(cboPhongKham, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtMaPhieuKham)
+                    .addComponent(cboPhongKham, 0, 139, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
@@ -625,7 +625,15 @@ public class QLPhieuKham extends javax.swing.JFrame {
             new String [] {
                 "Mã Phiếu Khám", "Mã Bệnh Nhân", "Bác Sĩ", "Ngày Khám"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tbtPhieuKham);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -806,8 +814,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         this.setStatus(true);
         fillBenhNhan();
         fillCboPhongKham();
-        //fillBS();
-        fillNV();
+        fillCboNV();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }//GEN-LAST:event_btnBatDauActionPerformed
 
@@ -818,9 +825,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
         // TODO add your handling code here:
-        fillBS();
-        PhongKham pk = (PhongKham) cboPhongKham.getSelectedItem();
-        System.out.println(pk.getMaPK());
+        fillCboBS();
     }//GEN-LAST:event_cboPhongKhamActionPerformed
 
     
@@ -828,21 +833,27 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnBatDau.setEnabled(!x);
         btnNext.setEnabled(x);
         btnInsert.setEnabled(x);
-        btnUpdate.setEnabled(!x);
-        btnDelete.setEnabled(!x);
+        btnUpdate.setEnabled(!x && btnBatDau.isEnabled()==false);
+        btnDelete.setEnabled(!x && btnBatDau.isEnabled()==false);
         btnNew.setEnabled(x);
-        btnInPhieuKham.setEnabled(!x);
-        txtNgayKham.setEditable(!x);
+        btnInPhieuKham.setEnabled(!x && btnBatDau.isEnabled()==false);
+        txtNgayKham.setEditable(!x && btnBatDau.isEnabled()==false);
     }
     void fillBenhNhan(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
-        this.setModelThongTinBN(bn);
+        if(bn!= null){
+            this.setModelThongTinBN(bn);
+        } else {
+            Msgbox.alert(this, "Không có Bệnh nhân để khám");
+            this.setStatus(false);
+        }
     }
     
     List<String> PhongKhamList = new ArrayList<>();
     void fillCboPhongKham(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongKham.getModel();
         model.removeAllElements();
+        PhongKhamList.clear();
         List<PhongKham> list = daoPKBenh.selectAll();
         for (PhongKham pk : list) {
             PhongKhamList.add(pk.getTenPhongKham());
@@ -850,7 +861,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
-    void fillBS(){
+    void fillCboBS(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboBacSi.getModel();
         model.removeAllElements();
         String PhongKhamBenh =PhongKhamList.get(cboPhongKham.getSelectedIndex());
@@ -864,7 +875,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
-    void fillNV(){
+    void fillCboNV(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboNhanVien.getModel();
         model.removeAllElements();
         List<NhanVien> list = daoNV.selectNV();
