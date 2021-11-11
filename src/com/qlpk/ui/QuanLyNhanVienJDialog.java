@@ -50,6 +50,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgGTNV = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -109,9 +110,11 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
         jLabel4.setText("Giới Tính");
 
+        btgGTNV.add(rdoNam);
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
+        btgGTNV.add(rdoNu);
         rdoNu.setText("Nữ");
 
         jLabel5.setText("Ngày Sinh (DD/MM/YYY)");
@@ -420,12 +423,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null &&checkTrungMa(txtMaNV)){
             if (Error()) {
                 this.InsertNV();
             }
         } else{
-            if (Error()&&Utility.CheckPass(txtPass)) {
+            if (Error()&&Utility.CheckPass(txtPass) &&checkTrungMa(txtMaNV)) {
                 this.InsertNV();
             }
         }
@@ -433,7 +436,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
    
     boolean Error(){
         if (Utility.checkNullText(txtMaNV)
-                &&checkTrungMa(txtMaNV)
+                
                 && Utility.checkNullText(txtHoTen)
                 && Utility.checkNullText(txtNgaySinh)
                 && Utility.checkNullText(txtSoDT)
@@ -459,7 +462,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             return false;
         
         }
-    }
+    } 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         this.DeleteNV();
@@ -532,6 +535,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         } else{
             cboChuyenNganh.removeAllItems();
             txtPass.setEnabled(false);
+            txtPass.setText("");
         }
     }//GEN-LAST:event_cboChucVuActionPerformed
 
@@ -573,6 +577,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgGTNV;
     private javax.swing.JButton btnFirst;
     private javax.swing.JButton btnLast;
     private javax.swing.JButton btnMoi;
