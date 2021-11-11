@@ -11,9 +11,8 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public void insert(PhieuKham entity) {
-        String Insert ="INSERT INTO PhieuKham (MaPhieuKham, MABN, MaPK, MaNV, BS, NgayKham, KhamLamSang, BenhKem, ChuanDoanICD, NhipTim, NhietDo, HuyenAp, CanNang, ChieuCao, KetLuan_DieuTri) VALUES    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String Insert ="INSERT INTO PhieuKham (MABN, MaPK, MaNV, BS, NgayKham, KhamLamSang, BenhKem, ChuanDoanICD, NhipTim, NhietDo, HuyenAp, CanNang, ChieuCao, KetLuan_DieuTri) VALUES    (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         JdbcHelper.Update(Insert, 
-                entity.getMaPhieuKham(),
                 entity.getMaBN(),
                 entity.getMaPK(),
                 entity.getMaNV(),
@@ -68,7 +67,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public List<PhieuKham> selectAll() {
-        String SelectAll ="selsect * from PhieuKham";
+        String SelectAll ="select * from PhieuKham";
         return selectBySql(SelectAll);
     }
 
@@ -79,23 +78,25 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
             ResultSet rs =null;
             try {
                 rs = JdbcHelper.query(sql, args);
-                PhieuKham pk = new PhieuKham();
-                pk.setMaPhieuKham(rs.getString("MaPhieuKham"));
-                pk.setMaBN(rs.getString("MABN"));
-                pk.setMaPK(rs.getString("MaPK"));
-                pk.setMaNV(rs.getString("MaNV"));
-                pk.setBS(rs.getString("BS"));
-                pk.setNgayKham(rs.getDate("NgayKham"));
-                pk.setKhamLamSang(rs.getString("KhamLamSang"));
-                pk.setBenhKem(rs.getString("BenhKem"));
-                pk.setChuanDoan(rs.getString("ChuanDoanICD"));
-                pk.setNhipTim(rs.getInt("NhipTim"));
-                pk.setNhietDo(rs.getInt("NhietDo"));
-                pk.setHuyetAp(rs.getInt("HuyenAp"));
-                pk.setCanNang(rs.getFloat("CanNang"));
-                pk.setChieuCao(rs.getFloat("ChieuCao"));
-                pk.setKetQuaDieuTri(rs.getString("KetLuan_DieuTri"));
-                list.add(pk);
+                while (rs.next()) {                    
+                    PhieuKham pk = new PhieuKham();
+                    pk.setMaPhieuKham(rs.getString("MaPhieuKham"));
+                    pk.setMaBN(rs.getString("MABN"));
+                    pk.setMaPK(rs.getString("MaPK"));
+                    pk.setMaNV(rs.getString("MaNV"));
+                    pk.setBS(rs.getString("BS"));
+                    pk.setNgayKham(rs.getDate("NgayKham"));
+                    pk.setKhamLamSang(rs.getString("KhamLamSang"));
+                    pk.setBenhKem(rs.getString("BenhKem"));
+                    pk.setChuanDoan(rs.getString("ChuanDoanICD"));
+                    pk.setNhipTim(rs.getInt("NhipTim"));
+                    pk.setNhietDo(rs.getInt("NhietDo"));
+                    pk.setHuyetAp(rs.getInt("HuyenAp"));
+                    pk.setCanNang(rs.getFloat("CanNang"));
+                    pk.setChieuCao(rs.getFloat("ChieuCao"));
+                    pk.setKetQuaDieuTri(rs.getString("KetLuan_DieuTri"));
+                    list.add(pk);
+                }
             } finally {
                 rs.getStatement().getConnection().close();
             }

@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import com.qlpk.entity.*;
 import com.qlpk.dao.*;
 import com.qlpk.utils.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -126,7 +127,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel3.setText("Phòng Khám");
 
-        jLabel4.setText("Nhân Viên");
+        jLabel4.setText("Y Tá");
 
         jLabel5.setText("Bác Sĩ");
 
@@ -134,16 +135,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         txtMaPhieuKham.setEditable(false);
 
-        cboPhongKham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboPhongKham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboPhongKhamActionPerformed(evt);
             }
         });
-
-        cboBacSi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cboNhanVien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -164,13 +160,15 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNgayKham, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txtNgayKham, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addGap(41, 41, 41))
                     .addComponent(cboBacSi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(59, 59, 59)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addGap(112, 112, 112))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,7 +642,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Danh Sách", jPanel3);
@@ -657,7 +655,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         );
         pnlFromBenhNhanLayout.setVerticalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
 
         jTabbedPane3.getAccessibleContext().setAccessibleName("Danh Sách");
@@ -687,13 +685,14 @@ public class QLPhieuKham extends javax.swing.JFrame {
     
     void fillTable(){
         DefaultTableModel model = (DefaultTableModel) tbtPhieuKham.getModel();
-        model.removeRow(0);
+        model.setRowCount(0);
         try {
             List<PhieuKham> list = daoPK.selectAll();
             for (PhieuKham pk : list) {
                 model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),pk.getNgayKham()});
             }
         } catch (Exception e) {
+            e.printStackTrace();
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu");
         }
     }
@@ -735,8 +734,12 @@ public class QLPhieuKham extends javax.swing.JFrame {
     public PhieuKham getModelPK(){
         PhieuKham pk = new PhieuKham();
         pk.setMaBN(txtMaBenhNhan.getText());
-        pk.setMaPK(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
-        pk.setMaNV(cboNhanVien.getItemAt(cboNhanVien.getSelectedIndex()));
+        PhongKham phongKham = (PhongKham) cboPhongKham.getSelectedItem();
+        pk.setMaPK(phongKham.getMaPK());
+        
+        NhanVien nv = (NhanVien) cboNhanVien.getSelectedItem();
+        pk.setMaNV(nv.getMaNV());
+        
         pk.setBS(cboBacSi.getItemAt(cboBacSi.getSelectedIndex()));
         pk.setNgayKham(new Date());
         pk.setKhamLamSang(txtKhamLamSang.getText());
@@ -757,7 +760,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     int index =-1;
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-         this.insertPK();
+        this.insertPK();
     }//GEN-LAST:event_btnInsertActionPerformed
 
     void insertPK(){
@@ -768,6 +771,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
             this.fillTable();
             this.Clear();
         } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Thêm Thất bại");
         }
     }
     
@@ -801,7 +806,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         this.setStatus(true);
         fillBenhNhan();
         fillCboPhongKham();
-        fillBS();
+        //fillBS();
         fillNV();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }//GEN-LAST:event_btnBatDauActionPerformed
@@ -814,6 +819,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
         // TODO add your handling code here:
         fillBS();
+        PhongKham pk = (PhongKham) cboPhongKham.getSelectedItem();
+        System.out.println(pk.getMaPK());
     }//GEN-LAST:event_cboPhongKhamActionPerformed
 
     
@@ -830,24 +837,30 @@ public class QLPhieuKham extends javax.swing.JFrame {
     void fillBenhNhan(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
         this.setModelThongTinBN(bn);
-        
     }
     
+    List<String> PhongKhamList = new ArrayList<>();
     void fillCboPhongKham(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongKham.getModel();
         model.removeAllElements();
         List<PhongKham> list = daoPKBenh.selectAll();
         for (PhongKham pk : list) {
-            model.addElement(pk.getTenPhongKham());
+            PhongKhamList.add(pk.getTenPhongKham());
+            model.addElement(pk);
         }
     }
     
     void fillBS(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboBacSi.getModel();
         model.removeAllElements();
-        List<NhanVien> list = daoNV.selectBS(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
-        for (NhanVien nv: list) {
-            model.addElement(nv.getHoTen());
+        String PhongKhamBenh =PhongKhamList.get(cboPhongKham.getSelectedIndex());
+        try {
+            List<NhanVien> list = daoNV.selectBS(PhongKhamBenh);
+            for (NhanVien nv: list) {
+                model.addElement(nv.getHoTen()+" ("+nv.getChuyenNganh()+")");
+            }
+        } catch (Exception e) {
+             e.printStackTrace();
         }
     }
     
@@ -856,10 +869,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
         model.removeAllElements();
         List<NhanVien> list = daoNV.selectNV();
         for (NhanVien nv: list) {
-            if(!nv.getChuyenNganh().equals("")){
-                model.addElement(nv.getHoTen()+" ("+nv.getChuyenNganh()+")");
+            if((!nv.getChuyenNganh().equals("")) || nv.getChucVu().equals("Tình Nguyện Viên")){
+                model.addElement(nv);
             }
-            
         }
     }
     

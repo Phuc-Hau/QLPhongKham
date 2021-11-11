@@ -74,7 +74,7 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
     }
     
     public List<NhanVien> selectBS(String id) {
-        return  this.selectBySql("select * from NhanVien where ChucVu = N'Bác Sĩ' and ChuyenNganh = ?",id);
+        return  this.selectBySql("select * from NhanVien where ChucVu = N'Bác Sĩ' and ChuyenNganh = ? ",id);
     }
     
     public List<NhanVien> selectNV() {

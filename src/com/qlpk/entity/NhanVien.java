@@ -121,6 +121,19 @@ public class NhanVien {
     public void setHinh(String Hinh) {
         this.Hinh = Hinh;
     }
+
+    @Override
+    public String toString() {
+        return hoTen + " ("+ chuyenNganh + ')';
+    }
     
     
+    
+    @Override
+    public boolean equals(Object obj) {
+        
+        final NhanVien other = (NhanVien) obj;
+        
+        return other.getMaNV().equals(getMaNV());
+    }
 }

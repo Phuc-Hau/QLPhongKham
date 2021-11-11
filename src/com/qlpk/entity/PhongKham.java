@@ -46,5 +46,19 @@ public class PhongKham {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+
+    @Override
+    public String toString() {
+        return tenPhongKham;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        
+        final PhongKham other = (PhongKham) obj;
+        
+        return other.getMaPK().equals(getMaPK());
+    }
+    
     
 }
