@@ -135,6 +135,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtMaPhieuKham.setEditable(false);
 
         cboPhongKham.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboPhongKham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPhongKhamActionPerformed(evt);
+            }
+        });
 
         cboBacSi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -164,8 +169,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,10 +718,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
     void setModelThongTinPk(NhanVien nv){
         // Thong Tin Kham Benh
         txtMaPhieuKham.setText("");
-        
         cboPhongKham.setSelectedItem("");
         txtNgayKham.setText("");
-        
         // Kham Lam Sang
         txtKhamLamSang.setText("");
         txtBenhKem.setText("");
@@ -808,6 +811,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
         fillBenhNhan();
     }//GEN-LAST:event_btnNextActionPerformed
 
+    private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
+        // TODO add your handling code here:
+        fillBS();
+    }//GEN-LAST:event_cboPhongKhamActionPerformed
+
     
     void setStatus(boolean x){
         btnBatDau.setEnabled(!x);
@@ -837,8 +845,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
     void fillBS(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboBacSi.getModel();
         model.removeAllElements();
-        List<NhanVien> list = daoNV.selectBS();
-        for (NhanVien nv: list) { 
+        List<NhanVien> list = daoNV.selectBS(cboPhongKham.getItemAt(cboPhongKham.getSelectedIndex()));
+        for (NhanVien nv: list) {
             model.addElement(nv.getHoTen());
         }
     }
@@ -848,7 +856,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
         model.removeAllElements();
         List<NhanVien> list = daoNV.selectNV();
         for (NhanVien nv: list) {
-            model.addElement(nv.getHoTen());
+            if(!nv.getChuyenNganh().equals("")){
+                model.addElement(nv.getHoTen()+" ("+nv.getChuyenNganh()+")");
+            }
+            
         }
     }
     
