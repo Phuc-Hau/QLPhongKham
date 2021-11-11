@@ -54,7 +54,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public void detele(Integer id) {
-        String Delete ="DELETE FROM PhieuKham WHERE (MaPhieuKham = ?";
+        String Delete ="DELETE FROM PhieuKham WHERE (MaPhieuKham = ?)";
         JdbcHelper.Update(Delete, id);
     }
 

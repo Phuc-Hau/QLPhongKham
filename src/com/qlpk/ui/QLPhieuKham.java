@@ -617,21 +617,21 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         tblPhieuKham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã Phiếu Khám", "Mã Bệnh Nhân", "Bác Sĩ", "Ngày Khám"
+                "Mã Phiếu Khám", "Mã Bệnh Nhân", "Bác Sĩ", "Phòng Khám", "Ngày Khám"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -711,7 +711,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
         try {
             List<PhieuKham> list = daoPK.selectAll();
             for (PhieuKham pk : list) {
-                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),pk.getNgayKham()});
+                PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
+                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -721,7 +722,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
     
     void edit(){
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
-        System.out.println(maPk);
         PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
         this.setModelThongTinPk(pk);
         this.setStatus(false);
@@ -755,10 +755,22 @@ public class QLPhieuKham extends javax.swing.JFrame {
         
         cboBacSi.setSelectedItem(pk.getBS());
         
-        //cboNhanVien.setSelectedItem(ABORT);
+        NhanVien nv = daoNV.selectByID(pk.getMaNV());
+        for (int i = 0; i < NhanVienlList.size(); i++) {
+            String Yta =nv.getHoTen()+" ("+ nv.getChuyenNganh()+ ")";
+            if(NhanVienlList.get(i).equals(Yta)){
+                cboNhanVien.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        txtNgayKham.setText(XDate.toString(pk.getNgayKham(), "dd-MM-yyyy"));
+        this.setModelThongTinKhamBenh(pk);
+    }    
+    
+    void setModelThongTinKhamBenh(PhieuKham pk){
         // Thong Tin Kham Benh
         txtMaPhieuKham.setText(pk.getMaPhieuKham());
-        txtNgayKham.setText(XDate.toString(pk.getNgayKham(), "dd-MM-yyyy"));
         // Kham Lam Sang
         txtKhamLamSang.setText(pk.getKhamLamSang());
         txtBenhKem.setText(pk.getBenhKem());
@@ -772,7 +784,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     public PhieuKham getModelPK(){
+        
+        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
+        
         PhieuKham pk = new PhieuKham();
+        pk.setMaPhieuKham(maPk);
         pk.setMaBN(txtMaBenhNhan.getText());
         
         PhongKham phongKham = (PhongKham) cboPhongKham.getSelectedItem();
@@ -781,7 +797,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         NhanVien nv = (NhanVien) cboNhanVien.getSelectedItem();
         pk.setMaNV(nv.getMaNV());
         
-        pk.setBS(cboBacSi.getItemAt(cboBacSi.getSelectedIndex()));
+        pk.setBS((String) cboBacSi.getSelectedItem());
         pk.setNgayKham(new Date());
         pk.setKhamLamSang(txtKhamLamSang.getText());
         pk.setBenhKem(txtBenhKem.getText());
@@ -797,6 +813,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     
     void Clear(){
         this.setModelThongTinBN(new BenhNhan());
+        this.setModelThongTinKhamBenh(new PhieuKham());
     }
     
     int index =-1;
@@ -811,7 +828,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
             daoPK.insert(pk);
             Msgbox.alert(this, "Thêm Thành công");
             this.fillTable();
-            this.Clear();
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Thêm Thất bại");
@@ -824,7 +840,15 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     void updatePK(){
-        
+        PhieuKham pk = this.getModelPK();
+        try {
+            daoPK.update(pk);
+            Msgbox.alert(this, "Sữa Thành công");
+            this.fillTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Sữa Thất bại");
+        }
     }
     
     
@@ -835,6 +859,17 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     void deletePK(){
         
+        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
+        
+        try {
+            daoPK.detele(Integer.valueOf(maPk));
+            this.fillTable();
+            this.Clear();
+            Msgbox.alert(this, "Xóa Thành Công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Xóa Thất Bại");
+        }
     }
     
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
@@ -913,12 +948,14 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
+    List<String> NhanVienlList =new ArrayList<>();
     void fillCboNV(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboNhanVien.getModel();
         model.removeAllElements();
         List<NhanVien> list = daoNV.selectNV();
         for (NhanVien nv: list) {
             if((!nv.getChuyenNganh().equals("")) || nv.getChucVu().equals("Tình Nguyện Viên")){
+                NhanVienlList.add(nv.getHoTen()+" ("+ nv.getChuyenNganh()+ ")");
                 model.addElement(nv);
             }
         }
