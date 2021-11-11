@@ -43,32 +43,32 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         }else{
             Auth.user = nv;
             kt = true;
-            MsgBox.alert(this, "Đăng nhập thành công!");
+            Msgbox.alert(this, "Đăng nhập thành công!");
             this.dispose();
         }
             if (kt==false) {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
-                    txt_user.setText(null);
-                    txt_password.setText(null);
+                    txt_taikhoan.setText(null);
+                    txt_pass.setText(null);
             }
        }
     }   
     void exit(){
-        if (MsgBox.confirm(this, "Bạn muốn kết thúc ứng dụng?")) {
+        if (Msgbox.confirm(this, "Bạn muốn kết thúc ứng dụng?")) {
             System.exit(0);
         }
     }
     
     boolean kt() {
-        String user = txt_user.getText();
-        String pass = String.valueOf(txt_password.getPassword());
+        String user = txt_taikhoan.getText();
+        String pass = String.valueOf(txt_pass.getPassword());
         if (user.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Không bỏ trống tên đăng nhập");
-            txt_user.requestFocus();
+            txt_taikhoan.requestFocus();
             return false;
         } else if (pass.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Không bỏ trống mật khẩu");
-            txt_password.requestFocus();
+            txt_pass.requestFocus();
             return false;
         }
         return true;
@@ -103,8 +103,18 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         jLabel3.setText("Mật khẩu: ");
 
         btn_dangnhap.setText("Đăng nhập");
+        btn_dangnhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dangnhapActionPerformed(evt);
+            }
+        });
 
         bth_exit.setText("Thoát");
+        bth_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bth_exitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -182,6 +192,16 @@ public class DangNhapJDialong extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bth_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bth_exitActionPerformed
+        // TODO add your handling code here:
+        this.exit();
+    }//GEN-LAST:event_bth_exitActionPerformed
+
+    private void btn_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhapActionPerformed
+        // TODO add your handling code here:
+        this.dangnhap();
+    }//GEN-LAST:event_btn_dangnhapActionPerformed
 
     /**
      * @param args the command line arguments
