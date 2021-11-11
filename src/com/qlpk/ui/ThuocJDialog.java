@@ -36,7 +36,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         Tabs.setSelectedIndex(1);
     }
     int row = -1;
-    ThuocDao dao = new ThuocDao();
+    ThuocDao daoThuoc = new ThuocDao();
     void clearForm() {
         txt_loaithuoc.setText("");
         txt_tenthuoc.setText("");
@@ -45,7 +45,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         txt_ghichu.setText("");
         lbl_anh.setIcon(ResizeImage(String.valueOf(" ")));
         this.row = -1;
-        //this.UpdateStatus();
+        this.updateStatus();
     }
     private ImageIcon ResizeImage(String ImagePath) {
         ImageIcon MyImage = new ImageIcon(ImagePath);
@@ -80,7 +80,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
     
     void edit() {
         String th = (String) tbl_danhsach.getValueAt(this.row, 0);
-        Thuoc cd = dao.selectByID(th);
+        Thuoc cd = daoThuoc.selectByID(th);
         this.setForm(cd);
         Tabs.setSelectedIndex(0);
         this.updateStatus();
@@ -103,7 +103,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         //boolean kt = false;
         try {
             //kt=true;
-            dao.insert(th);
+            daoThuoc.insert(th);
             this.fillTable();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
@@ -117,7 +117,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
     void update() {
         Thuoc cd = getForm();
         try {
-            dao.update(cd);
+            daoThuoc.update(cd);
             this.fillTable();
             //this.clearForm();
             Msgbox.alert(this, "Cập nhật thành công!");
@@ -133,7 +133,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
             String loaith = txt_loaithuoc.getText();
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
-                    dao.delete(loaith);
+                    daoThuoc.delete(loaith);
                     this.fillTable();
                     this.clearForm();
                     Msgbox.alert(this, "Xoá thành công!");
@@ -149,7 +149,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tbl_danhsach.getModel();
         model.setRowCount(0);
         try {
-            List<Thuoc> list = dao.selectAll();
+            List<Thuoc> list = daoThuoc.selectAll();
             for (Thuoc th : list) {
                 Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
                 model.addRow(row);
@@ -263,8 +263,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         txt_ghichu.setRows(5);
         jScrollPane2.setViewportView(txt_ghichu);
 
-        lbl_anh.setText("                  (CHỌN ẢNH)");
-        lbl_anh.setToolTipText(" ");
+        lbl_anh.setToolTipText("CHỌN ẢNH");
         lbl_anh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_anhMouseClicked(evt);
@@ -506,6 +505,11 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tbl_danhsach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_danhsachMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_danhsach);
 
         Tabs.addTab("Danh sách", jScrollPane1);
@@ -568,6 +572,14 @@ public class ThuocJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.update();
     }//GEN-LAST:event_btn_suaActionPerformed
+
+    private void tbl_danhsachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_danhsachMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            this.row = tbl_danhsach.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tbl_danhsachMouseClicked
 
     /**
      * @param args the command line arguments
