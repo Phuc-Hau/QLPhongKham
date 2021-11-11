@@ -106,6 +106,6 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
         return list;
     }
 
-    
-    
+  
+
 }

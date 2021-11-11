@@ -38,7 +38,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel11 = new javax.swing.JLabel();
         pnlFromBenhNhan = new javax.swing.JPanel();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        tabsPK = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,7 +107,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbtPhieuKham = new javax.swing.JTable();
+        tblPhieuKham = new javax.swing.JTable();
 
         jLabel11.setText("jLabel11");
 
@@ -115,7 +115,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         pnlFromBenhNhan.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTabbedPane3.setPreferredSize(new java.awt.Dimension(934, 837));
+        tabsPK.setPreferredSize(new java.awt.Dimension(934, 837));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(905, 612));
@@ -613,10 +613,14 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("Phiếu Khám", jPanel2);
+        tabsPK.addTab("Phiếu Khám", jPanel2);
 
-        tbtPhieuKham.setModel(new javax.swing.table.DefaultTableModel(
+        tblPhieuKham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -634,7 +638,12 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tbtPhieuKham);
+        tblPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPhieuKhamMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblPhieuKham);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -653,20 +662,20 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("Danh Sách", jPanel3);
+        tabsPK.addTab("Danh Sách", jPanel3);
 
         javax.swing.GroupLayout pnlFromBenhNhanLayout = new javax.swing.GroupLayout(pnlFromBenhNhan);
         pnlFromBenhNhan.setLayout(pnlFromBenhNhanLayout);
         pnlFromBenhNhanLayout.setHorizontalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlFromBenhNhanLayout.setVerticalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
 
-        jTabbedPane3.getAccessibleContext().setAccessibleName("Danh Sách");
+        tabsPK.getAccessibleContext().setAccessibleName("Danh Sách");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -687,12 +696,17 @@ public class QLPhieuKham extends javax.swing.JFrame {
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
     NhanVienDao daoNV = new NhanVienDao();
     
+    int indexPK=-1;
+    
     void inti(){
         fillTable();
+        fillCboPhongKham();
+        fillCboNV();
+        txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }
     
     void fillTable(){
-        DefaultTableModel model = (DefaultTableModel) tbtPhieuKham.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblPhieuKham.getModel();
         model.setRowCount(0);
         try {
             List<PhieuKham> list = daoPK.selectAll();
@@ -706,7 +720,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void edit(){
-        
+        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
+        System.out.println(maPk);
+        PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
+        this.setModelThongTinPk(pk);
+        this.setStatus(false);
     }
     
     void setModelThongTinBN(BenhNhan bn){
@@ -722,26 +740,41 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtNgheNghiep.setText(bn.getNgheNghiep());
     }
 
-    void setModelThongTinPk(NhanVien nv){
+    void setModelThongTinPk(PhieuKham pk){
+        //Thong Tin kham
+        BenhNhan bn = daoBN.selectByID(pk.getMaBN());
+        this.setModelThongTinBN(bn);
+        
+        PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
+        for (int i = 0; i < PhongKhamList.size(); i++) {
+            if(PhongKhamList.get(i).equals(phongKham.getTenPhongKham())){
+                cboPhongKham.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        cboBacSi.setSelectedItem(pk.getBS());
+        
+        //cboNhanVien.setSelectedItem(ABORT);
         // Thong Tin Kham Benh
-        txtMaPhieuKham.setText("");
-        cboPhongKham.setSelectedItem("");
-        txtNgayKham.setText("");
+        txtMaPhieuKham.setText(pk.getMaPhieuKham());
+        txtNgayKham.setText(XDate.toString(pk.getNgayKham(), "dd-MM-yyyy"));
         // Kham Lam Sang
-        txtKhamLamSang.setText("");
-        txtBenhKem.setText("");
-        txtChuanDoan.setText("");
-        txtNhipTim.setText("");
-        txtNhietDo.setText("");
-        txtHuyetAp.setText("");
-        txtChieuCao.setText("");
-        txtCanNang.setText("");
-        txtKetQuaDieuTri.setText("");
+        txtKhamLamSang.setText(pk.getKhamLamSang());
+        txtBenhKem.setText(pk.getBenhKem());
+        txtChuanDoan.setText(pk.getChuanDoan());
+        txtNhipTim.setText(String.valueOf(pk.getNhipTim()));
+        txtNhietDo.setText(String.valueOf(pk.getNhietDo()));
+        txtHuyetAp.setText(String.valueOf(pk.getHuyetAp()));
+        txtChieuCao.setText(String.valueOf(pk.getChieuCao()));
+        txtCanNang.setText(String.valueOf(pk.getCanNang()));
+        txtKetQuaDieuTri.setText(pk.getKetQuaDieuTri());
     }
     
     public PhieuKham getModelPK(){
         PhieuKham pk = new PhieuKham();
         pk.setMaBN(txtMaBenhNhan.getText());
+        
         PhongKham phongKham = (PhongKham) cboPhongKham.getSelectedItem();
         pk.setMaPK(phongKham.getMaPK());
         
@@ -765,6 +798,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     void Clear(){
         this.setModelThongTinBN(new BenhNhan());
     }
+    
     int index =-1;
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
@@ -812,10 +846,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
         // TODO add your handling code here:
         this.setStatus(true);
+        btnNext.setEnabled(false);
         fillBenhNhan();
-        fillCboPhongKham();
-        fillCboNV();
-        txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }//GEN-LAST:event_btnBatDauActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -828,16 +860,22 @@ public class QLPhieuKham extends javax.swing.JFrame {
         fillCboBS();
     }//GEN-LAST:event_cboPhongKhamActionPerformed
 
+    private void tblPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuKhamMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            indexPK=tblPhieuKham.getSelectedRow();
+            this.edit();
+            tabsPK.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_tblPhieuKhamMouseClicked
+    
     
     void setStatus(boolean x){
-        btnBatDau.setEnabled(!x);
-        btnNext.setEnabled(x);
         btnInsert.setEnabled(x);
-        btnUpdate.setEnabled(!x && btnBatDau.isEnabled()==false);
-        btnDelete.setEnabled(!x && btnBatDau.isEnabled()==false);
-        btnNew.setEnabled(x);
-        btnInPhieuKham.setEnabled(!x && btnBatDau.isEnabled()==false);
-        txtNgayKham.setEditable(!x && btnBatDau.isEnabled()==false);
+        btnUpdate.setEnabled(!x);
+        btnDelete.setEnabled(!x);
+        btnNew.setEnabled(true);
+        btnInPhieuKham.setEnabled(!x);
     }
     void fillBenhNhan(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
@@ -971,10 +1009,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JPanel pnlDieuchinh2;
     private javax.swing.JPanel pnlFromBenhNhan;
-    private javax.swing.JTable tbtPhieuKham;
+    private javax.swing.JTabbedPane tabsPK;
+    private javax.swing.JTable tblPhieuKham;
     private javax.swing.JTextField txtBenhKem;
     private javax.swing.JTextField txtCanNang;
     private javax.swing.JTextField txtChieuCao;
