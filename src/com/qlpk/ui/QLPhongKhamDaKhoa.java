@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar; 
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -502,7 +503,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlPhongKham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlChucNangLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(40, 40, 40)
                 .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -525,9 +526,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addComponent(pnlThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlTieu.setBackground(new java.awt.Color(207, 81, 255));
@@ -683,7 +684,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                             .addComponent(lblGio)
                             .addComponent(lblPhuc)
                             .addComponent(lblGiay))))
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab1", pnlFromHome);
@@ -706,7 +707,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromBenhNhanLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel17)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", pnlFromBenhNhan);
@@ -729,7 +730,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhieuKhamLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel18)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab3", pnlFromPhieuKham);
@@ -752,7 +753,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel19)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab4", pnlFromPhongKham);
@@ -775,7 +776,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromDonThuocLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel20)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab5", pnlFromDonThuoc);
@@ -798,7 +799,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromThuocLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel21)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab6", pnlFromThuoc);
@@ -821,12 +822,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromNhanVienLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel22)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab7", pnlFromNhanVien);
 
-        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 910, 640));
+        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 910, 590));
 
         javax.swing.GroupLayout pnlChinhLayout = new javax.swing.GroupLayout(pnlChinh);
         pnlChinh.setLayout(pnlChinhLayout);
@@ -883,7 +884,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tabs.setSelectedIndex(0);
         lblChucNang.setText("Home");
         this.GetDate();
-        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);  
         
     }
     
