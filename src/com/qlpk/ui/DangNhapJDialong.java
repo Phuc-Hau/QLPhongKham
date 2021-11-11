@@ -7,6 +7,7 @@ package com.qlpk.ui;
 
 import com.qlpk.dao.NhanVienDao;
 import com.qlpk.entity.NhanVien;
+import com.qlpk.utils.Auth;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.XImage;
 import javax.swing.JOptionPane;
