@@ -81,11 +81,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         pnlcolorHome = new javax.swing.JPanel();
-        lblExit = new javax.swing.JLabel();
         pnlPhongKham = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         pnlcolorPhongKham = new javax.swing.JPanel();
+        lblExit = new javax.swing.JLabel();
         pnlTieu = new javax.swing.JPanel();
         lblChucNang = new javax.swing.JLabel();
         pnlFrom = new javax.swing.JPanel();
@@ -459,11 +459,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlcolorHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        lblExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblExit.setForeground(new java.awt.Color(255, 255, 255));
-        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
-        lblExit.setText("Thoát");
-
         pnlPhongKham.setBackground(new java.awt.Color(160, 126, 173));
         pnlPhongKham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -511,6 +506,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
             .addComponent(pnlcolorPhongKham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        lblExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblExit.setForeground(new java.awt.Color(255, 255, 255));
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
+        lblExit.setText("Thoát");
 
         javax.swing.GroupLayout pnlChucNangLayout = new javax.swing.GroupLayout(pnlChucNang);
         pnlChucNang.setLayout(pnlChucNangLayout);
@@ -892,6 +892,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+
         tblPhongKham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1069,7 +1071,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tabs.setSelectedIndex(0);
         lblChucNang.setText("Home");
         this.GetDate();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);  
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);  
         
     }
     
@@ -1161,13 +1163,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblChucNang.setText("Đơn Thuốc");
     }//GEN-LAST:event_pnlDonThuocMousePressed
 
-    boolean ErrorPK() {
-        if (Utility.checkNullText(txtTenPK) && Utility.checkNullText(txtMaPK) ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
     
 //    
 //      Begin  From Phong Kham
@@ -1356,6 +1352,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnPrev.setEnabled(edit && !first);
         btnNext.setEnabled(edit && !last);
         btnLast.setEnabled(edit && !last);
+    }
+    
+    boolean ErrorPK() {
+        if (Utility.checkNullText(txtTenPK) && Utility.checkNullText(txtMaPK) ) {
+            return true;
+        } else {
+            Msgbox.alert(this, "Không bỏ trống thông tin");
+            return false;
+        }
     }
     
 //    
