@@ -31,7 +31,7 @@ public class Auth {
      /**
      * Kiểm tra xem có phải là trưởng phòng hay không
      */
-    public static boolean isManager() {
-        return Auth.isLogin() && user.getChucVu();
+    public static String isManager() {
+        return user.getChucVu();
     }
 }
