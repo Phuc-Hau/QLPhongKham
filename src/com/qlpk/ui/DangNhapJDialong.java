@@ -27,6 +27,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
      */
     public DangNhapJDialong() {
         initComponents();
+        init();
     }
     NhanVienDao daoNV = new NhanVienDao();
     private void init(){
