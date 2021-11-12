@@ -418,20 +418,15 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     }
 
     void insertPK() {
-        //if (kt()) {
         PhongKham th = getForm();
-        //boolean kt = false;
         try {
-            //kt=true;
             dao.insert(th);
             this.fillTablePhongKham();
             this.clearFormPK();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
-            //kt=false;
             e.printStackTrace();
             Msgbox.alert(this, "Thêm mới thất bại!");
-            //}       
         }
     }
 
@@ -440,7 +435,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         try {
             dao.update(pk);
             this.fillTablePhongKham();
-            //this.clearForm();
             Msgbox.alert(this, "Cập nhật thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Cập nhật thất bại!");
@@ -448,9 +442,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     }
 
     void deletePK() {
-        //if (!Auth.isManager()) {
-        //    MsgBox.alert(this, "Bạn không có quyền xóa phòng khám này!");
-        //} else {
         String loaiPK = txtMaPK.getText();
         if (Msgbox.confirm(this, "Bạn thực sự muốn xóa phòng khám này?")) {
             try {
@@ -461,7 +452,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             } catch (Exception e) {
                 Msgbox.alert(this, "Xóa thất bại!");
             }
-            //}
         }
     }
 
