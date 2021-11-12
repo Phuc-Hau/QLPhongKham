@@ -265,7 +265,9 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
         if (Error()) {
+            
             this.insert();
+            
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
