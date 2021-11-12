@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import com.qlpk.utils.Msgbox;
 import static java.awt.Color.*;
 import java.util.Date;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 /**
  *
@@ -74,6 +75,10 @@ public class Utility {
             txt.setBackground(Color.yellow);
             return false;
         }
+    }
+
+    public static boolean checkNullText(JTextArea txtGhiChu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -9,6 +9,7 @@ import com.qlpk.dao.PhongKhamBenhDao;
 import com.qlpk.dao.PhongKhamDao;
 import com.qlpk.entity.PhongKham;
 import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.Utility;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -210,7 +211,20 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             new String [] {
                 "Mã Phòng Khám", "Tên Phòng Khám", "Ghi Chú"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblPhongKham.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPhongKhamMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblPhongKham);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -250,9 +264,18 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        this.insert();
+        if (Error()) {
+            this.insert();
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
+    boolean Error() {
+        if (Utility.checkNullText(txtTenPK) && Utility.checkNullText(txtMaPK) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
         this.update();
@@ -287,6 +310,14 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.last();
     }//GEN-LAST:event_btnLastActionPerformed
+
+    private void tblPhongKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhongKhamMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            this.row = tblPhongKham.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblPhongKhamMouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,13 +391,15 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     }
     int row = -1;
     PhongKhamBenhDao dao = new PhongKhamBenhDao();
+
     void clearForm() {
         txtMaPK.setText("");
         txtGhiChu.setText("");
         txtTenPK.setText("");
         this.row = -1;
-        //this.UpdateStatus();
+        this.updateStatus();
     }
+
     void first() {
         this.row = 0;
         this.edit();
@@ -375,7 +408,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     void prev() {
         if (this.row > 0) {
             this.row--;
-           this.edit();
+            this.edit();
         }
     }
 
@@ -390,15 +423,14 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         this.row = tblPhongKham.getRowCount() - 1;
         this.edit();
     }
-    
+
     void edit() {
         String th = (String) tblPhongKham.getValueAt(this.row, 0);
         PhongKham pk = dao.selectByID(th);
         this.setForm(pk);
         this.updateStatus();
     }
-    
-    
+
     void insert() {
         //if (kt()) {
         PhongKham th = getForm();
@@ -413,10 +445,10 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             //kt=false;
             e.printStackTrace();
             Msgbox.alert(this, "Thêm mới thất bại!");
-        //}       
+            //}       
         }
     }
-    
+
     void update() {
         PhongKham pk = getForm();
         try {
@@ -433,20 +465,20 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         //if (!Auth.isManager()) {
         //    MsgBox.alert(this, "Bạn không có quyền xóa phòng khám này!");
         //} else {
-            String loaiPK = txtMaPK.getText();
-            if (Msgbox.confirm(this, "Bạn thực sự muốn xóa phòng khám này?")) {
-                try {
-                    dao.detele(loaiPK);
-                    this.fillTablePhongKham();
-                    this.clearForm();
-                    Msgbox.alert(this, "Xoá thành công!");
-                } catch (Exception e) {
-                    Msgbox.alert(this, "Xóa thất bại!");
-                }
+        String loaiPK = txtMaPK.getText();
+        if (Msgbox.confirm(this, "Bạn thực sự muốn xóa phòng khám này?")) {
+            try {
+                dao.detele(loaiPK);
+                this.fillTablePhongKham();
+                this.clearForm();
+                Msgbox.alert(this, "Xoá thành công!");
+            } catch (Exception e) {
+                Msgbox.alert(this, "Xóa thất bại!");
+            }
             //}
         }
     }
-    
+
     //Đỗ dữ liệu vào tblphongkham
     void fillTablePhongKham() {
         DefaultTableModel model = (DefaultTableModel) tblPhongKham.getModel();
@@ -462,7 +494,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
-    
+
     //Hien thi thuoc len form
     void setForm(PhongKham pk) {
         txtMaPK.setText(pk.getMaPK());
