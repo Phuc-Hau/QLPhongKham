@@ -27,6 +27,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
      */
     public DangNhapJDialong() {
         initComponents();
+        init();
     }
     NhanVienDao daoNV = new NhanVienDao();
     private void init(){
@@ -83,6 +84,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Đăng nhâp");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
