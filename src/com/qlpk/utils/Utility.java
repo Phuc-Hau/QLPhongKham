@@ -77,8 +77,32 @@ public class Utility {
         }
     }
 
-    public static boolean checkNullText(JTextArea txtGhiChu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static boolean checkNullTextArea(JTextArea txt) {
+        txt.setBackground(white);
+        if (txt.getText().trim().length() > 0) {
+            return true;
+        } else {
+            txt.setBackground(Color.yellow);
+            return false;
+        }
+    }
+    
+    public static boolean checkSoNguyen(JTextField txt) {
+        txt.setBackground(white);
+        try {
+            int hour = Integer.parseInt(txt.getText());
+            if (hour >= 0) {
+                return true;
+            } else {
+                txt.setBackground(Color.yellow);
+                Msgbox.alert(txt.getRootPane(), txt.getName() + " phải lớn hơn bằng 0.");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            txt.setBackground(Color.yellow);
+            Msgbox.alert(txt.getRootPane(), txt.getName() + " phải là số nguyên.");
+            return false;
+        }
     }
     
     public static boolean checkMaBenhNhan(JTextField txt){

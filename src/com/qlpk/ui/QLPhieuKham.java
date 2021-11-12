@@ -135,6 +135,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         txtMaPhieuKham.setEditable(false);
 
+        txtNgayKham.setEditable(false);
+
         cboPhongKham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboPhongKhamActionPerformed(evt);
@@ -215,9 +217,18 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         jLabel14.setText("Cân Nặng");
 
+        txtNhipTim.setName("Nhịp Tim"); // NOI18N
+
+        txtNhietDo.setName("Nhiệt Độ"); // NOI18N
+
+        txtHuyetAp.setName("Huyết Áp"); // NOI18N
+
+        txtCanNang.setName("Cân Nặng"); // NOI18N
+
         jLabel15.setText("Chiều Cao");
 
         txtChieuCao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtChieuCao.setName("Chiều Cao"); // NOI18N
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 141, 0));
@@ -379,6 +390,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jLabel21.setText("Giới Tính");
 
         txtGT.setEditable(false);
+        txtGT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel22.setText("Tuổi");
 
@@ -386,6 +398,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         txtTuoi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtHoTen.setEditable(false);
+        txtHoTen.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -789,11 +802,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     public PhieuKham getModelPK(){
-        
-        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
-        
+
         PhieuKham pk = new PhieuKham();
-        pk.setMaPhieuKham(maPk);
+        
         pk.setMaBN(txtMaBenhNhan.getText());
         
         PhongKham phongKham = (PhongKham) cboPhongKham.getSelectedItem();
@@ -821,11 +832,25 @@ public class QLPhieuKham extends javax.swing.JFrame {
         this.setModelThongTinKhamBenh(new PhieuKham());
     }
     
-    int index =-1;
+    int index =0;
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        this.insertPK();
+        if(this.errorPhieuKham()){
+            this.insertPK();
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        if(this.errorPhieuKham()){
+            this.updatePK();
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        this.deletePK();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     void insertPK(){
         PhieuKham pk = this.getModelPK();
@@ -839,13 +864,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-        this.updatePK();
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
     void updatePK(){
+        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = this.getModelPK();
+        pk.setMaPhieuKham(maPk);
         try {
             daoPK.update(pk);
             Msgbox.alert(this, "Sữa Thành công");
@@ -856,16 +878,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
-    
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        this.deletePK();
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     void deletePK(){
-        
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
-        
         try {
             daoPK.detele(Integer.valueOf(maPk));
             this.fillTable();
@@ -875,6 +889,30 @@ public class QLPhieuKham extends javax.swing.JFrame {
             e.printStackTrace();
             Msgbox.alert(this, "Xóa Thất Bại");
         }
+    }
+    
+    boolean errorPhieuKham(){
+        int error=0;
+        if(!Utility.checkNullTextArea(txtKhamLamSang)){
+            error++;
+        }
+        
+        if(!Utility.checkNullText(txtChuanDoan)){
+            error++;
+        }
+        
+        if (!Utility.checkNullTextArea(txtKetQuaDieuTri)) {
+            error++;
+        }
+        if(!(Utility.checkSoNguyen(txtNhipTim) && Utility.checkSoNguyen(txtNhietDo) && Utility.checkSoNguyen(txtHuyetAp)
+                && Utility.checkSoNguyen(txtCanNang) && Utility.checkSoNguyen(txtChieuCao))){
+            error++;
+        }
+        
+        if(error !=0){
+            Msgbox.alert(this, "Không được bỏ trống");
+            return false;
+        } else return true;
     }
     
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
