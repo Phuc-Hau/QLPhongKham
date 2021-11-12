@@ -96,8 +96,10 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setText("Quản Lý Nhân Viên Phòng Khám");
 
+        tabs.setBackground(new java.awt.Color(255, 255, 255));
         tabs.setOpaque(true);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
 
         jLabel2.setText("Mã Nhân Viên");
@@ -110,10 +112,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
         jLabel4.setText("Giới Tính");
 
+        rdoNam.setBackground(new java.awt.Color(255, 255, 255));
         btgGTNV.add(rdoNam);
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
+        rdoNu.setBackground(new java.awt.Color(255, 255, 255));
         btgGTNV.add(rdoNu);
         rdoNu.setText("Nữ");
 
@@ -444,12 +448,14 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                 && Utility.checkNullText(txtEmail)
                 && Utility.parseEmail(txtEmail)
                 && Utility.checkNullText(txtDiaChi)
-                //&& Utility.checkNullText(cboChucVu)
                 && Utility.checkNullText(txtLuong)
                 
                 ) {
             return true;
-        }else return false;  
+        }else{
+            Msgbox.alert(this, "Không bỏ trống thông tin");
+            return false;
+        }  
     }
      
     public  boolean checkTrungMa(JTextField txt){

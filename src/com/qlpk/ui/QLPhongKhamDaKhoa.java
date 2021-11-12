@@ -1163,6 +1163,22 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblChucNang.setText("Đơn Thuốc");
     }//GEN-LAST:event_pnlDonThuocMousePressed
 
+//    
+//      Begin From Benh Nhan
+//    
+    
+//    
+//      End From Benh Nhan
+//      
+    
+    
+//    
+//      Begin From Phieu Kham 
+//    
+    
+//    
+//      End From Phieu Kham
+//   
     
     
 //    
@@ -1366,6 +1382,33 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 //    
 //      End From Phong Kham
 //    
+
+    
+//    
+//      Begin From Don Thuoc
+//    
+    
+//    
+//      End From Don Thuoc
+//       
+
+    
+//    
+//      Begin From Thuoc
+//    
+    
+//    
+//      End From Thuoc
+//       
+
+    
+//    
+//      Begin From Nhan Vien
+//    
+    
+//    
+//      End From NhanVien
+//       
     
 
     /**
