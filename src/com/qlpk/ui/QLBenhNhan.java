@@ -724,7 +724,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             return true;
         }else return false;  
     }
-     
+     // dan
     public  boolean checkTrungMa(JTextField txt){
         txtMaBN.setBackground(white);
         if (daoBN.selectByID(txtMaBN.getText())==null) {
