@@ -232,15 +232,11 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -295,22 +291,34 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         // TODO add your handling code here:
-        this.first();
+        this.row = 0;
+        this.editPK();
+        tblPhongKham.setRowSelectionInterval(this.row, this.row);
     }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
         // TODO add your handling code here:
-        this.prev();
+        if (this.row > 0) {
+            this.row--;
+            this.editPK();
+            tblPhongKham.setRowSelectionInterval(this.row, this.row);
+        }
     }//GEN-LAST:event_btnPrevActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        this.next();
+        if (this.row < tblPhongKham.getRowCount() - 1) {
+            this.row++;
+            this.editPK();
+            tblPhongKham.setRowSelectionInterval(this.row, this.row);
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
         // TODO add your handling code here:
-        this.last();
+        this.row = tblPhongKham.getRowCount() - 1;
+        this.editPK();
+        tblPhongKham.setRowSelectionInterval(this.row, this.row);
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void tblPhongKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhongKhamMouseClicked
@@ -401,29 +409,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         this.updateStatus();
     }
 
-    void first() {
-        this.row = 0;
-        this.editPK();
-    }
-
-    void prev() {
-        if (this.row > 0) {
-            this.row--;
-            this.editPK();
-        }
-    }
-
-    void next() {
-        if (this.row < tblPhongKham.getRowCount() - 1) {
-            this.row++;
-            this.editPK();
-        }
-    }
-
-    void last() {
-        this.row = tblPhongKham.getRowCount() - 1;
-        this.editPK();
-    }
 
     void editPK() {
         String th = (String) tblPhongKham.getValueAt(this.row, 0);

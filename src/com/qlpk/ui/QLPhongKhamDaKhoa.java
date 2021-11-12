@@ -101,7 +101,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromPhieuKham = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         pnlFromPhongKham = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         pnlFromDonThuoc = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         pnlFromThuoc = new javax.swing.JPanel();
@@ -733,23 +732,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         pnlFromPhongKham.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel19.setText("Phong Kham");
-
         javax.swing.GroupLayout pnlFromPhongKhamLayout = new javax.swing.GroupLayout(pnlFromPhongKham);
         pnlFromPhongKham.setLayout(pnlFromPhongKhamLayout);
         pnlFromPhongKhamLayout.setHorizontalGroup(
             pnlFromPhongKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(684, Short.MAX_VALUE))
+            .addGap(0, 905, Short.MAX_VALUE)
         );
         pnlFromPhongKhamLayout.setVerticalGroup(
             pnlFromPhongKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel19)
-                .addContainerGap(506, Short.MAX_VALUE))
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         tabs.addTab("tab4", pnlFromPhongKham);
@@ -1035,7 +1026,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
