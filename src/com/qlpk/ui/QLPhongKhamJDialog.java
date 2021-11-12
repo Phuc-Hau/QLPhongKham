@@ -264,14 +264,14 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (Error()) {
+        if (ErrorPK()) {
             
-            this.insert();
+            this.insertPK();
             
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
-    boolean Error() {
+    boolean ErrorPK() {
         if (Utility.checkNullText(txtTenPK) && Utility.checkNullText(txtMaPK) ) {
             return true;
         } else {
@@ -280,17 +280,17 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     }
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        this.update();
+        this.updatePK();
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-        this.clearForm();
+        this.clearFormPK();
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        this.delete();
+        this.deletePK();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
@@ -317,7 +317,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.row = tblPhongKham.getSelectedRow();
-            this.edit();
+            this.editPK();
         }
     }//GEN-LAST:event_tblPhongKhamMouseClicked
 
@@ -394,7 +394,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     int row = -1;
     PhongKhamBenhDao dao = new PhongKhamBenhDao();
 
-    void clearForm() {
+    void clearFormPK() {
         txtMaPK.setText("");
         txtGhiChu.setText("");
         txtTenPK.setText("");
@@ -404,36 +404,36 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
 
     void first() {
         this.row = 0;
-        this.edit();
+        this.editPK();
     }
 
     void prev() {
         if (this.row > 0) {
             this.row--;
-            this.edit();
+            this.editPK();
         }
     }
 
     void next() {
         if (this.row < tblPhongKham.getRowCount() - 1) {
             this.row++;
-            this.edit();
+            this.editPK();
         }
     }
 
     void last() {
         this.row = tblPhongKham.getRowCount() - 1;
-        this.edit();
+        this.editPK();
     }
 
-    void edit() {
+    void editPK() {
         String th = (String) tblPhongKham.getValueAt(this.row, 0);
         PhongKham pk = dao.selectByID(th);
         this.setForm(pk);
         this.updateStatus();
     }
 
-    void insert() {
+    void insertPK() {
         //if (kt()) {
         PhongKham th = getForm();
         //boolean kt = false;
@@ -441,7 +441,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             //kt=true;
             dao.insert(th);
             this.fillTablePhongKham();
-            this.clearForm();
+            this.clearFormPK();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             //kt=false;
@@ -451,7 +451,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         }
     }
 
-    void update() {
+    void updatePK() {
         PhongKham pk = getForm();
         try {
             dao.update(pk);
@@ -463,7 +463,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
         }
     }
 
-    void delete() {
+    void deletePK() {
         //if (!Auth.isManager()) {
         //    MsgBox.alert(this, "Bạn không có quyền xóa phòng khám này!");
         //} else {
@@ -472,7 +472,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             try {
                 dao.detele(loaiPK);
                 this.fillTablePhongKham();
-                this.clearForm();
+                this.clearFormPK();
                 Msgbox.alert(this, "Xoá thành công!");
             } catch (Exception e) {
                 Msgbox.alert(this, "Xóa thất bại!");
