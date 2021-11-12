@@ -81,7 +81,16 @@ public class Utility {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    public static boolean checkMaBenhNhan(JTextField txt){
+        txt.setBackground(white); 
+        String ma = txt.getText();  
+        String rgx = "(BN)[0-9]{5}"; 
+        if(ma.matches(rgx)==false){
+            txt.setBackground(Color.yellow);
+            Msgbox.alert(txt.getRootPane(), txt.getName() + " không đúng định dạng \nVD: BN00001");
+            return false;
+        } else return true;
+    }
     
     
     
