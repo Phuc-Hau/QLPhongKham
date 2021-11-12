@@ -45,17 +45,18 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         String manv = txt_taikhoan.getText();
         String pass = new String(txt_pass.getPassword());
         NhanVien nv = daoNV.selectByID(manv);      
-        try{
-            Auth.user = nv;
+        if (pass.equals(nv.getPass()) && manv.equals(nv.getMaNV())) {
+                Auth.user = nv;
             Msgbox.alert(this, "Đăng nhập thành công!");
-            this.dispose();     
-        }catch(Exception e) {
-                JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
+            this.dispose();
+            }else{
+               JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
                     txt_taikhoan.setText(null);
-                    txt_pass.setText(null);
             }
-       
-    }   
+    }
+
+        
+      
     void exit(){
         if (Msgbox.confirm(this, "Bạn muốn kết thúc ứng dụng?")) {
             System.exit(0);
