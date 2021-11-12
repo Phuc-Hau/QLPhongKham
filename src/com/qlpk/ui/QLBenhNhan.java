@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.qlpk.ui;
-
+ 
 import com.qlpk.dao.BenhNhanDao;
 import com.qlpk.entity.BenhNhan;
 import com.qlpk.utils.Msgbox;
