@@ -615,6 +615,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         tabsPK.addTab("Phiếu Khám", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+
         tblPhieuKham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -657,9 +661,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(48, 48, 48)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         tabsPK.addTab("Danh Sách", jPanel3);
@@ -721,6 +725,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void edit(){
+        btnBatDau.setEnabled(true);
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
         this.setModelThongTinPk(pk);
@@ -881,7 +886,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
         // TODO add your handling code here:
         this.setStatus(true);
-        btnNext.setEnabled(false);
+        btnBatDau.setEnabled(false);
         fillBenhNhan();
     }//GEN-LAST:event_btnBatDauActionPerformed
 
