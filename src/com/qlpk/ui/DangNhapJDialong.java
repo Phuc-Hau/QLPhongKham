@@ -9,8 +9,12 @@ import com.qlpk.dao.NhanVienDao;
 import com.qlpk.entity.NhanVien;
 import com.qlpk.utils.Auth;
 import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage;
+import java.awt.Color;
+import static java.awt.Color.white;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,35 +28,33 @@ public class DangNhapJDialong extends javax.swing.JFrame {
     public DangNhapJDialong() {
         initComponents();
     }
-    NhanVienDao dao = new NhanVienDao();
+    NhanVienDao daoNV = new NhanVienDao();
     private void init(){
         this.setLocationRelativeTo(null);
         this.setIconImage(XImage.getAppIcon());
     }
-    void dangnhap(){
-        if (kt()) {                 
+    
+    boolean Error(){
+        if (Utility.checkNullText(txt_taikhoan)          
+                && Utility.CheckPass(txt_pass)       
+                ) {
+            return true;
+        }else return false;  
+    }
+    void dangnhap(){                
         String manv = txt_taikhoan.getText();
         String pass = new String(txt_pass.getPassword());
-        NhanVien nv = dao.selectByID(manv);
-        boolean kt = false;
-        if (nv == null) {
-            Msgbox.alert(this, "Sai tên đăng nhập!");
-            kt = false;
-        }else if(!pass.equals(nv.getPass())){
-            Msgbox.alert(this, "Sai mật khẩu!");
-            kt = false;
-        }else{
+        NhanVien nv = daoNV.selectByID(manv);      
+        try{
             Auth.user = nv;
-            kt = true;
             Msgbox.alert(this, "Đăng nhập thành công!");
-            this.dispose();
-        }
-            if (kt==false) {
+            this.dispose();     
+        }catch(Exception e) {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
                     txt_taikhoan.setText(null);
                     txt_pass.setText(null);
             }
-       }
+       
     }   
     void exit(){
         if (Msgbox.confirm(this, "Bạn muốn kết thúc ứng dụng?")) {
@@ -60,20 +62,6 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         }
     }
     
-    boolean kt() {
-        String user = txt_taikhoan.getText();
-        String pass = String.valueOf(txt_pass.getPassword());
-        if (user.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Không bỏ trống tên đăng nhập");
-            txt_taikhoan.requestFocus();
-            return false;
-        } else if (pass.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Không bỏ trống mật khẩu");
-            txt_pass.requestFocus();
-            return false;
-        }
-        return true;
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,7 +189,11 @@ public class DangNhapJDialong extends javax.swing.JFrame {
 
     private void btn_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhapActionPerformed
         // TODO add your handling code here:
-        this.dangnhap();
+        if(txt_pass.getText()!=null){
+            if (Error()) {
+                this.dangnhap();
+            }
+        } 
     }//GEN-LAST:event_btn_dangnhapActionPerformed
 
     /**
