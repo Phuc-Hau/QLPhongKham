@@ -4,13 +4,17 @@ package com.qlpk.ui;
 import com.qlpk.dao.ThuocDao;
 import com.qlpk.entity.Thuoc;
 import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage;
+import java.awt.Color;
+import static java.awt.Color.white;
 import java.awt.Image;
 import java.io.File;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -96,25 +100,64 @@ public class ThuocJDialog extends javax.swing.JDialog {
                      
         }
     }
-    
-    void insert() {
-        //if (kt()) {
+    boolean Error(){
+        if (Utility.checkNullText(txt_loaithuoc)           
+                && Utility.checkNullText(txt_tenthuoc)
+                && Utility.checkNullText(txt_gianhap)
+                && Utility.checkNullText(txt_giaban)
+                
+                ) {
+            return true;
+        }else return false;  
+    }
+    public  boolean checkTrungMa(JTextField txt){
+        txt.setBackground(white);
+        if (daoThuoc.selectByID(txt.getText())==null) {
+            return true;    
+        }else{
+            txt.setBackground(Color.red);
+           Msgbox.alert(this,txt.getName()+" Mã đã tồn tại");
+            return false;
+        
+        }
+    } 
+    boolean kt() {
+        String gianhap = txt_gianhap.getText();
+        String giaban = txt_giaban.getText();
+        String tenthuoc = txt_tenthuoc.getText();
+        if (tenthuoc.matches("[0-9]{1,5000}")) {
+            JOptionPane.showMessageDialog(this, "Tên thuốc phải là chữ!");
+            txt_tenthuoc.requestFocus();
+            return false;
+        }else if (!gianhap.matches("[0-9]{1,100000}") ) {
+            JOptionPane.showMessageDialog(this, "Sai định dạng số, phải có ít nhất 2 số!");
+            txt_gianhap.requestFocus();
+            return false;
+        }else if (!giaban.matches("[0-9]{1,100000}") ) {
+            JOptionPane.showMessageDialog(this, "Sai định dạng số, phải có ít nhất 2 số!");
+            txt_giaban.requestFocus();
+            return false;
+        }
+        return true;
+    }
+    void insertThuoc() {
+        if (kt()) {
         Thuoc th = getForm();
-        //boolean kt = false;
+        boolean kt = false;
         try {
-            //kt=true;
+            kt=true;
             daoThuoc.insert(th);
             this.fillTable();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
-            //kt=false;
-            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");
-        //}       
+            kt=true;
+            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");      
+        }
         }
     }
     
-    void update() {
+    void updateThuoc() {
         Thuoc cd = getForm();
         try {
             daoThuoc.update(cd);
@@ -565,12 +608,24 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         // TODO add your handling code here:
-        this.insert();
+        if(txt_loaithuoc.getText()==null){
+            if (Error()) {
+                this.insertThuoc();
+            }
+        } else{
+            if (Error()&&checkTrungMa(txt_loaithuoc)) {
+                this.insertThuoc();
+            }
+        }
     }//GEN-LAST:event_btn_themActionPerformed
 
     private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
         // TODO add your handling code here:
-        this.update();
+        if(txt_loaithuoc.getText()==null){
+            if (Error()) {
+                this.updateThuoc();
+            }
+        } 
     }//GEN-LAST:event_btn_suaActionPerformed
 
     private void tbl_danhsachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_danhsachMouseClicked
