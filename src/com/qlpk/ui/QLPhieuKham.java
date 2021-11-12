@@ -105,6 +105,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnInPhieuKham = new javax.swing.JButton();
         btnBatDau = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
+        btnBoQua = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPhieuKham = new javax.swing.JTable();
@@ -541,6 +542,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
             }
         });
 
+        btnBoQua.setText("Bỏ qua");
+        btnBoQua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBoQuaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlDieuchinh2Layout = new javax.swing.GroupLayout(pnlDieuchinh2);
         pnlDieuchinh2.setLayout(pnlDieuchinh2Layout);
         pnlDieuchinh2Layout.setHorizontalGroup(
@@ -556,11 +564,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
                 .addComponent(btnNew)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInPhieuKham)
-                .addGap(183, 183, 183)
+                .addGap(120, 120, 120)
                 .addComponent(btnBatDau)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNext)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBoQua, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         pnlDieuchinh2Layout.setVerticalGroup(
             pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,7 +583,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
                     .addComponent(btnNew)
                     .addComponent(btnInPhieuKham)
                     .addComponent(btnBatDau)
-                    .addComponent(btnNext))
+                    .addComponent(btnNext)
+                    .addComponent(btnBoQua))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -946,6 +957,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
             tabsPK.setSelectedIndex(0);
         }
     }//GEN-LAST:event_tblPhieuKhamMouseClicked
+
+    private void btnBoQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoQuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBoQuaActionPerformed
     
     
     void setStatus(boolean x){
@@ -1041,6 +1056,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatDau;
+    private javax.swing.JButton btnBoQua;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInPhieuKham;
     private javax.swing.JButton btnInsert;
