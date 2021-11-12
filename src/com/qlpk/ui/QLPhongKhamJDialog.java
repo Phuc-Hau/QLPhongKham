@@ -395,7 +395,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     void init() {
         setLocationRelativeTo(null);
         this.fillTablePhongKham();
-        this.row = -1;
         this.updateStatus();
     }
     int row = -1;
