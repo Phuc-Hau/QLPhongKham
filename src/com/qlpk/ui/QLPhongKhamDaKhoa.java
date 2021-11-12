@@ -15,6 +15,14 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
+import com.qlpk.entity.*;
+import com.qlpk.dao.*;
+import com.qlpk.utils.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -859,7 +867,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    PhieuKhamDao daoPK = new PhieuKhamDao();
+    BenhNhanDao daoBN = new BenhNhanDao();
+    PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
+    NhanVienDao daoNV = new NhanVienDao();
+    ThuocDao daoThuoc = new ThuocDao();
+    DonThuocDao daoDT = new DonThuocDao();
     
     void inti(){
         this.setColor(pnlcolorHome,pnlHome); // discoloration

@@ -390,8 +390,8 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         tabs.setSelectedIndex(1);
     }
     int row = -1;
-    ThuocDao dao = new ThuocDao();
-    DonThuocDao dtdao = new DonThuocDao();
+    ThuocDao daoThuoc = new ThuocDao();
+    DonThuocDao daoDT = new DonThuocDao();
     void clearForm() {
         txtMaBN.setText("");
         txtDonThuoc.setText("");
@@ -429,7 +429,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     
     void edit() {
         int th =   (int) tblDonThuoc.getValueAt(this.row, 0);
-        DonThuoc dt = dtdao.selectByID(th);
+        DonThuoc dt = daoDT.selectByID(th);
         this.setForm(dt);
         tabs.setSelectedIndex(0);
         this.updateStatus();
@@ -442,7 +442,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         //boolean kt = false;
         try {
             //kt=true;
-            dtdao.insert(th);
+            daoDT.insert(th);
             this.fillTableDonThuoc();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
@@ -456,7 +456,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     void update() {
         DonThuoc th = getForm();
         try {
-            dtdao.update(th);
+            daoDT.update(th);
             this.fillTableDonThuoc();
             //this.clearForm();
             Msgbox.alert(this, "Cập nhật thành công!");
@@ -472,7 +472,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             int MaDT = Integer.valueOf(txtDonThuoc.getText());
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
-                    dtdao.detele(MaDT);
+                    daoDT.detele(MaDT);
                     this.fillTableDonThuoc();
                     this.clearForm();
                     Msgbox.alert(this, "Xoá thành công!");
@@ -487,9 +487,9 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tblDonThuoc.getModel();
         model.setRowCount(0);
         try {
-            List<DonThuoc> list = dtdao.selectAll();
+            List<DonThuoc> list = daoDT.selectAll();
             for (DonThuoc th : list) {
-                Object[] row = {th.getDonThuoc(), th.getMaPhieuKham(), th.getMaBN(), th.()};
+                Object[] row = {th.getDonThuoc(), th.getMaPhieuKham(), th.getMaBN()};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -502,7 +502,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tbl_danhsach.getModel();
         model.setRowCount(0);
         try {
-            List<Thuoc> list = dao.selectAll();
+            List<Thuoc> list = daoThuoc.selectAll();
             for (Thuoc th : list) {
                 Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
                 model.addRow(row);
@@ -519,9 +519,10 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     }
 
     //tao donthuoc tu form
-    Thuoc getForm() {
+    DonThuoc getForm() {
+        DonThuoc thuoc = new DonThuoc();
         
-        return null;
+        return thuoc;
         
     }
 
