@@ -386,7 +386,6 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     void init() {
         setLocationRelativeTo(null);
-
         this.fillTablePhongKham();
         this.row = -1;
         this.updateStatus();
