@@ -727,13 +727,13 @@ public class QLPhieuKham extends javax.swing.JFrame {
     int indexPK=-1;
     
     void inti(){
-        fillTable();
+        fillTablePhieuKham();
         fillCboPhongKham();
         fillCboNV();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }
     
-    void fillTable(){
+    void fillTablePhieuKham(){
         DefaultTableModel model = (DefaultTableModel) tblPhieuKham.getModel();
         model.setRowCount(0);
         try {
@@ -868,7 +868,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         try {
             daoPK.insert(pk);
             Msgbox.alert(this, "Thêm Thành công");
-            this.fillTable();
+            this.fillTablePhieuKham();
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Thêm Thất bại");
@@ -882,7 +882,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         try {
             daoPK.update(pk);
             Msgbox.alert(this, "Sữa Thành công");
-            this.fillTable();
+            this.fillTablePhieuKham();
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Sữa Thất bại");
@@ -893,7 +893,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         try {
             daoPK.detele(Integer.valueOf(maPk));
-            this.fillTable();
+            this.fillTablePhieuKham();
             this.Clear();
             Msgbox.alert(this, "Xóa Thành Công");
         } catch (Exception e) {

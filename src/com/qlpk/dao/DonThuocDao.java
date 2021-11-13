@@ -21,7 +21,7 @@ public class DonThuocDao extends PhongKhamDao<DonThuoc, Integer>{
 
     @Override
     public void insert(DonThuoc entity) {
-        String sql = "INSERT INTO DonThuoc ( DonThuoc, MaBN, MaPhieuKham) VALUES (?,?,?)";
+        String sql = "SET IDENTITY_INSERT DonThuoc ON  INSERT INTO DonThuoc ( DonThuoc, MaBN, MaPhieuKham) VALUES (?,?,?)";
         JdbcHelper.Update(sql, 
                 entity.getDonThuoc(),
                 entity.getMaBN(),

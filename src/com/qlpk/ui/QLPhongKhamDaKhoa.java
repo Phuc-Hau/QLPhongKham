@@ -1063,6 +1063,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     NhanVienDao daoNV = new NhanVienDao();
     ThuocDao daoThuoc = new ThuocDao();
     DonThuocDao daoDT = new DonThuocDao();
+    DonThuocCTDao daoDTCT = new DonThuocCTDao();
     
     void inti(){
         this.setColor(pnlcolorHome,pnlHome); // discoloration
