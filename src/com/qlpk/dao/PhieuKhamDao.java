@@ -70,6 +70,11 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
         String SelectAll ="select * from PhieuKham";
         return selectBySql(SelectAll);
     }
+    
+    public List<PhieuKham> selectChuaCoDonThuoc() {
+        String Select ="select PhieuKham.* from PhieuKham left join DonThuoc on PhieuKham.MABN= DonThuoc.MaBN where DonThuoc.MaBN is null";
+        return selectBySql(Select);
+    }
 
     @Override
     protected List<PhieuKham> selectBySql(String sql, Object... args) {

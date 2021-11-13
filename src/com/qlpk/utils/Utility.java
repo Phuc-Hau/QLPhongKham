@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import com.qlpk.utils.Msgbox;
 import static java.awt.Color.*;
 import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 /**
@@ -103,6 +104,18 @@ public class Utility {
             Msgbox.alert(txt.getRootPane(), txt.getName() + " phải là số nguyên.");
             return false;
         }
+    }
+    
+    public static boolean checkSLTable(JTable tbl){
+        int error=0;
+        for (int i = 0; i < tbl.getRowCount(); i++) {
+            if(tbl.getValueAt(i, 2) == null){
+                error ++;
+            }
+        }
+        if(error !=0){
+            return false;
+        } else return true;
     }
     
     public static boolean checkMaBenhNhan(JTextField txt){

@@ -522,7 +522,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         this.fillTableDonThuoc();
         this.fillTableDanhSachThuoc();
-        this.fillTablePhieuKham();
+        this.fillTableDonThuocBenhNhan();
         this.row = -1;
         this.updateStatus();
         tabsDonThuoc.setSelectedIndex(2);
@@ -693,11 +693,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         }
     }
     
-    void fillTablePhieuKham(){
+    void fillTableDonThuocBenhNhan(){
         DefaultTableModel model = (DefaultTableModel) tblPhieuKham.getModel();
         model.setRowCount(0);
         try {
-            List<PhieuKham> list = daoPK.selectAll();
+            List<PhieuKham> list = daoPK.selectChuaCoDonThuoc();
             for (PhieuKham pk : list) {
                 PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
                 model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
@@ -746,10 +746,20 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     }
     
     boolean CheckErrorDonThuoc(){
-        if(Utility.checkNullText(txtDonThuoc)){
+        int error=0;
+        if(!Utility.checkNullText(txtDonThuoc)){
+            error ++;
+            Msgbox.alert(this, "Dơn thuốc không bỏ trống");
+        } else
+        if(!Utility.checkSLTable(tblThuoc)){
+            error ++;
+            Msgbox.alert(this, "Số Lượng không bỏ trống");
+        }
+        if(error !=0){
+             return false;
+        } else{
             return true;
         }
-        
-        return false;
+       
     }
 }
