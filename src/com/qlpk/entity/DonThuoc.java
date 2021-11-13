@@ -12,7 +12,7 @@ package com.qlpk.entity;
 public class DonThuoc {
     int donThuoc;
     String maBN;
-    int maPhieuKham;
+    int  maPhieuKham; 
 
     public DonThuoc() {
     }

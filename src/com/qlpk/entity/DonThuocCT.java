@@ -28,7 +28,7 @@ public class DonThuocCT {
     }
 
     public void setDonThuoc(int donThuoc) {
-        this.donThuoc = donThuoc;
+         this.donThuoc = donThuoc;
     }
 
     public String getLoaiThuoc() {

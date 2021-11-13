@@ -79,7 +79,7 @@ public class DonThuocCTDao extends PhongKhamDao<DonThuocCT, Integer>{
             }
         } 
         catch (SQLException ex) {
-            throw new RuntimeException(ex);
+             throw new RuntimeException(ex); 
         }
         return list;
     }

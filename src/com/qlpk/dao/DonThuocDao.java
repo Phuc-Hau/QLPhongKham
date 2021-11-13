@@ -63,7 +63,7 @@ public class DonThuocDao extends PhongKhamDao<DonThuoc, Integer>{
     protected List<DonThuoc> selectBySql(String sql, Object... args) {
         List<DonThuoc> list=new ArrayList<>();
         try {
-            ResultSet rs = null;
+             ResultSet rs = null;
             try {
                 rs = JdbcHelper.query(sql, args);
                 while(rs.next()){

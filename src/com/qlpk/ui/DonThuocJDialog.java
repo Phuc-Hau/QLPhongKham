@@ -506,7 +506,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         //if (!Auth.isManager()) {
         //    MsgBox.alert(this, "Bạn không có quyền xóa Loại thuốc này!");
         //} else {
-            int MaDT = Integer.valueOf(txtDonThuoc.getText());
+             int MaDT = Integer.valueOf(txtDonThuoc.getText());
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
                     daoDT.detele(MaDT);
