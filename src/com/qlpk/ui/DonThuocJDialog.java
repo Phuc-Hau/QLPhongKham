@@ -5,9 +5,11 @@
  */
 package com.qlpk.ui;
 
+import com.qlpk.dao.DonThuocCTDao;
 import com.qlpk.dao.DonThuocDao;
 import com.qlpk.dao.ThuocDao;
 import com.qlpk.entity.DonThuoc;
+import com.qlpk.entity.DonThuocCT;
 import com.qlpk.entity.Thuoc;
 import com.qlpk.utils.Msgbox;
 import java.util.List;
@@ -26,6 +28,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     public DonThuocJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.init();
     }
 
     /**
@@ -107,6 +110,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tblThuoc);
 
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnXoa.setText("Xóa");
 
@@ -174,7 +182,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                     .addComponent(btnXoa)
                     .addComponent(btnSua)
                     .addComponent(btnMoi))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         tabs.addTab("Cập nhập", pnlCapnhap);
@@ -212,7 +220,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         pnlDanhsachLayout.setVerticalGroup(
             pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDanhsachLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -236,6 +244,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         );
 
         btnThemThuoc.setText("Thêm");
+        btnThemThuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemThuocActionPerformed(evt);
+            }
+        });
 
         tbl_danhsach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,12 +315,17 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnThemThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThuocActionPerformed
+        // TODO add your handling code here:
+        this.editThuoc();
+    }//GEN-LAST:event_btnThemThuocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,6 +410,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     int row = -1;
     ThuocDao daoThuoc = new ThuocDao();
     DonThuocDao daoDT = new DonThuocDao();
+    DonThuocCTDao daoDTCT = new DonThuocCTDao();
     void clearForm() {
         txtMaBN.setText("");
         txtDonThuoc.setText("");
@@ -434,15 +453,29 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         tabs.setSelectedIndex(0);
         this.updateStatus();
     }
+    void editThuoc(){
+        int th = (int) tbl_danhsach.getValueAt(this.row, 1);
+        DefaultTableModel model = (DefaultTableModel) tblDonThuoc.getModel();
+        model.setRowCount(0);
+        Object[] row = {th, 0};
+        model.addRow(row);
+            
+            
+    }
     
     
     void insert() {
         //if (kt()) {
         DonThuoc th = getForm();
+        DonThuocCT dtct = getFormDTCT();
         //boolean kt = false;
         try {
             //kt=true;
             daoDT.insert(th);
+            for (int i = 0; i < tblThuoc.getRowCount(); i++) {
+                daoDTCT.insert(dtct);
+            }
+            
             this.fillTableDonThuoc();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
@@ -455,8 +488,12 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     
     void update() {
         DonThuoc th = getForm();
+        DonThuocCT dtct = getFormDTCT();
         try {
             daoDT.update(th);
+            for (int i = 0; i < tblThuoc.getRowCount(); i++) {
+                daoDTCT.update(dtct);
+            }
             this.fillTableDonThuoc();
             //this.clearForm();
             Msgbox.alert(this, "Cập nhật thành công!");
@@ -473,6 +510,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
                     daoDT.detele(MaDT);
+                    daoDTCT.detele(MaDT);
                     this.fillTableDonThuoc();
                     this.clearForm();
                     Msgbox.alert(this, "Xoá thành công!");
@@ -512,17 +550,43 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
-    
+    //Đỗ dữ liệu vào tblThuoc
+    void fillTableLoaiThuoc(){
+        DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
+        model.setRowCount(0);
+        try {
+            List<DonThuocCT> list = daoDTCT.selectAll();
+            for (DonThuocCT dt : list) {
+                Object[] row = {dt.getLoaiThuoc(),dt.getSoLuong()};
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
     //Hien thi donthuoc len form
     void setForm(DonThuoc th) {
-        
+        txtDonThuoc.setText(String.valueOf(th.getDonThuoc()));
+        txtMaBN.setText(th.getMaBN());
+        txtMaPhieuKham.setText(String.valueOf(th.getMaPhieuKham()));
     }
 
+    //tao donthuocct tu form
+    DonThuocCT getFormDTCT(){
+        DonThuocCT th = new DonThuocCT();
+        th.setDonThuoc(Integer.valueOf(txtDonThuoc.getText()));
+        th.setLoaiThuoc((String) tblThuoc.getValueAt(1, 1));
+        th.setSoLuong((int) tblDonThuoc.getValueAt(1, 2));
+        return th;
+    }
     //tao donthuoc tu form
     DonThuoc getForm() {
-        DonThuoc thuoc = new DonThuoc();
-        
-        return thuoc;
+        DonThuoc th = new DonThuoc();
+        th.setDonThuoc(Integer.valueOf(txtDonThuoc.getText()));
+        th.setMaBN(txtMaBN.getText());
+        th.setMaPhieuKham(Integer.valueOf(txtMaPhieuKham.getText()));
+        return th;
         
     }
 

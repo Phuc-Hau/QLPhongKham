@@ -21,21 +21,19 @@ public class DonThuocDao extends PhongKhamDao<DonThuoc, Integer>{
 
     @Override
     public void insert(DonThuoc entity) {
-        String sql = "INSERT INTO DonThuoc ( DonThuoc, MaBN, MaPhieuKham, SoLuong) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO DonThuoc ( DonThuoc, MaBN, MaPhieuKham) VALUES (?,?,?)";
         JdbcHelper.Update(sql, 
                 entity.getDonThuoc(),
                 entity.getMaBN(),
-                entity.getMaPhieuKham(),
-                entity.getSoLuong());
+                entity.getMaPhieuKham());
     }
 
     @Override
     public void update(DonThuoc entity) {
-        String sql = "UPDATE DonThuoc SET  MaBN=?, MaPhieuKham=?, SoLuong=?) WHERE DonThuoc=? ";
+        String sql = "UPDATE DonThuoc SET  MaBN=?, MaPhieuKham=?,) WHERE DonThuoc=? ";
         JdbcHelper.Update(sql, 
                 entity.getMaBN(),
                 entity.getMaPhieuKham(),
-                entity.getSoLuong(),
                 entity.getDonThuoc());
     }
 
@@ -73,7 +71,6 @@ public class DonThuocDao extends PhongKhamDao<DonThuoc, Integer>{
                     entity.setDonThuoc(rs.getInt("DonThuoc"));
                     entity.setMaBN(rs.getString("MaBN"));
                     entity.setMaPhieuKham(rs.getInt("MaPhieuKham"));
-                    entity.setSoLuong(rs.getInt("SoLuong"));
                     list.add(entity);
                 }
             } 

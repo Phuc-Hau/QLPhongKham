@@ -13,16 +13,14 @@ public class DonThuoc {
     int donThuoc;
     String maBN;
     int maPhieuKham;
-    int soLuong;
 
     public DonThuoc() {
     }
 
-    public DonThuoc(int donThuoc, String maBN, int maPhieuKham, int soLuong) {
+    public DonThuoc(int donThuoc, String maBN, int maPhieuKham) {
         this.donThuoc = donThuoc;
         this.maBN = maBN;
         this.maPhieuKham = maPhieuKham;
-        this.soLuong = soLuong;
     }
 
     public int getDonThuoc() {
@@ -49,12 +47,5 @@ public class DonThuoc {
         this.maPhieuKham = maPhieuKham;
     }
 
-    public int getSoLuong() {
-        return soLuong;
-    }
-
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
-    }
     
 }
