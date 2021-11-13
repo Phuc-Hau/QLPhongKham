@@ -7,7 +7,7 @@ package com.qlpk.ui;
 
 import com.qlpk.dao.*;
 import com.qlpk.entity.*;
-import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -415,7 +415,9 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        insertDonThuoc();
+       if(CheckErrorDonThuoc()){
+            insertDonThuoc();
+       }
     }//GEN-LAST:event_btnThemActionPerformed
 
     
@@ -586,8 +588,8 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 DonThuocCT dtct = getFormDTCT(i);
                 daoDTCT.insert(dtct);
             }
-//            this.fillTableDonThuoc();
-//            this.clearForm();
+            this.fillTableDonThuoc();
+            this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             e.printStackTrace();
@@ -726,7 +728,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         DonThuocCT thct = new DonThuocCT();
         thct.setDonThuoc(Integer.valueOf(txtDonThuoc.getText()));
         thct.setLoaiThuoc((String) tblThuoc.getValueAt(i, 0));
-        thct.setSoLuong((int) tblDonThuoc.getValueAt(i, 2));
+        thct.setSoLuong((int) tblThuoc.getValueAt(i, 2));
         return thct;
     }
     //tao donthuoc tu form
@@ -741,5 +743,13 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     //cap nhap trang thai cac nut
     void updateStatus() {
    
+    }
+    
+    boolean CheckErrorDonThuoc(){
+        if(Utility.checkNullText(txtDonThuoc)){
+            return true;
+        }
+        
+        return false;
     }
 }

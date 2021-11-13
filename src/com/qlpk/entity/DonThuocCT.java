@@ -14,15 +14,7 @@ public class DonThuocCT {
     String loaiThuoc;
     int soLuong;
 
-    public DonThuocCT() {
-    }
-
-    public DonThuocCT(int donThuoc, String loaiThuoc, int soLuong) {
-        this.donThuoc = donThuoc;
-        this.loaiThuoc = loaiThuoc;
-        this.soLuong = soLuong;
-    }
-
+    
     public int getDonThuoc() {
         return donThuoc;
     }
