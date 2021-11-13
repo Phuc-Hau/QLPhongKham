@@ -5,12 +5,8 @@
  */
 package com.qlpk.ui;
 
-import com.qlpk.dao.DonThuocCTDao;
-import com.qlpk.dao.DonThuocDao;
-import com.qlpk.dao.ThuocDao;
-import com.qlpk.entity.DonThuoc;
-import com.qlpk.entity.DonThuocCT;
-import com.qlpk.entity.Thuoc;
+import com.qlpk.dao.*;
+import com.qlpk.entity.*;
 import com.qlpk.utils.Msgbox;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -41,7 +37,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        tabs = new javax.swing.JTabbedPane();
+        tabsDonThuoc = new javax.swing.JTabbedPane();
         pnlCapnhap = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMaNV = new javax.swing.JTextField();
@@ -57,15 +53,17 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         btnXoa = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
-        pnlDanhsach = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblDonThuoc = new javax.swing.JTable();
+        txtTenBenhNhan = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         pnlThuoc = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
         btnThemThuoc = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_danhsach = new javax.swing.JTable();
+        tbldanhsachThuoc = new javax.swing.JTable();
+        pnlDanhsach = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDonThuoc = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -83,20 +81,17 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
         tblThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Loại Thuốc", "Số Lượng"
+                "Loại Thuốc", "Tên Thuốc", "Số Lượng"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -117,10 +112,17 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         });
 
         btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         btnSua.setText("Sửa");
 
         btnMoi.setText("Mới");
+
+        jLabel6.setText("Tên Bệnh Nhân ");
 
         javax.swing.GroupLayout pnlCapnhapLayout = new javax.swing.GroupLayout(pnlCapnhap);
         pnlCapnhap.setLayout(pnlCapnhapLayout);
@@ -130,30 +132,37 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 .addGap(32, 32, 32)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCapnhapLayout.createSequentialGroup()
-                        .addComponent(btnThem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnXoa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnMoi)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(pnlCapnhapLayout.createSequentialGroup()
-                        .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                        .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCapnhapLayout.createSequentialGroup()
+                                .addComponent(btnThem)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnXoa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSua)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnMoi))
                             .addGroup(pnlCapnhapLayout.createSequentialGroup()
                                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtMaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtDonThuoc, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGap(72, 72, 72)
+                                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtMaBN, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                    .addComponent(txtMaPhieuKham))))
-                        .addGap(95, 95, 95))))
+                                    .addGroup(pnlCapnhapLayout.createSequentialGroup()
+                                        .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtMaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3))
+                                        .addGap(76, 76, 76)
+                                        .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(txtTenBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlCapnhapLayout.setVerticalGroup(
             pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,11 +170,13 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTenBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -185,47 +196,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        tabs.addTab("Cập nhập", pnlCapnhap);
-
-        tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Đơn Thuốc", "Mã Phiếu Khám", "Bệnh Nhân", "Bác Sĩ"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblDonThuoc);
-
-        javax.swing.GroupLayout pnlDanhsachLayout = new javax.swing.GroupLayout(pnlDanhsach);
-        pnlDanhsach.setLayout(pnlDanhsachLayout);
-        pnlDanhsachLayout.setHorizontalGroup(
-            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDanhsachLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
-        );
-        pnlDanhsachLayout.setVerticalGroup(
-            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDanhsachLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        tabs.addTab("Danh sách", pnlDanhsach);
+        tabsDonThuoc.addTab("Cập nhập", pnlCapnhap);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)), "Tìm Kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
@@ -250,7 +221,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             }
         });
 
-        tbl_danhsach.setModel(new javax.swing.table.DefaultTableModel(
+        tbldanhsachThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -266,7 +237,12 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tbl_danhsach);
+        tbldanhsachThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbldanhsachThuocMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbldanhsachThuoc);
 
         javax.swing.GroupLayout pnlThuocLayout = new javax.swing.GroupLayout(pnlThuoc);
         pnlThuoc.setLayout(pnlThuocLayout);
@@ -296,7 +272,47 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        tabs.addTab("Thuốc", pnlThuoc);
+        tabsDonThuoc.addTab("Thuốc", pnlThuoc);
+
+        tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Đơn Thuốc", "Mã Phiếu Khám", "Bệnh Nhân", "Bác Sĩ"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblDonThuoc);
+
+        javax.swing.GroupLayout pnlDanhsachLayout = new javax.swing.GroupLayout(pnlDanhsach);
+        pnlDanhsach.setLayout(pnlDanhsachLayout);
+        pnlDanhsachLayout.setHorizontalGroup(
+            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDanhsachLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        pnlDanhsachLayout.setVerticalGroup(
+            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDanhsachLayout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        tabsDonThuoc.addTab("Danh sách", pnlDanhsach);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,18 +321,20 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(tabsDonThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabsDonThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -324,8 +342,28 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
     private void btnThemThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThuocActionPerformed
         // TODO add your handling code here:
-        this.editThuoc();
+        
     }//GEN-LAST:event_btnThemThuocActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+        this.editThuoc();
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    int indexDanhsachThuoc=-1;
+    private void tbldanhsachThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbldanhsachThuocMouseClicked
+        // TODO add your handling code here:
+        indexDanhsachThuoc=tbldanhsachThuoc.getSelectedRow();
+        if(evt.getClickCount()==2){
+            System.out.println(indexDanhsachThuoc);
+            this.AddTableThuocKham();
+            tabsDonThuoc.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_tbldanhsachThuocMouseClicked
 
     /**
      * @param args the command line arguments
@@ -380,6 +418,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -387,25 +426,25 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel pnlCapnhap;
     private javax.swing.JPanel pnlDanhsach;
     private javax.swing.JPanel pnlThuoc;
-    private javax.swing.JTabbedPane tabs;
+    private javax.swing.JTabbedPane tabsDonThuoc;
     private javax.swing.JTable tblDonThuoc;
     private javax.swing.JTable tblThuoc;
-    private javax.swing.JTable tbl_danhsach;
+    private javax.swing.JTable tbldanhsachThuoc;
     private javax.swing.JTextField txtDonThuoc;
     private javax.swing.JTextField txtMaBN;
     private javax.swing.JTextField txtMaNV;
     private javax.swing.JTextField txtMaPhieuKham;
+    private javax.swing.JTextField txtTenBenhNhan;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
     
     void init() {
         setLocationRelativeTo(null);
-
         this.fillTableDonThuoc();
-        this.fillTableThuoc();
+        this.fillTableDanhSachThuoc();
         this.row = -1;
         this.updateStatus();
-        tabs.setSelectedIndex(1);
+        tabsDonThuoc.setSelectedIndex(1);
     }
     int row = -1;
     ThuocDao daoThuoc = new ThuocDao();
@@ -435,14 +474,14 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     }
 
     void next() {
-        if (this.row < tbl_danhsach.getRowCount() - 1) {
+        if (this.row < tbldanhsachThuoc.getRowCount() - 1) {
             this.row++;
             this.edit();
         }
     }
 
     void last() {
-        this.row = tbl_danhsach.getRowCount() - 1;
+        this.row = tbldanhsachThuoc.getRowCount() - 1;
         this.edit();
     }
     
@@ -450,11 +489,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         int th =   (int) tblDonThuoc.getValueAt(this.row, 0);
         DonThuoc dt = daoDT.selectByID(th);
         this.setForm(dt);
-        tabs.setSelectedIndex(0);
+        tabsDonThuoc.setSelectedIndex(0);
         this.updateStatus();
     }
     void editThuoc(){
-        int th = (int) tbl_danhsach.getValueAt(this.row, 1);
+        int th = (int) tbldanhsachThuoc.getValueAt(this.row, 1);
         DefaultTableModel model = (DefaultTableModel) tblDonThuoc.getModel();
         model.setRowCount(0);
         Object[] row = {th, 0};
@@ -536,8 +575,8 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         }
     }
     //Đỗ dữ liệu vào tbl_danhSach
-    void fillTableThuoc() {
-        DefaultTableModel model = (DefaultTableModel) tbl_danhsach.getModel();
+    void fillTableDanhSachThuoc() {
+        DefaultTableModel model = (DefaultTableModel) tbldanhsachThuoc.getModel();
         model.setRowCount(0);
         try {
             List<Thuoc> list = daoThuoc.selectAll();
@@ -551,7 +590,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         }
     }
     //Đỗ dữ liệu vào tblThuoc
-    void fillTableLoaiThuoc(){
+    void fillTableThuocKham(){
         DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
         model.setRowCount(0);
         try {
@@ -565,6 +604,22 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
+    
+    void AddTableThuocKham(){
+        DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
+        String LoaiThuoc = (String) tbldanhsachThuoc.getValueAt(indexDanhsachThuoc, 0);
+        try {
+            Thuoc thuoc = daoThuoc.selectByID(LoaiThuoc);
+            
+                Object[] row = {thuoc.getLoaiThuoc(),thuoc.getTenThuoc()};
+                model.addRow(row);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
     //Hien thi donthuoc len form
     void setForm(DonThuoc th) {
         txtDonThuoc.setText(String.valueOf(th.getDonThuoc()));
