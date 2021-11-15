@@ -16,20 +16,14 @@ public class BenhNhan {
     String DiaChi;
     String NgheNghiep;
     String GhiChu;
+    String TrangThai;
 
-    public BenhNhan() { 
+    public String getTrangThai() {
+        return TrangThai;
     }
 
-    public BenhNhan(String MaBN, String TenBenhNhan, boolean GioiTinh, String SDT, Date NgaySinh, int Tuoi, String DiaChi, String NgheNghiep, String GhiChu) {
-        this.MaBN = MaBN;
-        this.TenBenhNhan = TenBenhNhan;
-        this.GioiTinh = GioiTinh;
-        this.SDT = SDT;
-        this.NgaySinh = NgaySinh;
-        this.Tuoi = Tuoi;
-        this.DiaChi = DiaChi;
-        this.NgheNghiep = NgheNghiep;
-        this.GhiChu = GhiChu;
+    public void setTrangThai(String TrangThai) {
+        this.TrangThai = TrangThai;
     }
 
     public String getMaBN() {
