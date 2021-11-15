@@ -14,11 +14,13 @@ import com.qlpk.utils.XImage;
 import java.awt.Color;
 import static java.awt.Color.white;
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,6 +53,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private void initComponents() {
 
         btgGTNV = new javax.swing.ButtonGroup();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -62,7 +65,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         rdoNam = new javax.swing.JRadioButton();
         rdoNu = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        txtNgaySinh = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -86,9 +88,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
         lblAnh = new javax.swing.JLabel();
+        DateNgaySinh = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
+
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,8 +127,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         rdoNu.setText("Nữ");
 
         jLabel5.setText("Ngày Sinh (DD/MM/YYY)");
-
-        txtNgaySinh.setName("Ngày Sinh"); // NOI18N
 
         jLabel6.setText("Email");
 
@@ -222,6 +225,8 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             }
         });
 
+        DateNgaySinh.setDateFormatString("dd-MM-yyyy");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -265,7 +270,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSoDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNgaySinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(DateNgaySinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(65, 65, 65)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,7 +286,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                                 .addComponent(cboChuyenNganh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtLuong)
                                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnPrev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,9 +332,9 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel10))
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cboChuyenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cboChuyenNganh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DateNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -390,7 +395,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -442,7 +447,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         if (Utility.checkNullText(txtMaNV)
                 
                 && Utility.checkNullText(txtHoTen)
-                && Utility.checkNullText(txtNgaySinh)
                 && Utility.checkNullText(txtSoDT)
                 && Utility.checkSDT(txtSoDT)
                 && Utility.checkNullText(txtEmail)
@@ -556,12 +560,13 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(QuanLyNhanVienJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -583,6 +588,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateNgaySinh;
     private javax.swing.ButtonGroup btgGTNV;
     private javax.swing.JButton btnFirst;
     private javax.swing.JButton btnLast;
@@ -605,6 +611,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -619,7 +626,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private javax.swing.JTextField txtHoTen;
     private javax.swing.JTextField txtLuong;
     private javax.swing.JTextField txtMaNV;
-    private javax.swing.JTextField txtNgaySinh;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtSoDT;
     // End of variables declaration//GEN-END:variables
@@ -692,7 +698,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         txtHoTen.setText(nv.getHoTen());
         rdoNam.setSelected(nv.isGioiTinh());
         rdoNu.setSelected(nv.isGioiTinh());
-        txtNgaySinh.setText(XDate.toString(nv.getNgaySinh(), "MM/dd/yyyy"));
+        DateNgaySinh.setDate(nv.getNgaySinh());
         txtSoDT.setText(nv.getSoDT());
         txtEmail.setText(nv.getEmail());
         txtDiaChi.setText(nv.getDiaChi());
@@ -711,7 +717,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         nv.setMaNV(txtMaNV.getText());
         nv.setHoTen(txtHoTen.getText());
         nv.setGioiTinh(rdoNam.isSelected());
-        nv.setNgaySinh(XDate.toDate(txtNgaySinh.getText(), "MM/dd/yyyy"));
+        nv.setNgaySinh(DateNgaySinh.getDate());
         nv.setEmail(txtEmail.getText());
         nv.setSoDT(txtSoDT.getText());
         nv.setDiaChi(txtDiaChi.getText());
@@ -730,7 +736,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         txtHoTen.setText("");
         rdoNam.setSelected(true);
         rdoNu.setSelected(true);
-        txtNgaySinh.setText("");
+        DateNgaySinh.setDate(new Date());
         txtSoDT.setText("");
         txtEmail.setText("");
         txtDiaChi.setText("");

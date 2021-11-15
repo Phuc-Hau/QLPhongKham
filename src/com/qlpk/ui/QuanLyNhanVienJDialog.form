@@ -4,6 +4,11 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="btgGTNV">
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel8"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -132,7 +137,7 @@
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtSoDT" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                                          <Component id="txtNgaySinh" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
+                                          <Component id="DateNgaySinh" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -155,9 +160,9 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="btnPrev" min="-2" pref="73" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnNext" min="-2" pref="73" max="-2" attributes="0"/>
@@ -213,9 +218,9 @@
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtNgaySinh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cboChuyenNganh" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="cboChuyenNganh" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DateNgaySinh" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="lblAnh" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
@@ -302,11 +307,6 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ng&#xe0;y Sinh (DD/MM/YYY)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtNgaySinh">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="Ng&#xe0;y Sinh" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -482,6 +482,11 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAnhMouseClicked"/>
               </Events>
             </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="DateNgaySinh">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -498,7 +503,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="711" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="715" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
