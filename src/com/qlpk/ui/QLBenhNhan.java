@@ -402,12 +402,10 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-        if(checkTrungMa(txtMaBN)){
             if (Error()) {
                 this.update(); 
             }
-        }
-    }                                      
+        }                                    
 
     private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
