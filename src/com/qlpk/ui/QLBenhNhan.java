@@ -546,7 +546,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
     }
-
+ 
     void FillTableBenhNhan() {
         DefaultTableModel model = (DefaultTableModel) tblDanhsach.getModel();
         model.setRowCount(0);
