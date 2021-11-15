@@ -13,7 +13,7 @@ public class BenhNhan {
     String SDT;
     Date NgaySinh;
     int Tuoi;
-    String DiaChi;
+    String DiaChi; 
     String NgheNghiep;
     String GhiChu;
     String TrangThai;
