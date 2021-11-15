@@ -78,6 +78,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
                 entity.setDiaChi(rs.getString("DiaChi"));
                 entity.setNgheNghiep(rs.getString("NgheNghiep"));
                 entity.setGhiChu(rs.getString("GhiChu"));
+                entity.setTrangThai(rs.getString("TrangThai")); 
                 list.add(entity);
             }
             rs.getStatement().getConnection().close();
