@@ -73,6 +73,15 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
         return  this.selectBySql(SELECT_ALL_SQL);
     }
     
+    public NhanVien selectByEmail(String id) {
+        String Sql = "SELECT*FROM NhanVien WHERE Email =?";
+         List<NhanVien> list = this.selectBySql(Sql,id);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
+    
     public List<NhanVien> selectBS(String id) {
         return  this.selectBySql("select * from NhanVien where ChucVu = N'Bác Sĩ' and ChuyenNganh = ? ",id);
     }
