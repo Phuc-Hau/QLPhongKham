@@ -12,6 +12,7 @@ import com.qlpk.utils.Utility;
 import com.qlpk.utils.XDate;
 import java.awt.Color;
 import static java.awt.Color.white;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -51,7 +52,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtHoten = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNgaysinh = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDanhsach = new javax.swing.JTable();
@@ -78,6 +78,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         txttimkiem = new javax.swing.JTextField();
         btntim = new javax.swing.JButton();
+        DateNgaySinh = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,12 +99,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         jLabel4.setText("Giới tính :");
 
         jLabel5.setText("Địa Chỉ :");
-
-        txtNgaysinh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNgaysinhActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Điện thoại :");
 
@@ -250,6 +245,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
+        DateNgaySinh.setDate(new Date());
+        DateNgaySinh.setDateFormatString("dd-MM-yyyy");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -270,8 +268,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
                                 .addComponent(txtMaBN)
                                 .addComponent(txtHoten)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtNgaysinh, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGap(3, 3, 3)
+                                    .addComponent(DateNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtTuoi, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -300,7 +299,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
                         .addComponent(btnxoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnsua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                         .addComponent(btnfirst)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnprev)
@@ -339,13 +338,13 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNgaysinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)
                         .addComponent(jLabel10)
                         .addComponent(txtTuoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(txtGhichu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtGhichu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DateNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -374,7 +373,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                    .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -394,10 +393,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private void txtMaBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaBNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaBNActionPerformed
-
-    private void txtNgaysinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgaysinhActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgaysinhActionPerformed
 
     private void tblDanhsachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhsachMouseClicked
         // TODO add your handling code here:
@@ -515,6 +510,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateNgaySinh;
     private javax.swing.JButton btnfirst;
     private javax.swing.JButton btnlast;
     private javax.swing.JButton btnnext;
@@ -548,7 +544,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JTextField txtGhichu;
     private javax.swing.JTextField txtHoten;
     private javax.swing.JTextField txtMaBN;
-    private javax.swing.JTextField txtNgaysinh;
     private javax.swing.JTextField txtNgheNghiep;
     private javax.swing.JTextField txtTuoi;
     private javax.swing.JTextField txttimkiem;
@@ -633,7 +628,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         bn.setTenBenhNhan(txtHoten.getText());
         bn.setGioiTinh(rdoNam.isSelected());
         bn.setSDT(txtDienthoai.getText());
-        bn.setNgaySinh(XDate.toDate(txtNgaysinh.getText(), "dd/MM/yyyy"));
+        bn.setNgaySinh(DateNgaySinh.getDate());
         bn.setTuoi(Integer.valueOf(txtTuoi.getText()));
         bn.setDiaChi(txtDiachi.getText());
         bn.setNgheNghiep(txtNgheNghiep.getText());
@@ -647,7 +642,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         rdoNam.setSelected(bn.isGioiTinh());
         rdoNu.setSelected(!bn.isGioiTinh());
         txtDienthoai.setText(bn.getSDT());
-        txtNgaysinh.setText(XDate.toString(bn.getNgaySinh(), "dd/MM/YYYY"));
+        DateNgaySinh.setDate(bn.getNgaySinh());
         txtTuoi.setText(String.valueOf(bn.getTuoi()));
         txtDiachi.setText(bn.getDiaChi());
         txtNgheNghiep.setText(bn.getNgheNghiep());
@@ -656,9 +651,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     void clearFormBenhNhan() {
         txtMaBN.setText("");
+        DateNgaySinh.setDate(new Date());
         txtHoten.setText("");
         txtGhichu.setText("");
-        txtNgaysinh.setText("");
         txtTuoi.setText("");
         txtDiachi.setText("");
         txtNgheNghiep.setText("");
@@ -728,7 +723,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         if (Utility.checkNullText(txtMaBN)
                 && Utility.checkMaBenhNhan(txtMaBN)
                 && Utility.checkNullText(txtHoten)
-                && Utility.checkNullText(txtNgaysinh)
                 && Utility.checkNullText(txtDiachi)
                 && Utility.checkNullText(txtDienthoai)
                 && Utility.checkSDT(txtDienthoai)
