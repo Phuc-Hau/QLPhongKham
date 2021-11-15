@@ -414,7 +414,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
-        if(checkTrungMa(txtMaBN)){
+        if (checkTrungMa(txtMaBN)) {
             if (Error()) {
                 this.insert();
             }
@@ -429,8 +429,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
         if (Error()) {
-                this.update(); 
-            }
+            this.update();
+        }
     }//GEN-LAST:event_btnsuaActionPerformed
 
     private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
@@ -554,15 +554,15 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JTextField txttimkiem;
     // End of variables declaration//GEN-END:variables
 
-     BenhNhanDao daoBN = new BenhNhanDao();
+    BenhNhanDao daoBN = new BenhNhanDao();
     int row = -1;
-    
+
     private void init() {
         this.setLocationRelativeTo(null);
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
     }
-    
+
     void FillTableBenhNhan() {
         DefaultTableModel model = (DefaultTableModel) tblDanhsach.getModel();
         model.setRowCount(0);
@@ -716,16 +716,16 @@ public class QLBenhNhan extends javax.swing.JDialog {
         this.row = tblDanhsach.getRowCount() - 1;
         this.editFormBenhNhan();
     }
-    
+
     private void timKiem() {
         this.FillTableBenhNhan();
         this.clearFormBenhNhan();
         this.row = -1;
-        UpdateStatusBenhNhan(); 
+        UpdateStatusBenhNhan();
     }
-    
-    boolean Error(){
-        if (Utility.checkNullText(txtMaBN) 
+
+    boolean Error() {
+        if (Utility.checkNullText(txtMaBN)
                 && Utility.checkMaBenhNhan(txtMaBN)
                 && Utility.checkNullText(txtHoten)
                 && Utility.checkNullText(txtNgaysinh)
@@ -735,20 +735,22 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 && Utility.checkNullText(txtTuoi)
                 && Utility.checkNullText(txtNgheNghiep)
                 //&& Utility.checkNullText(cboChucVu)
-                && Utility.checkNullText(txtGhichu)
-                ) {
+                && Utility.checkNullText(txtGhichu)) {
             return true;
-        }else return false;  
-    }
-     // dan
-    public  boolean checkTrungMa(JTextField txt){
-        txtMaBN.setBackground(white);
-        if (daoBN.selectByID(txtMaBN.getText())==null) {
-            return true;    
-        }else{ 
-            txt.setBackground(Color.red);
-           Msgbox.alert(this," Mã bệnh nhân đã tồn tại");
+        } else {
             return false;
         }
-    }  
+    }
+    // dan
+
+    public boolean checkTrungMa(JTextField txt) {
+        txtMaBN.setBackground(white);
+        if (daoBN.selectByID(txtMaBN.getText()) == null) {
+            return true;
+        } else {
+            txt.setBackground(Color.red);
+            Msgbox.alert(this, " Mã bệnh nhân đã tồn tại");
+            return false;
+        }
+    }
 }
