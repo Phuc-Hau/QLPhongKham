@@ -89,6 +89,12 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
         String Delete ="DELETE FROM Thuoc WHERE (LoaiThuoc = ?)";
         JdbcHelper.Update(Delete, loaith);
     }
+    
+    //add tim kiem loai thuoc
+    public List<Thuoc> selectByKeyword(String Keyword){
+        String sql = "SELECT * FROM Thuoc WHERE LoaiThuoc like ? ";
+        return this.selectBySql(sql, "%" + Keyword + "%");
+    }
 
     
 }
