@@ -38,7 +38,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setTitle("Phòng Khám Đa Khoa");
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\com\\qlpk\\icon\\logo36.png"));
+        this.setIconImage(XImage.getAppIcon());
         inti();
     }
 
