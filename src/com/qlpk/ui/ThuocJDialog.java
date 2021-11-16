@@ -461,6 +461,9 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tbl_Thuoc.setGridColor(new java.awt.Color(255, 0, 216));
+        tbl_Thuoc.setSelectionBackground(new java.awt.Color(43, 226, 226));
+        tbl_Thuoc.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tbl_Thuoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_ThuocMouseClicked(evt);

@@ -88,6 +88,8 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
         jLabel4.setText("Đơn Thuốc :");
 
+        txtDonThuoc.setEditable(false);
+
         jLabel5.setText("Mã Phiếu Khám :");
 
         txtMaPhieuKham.setEditable(false);
@@ -709,6 +711,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 daoDTCT.insert(dtct);
             }
             this.fillTableDonThuoc();
+            this.fillTableDonThuocBenhNhan();
             this.clearForm();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
@@ -833,7 +836,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tblPhieuKham.getModel();
         model.setRowCount(0);
         try {
-            List<PhieuKham> list = daoPK.selectAll();
+            List<PhieuKham> list = daoPK.selectBenhNhanNotDonThuoc();
             for (PhieuKham pk : list) {
                 PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
                 model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
@@ -857,6 +860,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         txtMaPhieuKham.setText(pk.getMaPhieuKham());
         BenhNhan bn = daoBN.selectByID(pk.getMaBN());
         txtTenBenhNhan.setText(bn.getTenBenhNhan());
+        txtDonThuoc.setText(pk.getMaPhieuKham());
     }
 
     //tao donthuocct tu form

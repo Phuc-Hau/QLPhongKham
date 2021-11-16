@@ -71,6 +71,11 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
         return selectBySql(SelectAll);
     }
     
+    public List<PhieuKham> selectBenhNhanNotDonThuoc() {
+        String SelectAll ="select PhieuKham.* from PhieuKham Left join DonThuoc on PhieuKham.MaPhieuKham = DonThuoc.MaPhieuKham where DonThuoc is null";
+        return selectBySql(SelectAll);
+    }
+    
     public List<PhieuKham> selectChuaCoDonThuoc() {
         String Select ="select PhieuKham.* from PhieuKham left join DonThuoc on PhieuKham.MABN= DonThuoc.MaBN where DonThuoc.MaBN is null";
         return selectBySql(Select);
