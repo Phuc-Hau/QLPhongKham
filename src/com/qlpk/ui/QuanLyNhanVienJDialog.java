@@ -34,7 +34,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     NhanVienDao daoNV = new NhanVienDao();
     PhongKhamBenhDao daoPK = new PhongKhamBenhDao();
     
-    int row = -1;
+    int rowNV = -1;
     /**
      * Creates new form NewJFrame
      */
@@ -159,6 +159,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
         txtLuong.setName("Lương"); // NOI18N
 
+        btnThem.setBackground(new java.awt.Color(0, 255, 63));
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +167,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             }
         });
 
+        btnXoa.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +175,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             }
         });
 
+        btnSua.setBackground(new java.awt.Color(252, 255, 0));
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +183,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             }
         });
 
+        btnMoi.setBackground(new java.awt.Color(255, 174, 0));
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,11 +240,11 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(btnThem)
-                        .addGap(17, 17, 17)
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
                         .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -346,18 +350,18 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                     .addComponent(txtSoDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
-                    .addComponent(btnXoa)
                     .addComponent(btnSua)
                     .addComponent(btnMoi)
                     .addComponent(btnFirst)
                     .addComponent(btnPrev)
                     .addComponent(btnNext)
-                    .addComponent(btnLast))
+                    .addComponent(btnLast)
+                    .addComponent(btnXoa))
                 .addGap(22, 22, 22))
         );
 
@@ -403,7 +407,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", jPanel2);
@@ -432,12 +436,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null &&checkTrungMa(txtMaNV)){
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMa(txtMaNV)){
             if (Error()) {
                 this.InsertNV();
             }
         } else{
-            if (Error()&&Utility.CheckPass(txtPass) &&checkTrungMa(txtMaNV)) {
+            if (Error() && Utility.CheckPass(txtPass) && checkTrungMa(txtMaNV)) {
                 this.InsertNV();
             }
         }
@@ -445,7 +449,6 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
    
     boolean Error(){
         if (Utility.checkNullText(txtMaNV)
-                
                 && Utility.checkNullText(txtHoTen)
                 && Utility.checkNullText(txtSoDT)
                 && Utility.checkSDT(txtSoDT)
@@ -454,7 +457,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                 && Utility.checkNullText(txtDiaChi)
                 && Utility.checkNullText(txtLuong)
                 
-                ) {
+            ) {
             return true;
         }else{
             Msgbox.alert(this, "Không bỏ trống thông tin");
@@ -524,7 +527,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount()==2) {
-            this.row = tblNhanVien.getSelectedRow();
+            this.rowNV = tblNhanVien.getSelectedRow();
             this.editNV();
         }
     }//GEN-LAST:event_tblNhanVienMouseClicked
@@ -633,7 +636,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.fillTable();
         this.fillCboChuyenNganh();
-        this.row = -1;
+        this.rowNV = -1;
         this.updateStatus();
         
     }
@@ -678,9 +681,9 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
 
     void updateStatus() {
-        boolean edit = (this.row >= 0);
-        boolean first = (this.row == 0);
-        boolean last = (this.row == tblNhanVien.getRowCount() - 1);
+        boolean edit = (this.rowNV >= 0);
+        boolean first = (this.rowNV == 0);
+        boolean last = (this.rowNV == tblNhanVien.getRowCount() - 1);
         // trang thai form
         txtMaNV.setEditable(!edit);
         btnThem.setEnabled(!edit);
@@ -714,7 +717,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     NhanVien getForm() {
         NhanVien nv = new NhanVien();
-        nv.setMaNV(txtMaNV.getText());
+        nv.setMaNV(txtMaNV.getText().toUpperCase());
         nv.setHoTen(txtHoTen.getText());
         nv.setGioiTinh(rdoNam.isSelected());
         nv.setNgaySinh(DateNgaySinh.getDate());
@@ -747,13 +750,13 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         lblAnh.setToolTipText("");
         lblAnh.setIcon(XImage.read(""));
        
-        this.row = -1;
+        this.rowNV = -1;
         this.updateStatus();
         // btnMoi
     }
 
     void editNV() {
-        String manv = (String) tblNhanVien.getValueAt(this.row, 0);
+        String manv = (String) tblNhanVien.getValueAt(this.rowNV, 0);
         NhanVien nv = daoNV.selectByID(manv);
         this.setForm(nv);
         tabs.setSelectedIndex(0);
@@ -806,27 +809,27 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
 
     void first() {
-        this.row = 0;
+        this.rowNV = 0;
         this.editNV();
     }
 
     void next() {
-        if (this.row < tblNhanVien.getRowCount() - 1) {
-            this.row++;
+        if (this.rowNV < tblNhanVien.getRowCount() - 1) {
+            this.rowNV++;
             this.editNV();
         }
     }
 
     void prev() {
-        if (this.row > 0) {
-            this.row--;
+        if (this.rowNV > 0) {
+            this.rowNV--;
             this.editNV();
 
         }
     }
 
     void last() {
-        this.row = tblNhanVien.getRowCount() - 1;
+        this.rowNV = tblNhanVien.getRowCount() - 1;
         this.editNV();
     }
     

@@ -26,15 +26,18 @@ public class DangNhapJDialong extends javax.swing.JFrame {
     /**
      * Creates new form DangNhapJDialong
      */
-    public DangNhapJDialong() {
+    public DangNhapJDialong(String MaNV) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setIconImage(XImage.getAppIcon());
+        txt_taikhoan.setText(MaNV);
         init();
     }
     NhanVienDao daoNV = new NhanVienDao();
     private void init(){
-        new ChaoJDialog(this, true).setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setIconImage(XImage.getAppIcon());
+        if(txt_taikhoan.getText().equals("")){
+            new ChaoJDialog(this, true).setVisible(true);
+        }
     }
     
     boolean Error(){
@@ -43,12 +46,13 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         }else return false;  
     }
     void dangnhap(){                
-        String manv = txt_taikhoan.getText();
+        String manv = txt_taikhoan.getText().toUpperCase();
         String pass = new String(txt_pass.getPassword());
         NhanVien nv = daoNV.selectByID(manv);      
         if (pass.equals(nv.getPass()) && manv.equals(nv.getMaNV())) {
             Auth.user = nv;
             this.dispose();
+            new QLPhongKhamDaKhoa().setVisible(true);
         }else{
             JOptionPane.showMessageDialog(this, "Tên tài khoảng sai hoặt password!");
         }
@@ -151,7 +155,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
                     .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_dangnhap, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bth_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
@@ -237,7 +241,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DangNhapJDialong().setVisible(true);
+                new DangNhapJDialong(null).setVisible(true);
             }
         });
     }

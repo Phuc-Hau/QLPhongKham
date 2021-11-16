@@ -1152,8 +1152,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="196" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="203" max="-2" attributes="0"/>
                               <EmptySpace pref="49" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1245,7 +1245,7 @@
                                       <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnLast" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                  <EmptySpace pref="38" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1287,6 +1287,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnThem">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="3f" green="ff" red="0" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                           </Properties>
                           <Events>
@@ -1295,6 +1298,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnXoa">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="ff" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                           </Properties>
                           <Events>
@@ -1303,6 +1309,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnSua">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="ff" red="fc" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
                           </Properties>
                           <Events>
@@ -1311,6 +1320,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnMoi">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="ae" red="ff" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="M&#x1edb;i"/>
                           </Properties>
                           <Events>

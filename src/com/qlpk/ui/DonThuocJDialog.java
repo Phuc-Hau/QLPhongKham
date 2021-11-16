@@ -117,6 +117,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblThuoc);
 
+        btnThem.setBackground(new java.awt.Color(0, 255, 63));
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +125,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnXoa.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +133,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnSua.setBackground(new java.awt.Color(252, 255, 0));
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +141,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnMoi.setBackground(new java.awt.Color(255, 174, 0));
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,11 +212,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlCapnhapLayout.createSequentialGroup()
                         .addComponent(btnThem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnXoa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnSua)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnXoa)
+                        .addGap(18, 18, 18)
                         .addComponent(btnMoi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFirst)
@@ -257,9 +261,9 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                         .addComponent(btnLast))
                     .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnThem)
-                        .addComponent(btnXoa)
                         .addComponent(btnSua)
-                        .addComponent(btnMoi)))
+                        .addComponent(btnMoi)
+                        .addComponent(btnXoa)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
 

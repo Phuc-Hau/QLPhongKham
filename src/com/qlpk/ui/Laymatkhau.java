@@ -416,17 +416,17 @@ public class Laymatkhau extends javax.swing.JFrame{
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong().setVisible(true);
+        new DangNhapJDialong(null).setVisible(true);
     }//GEN-LAST:event_btnHuyActionPerformed
 
     private void btnHuy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy1ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong().setVisible(true);
+        new DangNhapJDialong(null).setVisible(true);
     }//GEN-LAST:event_btnHuy1ActionPerformed
 
     private void btnHuy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy2ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong().setVisible(true);
+        new DangNhapJDialong(null).setVisible(true);
     }//GEN-LAST:event_btnHuy2ActionPerformed
 
     public NhanVien getModel(){
@@ -451,6 +451,7 @@ public class Laymatkhau extends javax.swing.JFrame{
             daoNV.update(nv);
             Msgbox.alert(this, "Đổi mật khẩu thành công");
             this.dispose();
+            new DangNhapJDialong(nv.getMaNV());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -492,6 +492,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         pnlDieuchinh2.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnInsert.setBackground(new java.awt.Color(0, 255, 63));
         btnInsert.setText("Thêm");
         btnInsert.setEnabled(false);
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -500,6 +501,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(252, 255, 0));
         btnUpdate.setText("Sửa");
         btnUpdate.setEnabled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -508,6 +510,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(255, 0, 0));
         btnDelete.setText("Xóa");
         btnDelete.setEnabled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -516,6 +519,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
             }
         });
 
+        btnNew.setBackground(new java.awt.Color(255, 174, 0));
         btnNew.setText("Mới");
         btnNew.setEnabled(false);
         btnNew.addActionListener(new java.awt.event.ActionListener() {

@@ -89,6 +89,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnXoa.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +104,7 @@ public class QLPhongKhamJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnMoi.setBackground(new java.awt.Color(255, 174, 0));
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

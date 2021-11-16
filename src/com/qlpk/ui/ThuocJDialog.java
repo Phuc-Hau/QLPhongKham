@@ -275,8 +275,8 @@ public class ThuocJDialog extends javax.swing.JDialog {
         jPanel5 = new javax.swing.JPanel();
         btn_new = new javax.swing.JButton();
         btn_sua = new javax.swing.JButton();
-        btn_xoa = new javax.swing.JButton();
         btn_them = new javax.swing.JButton();
+        btn_xoa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_danhsach = new javax.swing.JTable();
 
@@ -383,6 +383,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 .addComponent(btn_first))
         );
 
+        btn_new.setBackground(new java.awt.Color(255, 174, 0));
         btn_new.setText("NEW");
         btn_new.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,6 +391,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
             }
         });
 
+        btn_sua.setBackground(new java.awt.Color(252, 255, 0));
         btn_sua.setText("SỬA");
         btn_sua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,17 +399,19 @@ public class ThuocJDialog extends javax.swing.JDialog {
             }
         });
 
-        btn_xoa.setText("XÓA");
-        btn_xoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_xoaActionPerformed(evt);
-            }
-        });
-
+        btn_them.setBackground(new java.awt.Color(0, 255, 63));
         btn_them.setText("THÊM");
         btn_them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_themActionPerformed(evt);
+            }
+        });
+
+        btn_xoa.setBackground(new java.awt.Color(255, 0, 0));
+        btn_xoa.setText("XÓA");
+        btn_xoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xoaActionPerformed(evt);
             }
         });
 
@@ -417,10 +421,10 @@ public class ThuocJDialog extends javax.swing.JDialog {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(btn_them)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_xoa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_sua)
+                .addGap(2, 2, 2)
+                .addComponent(btn_xoa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_new))
         );
@@ -429,8 +433,8 @@ public class ThuocJDialog extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btn_new)
                 .addComponent(btn_sua)
-                .addComponent(btn_xoa)
-                .addComponent(btn_them))
+                .addComponent(btn_them)
+                .addComponent(btn_xoa))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

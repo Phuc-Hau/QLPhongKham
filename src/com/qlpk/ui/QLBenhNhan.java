@@ -143,6 +143,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         buttonGroup1.add(rdoNu);
         rdoNu.setText("Nữ");
 
+        btnthemmoi.setBackground(new java.awt.Color(255, 174, 0));
         btnthemmoi.setText("Nhập mới ");
         btnthemmoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +151,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             }
         });
 
+        btnthem.setBackground(new java.awt.Color(0, 255, 63));
         btnthem.setText("Thêm");
         btnthem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +159,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             }
         });
 
+        btnxoa.setBackground(new java.awt.Color(255, 0, 0));
         btnxoa.setText("Xóa ");
         btnxoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +167,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             }
         });
 
+        btnsua.setBackground(new java.awt.Color(252, 255, 0));
         btnsua.setText("Sửa");
         btnsua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,15 +295,15 @@ public class QLBenhNhan extends javax.swing.JDialog {
                             .addComponent(txtDienthoai)
                             .addComponent(txtGhichu)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(btnthemmoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(11, 11, 11)
                         .addComponent(btnthem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnxoa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(19, 19, 19)
                         .addComponent(btnsua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnxoa)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnthemmoi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addComponent(btnfirst)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnprev)
@@ -373,7 +377,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+                    .addComponent(tabs)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))

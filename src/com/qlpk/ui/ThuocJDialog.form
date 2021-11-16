@@ -372,10 +372,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="btn_them" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_xoa" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btn_sua" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="btn_xoa" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_new" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -386,8 +386,8 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btn_new" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_sua" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_xoa" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_them" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_xoa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -395,6 +395,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btn_new">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="ae" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="NEW"/>
                       </Properties>
                       <Events>
@@ -403,26 +406,35 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btn_sua">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="ff" red="fc" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="S&#x1eec;A"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_suaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btn_xoa">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_xoaActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="btn_them">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="3f" green="ff" red="0" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_themActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btn_xoa">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="X&#xd3;A"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_xoaActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

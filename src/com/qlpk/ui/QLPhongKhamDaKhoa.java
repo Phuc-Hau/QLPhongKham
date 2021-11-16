@@ -772,6 +772,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         jLabel31.setText("Ghi Chú");
 
+        btnThem.setBackground(new java.awt.Color(0, 255, 63));
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -779,6 +780,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             }
         });
 
+        btnXoa.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -786,6 +788,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             }
         });
 
+        btnSua.setBackground(new java.awt.Color(252, 255, 0));
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -793,6 +796,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             }
         });
 
+        btnMoi.setBackground(new java.awt.Color(255, 174, 0));
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -889,7 +893,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                     .addComponent(btnPrev)
                     .addComponent(btnNext)
                     .addComponent(btnLast))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
@@ -936,8 +940,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
