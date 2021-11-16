@@ -59,6 +59,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
+        btnXoaThuoc = new javax.swing.JButton();
         pnlThuoc = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
@@ -115,6 +116,11 @@ public class DonThuocJDialog extends javax.swing.JDialog {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblThuocMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblThuoc);
@@ -183,6 +189,14 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnXoaThuoc.setBackground(new java.awt.Color(157, 0, 0));
+        btnXoaThuoc.setText("Xóa Thuốc");
+        btnXoaThuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaThuocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCapnhapLayout = new javax.swing.GroupLayout(pnlCapnhap);
         pnlCapnhap.setLayout(pnlCapnhapLayout);
         pnlCapnhapLayout.setHorizontalGroup(
@@ -229,6 +243,10 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLast)
                         .addGap(106, 106, 106))))
+            .addGroup(pnlCapnhapLayout.createSequentialGroup()
+                .addGap(315, 315, 315)
+                .addComponent(btnXoaThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlCapnhapLayout.setVerticalGroup(
             pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +272,9 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                     .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnXoaThuoc)
+                .addGap(29, 29, 29)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnFirst)
@@ -266,7 +286,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                         .addComponent(btnSua)
                         .addComponent(btnMoi)
                         .addComponent(btnXoa)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         tabsDonThuoc.addTab("Cập nhập", pnlCapnhap);
@@ -559,6 +579,17 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         this.last();
     }//GEN-LAST:event_btnLastActionPerformed
 
+    private void tblThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblThuocMouseClicked
+        // TODO add your handling code here:
+            this.rowDonThuocThuoc = tblThuoc.getSelectedRow();
+        
+    }//GEN-LAST:event_tblThuocMouseClicked
+
+    private void btnXoaThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaThuocActionPerformed
+        // TODO add your handling code here:
+        this.fillTableThuocKham(rowDonThuocThuoc);
+    }//GEN-LAST:event_btnXoaThuocActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -611,6 +642,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnThemThuoc;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JButton btnXoaThuoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -652,6 +684,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
     int row = -1;
     int indexDanhsachThuoc=-1;
     int indexPK=-1;
+    int rowDonThuocThuoc=-1;
     PhieuKhamDao daoPK = new PhieuKhamDao();
     BenhNhanDao daoBN = new BenhNhanDao();
     ThuocDao daoThuoc = new ThuocDao();
@@ -787,15 +820,16 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         }
     }
     //Đỗ dữ liệu vào tblThuoc
-    void fillTableThuocKham(){
+    void fillTableThuocKham(int n){
         DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
-        model.setRowCount(0);
+        //model.setRowCount(0);
+        model.removeRow(n);
         try {
-            List<DonThuocCT> list = daoDTCT.selectAll();
-            for (DonThuocCT dt : list) {
-                Object[] row = {dt.getLoaiThuoc(),dt.getSoLuong()};
-                model.addRow(row);
-            }
+//            List<DonThuocCT> list = daoDTCT.selectAll();
+//            for (DonThuocCT dt : list) {
+//                Object[] row = {dt.getLoaiThuoc(),dt.getSoLuong()};
+//                model.addRow(row);
+//            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
