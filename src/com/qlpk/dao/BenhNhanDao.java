@@ -22,7 +22,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     String SELECT_ALL_SQL = "SELECT * FROM BenhNhan";
     String SELECT_BY_ID_SQL = "SELECT * FROM BenhNhan WHERE MaBN=?";
     String SELECT_BY_NOTPHIEUKHAM ="select * from BenhNhan left join PhieuKham on BenhNhan.MaBN = PhieuKham.MABN where PhieuKham.MABN is null and NgayTao = CAST(GETDATE() AS DATE) and TrangThai=0";
-    String SELECT_BY_VanMat="select * from BenhNhan WHERE TrangThai =1";
+    String SELECT_BY_VanMat="select * from BenhNhan left join PhieuKham on BenhNhan.MaBN = PhieuKham.MABN where PhieuKham.MABN is null and NgayTao = CAST(GETDATE() AS DATE) and TrangThai=1";
     
     @Override
     public void insert(BenhNhan entity) {
@@ -67,9 +67,9 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
         return this.selectBySql(SELECT_BY_VanMat);
     }
     
-    public void updateVanMat(String id) {
-        String Sql="UPDATE BenhNhan SET  TrangThai=1 WHERE MaBN=?";
-        JdbcHelper.Update(Sql,id);
+    public void updateVanMat(String id,int n) {
+        String Sql="UPDATE BenhNhan SET  TrangThai=? WHERE MaBN=?";
+        JdbcHelper.Update(Sql , n , id);
     }
     
     @Override

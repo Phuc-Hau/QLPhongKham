@@ -778,6 +778,154 @@ public class QLPhieuKham extends javax.swing.JFrame {
     NhanVienDao daoNV = new NhanVienDao();
     
     int indexPK=-1;
+    int indexVanToi =-1;
+    
+    
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        // TODO add your handling code here:
+        if(this.errorPhieuKham()){
+            this.insertPK();
+        }
+    }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        if(this.errorPhieuKham()){
+            this.updatePK();
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        this.deletePK();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    
+    
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        // TODO add your handling code here:
+        this.Clear();
+    }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
+        // TODO add your handling code here:
+        btnBatDau.setEnabled(false);
+        btnNew.setEnabled(true);
+        fillBenhNhanPK();
+        tabsPK.addTab("Danh Sách", jPanel3);
+        tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
+        this.setModelThongTinKhamBenh(new PhieuKham());
+    }//GEN-LAST:event_btnBatDauActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+        this.fillBenhNhanPK();
+        this.setModelThongTinKhamBenh(new PhieuKham());
+        this.setStatusPK(true);
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
+        // TODO add your handling code here:
+        fillCboBS();
+    }//GEN-LAST:event_cboPhongKhamActionPerformed
+
+    private void tblPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuKhamMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            indexPK=tblPhieuKham.getSelectedRow();
+            this.editPK();
+            tabsPK.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_tblPhieuKhamMouseClicked
+
+    private void btnBoQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoQuaActionPerformed
+        // TODO add your handling code here:
+        this.Boqua();
+    }//GEN-LAST:event_btnBoQuaActionPerformed
+
+    private void tblBenhNhanVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBenhNhanVanMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            this.indexVanToi=tblBenhNhanVan.getSelectedRow();
+            fillBenhNhanVanToi();
+            tabsPK.setSelectedIndex(0);
+            this.setStatusPK(true);
+        }
+    }//GEN-LAST:event_tblBenhNhanVanMouseClicked
+    
+    void insertPK(){
+        PhieuKham pk = this.getModelPK();
+        try {
+            daoPK.insert(pk);
+            Msgbox.alert(this, "Thêm Thành công");
+            this.fillTablePhieuKham();
+            this.fillBenhNhanVanToi();
+            btnInPhieuKham.setEnabled(true);
+            this.setStatusPK(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Thêm Thất bại");
+        }
+    }
+    
+    void updatePK(){
+        PhieuKham pk = this.getModelPK();
+        try {
+            daoPK.update(pk);
+            Msgbox.alert(this, "Sữa Thành công");
+            this.fillTablePhieuKham();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Sữa Thất bại");
+        }
+    }
+    
+    void deletePK(){
+        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
+        try {
+            daoBN.updateVanMat(txtMaBenhNhan.getText(), 0);
+            daoPK.detele(Integer.valueOf(maPk));
+            this.fillTablePhieuKham();
+            this.fillBenhNhanVan();
+            this.Clear();
+            this.fillBenhNhanPK();
+            this.setStatusPK(true);
+            Msgbox.alert(this, "Xóa Thành Công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Xóa Thất Bại");
+        }
+    }
+    
+    boolean errorPhieuKham(){
+        int error=0;
+        int error1=0;
+        if(!Utility.checkNullTextArea(txtKhamLamSang)){
+            error++;
+        }
+        
+        if(!Utility.checkNullText(txtChuanDoan)){
+            error++;
+        }
+        
+        if (!Utility.checkNullTextArea(txtKetQuaDieuTri)) {
+            error++;
+        }
+        if(!(Utility.checkSoNguyen(txtNhipTim) && Utility.checkSoNguyen(txtNhietDo) && Utility.checkSoNguyen(txtHuyetAp))){
+            error1++;
+        }
+        
+        if(!(Utility.checkSoThapPhan(txtCanNang) && Utility.checkSoThapPhan(txtChieuCao))){
+            error1++;
+        }
+        
+        if(error !=0 || error1!=0){
+            if(error1 ==0 ){
+                Msgbox.alert(this, "Không được bỏ trống");
+            }
+            return false;
+        } else return true;
+    }
     
     void inti(){
         fillTablePhieuKham();
@@ -894,155 +1042,18 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void Clear(){
-        this.setModelThongTinBN(new BenhNhan());
+        //this.setModelThongTinBN(new BenhNhan());
         this.setModelThongTinKhamBenh(new PhieuKham());
     }
-    
-    int index =0;
-    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        // TODO add your handling code here:
-        if(this.errorPhieuKham()){
-            this.insertPK();
-        }
-    }//GEN-LAST:event_btnInsertActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-        if(this.errorPhieuKham()){
-            this.updatePK();
-        }
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        this.deletePK();
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    void insertPK(){
-        PhieuKham pk = this.getModelPK();
-        try {
-            daoPK.insert(pk);
-            Msgbox.alert(this, "Thêm Thành công");
-            this.fillTablePhieuKham();
-            btnInPhieuKham.setEnabled(true);
-            this.setStatusPK(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msgbox.alert(this, "Thêm Thất bại");
-        }
-    }
-    
-    void updatePK(){
-        PhieuKham pk = this.getModelPK();
-        try {
-            daoPK.update(pk);
-            Msgbox.alert(this, "Sữa Thành công");
-            this.fillTablePhieuKham();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msgbox.alert(this, "Sữa Thất bại");
-        }
-    }
-    
-    void deletePK(){
-        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
-        try {
-            daoPK.detele(Integer.valueOf(maPk));
-            this.fillTablePhieuKham();
-            this.Clear();
-            Msgbox.alert(this, "Xóa Thành Công");
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msgbox.alert(this, "Xóa Thất Bại");
-        }
-    }
-    
-    boolean errorPhieuKham(){
-        int error=0;
-        int error1=0;
-        if(!Utility.checkNullTextArea(txtKhamLamSang)){
-            error++;
-        }
-        
-        if(!Utility.checkNullText(txtChuanDoan)){
-            error++;
-        }
-        
-        if (!Utility.checkNullTextArea(txtKetQuaDieuTri)) {
-            error++;
-        }
-        if(!(Utility.checkSoNguyen(txtNhipTim) && Utility.checkSoNguyen(txtNhietDo) && Utility.checkSoNguyen(txtHuyetAp))){
-            error1++;
-        }
-        
-        if(!(Utility.checkSoThapPhan(txtCanNang) && Utility.checkSoThapPhan(txtChieuCao))){
-            error1++;
-        }
-        
-        if(error !=0 || error1!=0){
-            if(error1 ==0 ){
-                Msgbox.alert(this, "Không được bỏ trống");
-            }
-            return false;
-        } else return true;
-    }
-    
-    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        // TODO add your handling code here:
-        this.Clear();
-        
-    }//GEN-LAST:event_btnNewActionPerformed
-
-    private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
-        // TODO add your handling code here:
-        this.setStatusPK(true);
-        btnBatDau.setEnabled(false);
-        fillBenhNhanPK();
-        tabsPK.addTab("Danh Sách", jPanel3);
-        tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
-        this.setModelThongTinKhamBenh(new PhieuKham());
-    }//GEN-LAST:event_btnBatDauActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-        this.fillBenhNhanPK();
-        this.setModelThongTinKhamBenh(new PhieuKham());
-        this.setStatusPK(true);
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
-        // TODO add your handling code here:
-        fillCboBS();
-    }//GEN-LAST:event_cboPhongKhamActionPerformed
-
-    private void tblPhieuKhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuKhamMouseClicked
-        // TODO add your handling code here:
-        if(evt.getClickCount()==2){
-            indexPK=tblPhieuKham.getSelectedRow();
-            this.editPK();
-            tabsPK.setSelectedIndex(0);
-        }
-    }//GEN-LAST:event_tblPhieuKhamMouseClicked
-
-    private void btnBoQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoQuaActionPerformed
-        // TODO add your handling code here:
-        this.Boqua();
-    }//GEN-LAST:event_btnBoQuaActionPerformed
-
-    private void tblBenhNhanVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBenhNhanVanMouseClicked
-        // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-            
-        }
-    }//GEN-LAST:event_tblBenhNhanVanMouseClicked
     
     void Boqua(){
         String maBn = txtMaBenhNhan.getText();
         try {
-            daoBN.updateVanMat(maBn);
+            daoBN.updateVanMat(maBn , 1);
             fillBenhNhanVan();
             fillBenhNhanPK();
         } catch (Exception e) {
+            
         }
     }
     
@@ -1050,20 +1061,39 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnInsert.setEnabled(x);
         btnUpdate.setEnabled(!x);
         btnDelete.setEnabled(!x);
-        btnNew.setEnabled(x);
         btnInPhieuKham.setEnabled(!x);
         btnNext.setEnabled(x);
-        btnNext.setEnabled(!x);
+        btnNew.setEnabled(!x);
         btnBoQua.setEnabled(x);
     }
     void fillBenhNhanPK(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
         if(bn!= null){
             this.setModelThongTinBN(bn);
+            this.setStatusPK(true);
         } else {
             Msgbox.alert(this, "Không có Bệnh nhân để khám");
-            this.setStatusPK(false);
+            btnBatDau.setEnabled(true);
+            btnInsert.setEnabled(false);
+            btnBoQua.setEnabled(false);
+//            tabsPK.remove(1);
+//            tabsPK.remove(1);
         }
+    }
+    
+    void fillBenhNhanVanToi(){
+        if(indexVanToi !=-1){
+            String maBn = (String) tblBenhNhanVan.getValueAt(this.indexVanToi, 0);
+
+            BenhNhan bn = daoBN.selectByID(maBn);
+            if(bn!= null){
+                this.setModelThongTinBN(bn);
+            } else {
+                Msgbox.alert(this, "Không có Bệnh nhân để khám");
+                this.setStatusPK(false);
+            }
+        }
+        indexVanToi=-1;
     }
     
     List<String> PhongKhamList = new ArrayList<>();
