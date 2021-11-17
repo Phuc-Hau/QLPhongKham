@@ -79,6 +79,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txttimkiem = new javax.swing.JTextField();
         btntim = new javax.swing.JButton();
         DateNgaySinh = new com.toedter.calendar.JDateChooser();
+        lblNgayTao = new javax.swing.JLabel();
+        txtNgayTao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -104,17 +106,17 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
         tblDanhsach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã BN ", "Họ và tên", "Giới tính", "SĐT", "Ngày sinh", "Tuổi", "Địa chỉ", "Nghề nghiệp", "Ghi chú"
+                "Mã BN ", "Họ và tên", "Giới tính", "SĐT", "Ngày sinh", "Tuổi", "Địa chỉ", "Nghề nghiệp", "Ghi chú", "Ngày tạo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -370,6 +372,10 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
         tabs.addTab("Nhập thông tin", jPanel1);
 
+        lblNgayTao.setText("Ngày tạo :");
+
+        txtNgayTao.setFocusable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -380,13 +386,22 @@ public class QLBenhNhan extends javax.swing.JDialog {
                     .addComponent(tabs)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabs))
         );
@@ -539,6 +554,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNgayTao;
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
     private javax.swing.JTabbedPane tabs;
@@ -548,6 +564,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JTextField txtGhichu;
     private javax.swing.JTextField txtHoten;
     private javax.swing.JTextField txtMaBN;
+    private javax.swing.JTextField txtNgayTao;
     private javax.swing.JTextField txtNgheNghiep;
     private javax.swing.JTextField txtTuoi;
     private javax.swing.JTextField txttimkiem;
@@ -560,6 +577,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
+        txtNgayTao.setText(XDate.toString(new Date(),"dd/MM/yyyy"));
+        txtNgayTao.setEditable(false);
     }
 
     void FillTableBenhNhan() {
@@ -578,17 +597,21 @@ public class QLBenhNhan extends javax.swing.JDialog {
                     bn.getTuoi(),
                     bn.getDiaChi(),
                     bn.getNgheNghiep(),
-                    bn.getGhiChu()
+                    bn.getGhiChu(),
+                    XDate.toString(bn.getNgayTao(), "dd/MM/yyyy"),
+                    bn.getNgayTao()
                 };
                 model.addRow(row);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
 
     void insertBenhNhan() {
         BenhNhan bn = this.getformBenhNhan();
+        bn.setNgayTao(new Date());
         try {
             daoBN.insert(bn);
             FillTableBenhNhan();
@@ -637,6 +660,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         bn.setDiaChi(txtDiachi.getText());
         bn.setNgheNghiep(txtNgheNghiep.getText());
         bn.setGhiChu(txtGhichu.getText());
+        bn.setNgayTao(new Date());
         return bn;
     }
 
@@ -651,9 +675,11 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtDiachi.setText(bn.getDiaChi());
         txtNgheNghiep.setText(bn.getNgheNghiep());
         txtGhichu.setText(bn.getGhiChu());
+        txtNgayTao.setText(XDate.toString(bn.getNgayTao(), "dd/MM/YYYY"));
     }
 
     void clearFormBenhNhan() {
+        BenhNhan bn = new BenhNhan();
         txtMaBN.setText("");
         DateNgaySinh.setDate(new Date());
         txtHoten.setText("");
@@ -663,6 +689,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtNgheNghiep.setText("");
         txtDienthoai.setText("");
         rdoNam.setSelected(true);
+        txtNgayTao.setText(XDate.toString(new Date(),"dd/MM/yyyy"));
         this.row = -1;
         this.UpdateStatusBenhNhan();
     }
@@ -684,7 +711,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         btnthem.setEnabled(!edit);
         btnsua.setEnabled(edit);
         btnxoa.setEnabled(edit);
-
         // Trạng thái điều hướng
         btnfirst.setEnabled(edit && !first);
         btnprev.setEnabled(edit && !first);

@@ -15,9 +15,9 @@ import java.sql.ResultSet;
  */
 public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     
-    String INSERT_SQL = "INSERT INTO BenhNhan(MaBN, TenBenhNhan, GioiTinh, SDT, NgaySinh, Tuoi, DiaChi, NgheNghiep, GhiChu) VALUES(?,?,?,?,?,?,?,?,?)";
+    String INSERT_SQL = "INSERT INTO BenhNhan(MaBN, TenBenhNhan, GioiTinh, SDT, NgaySinh, Tuoi, DiaChi, NgheNghiep, GhiChu, NgayTao) VALUES(?,?,?,?,?,?,?,?,?,?)";
     String UPDATE_SQL = "UPDATE BenhNhan SET  TenBenhNhan=?, GioiTinh=?, SDT=?, NgaySinh=?,"
-            + " Tuoi=?, DiaChi=?, NgheNghiep=?, GhiChu=? WHERE MaBN=?";
+            + " Tuoi=?, DiaChi=?, NgheNghiep=?, GhiChu=?, NgayTao=? WHERE MaBN=?";
     String DELETE_SQL = "DELETE FROM BenhNhan WHERE MaBN=?";
     String SELECT_ALL_SQL = "SELECT * FROM BenhNhan";
     String SELECT_BY_ID_SQL = "SELECT * FROM BenhNhan WHERE MaBN=?";
@@ -26,13 +26,13 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
     @Override
     public void insert(BenhNhan entity) {
         JdbcHelper.Update(INSERT_SQL, entity.getMaBN(), entity.getTenBenhNhan(), entity.isGioiTinh(),
-                 entity.getSDT(), entity.getNgaySinh(), entity.getTuoi(), entity.getDiaChi(), entity.getNgheNghiep(), entity.getGhiChu());
+                 entity.getSDT(), entity.getNgaySinh(), entity.getTuoi(), entity.getDiaChi(), entity.getNgheNghiep(), entity.getGhiChu(), entity.getNgayTao());
     }
 
     @Override
     public void update(BenhNhan entity) {
         JdbcHelper.Update(UPDATE_SQL, entity.getTenBenhNhan(), entity.isGioiTinh(),
-                 entity.getSDT(), entity.getNgaySinh(), entity.getTuoi(), entity.getDiaChi(), entity.getNgheNghiep(), entity.getGhiChu(), entity.getMaBN());
+                 entity.getSDT(), entity.getNgaySinh(), entity.getTuoi(), entity.getDiaChi(), entity.getNgheNghiep(), entity.getGhiChu(), entity.getNgayTao() , entity.getMaBN());
     }
 
     @Override
@@ -79,6 +79,7 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
                 entity.setNgheNghiep(rs.getString("NgheNghiep"));
                 entity.setGhiChu(rs.getString("GhiChu"));
                 entity.setTrangThai(rs.getString("TrangThai")); 
+                entity.setNgayTao(rs.getDate("NgayTao"));
                 list.add(entity);
             }
             rs.getStatement().getConnection().close();

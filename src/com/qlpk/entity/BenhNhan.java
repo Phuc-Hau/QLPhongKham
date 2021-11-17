@@ -1,29 +1,36 @@
-
 package com.qlpk.entity;
 
 import java.util.Date;
 
-
 public class BenhNhan {
 
-    
-   String MaBN;
+    String MaBN;
     String TenBenhNhan;
     boolean GioiTinh;
     String SDT;
     Date NgaySinh;
     int Tuoi;
-    String DiaChi; 
+    String DiaChi;
     String NgheNghiep;
     String GhiChu;
     String TrangThai;
+    Date NgayTao;
 
-    public String getTrangThai() {
-        return TrangThai;
+    public BenhNhan() {
     }
 
-    public void setTrangThai(String TrangThai) {
+    public BenhNhan(String MaBN, String TenBenhNhan, boolean GioiTinh, String SDT, Date NgaySinh, int Tuoi, String DiaChi, String NgheNghiep, String GhiChu, String TrangThai, Date NgayTao) {
+        this.MaBN = MaBN;
+        this.TenBenhNhan = TenBenhNhan;
+        this.GioiTinh = GioiTinh;
+        this.SDT = SDT;
+        this.NgaySinh = NgaySinh;
+        this.Tuoi = Tuoi;
+        this.DiaChi = DiaChi;
+        this.NgheNghiep = NgheNghiep;
+        this.GhiChu = GhiChu;
         this.TrangThai = TrangThai;
+        this.NgayTao = NgayTao;
     }
 
     public String getMaBN() {
@@ -97,5 +104,21 @@ public class BenhNhan {
     public void setGhiChu(String GhiChu) {
         this.GhiChu = GhiChu;
     }
-    
+
+    public String getTrangThai() {
+        return TrangThai;
+    }
+
+    public void setTrangThai(String TrangThai) {
+        this.TrangThai = TrangThai;
+    }
+
+    public Date getNgayTao() {
+        return NgayTao;
+    }
+
+    public void setNgayTao(Date NgayTao) {
+        this.NgayTao = NgayTao;
+    }
+
 }
