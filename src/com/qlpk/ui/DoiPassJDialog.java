@@ -4,23 +4,27 @@
  * and open the template in the editor.
  */
 package com.qlpk.ui;
-import com.qlpk.utils.*;
+
 import com.qlpk.dao.NhanVienDao;
+import com.qlpk.utils.Auth;
+import com.qlpk.utils.Msgbox;
+import com.qlpk.utils.Utility;
+
 /**
  *
  * @author fptshop
  */
-public class DoimatkhauJDialog extends javax.swing.JDialog {
+public class DoiPassJDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form Doimatkhau
+     * Creates new form DoiPassJDialog
      */
-    public DoimatkhauJDialog(java.awt.Frame parent, boolean modal) {
+    public DoiPassJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(this);
         this.setTitle("Đổi mật khẩu");
-        inti();
+        txtTendangnhap.setText(Auth.user.getMaNV());
     }
 
     /**
@@ -63,7 +67,7 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
 
         txtTendangnhap.setEditable(false);
 
-        btnDongy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/icon/Accept.png"))); // NOI18N
+        btnDongy.setBackground(new java.awt.Color(1, 255, 81));
         btnDongy.setText("Đồng ý");
         btnDongy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +75,7 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnHuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/icon/No.png"))); // NOI18N
+        btnHuy.setBackground(new java.awt.Color(255, 0, 0));
         btnHuy.setText("Hủy");
         btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,10 +129,10 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
                     .addComponent(txtMatkhaumoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtXacnhanmatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDongy, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDongy, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(btnHuy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,15 +149,17 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    NhanVienDao daoNV = new NhanVienDao();
-    void inti(){
-        txtTendangnhap.setText(Auth.user.getMaNV());
-    }
+    private void btnDongyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongyActionPerformed
+        // TODO add your handling code here:
+        changePasswWord();
+    }//GEN-LAST:event_btnDongyActionPerformed
+
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
 
+    NhanVienDao daoNV = new NhanVienDao();
     void changePasswWord(){
         String Manv = Auth.user.getMaNV();
         String Pass =new String(txtMatkhaucu.getPassword());
@@ -171,11 +177,6 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
             this.dispose();
         }
     }
-    private void btnDongyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongyActionPerformed
-        // TODO add your handling code here:
-        changePasswWord();
-    }//GEN-LAST:event_btnDongyActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -193,27 +194,20 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoimatkhauJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoiPassJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoimatkhauJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoiPassJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoimatkhauJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoiPassJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoimatkhauJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoiPassJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DoimatkhauJDialog dialog = new DoimatkhauJDialog(new javax.swing.JFrame(), true);
+                DoiPassJDialog dialog = new DoiPassJDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

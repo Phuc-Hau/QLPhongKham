@@ -92,7 +92,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         pnlcolorPhongKham = new javax.swing.JPanel();
-        lblExit = new javax.swing.JLabel();
         pnlTieu = new javax.swing.JPanel();
         lblChucNang = new javax.swing.JLabel();
         pnlFrom = new javax.swing.JPanel();
@@ -112,6 +111,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblGio = new javax.swing.JLabel();
         lblPhuc = new javax.swing.JLabel();
         lblGiay = new javax.swing.JLabel();
+        btnThongKe = new javax.swing.JButton();
         pnlFromBenhNhan = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         pnlFromPhieuKham = new javax.swing.JPanel();
@@ -158,9 +158,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tbl_Thuoc = new javax.swing.JTable();
         pnlFromNhanVien = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jToolBar1 = new javax.swing.JToolBar();
+        btnDangxuat = new javax.swing.JButton();
+        btnDoiPass = new javax.swing.JButton();
+        btnGioiThieu = new javax.swing.JButton();
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -531,11 +532,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlcolorPhongKham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        lblExit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblExit.setForeground(new java.awt.Color(255, 255, 255));
-        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
-        lblExit.setText("Thoát");
-
         javax.swing.GroupLayout pnlChucNangLayout = new javax.swing.GroupLayout(pnlChucNang);
         pnlChucNang.setLayout(pnlChucNangLayout);
         pnlChucNangLayout.setHorizontalGroup(
@@ -548,10 +544,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlDichvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlPhongKham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlChucNangLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlChucNangLayout.setVerticalGroup(
             pnlChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,8 +564,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addComponent(pnlThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblExit, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlTieu.setBackground(new java.awt.Color(207, 81, 255));
@@ -668,11 +659,21 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblGiay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGiay.setText("00");
 
+        btnThongKe.setBackground(new java.awt.Color(0, 255, 230));
+        btnThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Dollar.png"))); // NOI18N
+        btnThongKe.setText("Thống Kê");
+        btnThongKe.setFocusable(false);
+        btnThongKe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnThongKe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
         javax.swing.GroupLayout pnlFromHomeLayout = new javax.swing.GroupLayout(pnlFromHome);
         pnlFromHome.setLayout(pnlFromHomeLayout);
         pnlFromHomeLayout.setHorizontalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 905, Short.MAX_VALUE)
+            .addGroup(pnlFromHomeLayout.createSequentialGroup()
+                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnThongKe))
             .addGroup(pnlFromHomeLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -708,7 +709,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromHomeLayout.setVerticalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                .addComponent(jLabel23)
+                .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addGroup(pnlFromHomeLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(btnThongKe)))
                 .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -1224,24 +1229,57 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlTieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jToolBar1.setBackground(new java.awt.Color(0, 255, 230));
+        jToolBar1.setRollover(true);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        btnDangxuat.setBackground(new java.awt.Color(0, 255, 230));
+        btnDangxuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
+        btnDangxuat.setText("Đăng Xuất");
+        btnDangxuat.setFocusable(false);
+        btnDangxuat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDangxuat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDangxuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangxuatActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnDangxuat);
 
-        setJMenuBar(jMenuBar1);
+        btnDoiPass.setBackground(new java.awt.Color(0, 255, 230));
+        btnDoiPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Key.png"))); // NOI18N
+        btnDoiPass.setText("Đổi Mật Khẩu");
+        btnDoiPass.setFocusable(false);
+        btnDoiPass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDoiPass.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDoiPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoiPassActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnDoiPass);
+
+        btnGioiThieu.setBackground(new java.awt.Color(0, 255, 230));
+        btnGioiThieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Globe.png"))); // NOI18N
+        btnGioiThieu.setText("Giới Thiệu");
+        btnGioiThieu.setFocusable(false);
+        btnGioiThieu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGioiThieu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnGioiThieu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlChinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlChinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlChinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1595,6 +1633,17 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.selectImage();
     }//GEN-LAST:event_lbl_anhMouseClicked
 
+    private void btnDangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangxuatActionPerformed
+        // TODO add your handling code here:
+        new DangNhapJDialong(Auth.user.getMaNV()).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnDangxuatActionPerformed
+
+    private void btnDoiPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiPassActionPerformed
+        // TODO add your handling code here:
+        new DoiPassJDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_btnDoiPassActionPerformed
+
     private ImageIcon ResizeImage(String ImagePath) {
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
@@ -1821,9 +1870,13 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDangxuat;
+    private javax.swing.JButton btnDoiPass;
+    private javax.swing.JButton btnGioiThieu;
     private javax.swing.JButton btnMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnThongKe;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_sua;
@@ -1867,9 +1920,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -1877,8 +1927,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblChucNang;
-    private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblGiay;
     private javax.swing.JLabel lblGio;
     private javax.swing.JLabel lblNam;
