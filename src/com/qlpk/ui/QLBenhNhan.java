@@ -54,7 +54,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDanhsach = new javax.swing.JTable();
+        tblDanhsachBenhNhan = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         txtDiachi = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -90,6 +90,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
         jLabel2.setText("Mã BN :");
 
+        txtMaBN.setEditable(false);
+        txtMaBN.setForeground(new java.awt.Color(242, 0, 0));
         txtMaBN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMaBNActionPerformed(evt);
@@ -104,7 +106,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
         jLabel6.setText("Điện thoại :");
 
-        tblDanhsach.setModel(new javax.swing.table.DefaultTableModel(
+        tblDanhsachBenhNhan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -123,12 +125,12 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tblDanhsach.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDanhsachBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblDanhsachMouseClicked(evt);
+                tblDanhsachBenhNhanMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblDanhsach);
+        jScrollPane1.setViewportView(tblDanhsachBenhNhan);
 
         jLabel7.setText("Ngày sinh :");
 
@@ -413,17 +415,18 @@ public class QLBenhNhan extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaBNActionPerformed
 
-    private void tblDanhsachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhsachMouseClicked
+    private void tblDanhsachBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhsachBenhNhanMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            this.row = tblDanhsach.getSelectedRow();
+            this.row = tblDanhsachBenhNhan.getSelectedRow();
             this.editFormBenhNhan();
         }
-    }//GEN-LAST:event_tblDanhsachMouseClicked
+    }//GEN-LAST:event_tblDanhsachBenhNhanMouseClicked
 
     private void btnthemmoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemmoiActionPerformed
         // TODO add your handling code here:
         this.clearFormBenhNhan();
+        this.LoatMaBN();
     }//GEN-LAST:event_btnthemmoiActionPerformed
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
@@ -558,7 +561,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
     private javax.swing.JTabbedPane tabs;
-    private javax.swing.JTable tblDanhsach;
+    private javax.swing.JTable tblDanhsachBenhNhan;
     private javax.swing.JTextField txtDiachi;
     private javax.swing.JTextField txtDienthoai;
     private javax.swing.JTextField txtGhichu;
@@ -579,10 +582,37 @@ public class QLBenhNhan extends javax.swing.JDialog {
         this.UpdateStatusBenhNhan();
         txtNgayTao.setText(XDate.toString(new Date(),"dd/MM/yyyy"));
         txtNgayTao.setEditable(false);
+        LoatMaBN();
     }
 
+    void LoatMaBN(){
+        int n = tblDanhsachBenhNhan.getRowCount();
+        if(n-1 !=-1){
+            String str = (String) tblDanhsachBenhNhan.getValueAt(n-1, 0);
+            String tym="" ;
+            for (int i = 2; i < 7; i++) {
+                tym+= str.charAt(i);
+            }
+            int m = Integer.valueOf(tym)+1;
+            tym =String.valueOf(m);
+            for (int i = 0; i < 5; i++) {
+                if(tym.length()<5){
+                    String t = "0";
+                    String u = t+tym;
+                    tym = u;
+                }else{
+                    break;
+                }
+            }
+            String maBN = "BN"+tym;
+            txtMaBN.setText(maBN);
+        }else{
+            txtMaBN.setText("BN00001");
+        }
+    }
+    
     void FillTableBenhNhan() {
-        DefaultTableModel model = (DefaultTableModel) tblDanhsach.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblDanhsachBenhNhan.getModel();
         model.setRowCount(0);
         try {
             String keyword = txttimkiem.getText();
@@ -617,6 +647,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
             FillTableBenhNhan();
             this.clearFormBenhNhan();
             Msgbox.alert(this, "Thêm thành công!");
+            LoatMaBN();
         } catch (Exception e) {
             Msgbox.alert(this, "Thêm thất bại!");
             e.printStackTrace();
@@ -696,7 +727,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void editFormBenhNhan() {
-        String mabn = (String) tblDanhsach.getValueAt(this.row, 0);
+        String mabn = (String) tblDanhsachBenhNhan.getValueAt(this.row, 0);
         BenhNhan bn = daoBN.selectByID(mabn);
         this.setFormBenhNhan(bn);
         tabs.setSelectedIndex(0);
@@ -706,9 +737,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
     void UpdateStatusBenhNhan() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
-        boolean last = (this.row == tblDanhsach.getRowCount() - 1);
+        boolean last = (this.row == tblDanhsachBenhNhan.getRowCount() - 1);
         // Trạng thái form
-        txtMaBN.setEditable(!edit);
         btnthem.setEnabled(!edit);
         btnsua.setEnabled(edit);
         btnxoa.setEnabled(edit);
@@ -732,14 +762,14 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void nextBenhNhan() {
-        if (this.row < tblDanhsach.getRowCount() - 1) {
+        if (this.row < tblDanhsachBenhNhan.getRowCount() - 1) {
             this.row++;
             this.editFormBenhNhan();
         }
     }
 
     void lastBenhNhan() {
-        this.row = tblDanhsach.getRowCount() - 1;
+        this.row = tblDanhsachBenhNhan.getRowCount() - 1;
         this.editFormBenhNhan();
     }
 
