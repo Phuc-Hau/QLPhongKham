@@ -1284,17 +1284,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
     }
     
-
-    private void pnlHomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHomeMousePressed
-        // TODO add your handling code here:
-        this.setColor(pnlcolorHome,pnlHome); // discoloration
-        this.reserColor(new JPanel[]{pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
-                new JPanel[]{pnlBenhNhan,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien}); // reser color
-        tabs.setSelectedIndex(0);
-        lblChucNang.setText("Home");
-        this.GetDate();
-    }//GEN-LAST:event_pnlHomeMousePressed
-
     void GetDate (){
         Calendar cal = Calendar.getInstance();
         // hiển thị ngày tháng năm
@@ -1317,8 +1306,18 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 lblGiay.setText(sdf.format(new Date()));
             }
         }).start();
-}
-    
+    }
+
+    private void pnlHomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHomeMousePressed
+        // TODO add your handling code here:
+        this.setColor(pnlcolorHome,pnlHome); // discoloration
+        this.reserColor(new JPanel[]{pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
+                new JPanel[]{pnlBenhNhan,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien}); // reser color
+        tabs.setSelectedIndex(0);
+        lblChucNang.setText("Home");
+        this.GetDate();
+    }//GEN-LAST:event_pnlHomeMousePressed
+
     private void pnlBenhNhanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBenhNhanMousePressed
         // TODO add your handling code here:
         this.setColor(pnlColorBenhNhan,pnlBenhNhan);// discoloration
@@ -1326,6 +1325,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(1);
         lblChucNang.setText("Bệnh Nhân");
+        
+        
     }//GEN-LAST:event_pnlBenhNhanMousePressed
 
     private void pnlPhieuKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhieuKhamMousePressed
@@ -1335,6 +1336,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(2);
         lblChucNang.setText("Phiếu Khám");
+        
+        
     }//GEN-LAST:event_pnlPhieuKhamMousePressed
 
     private void pnlPhongKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhongKhamMousePressed
@@ -1344,6 +1347,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(3);
         lblChucNang.setText("Phòng Khám");
+        
         this.fillTablePhongKham();
         this.updateStatusPhongKham();
     }//GEN-LAST:event_pnlPhongKhamMousePressed
@@ -1355,8 +1359,34 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlPhongKham,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(4);
         lblChucNang.setText("Đơn Thuốc");
+        
+        
     }//GEN-LAST:event_pnlDonThuocMousePressed
+  
+    private void pnlThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThuocMousePressed
+        // TODO add your handling code here:
+        this.setColor(pnlcolorThuoc,pnlThuoc);// discoloration
+        this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorNhanVien}, 
+                new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlNhanVien});// reser color
+        tabs.setSelectedIndex(5);
+        lblChucNang.setText("Thuốc");
+        
+        this.fillTableThuoc();
+        this.updateStatusThuoc();
+    }//GEN-LAST:event_pnlThuocMousePressed
 
+    private void pnlNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMousePressed
+        // TODO add your handling code here:
+        this.setColor(pnlcolorNhanVien,pnlNhanVien);// discoloration
+        this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc}, 
+                new JPanel[]{pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc,pnlThuoc});// reser color
+        tabs.setSelectedIndex(6);
+        lblChucNang.setText("Nhân Viên");
+        
+        
+    }//GEN-LAST:event_pnlNhanVienMousePressed
+
+    
 //    
 //      Begin From Benh Nhan
 //    
@@ -1377,45 +1407,24 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     
 //    
 //      Begin  From Phong Kham
-//    
-    private void pnlThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThuocMousePressed
-        // TODO add your handling code here:
-        this.setColor(pnlcolorThuoc,pnlThuoc);// discoloration
-        this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorNhanVien}, 
-                new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlNhanVien});// reser color
-        tabs.setSelectedIndex(5);
-        lblChucNang.setText("Thuốc");
-        this.fillTableThuoc();
-        this.updateStatusThuoc();
-    }//GEN-LAST:event_pnlThuocMousePressed
-
-    private void pnlNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMousePressed
-        // TODO add your handling code here:
-        this.setColor(pnlcolorNhanVien,pnlNhanVien);// discoloration
-        this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc}, 
-                new JPanel[]{pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc,pnlThuoc});// reser color
-        tabs.setSelectedIndex(6);
-        lblChucNang.setText("Nhân Viên");
-    }//GEN-LAST:event_pnlNhanVienMousePressed
-
+//  
+    
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (ErrorPK()) {
-
-            this.insertPK();
-
+        if (ErrorPhongKham()) {
+            this.insertPhongKham();
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
     int row = -1;
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        this.deletePK();
+        this.deletePhongKham();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        this.updatePK();
+        this.updatePhongKham();
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -1427,12 +1436,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.row = tblPhongKham.getSelectedRow();
-            this.editPK();
+            this.editPhongKham();
         }
     }//GEN-LAST:event_tblPhongKhamMouseClicked
 
-    
-    
     void clearFormPK() {
         txtMaPK.setText("");
         txtGhiChu.setText("");
@@ -1441,16 +1448,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.updateStatusPhongKham();
     }
 
-
-    void editPK() {
+    void editPhongKham() {
         String th = (String) tblPhongKham.getValueAt(this.row, 0);
         PhongKham pk = daoPKBenh.selectByID(th);
-        this.setForm(pk);
+        this.setFormPhongKham(pk);
         this.updateStatusPhongKham();
     }
 
-    void insertPK() {
-        PhongKham th = getForm();
+    void insertPhongKham() {
+        PhongKham th = getFormPhongKham();
         try {
             daoPKBenh.insert(th);
             this.fillTablePhongKham();
@@ -1462,8 +1468,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
     }
 
-    void updatePK() {
-        PhongKham pk = getForm();
+    void updatePhongKham() {
+        PhongKham pk = getFormPhongKham();
         try {
             daoPKBenh.update(pk);
             this.fillTablePhongKham();
@@ -1473,9 +1479,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
     }
 
-    void deletePK() {
+    void deletePhongKham() {
         String loaiPK = txtMaPK.getText();
-        if (Msgbox.confirm(this, "Bạn thực sự muốn xóa phòng khám này?")) {
+        if (Msgbox.confirm(this, "Bạn thực sự muốn xóa phòng "+loaiPK+ " này?")) {
             try {
                 daoPKBenh.detele(loaiPK);
                 this.fillTablePhongKham();
@@ -1504,14 +1510,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     }
 
     //Hien thi thuoc len form
-    void setForm(PhongKham pk) {
+    void setFormPhongKham(PhongKham pk) {
         txtMaPK.setText(pk.getMaPK());
         txtTenPK.setText(pk.getTenPhongKham());
         txtGhiChu.setText(String.valueOf(pk.getGhiChu()));
     }
 
     //tao thuoc tu form
-    PhongKham getForm() {
+    PhongKham getFormPhongKham() {
         PhongKham pk = new PhongKham();
         pk.setMaPK(txtMaPK.getText());
         pk.setTenPhongKham(txtTenPK.getText());
@@ -1529,7 +1535,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnXoa.setEnabled(edit);
     }
     
-    boolean ErrorPK() {
+    boolean ErrorPhongKham() {
         if (Utility.checkNullText(txtTenPK) && Utility.checkNullText(txtMaPK) ) {
             return true;
         } else {
@@ -1542,6 +1548,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 //      End From Phong Kham
 //    
 
+//    
+//      Begin From Thuoc
+// 
     
     private void btn_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newActionPerformed
         // TODO add your handling code here:
