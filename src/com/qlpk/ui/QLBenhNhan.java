@@ -29,7 +29,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     public QLBenhNhan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.init();
+        this.initBenhNhan();
         this.setTitle("Thông tin bệnh nhân");
     }
 
@@ -413,22 +413,22 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
-        if (checkTrungMa(txtMaBN)) {
-            if (Error()) {
-                this.insert();
+        if (checkTrungMaBenhNhan(txtMaBN)) {
+            if (ErrorBenhNhan()) {
+                this.insertBenhNhan();
             }
         }
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaActionPerformed
         // TODO add your handling code here:
-        this.delete();
+        this.deleteBenhNhan();
     }//GEN-LAST:event_btnxoaActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
-        if (Error()) {
-            this.update();
+        if (ErrorBenhNhan()) {
+            this.updateBenhNhan();
         }
     }//GEN-LAST:event_btnsuaActionPerformed
 
@@ -439,22 +439,22 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
         // TODO add your handling code here:
-        this.first();
+        this.firstBenhNhan();
     }//GEN-LAST:event_btnfirstActionPerformed
 
     private void btnprevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprevActionPerformed
         // TODO add your handling code here:
-        this.prev();
+        this.prevBenhNhan();
     }//GEN-LAST:event_btnprevActionPerformed
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         // TODO add your handling code here:
-        this.next();
+        this.nextBenhNhan();
     }//GEN-LAST:event_btnnextActionPerformed
 
     private void btnlastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlastActionPerformed
         // TODO add your handling code here:
-        this.last();
+        this.lastBenhNhan();
     }//GEN-LAST:event_btnlastActionPerformed
 
     private void txttimkiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyPressed
@@ -463,12 +463,12 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
     private void txttimkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyReleased
         // TODO add your handling code here:
-        this.timKiem();
+        this.timKiemBenhNhan();
     }//GEN-LAST:event_txttimkiemKeyReleased
 
     private void btntimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntimActionPerformed
         // TODO add your handling code here:
-        this.timKiem();
+        this.timKiemBenhNhan();
     }//GEN-LAST:event_btntimActionPerformed
 
     /**
@@ -556,7 +556,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     BenhNhanDao daoBN = new BenhNhanDao();
     int row = -1;
 
-    private void init() {
+    private void initBenhNhan() {
         this.setLocationRelativeTo(null);
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
@@ -587,7 +587,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         }
     }
 
-    void insert() {
+    void insertBenhNhan() {
         BenhNhan bn = this.getformBenhNhan();
         try {
             daoBN.insert(bn);
@@ -600,7 +600,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         }
     }
 
-    void update() {
+    void updateBenhNhan() {
         BenhNhan bn = this.getformBenhNhan();
         try {
             daoBN.update(bn);
@@ -612,7 +612,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         }
     }
 
-    void delete() {
+    void deleteBenhNhan() {
         String mabn = txtMaBN.getText();
         if (Msgbox.confirm(this, "Bạn thực sự muốn xóa bệnh nhân này?")) {
             try {
@@ -692,38 +692,38 @@ public class QLBenhNhan extends javax.swing.JDialog {
         btnlast.setEnabled(edit && !last);
     }
 
-    void first() {
+    void firstBenhNhan() {
         this.row = 0;
         this.editFormBenhNhan();
     }
 
-    void prev() {
+    void prevBenhNhan() {
         if (this.row > 0) {
             this.row--;
             this.editFormBenhNhan();
         }
     }
 
-    void next() {
+    void nextBenhNhan() {
         if (this.row < tblDanhsach.getRowCount() - 1) {
             this.row++;
             this.editFormBenhNhan();
         }
     }
 
-    void last() {
+    void lastBenhNhan() {
         this.row = tblDanhsach.getRowCount() - 1;
         this.editFormBenhNhan();
     }
 
-    private void timKiem() {
+    private void timKiemBenhNhan() {
         this.FillTableBenhNhan();
         this.clearFormBenhNhan();
         this.row = -1;
         UpdateStatusBenhNhan();
     }
 
-    boolean Error() {
+    boolean ErrorBenhNhan() {
         if (Utility.checkNullText(txtMaBN)
                 && Utility.checkMaBenhNhan(txtMaBN)
                 && Utility.checkNullText(txtHoten)
@@ -741,7 +741,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
     // dan
 
-    public boolean checkTrungMa(JTextField txt) {
+    public boolean checkTrungMaBenhNhan(JTextField txt) {
         txtMaBN.setBackground(white);
         if (daoBN.selectByID(txtMaBN.getText()) == null) {
             return true;
