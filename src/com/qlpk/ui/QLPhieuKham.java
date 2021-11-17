@@ -1062,7 +1062,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnUpdate.setEnabled(!x);
         btnDelete.setEnabled(!x);
         btnInPhieuKham.setEnabled(!x);
-        btnNext.setEnabled(x);
+        btnNext.setEnabled(!x);
         btnNew.setEnabled(!x);
         btnBoQua.setEnabled(x);
     }
@@ -1076,8 +1076,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
             btnBatDau.setEnabled(true);
             btnInsert.setEnabled(false);
             btnBoQua.setEnabled(false);
-//            tabsPK.remove(1);
-//            tabsPK.remove(1);
+            this.setModelThongTinBN(new BenhNhan());
         }
     }
     
