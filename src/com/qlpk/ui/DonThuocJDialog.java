@@ -244,7 +244,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                         .addComponent(btnLast)
                         .addGap(106, 106, 106))))
             .addGroup(pnlCapnhapLayout.createSequentialGroup()
-                .addGap(315, 315, 315)
+                .addGap(300, 300, 300)
                 .addComponent(btnXoaThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -272,9 +272,9 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                     .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnXoaThuoc)
-                .addGap(29, 29, 29)
+                .addGap(17, 17, 17)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnFirst)
@@ -762,6 +762,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
                 DonThuocCT dtct = getFormDTCT(i);
                 daoDTCT.update(dtct);
             }
+            this.fillTableDonThuocBenhNhan();
             this.fillTableDonThuoc();
             //this.clearForm();
             Msgbox.alert(this, "Cập nhật thành công!");
@@ -778,7 +779,10 @@ public class DonThuocJDialog extends javax.swing.JDialog {
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
                     daoDT.detele(MaDT);
-                    daoDTCT.detele(MaDT);
+                    for (int i = 0; i < tblThuoc.getRowCount(); i++) {
+                        daoDTCT.detele(MaDT);
+                    }
+                    this.fillTableDonThuocBenhNhan();
                     this.fillTableDonThuoc();
                     this.clearForm();
                     Msgbox.alert(this, "Xoá thành công!");
