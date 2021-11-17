@@ -839,7 +839,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
      String path="";
      void chonAnh() {
        JFileChooser fileChooser=new JFileChooser(path);
-        FileNameExtensionFilter image =new FileNameExtensionFilter("Anh logo","jpeg","png","gif");
+        FileNameExtensionFilter image =new FileNameExtensionFilter("Anh logo","jpeg","jpg","png","gif");
         fileChooser.setFileFilter(image);
         fileChooser.setDialogTitle("File Ảnh");
         if(fileChooser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
