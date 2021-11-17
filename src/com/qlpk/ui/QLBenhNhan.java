@@ -402,7 +402,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private void tblDanhsachBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhsachBenhNhanMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            this.row = tblDanhsachBenhNhan.getSelectedRow();
+            this.rowBN = tblDanhsachBenhNhan.getSelectedRow();
             this.editFormBenhNhan();
         }
     }//GEN-LAST:event_tblDanhsachBenhNhanMouseClicked
@@ -552,7 +552,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     BenhNhanDao daoBN = new BenhNhanDao();
-    int row = -1;
+    int rowBN = -1;
 
     private void initBenhNhan() {
         this.setLocationRelativeTo(null);
@@ -700,12 +700,12 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtDienthoai.setText("");
         rdoNam.setSelected(true);
         txtNgayTao.setText(XDate.toString(new Date(),"dd/MM/yyyy"));
-        this.row = -1;
+        this.rowBN = -1;
         this.UpdateStatusBenhNhan();
     }
 
     void editFormBenhNhan() {
-        String mabn = (String) tblDanhsachBenhNhan.getValueAt(this.row, 0);
+        String mabn = (String) tblDanhsachBenhNhan.getValueAt(this.rowBN, 0);
         BenhNhan bn = daoBN.selectByID(mabn);
         this.setFormBenhNhan(bn);
         tabs.setSelectedIndex(0);
@@ -713,9 +713,9 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void UpdateStatusBenhNhan() {
-        boolean edit = (this.row >= 0);
-        boolean first = (this.row == 0);
-        boolean last = (this.row == tblDanhsachBenhNhan.getRowCount() - 1);
+        boolean edit = (this.rowBN >= 0);
+        boolean first = (this.rowBN == 0);
+        boolean last = (this.rowBN == tblDanhsachBenhNhan.getRowCount() - 1);
         // Trạng thái form
         btnthem.setEnabled(!edit);
         btnsua.setEnabled(edit);
@@ -728,33 +728,33 @@ public class QLBenhNhan extends javax.swing.JDialog {
     }
 
     void firstBenhNhan() {
-        this.row = 0;
+        this.rowBN = 0;
         this.editFormBenhNhan();
     }
 
     void prevBenhNhan() {
-        if (this.row > 0) {
-            this.row--;
+        if (this.rowBN > 0) {
+            this.rowBN--;
             this.editFormBenhNhan();
         }
     }
 
     void nextBenhNhan() {
-        if (this.row < tblDanhsachBenhNhan.getRowCount() - 1) {
-            this.row++;
+        if (this.rowBN < tblDanhsachBenhNhan.getRowCount() - 1) {
+            this.rowBN++;
             this.editFormBenhNhan();
         }
     }
 
     void lastBenhNhan() {
-        this.row = tblDanhsachBenhNhan.getRowCount() - 1;
+        this.rowBN = tblDanhsachBenhNhan.getRowCount() - 1;
         this.editFormBenhNhan();
     }
 
     private void timKiemBenhNhan() {
         this.FillTableBenhNhan();
         this.clearFormBenhNhan();
-        this.row = -1;
+        this.rowBN = -1;
         UpdateStatusBenhNhan();
     }
 
@@ -772,7 +772,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
             return false;
         }
     }
-    // dan
 
     public boolean checkTrungMaBenhNhan(JTextField txt) {
         txtMaBN.setBackground(white);
