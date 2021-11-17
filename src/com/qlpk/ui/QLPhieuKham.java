@@ -752,12 +752,12 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
-    void edit(){
+    void editPK(){
         btnBatDau.setEnabled(true);
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
         this.setModelThongTinPk(pk);
-        this.setStatus(false);
+        this.setStatusPK(false);
     }
     
     void setModelThongTinBN(BenhNhan bn){
@@ -938,14 +938,14 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     private void btnBatDauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatDauActionPerformed
         // TODO add your handling code here:
-        this.setStatus(true);
+        this.setStatusPK(true);
         btnBatDau.setEnabled(false);
-        fillBenhNhan();
+        fillBenhNhanPK();
     }//GEN-LAST:event_btnBatDauActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        fillBenhNhan();
+        fillBenhNhanPK();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
@@ -957,7 +957,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getClickCount()==2){
             indexPK=tblPhieuKham.getSelectedRow();
-            this.edit();
+            this.editPK();
             tabsPK.setSelectedIndex(0);
         }
     }//GEN-LAST:event_tblPhieuKhamMouseClicked
@@ -967,20 +967,20 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBoQuaActionPerformed
     
     
-    void setStatus(boolean x){
+    void setStatusPK(boolean x){
         btnInsert.setEnabled(x);
         btnUpdate.setEnabled(!x);
         btnDelete.setEnabled(!x);
         btnNew.setEnabled(true);
         btnInPhieuKham.setEnabled(!x);
     }
-    void fillBenhNhan(){
+    void fillBenhNhanPK(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
         if(bn!= null){
             this.setModelThongTinBN(bn);
         } else {
             Msgbox.alert(this, "Không có Bệnh nhân để khám");
-            this.setStatus(false);
+            this.setStatusPK(false);
         }
     }
     
