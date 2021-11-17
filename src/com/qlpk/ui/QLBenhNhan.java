@@ -68,7 +68,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         btnthem = new javax.swing.JButton();
         btnxoa = new javax.swing.JButton();
         btnsua = new javax.swing.JButton();
-        btnthoat = new javax.swing.JButton();
         btnfirst = new javax.swing.JButton();
         btnprev = new javax.swing.JButton();
         btnnext = new javax.swing.JButton();
@@ -93,11 +92,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         txtMaBN.setEditable(false);
         txtMaBN.setForeground(new java.awt.Color(242, 0, 0));
         txtMaBN.setName("MaBN"); // NOI18N
-        txtMaBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaBNActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Họ và tên :");
 
@@ -177,13 +171,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         btnsua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsuaActionPerformed(evt);
-            }
-        });
-
-        btnthoat.setText("Thoát");
-        btnthoat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnthoatActionPerformed(evt);
             }
         });
 
@@ -318,8 +305,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
                         .addComponent(btnnext)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnlast)
-                        .addGap(81, 81, 81)
-                        .addComponent(btnthoat))
+                        .addGap(142, 142, 142))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -370,8 +356,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
                         .addComponent(btnsua))
                     .addComponent(btnprev, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnnext, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnlast, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnthoat, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnlast, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -414,10 +399,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMaBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaBNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaBNActionPerformed
-
     private void tblDanhsachBenhNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhsachBenhNhanMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
@@ -452,11 +433,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
             this.updateBenhNhan();
         }
     }//GEN-LAST:event_btnsuaActionPerformed
-
-    private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_btnthoatActionPerformed
 
     private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
         // TODO add your handling code here:
@@ -543,7 +519,6 @@ public class QLBenhNhan extends javax.swing.JDialog {
     private javax.swing.JButton btnsua;
     private javax.swing.JButton btnthem;
     private javax.swing.JButton btnthemmoi;
-    private javax.swing.JButton btnthoat;
     private javax.swing.JButton btntim;
     private javax.swing.JButton btnxoa;
     private javax.swing.ButtonGroup buttonGroup1;
