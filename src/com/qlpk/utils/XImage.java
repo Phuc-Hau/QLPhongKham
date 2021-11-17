@@ -43,4 +43,14 @@ public class XImage {
         return new ImageIcon(path.getAbsolutePath());
     }
     
+    //
+    public static void DeleteFile(String fileName){  
+        try{
+            File file = new File("logos",fileName);
+            file.delete();
+        }catch(Exception e){
+           e.printStackTrace();
+        }
+    }
+    
 }

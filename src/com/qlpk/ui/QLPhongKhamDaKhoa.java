@@ -1710,6 +1710,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             String loaith = txt_loaithuoc.getText();
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc "+loaith+ " này?")) {
                 try {
+                    Thuoc th = daoThuoc.selectByID(loaith);
+                    XImage.DeleteFile(th.getHinh());
                     daoThuoc.delete(loaith);
                     this.fillTableThuoc();
                     this.clearFormThuoc();

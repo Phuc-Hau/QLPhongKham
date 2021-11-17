@@ -795,6 +795,8 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         String manv = txtMaNV.getText();
         if (Msgbox.confirm(this, "Bạn có muốn xóa nhân viên này không!!!")) {
             try {
+                NhanVien nv = daoNV.selectByID(manv);
+                XImage.DeleteFile(nv.getHinh());
                 daoNV.detele(manv);
                 this.fillTable();
                 this.clearForm();

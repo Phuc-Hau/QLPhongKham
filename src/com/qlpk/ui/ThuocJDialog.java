@@ -156,6 +156,8 @@ public class ThuocJDialog extends javax.swing.JDialog {
             String loaith = txt_loaithuoc.getText();
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
+                    Thuoc th = daoThuoc.selectByID(loaith);
+                    XImage.DeleteFile(th.getHinh());
                     daoThuoc.delete(loaith);
                     this.fillTableThuoc();
                     this.clearFormThuoc();
