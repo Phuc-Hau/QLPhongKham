@@ -109,6 +109,9 @@ public class QLPhieuKham extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPhieuKham = new javax.swing.JTable();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblBenhNhanVan = new javax.swing.JTable();
 
         jLabel11.setText("jLabel11");
 
@@ -547,6 +550,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
         });
 
         btnBoQua.setText("Bỏ qua");
+        btnBoQua.setEnabled(false);
         btnBoQua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBoQuaActionPerformed(evt);
@@ -696,6 +700,51 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         tabsPK.addTab("Danh Sách", jPanel3);
 
+        tblBenhNhanVan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã BN ", "Họ và tên", "Giới tính", "SĐT", "Ngày sinh", "Tuổi", "Địa chỉ", "Nghề nghiệp", "Ghi chú", "Ngày tạo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblBenhNhanVan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBenhNhanVanMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblBenhNhanVan);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane5)
+                .addGap(29, 29, 29))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
+
         javax.swing.GroupLayout pnlFromBenhNhanLayout = new javax.swing.GroupLayout(pnlFromBenhNhan);
         pnlFromBenhNhan.setLayout(pnlFromBenhNhanLayout);
         pnlFromBenhNhanLayout.setHorizontalGroup(
@@ -734,7 +783,10 @@ public class QLPhieuKham extends javax.swing.JFrame {
         fillTablePhieuKham();
         fillCboPhongKham();
         fillCboNV();
+        fillBenhNhanVan();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
+        tabsPK.remove(1);
+        tabsPK.remove(1);
     }
     
     void fillTablePhieuKham(){
@@ -753,7 +805,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void editPK(){
-        btnBatDau.setEnabled(true);
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
         this.setModelThongTinPk(pk);
@@ -873,6 +924,8 @@ public class QLPhieuKham extends javax.swing.JFrame {
             daoPK.insert(pk);
             Msgbox.alert(this, "Thêm Thành công");
             this.fillTablePhieuKham();
+            btnInPhieuKham.setEnabled(true);
+            this.setStatusPK(false);
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Thêm Thất bại");
@@ -880,9 +933,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     }
     
     void updatePK(){
-        String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = this.getModelPK();
-        pk.setMaPhieuKham(maPk);
         try {
             daoPK.update(pk);
             Msgbox.alert(this, "Sữa Thành công");
@@ -908,6 +959,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     
     boolean errorPhieuKham(){
         int error=0;
+        int error1=0;
         if(!Utility.checkNullTextArea(txtKhamLamSang)){
             error++;
         }
@@ -919,13 +971,18 @@ public class QLPhieuKham extends javax.swing.JFrame {
         if (!Utility.checkNullTextArea(txtKetQuaDieuTri)) {
             error++;
         }
-        if(!(Utility.checkSoNguyen(txtNhipTim) && Utility.checkSoNguyen(txtNhietDo) && Utility.checkSoNguyen(txtHuyetAp)
-                && Utility.checkSoNguyen(txtCanNang) && Utility.checkSoNguyen(txtChieuCao))){
-            error++;
+        if(!(Utility.checkSoNguyen(txtNhipTim) && Utility.checkSoNguyen(txtNhietDo) && Utility.checkSoNguyen(txtHuyetAp))){
+            error1++;
         }
         
-        if(error !=0){
-            Msgbox.alert(this, "Không được bỏ trống");
+        if(!(Utility.checkSoThapPhan(txtCanNang) && Utility.checkSoThapPhan(txtChieuCao))){
+            error1++;
+        }
+        
+        if(error !=0 || error1!=0){
+            if(error1 ==0 ){
+                Msgbox.alert(this, "Không được bỏ trống");
+            }
             return false;
         } else return true;
     }
@@ -941,11 +998,16 @@ public class QLPhieuKham extends javax.swing.JFrame {
         this.setStatusPK(true);
         btnBatDau.setEnabled(false);
         fillBenhNhanPK();
+        tabsPK.addTab("Danh Sách", jPanel3);
+        tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
+        this.setModelThongTinKhamBenh(new PhieuKham());
     }//GEN-LAST:event_btnBatDauActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        fillBenhNhanPK();
+        this.fillBenhNhanPK();
+        this.setModelThongTinKhamBenh(new PhieuKham());
+        this.setStatusPK(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void cboPhongKhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongKhamActionPerformed
@@ -964,15 +1026,35 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
     private void btnBoQuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoQuaActionPerformed
         // TODO add your handling code here:
+        this.Boqua();
     }//GEN-LAST:event_btnBoQuaActionPerformed
+
+    private void tblBenhNhanVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBenhNhanVanMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            
+        }
+    }//GEN-LAST:event_tblBenhNhanVanMouseClicked
     
+    void Boqua(){
+        String maBn = txtMaBenhNhan.getText();
+        try {
+            daoBN.updateVanMat(maBn);
+            fillBenhNhanVan();
+            fillBenhNhanPK();
+        } catch (Exception e) {
+        }
+    }
     
     void setStatusPK(boolean x){
         btnInsert.setEnabled(x);
         btnUpdate.setEnabled(!x);
         btnDelete.setEnabled(!x);
-        btnNew.setEnabled(true);
+        btnNew.setEnabled(x);
         btnInPhieuKham.setEnabled(!x);
+        btnNext.setEnabled(x);
+        btnNext.setEnabled(!x);
+        btnBoQua.setEnabled(x);
     }
     void fillBenhNhanPK(){
         BenhNhan bn = daoBN.select_BenhNhan_NotPK();
@@ -1023,6 +1105,33 @@ public class QLPhieuKham extends javax.swing.JFrame {
         }
     }
     
+    void fillBenhNhanVan() {
+        DefaultTableModel model = (DefaultTableModel) tblBenhNhanVan.getModel();
+        model.setRowCount(0);
+        try {
+            //String keyword = txttimkiem.getText();
+            List<BenhNhan> list = daoBN.select_BenhNhan_Van();
+            for (BenhNhan bn : list) {
+                Object[] row = {
+                    bn.getMaBN(),
+                    bn.getTenBenhNhan(),
+                    bn.isGioiTinh() ? "Nam" : "Nữ",
+                    bn.getSDT(),
+                    bn.getNgaySinh(),
+                    bn.getTuoi(),
+                    bn.getDiaChi(),
+                    bn.getNgheNghiep(),
+                    bn.getGhiChu(),
+                    XDate.toString(bn.getNgayTao(), "dd/MM/yyyy"),
+                    bn.getNgayTao()
+                };
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -1106,12 +1215,15 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel pnlDieuchinh2;
     private javax.swing.JPanel pnlFromBenhNhan;
     private javax.swing.JTabbedPane tabsPK;
+    private javax.swing.JTable tblBenhNhanVan;
     private javax.swing.JTable tblPhieuKham;
     private javax.swing.JTextField txtBenhKem;
     private javax.swing.JTextField txtCanNang;

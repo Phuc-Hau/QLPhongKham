@@ -661,6 +661,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
         bn.setNgheNghiep(txtNgheNghiep.getText());
         bn.setGhiChu(txtGhichu.getText());
         bn.setNgayTao(new Date());
+        
         return bn;
     }
 

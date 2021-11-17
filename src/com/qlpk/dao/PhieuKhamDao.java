@@ -32,9 +32,8 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
 
     @Override
     public void update(PhieuKham entity) {
-        String Update ="UPDATE PhieuKham SET MABN =?, MaPK =?, MaNV =?, BS =?, NgayKham =?, KhamLamSang =?, BenhKem =?, ChuanDoanICD =?, NhipTim =?, NhietDo =?, HuyenAp =?, CanNang =?, ChieuCao =?, KetLuan_DieuTri =? WHERE (MaPhieuKham = ?)";
+        String Update ="UPDATE PhieuKham SET MaPK =?, MaNV =?, BS =?, NgayKham =?, KhamLamSang =?, BenhKem =?, ChuanDoanICD =?, NhipTim =?, NhietDo =?, HuyenAp =?, CanNang =?, ChieuCao =?, KetLuan_DieuTri =? WHERE (MABN =?)";
         JdbcHelper.Update(Update, 
-                entity.getMaBN(),
                 entity.getMaPK(),
                 entity.getMaNV(),
                 entity.getBS(),
@@ -48,7 +47,7 @@ public class PhieuKhamDao extends PhongKhamDao<PhieuKham, Integer>{
                 entity.getCanNang(),
                 entity.getChieuCao(),
                 entity.getKetQuaDieuTri(),
-                entity.getMaPhieuKham()
+                entity.getMaBN()
                 );
     }
 

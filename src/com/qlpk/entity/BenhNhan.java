@@ -15,23 +15,7 @@ public class BenhNhan {
     String GhiChu;
     String TrangThai;
     Date NgayTao;
-
-    public BenhNhan() {
-    }
-
-    public BenhNhan(String MaBN, String TenBenhNhan, boolean GioiTinh, String SDT, Date NgaySinh, int Tuoi, String DiaChi, String NgheNghiep, String GhiChu, String TrangThai, Date NgayTao) {
-        this.MaBN = MaBN;
-        this.TenBenhNhan = TenBenhNhan;
-        this.GioiTinh = GioiTinh;
-        this.SDT = SDT;
-        this.NgaySinh = NgaySinh;
-        this.Tuoi = Tuoi;
-        this.DiaChi = DiaChi;
-        this.NgheNghiep = NgheNghiep;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
-        this.NgayTao = NgayTao;
-    }
+    
 
     public String getMaBN() {
         return MaBN;

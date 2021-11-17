@@ -106,6 +106,24 @@ public class Utility {
         }
     }
     
+    public static boolean checkSoThapPhan(JTextField txt) {
+        txt.setBackground(white);
+        try {
+            float hour = Float.parseFloat(txt.getText());
+            if (hour >= 0) {
+                return true;
+            } else {
+                txt.setBackground(Color.yellow);
+                Msgbox.alert(txt.getRootPane(), txt.getName() + " phải lớn hơn bằng 0.");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            txt.setBackground(Color.yellow);
+            Msgbox.alert(txt.getRootPane(), txt.getName() + " phải là số thập phân.");
+            return false;
+        }
+    }
+    
     public static boolean checkSLTable(JTable tbl){
         int error=0;
         for (int i = 0; i < tbl.getRowCount(); i++) {
@@ -120,7 +138,7 @@ public class Utility {
     
     public static boolean checkMaBenhNhan(JTextField txt){
         txt.setBackground(white); 
-        String ma = txt.getText();  
+        String ma = txt.getText().toUpperCase();  
         String rgx = "(BN)[0-9]{5}"; 
         if(ma.matches(rgx)==false){
             Msgbox.alert(txt.getRootPane(), txt.getName() + " không đúng định dạng \nVD: BN00001");
