@@ -68,7 +68,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlChinh" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="pnlChinh" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -151,7 +154,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlNhanVien" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblExit" max="32767" attributes="0"/>
+                      <Component id="lblExit" pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

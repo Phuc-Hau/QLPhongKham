@@ -437,17 +437,17 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
         if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMa(txtMaNV)){
-            if (Error()) {
+            if (ErrorNV()) {
                 this.InsertNV();
             }
         } else{
-            if (Error() && Utility.CheckPass(txtPass) && checkTrungMa(txtMaNV)) {
+            if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMa(txtMaNV)) {
                 this.InsertNV();
             }
         }
     }//GEN-LAST:event_btnThemActionPerformed
    
-    boolean Error(){
+    boolean ErrorNV(){
         if (Utility.checkNullText(txtMaNV)
                 && Utility.checkNullText(txtHoTen)
                 && Utility.checkNullText(txtSoDT)
@@ -484,11 +484,11 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
         if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
-            if (Error()) {
+            if (ErrorNV()) {
                 this.UpdateNV();
             }
         } else{
-            if (Error()&&Utility.CheckPass(txtPass)) {
+            if (ErrorNV()&&Utility.CheckPass(txtPass)) {
                 this.UpdateNV();
             }
         }
@@ -795,6 +795,8 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         String manv = txtMaNV.getText();
         if (Msgbox.confirm(this, "Bạn có muốn xóa nhân viên này không!!!")) {
             try {
+                NhanVien nv = daoNV.selectByID(manv);
+                XImage.DeleteFile(nv.getHinh());
                 daoNV.detele(manv);
                 this.fillTable();
                 this.clearForm();
