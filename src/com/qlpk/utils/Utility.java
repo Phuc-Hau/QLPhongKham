@@ -73,6 +73,7 @@ public class Utility {
         if (txt.getText().trim().length() > 0) {
             return true;
         } else {
+            txt.setBackground(Color.yellow);
             Msgbox.alert(txt, "Yêu cầu nhập đầy đủ thông tin!");
             return false;
         }

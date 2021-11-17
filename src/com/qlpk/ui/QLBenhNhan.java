@@ -92,6 +92,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
 
         txtMaBN.setEditable(false);
         txtMaBN.setForeground(new java.awt.Color(242, 0, 0));
+        txtMaBN.setName("MaBN"); // NOI18N
         txtMaBN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMaBNActionPerformed(evt);
@@ -213,6 +214,8 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 btnlastActionPerformed(evt);
             }
         });
+
+        txtDienthoai.setName("SDT"); // NOI18N
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -788,9 +791,7 @@ public class QLBenhNhan extends javax.swing.JDialog {
                 && Utility.checkNullText(txtDienthoai)
                 && Utility.checkSDT(txtDienthoai)
                 && Utility.checkNullText(txtTuoi)
-                && Utility.checkNullText(txtNgheNghiep)
-                //&& Utility.checkNullText(cboChucVu)
-                && Utility.checkNullText(txtGhichu)) {
+                && Utility.checkNullText(txtNgheNghiep)) {
             return true;
         } else {
             return false;
