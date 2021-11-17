@@ -424,17 +424,20 @@ public class Laymatkhau extends javax.swing.JFrame{
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(null).setVisible(true);
+        new DangNhapJDialong(" ").setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
 
     private void btnHuy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy1ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(null).setVisible(true);
+        new DangNhapJDialong(" ").setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnHuy1ActionPerformed
 
     private void btnHuy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy2ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(null).setVisible(true);
+        new DangNhapJDialong(" ").setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnHuy2ActionPerformed
 
     public NhanVien getModel(){
