@@ -77,6 +77,7 @@ public class Laymatkhau extends javax.swing.JFrame{
 
         jLabel2.setText("Email đăng ký: ");
 
+        btngui.setBackground(new java.awt.Color(0, 255, 63));
         btngui.setText("gui");
         btngui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +85,7 @@ public class Laymatkhau extends javax.swing.JFrame{
             }
         });
 
+        btnHuy.setBackground(new java.awt.Color(255, 0, 0));
         btnHuy.setText("Hủy");
         btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +134,7 @@ public class Laymatkhau extends javax.swing.JFrame{
 
         pnlXacMinh.setBackground(new java.awt.Color(204, 255, 255));
 
+        btnxem.setBackground(new java.awt.Color(0, 255, 55));
         btnxem.setText("Xác nhận");
         btnxem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +144,7 @@ public class Laymatkhau extends javax.swing.JFrame{
 
         jLabel3.setText("Mã xác minh: ");
 
+        btnQuaylai.setBackground(new java.awt.Color(255, 249, 4));
         btnQuaylai.setText("Quay lại");
         btnQuaylai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +152,7 @@ public class Laymatkhau extends javax.swing.JFrame{
             }
         });
 
+        btnResetMa.setBackground(new java.awt.Color(235, 0, 255));
         btnResetMa.setText("Lấy lại mã");
         btnResetMa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +164,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         jLabel4.setForeground(new java.awt.Color(0, 150, 27));
         jLabel4.setText("Xác minh");
 
+        btnHuy1.setBackground(new java.awt.Color(255, 0, 0));
         btnHuy1.setText("Hủy");
         btnHuy1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +241,7 @@ public class Laymatkhau extends javax.swing.JFrame{
 
         pnlDoipass.setBackground(new java.awt.Color(204, 255, 255));
 
+        btnDoipass.setBackground(new java.awt.Color(0, 255, 30));
         btnDoipass.setText("Đổi mật khẩu");
         btnDoipass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +257,7 @@ public class Laymatkhau extends javax.swing.JFrame{
 
         jLabel7.setText("Xác nhận mật khẩu ");
 
+        btnHuy2.setBackground(new java.awt.Color(255, 0, 0));
         btnHuy2.setText("Hủy");
         btnHuy2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

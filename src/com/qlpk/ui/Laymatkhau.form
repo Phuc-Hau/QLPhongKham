@@ -115,6 +115,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btngui">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="3f" green="ff" red="0" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="gui"/>
               </Properties>
               <Events>
@@ -123,6 +126,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnHuy">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ee7;y"/>
               </Properties>
               <Events>
@@ -232,6 +238,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnxem">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="37" green="ff" red="0" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="X&#xe1;c nh&#x1ead;n"/>
               </Properties>
               <Events>
@@ -245,6 +254,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnQuaylai">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="4" green="f9" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Quay l&#x1ea1;i"/>
               </Properties>
               <Events>
@@ -253,6 +265,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnResetMa">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="0" red="eb" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="L&#x1ea5;y l&#x1ea1;i m&#xe3;"/>
               </Properties>
               <Events>
@@ -272,6 +287,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnHuy1">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ee7;y"/>
               </Properties>
               <Events>
@@ -365,6 +383,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnDoipass">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="1e" green="ff" red="0" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
               </Properties>
               <Events>
@@ -398,6 +419,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnHuy2">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ee7;y"/>
               </Properties>
               <Events>
