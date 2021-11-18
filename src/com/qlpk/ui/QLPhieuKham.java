@@ -37,7 +37,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel11 = new javax.swing.JLabel();
-        pnlFromBenhNhan = new javax.swing.JPanel();
+        pnlFromPhieuKham = new javax.swing.JPanel();
         tabsPK = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -117,7 +117,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlFromBenhNhan.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFromPhieuKham.setBackground(new java.awt.Color(255, 255, 255));
 
         tabsPK.setPreferredSize(new java.awt.Dimension(934, 837));
 
@@ -745,14 +745,14 @@ public class QLPhieuKham extends javax.swing.JFrame {
 
         tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
 
-        javax.swing.GroupLayout pnlFromBenhNhanLayout = new javax.swing.GroupLayout(pnlFromBenhNhan);
-        pnlFromBenhNhan.setLayout(pnlFromBenhNhanLayout);
-        pnlFromBenhNhanLayout.setHorizontalGroup(
-            pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlFromPhieuKhamLayout = new javax.swing.GroupLayout(pnlFromPhieuKham);
+        pnlFromPhieuKham.setLayout(pnlFromPhieuKhamLayout);
+        pnlFromPhieuKhamLayout.setHorizontalGroup(
+            pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pnlFromBenhNhanLayout.setVerticalGroup(
-            pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlFromPhieuKhamLayout.setVerticalGroup(
+            pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
 
@@ -762,11 +762,11 @@ public class QLPhieuKham extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFromBenhNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlFromPhieuKham, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFromBenhNhan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlFromPhieuKham, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -812,8 +812,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
         btnBatDau.setEnabled(false);
         btnNew.setEnabled(true);
         fillBenhNhanPK();
-        tabsPK.addTab("Danh Sách", jPanel3);
-        tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel9);
         this.setModelThongTinKhamBenh(new PhieuKham());
     }//GEN-LAST:event_btnBatDauActionPerformed
 
@@ -933,8 +931,6 @@ public class QLPhieuKham extends javax.swing.JFrame {
         fillCboNV();
         fillBenhNhanVan();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
-        tabsPK.remove(1);
-        tabsPK.remove(1);
     }
     
     void fillTablePhieuKham(){
@@ -1250,7 +1246,7 @@ public class QLPhieuKham extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel pnlDieuchinh2;
-    private javax.swing.JPanel pnlFromBenhNhan;
+    private javax.swing.JPanel pnlFromPhieuKham;
     private javax.swing.JTabbedPane tabsPK;
     private javax.swing.JTable tblBenhNhanVan;
     private javax.swing.JTable tblPhieuKham;

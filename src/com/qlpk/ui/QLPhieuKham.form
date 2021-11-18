@@ -30,17 +30,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlFromBenhNhan" alignment="1" max="32767" attributes="0"/>
+          <Component id="pnlFromPhieuKham" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlFromBenhNhan" alignment="1" max="32767" attributes="0"/>
+          <Component id="pnlFromPhieuKham" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pnlFromBenhNhan">
+    <Container class="javax.swing.JPanel" name="pnlFromPhieuKham">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
