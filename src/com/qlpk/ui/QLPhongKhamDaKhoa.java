@@ -3483,7 +3483,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     //tao thuoc tu form
     PhongKham getFormPhongKham() {
         PhongKham pk = new PhongKham();
-        pk.setMaPK(txtMaPK.getText());
+        pk.setMaPK(txtMaPK.getText().toUpperCase());
         pk.setTenPhongKham(txtTenPK.getText());
         pk.setGhiChu(txtGhiChu.getText());
         return pk;
@@ -3729,7 +3729,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     //tao thuoc tu form
     Thuoc getFormThuoc() {
         Thuoc th = new Thuoc();
-        th.setLoaiThuoc(txt_loaithuoc.getText());
+        th.setLoaiThuoc(txt_loaithuoc.getText().toUpperCase());
         th.setTenThuoc(txt_tenthuoc.getText());
         th.setGiaNhap(Integer.valueOf(txt_gianhap.getText()));
         th.setGiaBan(Integer.valueOf(txt_giaban.getText()));
