@@ -40,7 +40,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
      */
     public QuanLyNhanVienJDialog() {
         initComponents();
-        this.init();
+        this.initNV();
     }
 
     /**
@@ -436,12 +436,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMa(txtMaNV)){
+        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMaNV(txtMaNV)){
             if (ErrorNV()) {
                 this.InsertNV();
             }
         } else{
-            if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMa(txtMaNV)) {
+            if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMaNV(txtMaNV)) {
                 this.InsertNV();
             }
         }
@@ -465,7 +465,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         }  
     }
      
-    public  boolean checkTrungMa(JTextField txt){
+    public  boolean checkTrungMaNV(JTextField txt){
         txt.setBackground(white);
         if (daoNV.selectByID(txt.getText())==null) {
             return true;    
@@ -496,7 +496,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-        this.clearForm();
+        this.clearFormNV();
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
@@ -521,7 +521,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     private void lblAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhMouseClicked
         // TODO add your handling code here:
-        this.chonAnh();
+        this.chonAnhNV();
     }//GEN-LAST:event_lblAnhMouseClicked
 
     private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
@@ -632,12 +632,12 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtSoDT;
     // End of variables declaration//GEN-END:variables
-    private void init() {
+    private void initNV() {
         this.setLocationRelativeTo(null);
-        this.fillTable();
+        this.fillTableNV();
         this.fillCboChuyenNganh();
         this.rowNV = -1;
-        this.updateStatus();
+        this.updateStatusNV();
         
     }
 
@@ -650,7 +650,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         }
     }
     
-    void fillTable() {
+    void fillTableNV() {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
@@ -680,7 +680,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
 
     }
 
-    void updateStatus() {
+    void updateStatusNV() {
         boolean edit = (this.rowNV >= 0);
         boolean first = (this.rowNV == 0);
         boolean last = (this.rowNV == tblNhanVien.getRowCount() - 1);
@@ -696,7 +696,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         btnLast.setEnabled(edit && !last);
     }
 
-    void setForm(NhanVien nv) {
+    void setFormNV(NhanVien nv) {
         txtMaNV.setText(nv.getMaNV());
         txtHoTen.setText(nv.getHoTen());
         rdoNam.setSelected(nv.isGioiTinh());
@@ -715,7 +715,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         }
     }
 
-    NhanVien getForm() {
+    NhanVien getFormNV() {
         NhanVien nv = new NhanVien();
         nv.setMaNV(txtMaNV.getText().toUpperCase());
         nv.setHoTen(txtHoTen.getText());
@@ -734,7 +734,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         return nv; 
     }
 
-    void clearForm() {
+    void clearFormNV() {
         txtMaNV.setText("");
         txtHoTen.setText("");
         rdoNam.setSelected(true);
@@ -751,25 +751,25 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
         lblAnh.setIcon(XImage.read(""));
        
         this.rowNV = -1;
-        this.updateStatus();
+        this.updateStatusNV();
         // btnMoi
     }
 
     void editNV() {
         String manv = (String) tblNhanVien.getValueAt(this.rowNV, 0);
         NhanVien nv = daoNV.selectByID(manv);
-        this.setForm(nv);
+        this.setFormNV(nv);
         tabs.setSelectedIndex(0);
-        this.updateStatus();
+        this.updateStatusNV();
         // tblNhanVien
     }
 
     void InsertNV() {
-        NhanVien nv = getForm();
+        NhanVien nv = getFormNV();
         try {
             daoNV.insert(nv);
-            this.fillTable();
-            this.clearForm();
+            this.fillTableNV();
+            this.clearFormNV();
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             Msgbox.alert(this, "Thêm mới thất bại!");
@@ -779,10 +779,10 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     }
 
     void UpdateNV() {
-        NhanVien nv = getForm();
+        NhanVien nv = getFormNV();
         try {
             daoNV.update(nv);
-            this.fillTable();
+            this.fillTableNV();
             Msgbox.alert(this, "Cập nhật thành công!");
 
         } catch (Exception e) {
@@ -798,8 +798,8 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
                 NhanVien nv = daoNV.selectByID(manv);
                 XImage.DeleteFile(nv.getHinh());
                 daoNV.detele(manv);
-                this.fillTable();
-                this.clearForm();
+                this.fillTableNV();
+                this.clearFormNV();
                 Msgbox.alert(this, "Xóa thành công!");
             } catch (Exception e) {
                 Msgbox.alert(this, "Xóa thất bại!");
@@ -837,7 +837,7 @@ public class QuanLyNhanVienJDialog extends javax.swing.JFrame {
     
   
      String path="";
-     void chonAnh() {
+     void chonAnhNV() {
        JFileChooser fileChooser=new JFileChooser(path);
         FileNameExtensionFilter image =new FileNameExtensionFilter("Anh logo","jpeg","jpg","png","gif");
         fileChooser.setFileFilter(image);
