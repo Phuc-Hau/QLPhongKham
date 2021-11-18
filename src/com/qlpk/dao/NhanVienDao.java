@@ -74,7 +74,7 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
     }
     
     public NhanVien selectByEmail(String id) {
-        String Sql = "SELECT*FROM NhanVien WHERE Email =?";
+        String Sql = "SELECT*FROM NhanVien WHERE Email = ? and ChuyenNganh  not like '' ";
          List<NhanVien> list = this.selectBySql(Sql,id);
         if (list.isEmpty()) {
             return null;

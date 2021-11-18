@@ -348,8 +348,8 @@ public class Laymatkhau extends javax.swing.JFrame{
     }
     void guiEmail(){
         try {
-            String email ="qledusys@gmail.com";
-            String pass ="aqqxvkytfgdmarjs";
+            String email ="qlphongkhamytamcuc@gmail.com";
+            String pass ="iitiucxfrjjsfyem";
             //cau hinh
             Properties p = new Properties();
             p.put("mail.smtp.auth", "true");
@@ -369,11 +369,11 @@ public class Laymatkhau extends javax.swing.JFrame{
             // noi dung
             String from =email;
             String to =txtEmail.getText();
-            String subject ="Mã xác minh Edusys";
+            String subject ="Mã xác minh QLPhongKham_Y_Tam_Cuc";
             String body ="Mã xác minh \n"
-                    + "Mã xác minh bạn cần dùng để truy cập vào Tài khoản EduSys của mình ("+txtEmail.getText()+") là: \n"
-                    + ST+" \n"
-                    + "Nếu bạn không yêu cầu mã này thì có thể là ai đó đang tìm cách truy cập vào Tài khoản EduSys "+txtEmail.getText()+". Không chuyển tiếp hoặc cung cấp mã này cho bất kỳ ai.\n"
+                    + "Mã xác minh bạn cần dùng để truy cập vào Tài khoản QLPhongKham_Y_Tam_Cuc của mình ("+txtEmail.getText()+") là: \n\n"
+                    + ST+" \n\n"
+                    + "Nếu bạn không yêu cầu mã này thì có thể là ai đó đang tìm cách truy cập vào Tài khoản QLPhongKham_Y_Tam_Cuc "+txtEmail.getText()+". Không chuyển tiếp hoặc cung cấp mã này cho bất kỳ ai.\n"
                     + "Trân trọng!";
             
             Message msg = new MimeMessage(s);
@@ -461,8 +461,8 @@ public class Laymatkhau extends javax.swing.JFrame{
         try {
             daoNV.update(nv);
             Msgbox.alert(this, "Đổi mật khẩu thành công");
-            this.dispose();
             new DangNhapJDialong(nv.getMaNV());
+            this.dispose();
         } catch (Exception e) {
             e.printStackTrace();
         }
