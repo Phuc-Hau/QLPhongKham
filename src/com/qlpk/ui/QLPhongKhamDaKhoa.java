@@ -3154,7 +3154,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
     }
     
-    void editPK(){
+    void editPK(){ 
         String maPk = (String) tblPhieuKham.getValueAt(indexPK, 0);
         PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
         this.setModelThongTinPk(pk);
