@@ -60,12 +60,18 @@ public class ThuocJDialog extends javax.swing.JDialog {
     }
     
     void editThuoc() {
-        String th = (String) tbl_Thuoc.getValueAt(this.rowThuoc, 0);
+        String th = (String) tbl_thuoc.getValueAt(this.rowThuoc, 0);
         Thuoc cd = daoThuoc.selectByID(th);
         this.setFormThuoc(cd);
+        Tabs.setSelectedIndex(0);
         this.updateStatusThuoc();
     }
-    
+    private void timkiem(){
+        this.fillTableThuoc();
+        //this.clearForm();
+        this.rowThuoc = -1;
+        updateStatusThuoc();
+    }
     void selectImage() {
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
@@ -171,10 +177,11 @@ public class ThuocJDialog extends javax.swing.JDialog {
     
     //Đỗ dữ liệu vào tbl_danhsach
     void fillTableThuoc() {
-        DefaultTableModel model = (DefaultTableModel) tbl_Thuoc.getModel();
+        DefaultTableModel model = (DefaultTableModel) tbl_thuoc.getModel();
         model.setRowCount(0);
         try {
-            List<Thuoc> list = daoThuoc.selectAll();
+            String keyword = txt_timkiem.getText();
+            List<Thuoc> list = daoThuoc.selectByKeyword(keyword);
             for (Thuoc th : list) {
                 Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
                 model.addRow(row);
@@ -245,8 +252,13 @@ public class ThuocJDialog extends javax.swing.JDialog {
         btn_sua = new javax.swing.JButton();
         btn_them = new javax.swing.JButton();
         btn_xoa = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_timkiem = new javax.swing.JTextField();
+        btn_tim = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_Thuoc = new javax.swing.JTable();
+        tbl_thuoc = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -285,7 +297,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_anh, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+            .addComponent(lbl_anh, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,7 +459,17 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
         Tabs.addTab("Nội dung", jPanel2);
 
-        tbl_Thuoc.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel6.setText("Tìm kiếm:");
+
+        txt_timkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_timkiemKeyReleased(evt);
+            }
+        });
+
+        btn_tim.setText("Tìm");
+
+        tbl_thuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -463,27 +485,70 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tbl_Thuoc.setGridColor(new java.awt.Color(255, 0, 216));
-        tbl_Thuoc.setSelectionBackground(new java.awt.Color(43, 226, 226));
-        tbl_Thuoc.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        tbl_Thuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_thuoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_ThuocMouseClicked(evt);
+                tbl_thuocMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tbl_Thuoc);
+        jScrollPane1.setViewportView(tbl_thuoc);
 
-        Tabs.addTab("Danh sách", jScrollPane1);
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_tim)
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(btn_tim))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Tabs.addTab("Danh sách", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tabs)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Tabs)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+            .addComponent(Tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -493,16 +558,6 @@ public class ThuocJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.deleteThuoc();
     }//GEN-LAST:event_btn_xoaActionPerformed
-
-    private void btn_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newActionPerformed
-        // TODO add your handling code here:
-        this.clearFormThuoc();;
-    }//GEN-LAST:event_btn_newActionPerformed
-
-    private void lbl_anhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_anhMouseClicked
-        // TODO add your handling code here:
-        this.selectImage();
-    }//GEN-LAST:event_lbl_anhMouseClicked
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         // TODO add your handling code here:
@@ -523,16 +578,31 @@ public class ThuocJDialog extends javax.swing.JDialog {
             if (ErrorThuoc()) {
                 this.updateThuoc();
             }
-        } 
+        }
     }//GEN-LAST:event_btn_suaActionPerformed
 
-    private void tbl_ThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ThuocMouseClicked
+    private void btn_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newActionPerformed
+        // TODO add your handling code here:
+        this.clearFormThuoc();;
+    }//GEN-LAST:event_btn_newActionPerformed
+
+    private void lbl_anhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_anhMouseClicked
+        // TODO add your handling code here:
+        this.selectImage();
+    }//GEN-LAST:event_lbl_anhMouseClicked
+
+    private void tbl_thuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_thuocMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            this.rowThuoc = tbl_Thuoc.getSelectedRow();
+            this.rowThuoc = tbl_thuoc.getSelectedRow();
             this.editThuoc();
         }
-    }//GEN-LAST:event_tbl_ThuocMouseClicked
+    }//GEN-LAST:event_tbl_thuocMouseClicked
+
+    private void txt_timkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_timkiemKeyReleased
+        // TODO add your handling code here:
+        this.timkiem();
+    }//GEN-LAST:event_txt_timkiemKeyReleased
 
     /**
      * @param args the command line arguments
@@ -584,6 +654,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
+    private javax.swing.JButton btn_tim;
     private javax.swing.JButton btn_xoa;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel1;
@@ -591,20 +662,24 @@ public class ThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_anh;
-    private javax.swing.JTable tbl_Thuoc;
+    private javax.swing.JTable tbl_thuoc;
     private javax.swing.JTextArea txt_ghichu;
     private javax.swing.JTextField txt_giaban;
     private javax.swing.JTextField txt_gianhap;
     private javax.swing.JTextField txt_loaithuoc;
     private javax.swing.JTextField txt_tenthuoc;
+    private javax.swing.JTextField txt_timkiem;
     // End of variables declaration//GEN-END:variables
 }
