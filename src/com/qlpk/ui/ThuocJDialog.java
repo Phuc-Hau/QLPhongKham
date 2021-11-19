@@ -300,7 +300,6 @@ public class ThuocJDialog extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txt_timkiem = new javax.swing.JTextField();
-        btn_tim = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_thuoc = new javax.swing.JTable();
         btn_luu1 = new javax.swing.JButton();
@@ -515,8 +514,6 @@ public class ThuocJDialog extends javax.swing.JDialog {
             }
         });
 
-        btn_tim.setText("Tìm");
-
         tbl_thuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -562,14 +559,12 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_tim)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_xoa1)
@@ -583,8 +578,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(btn_tim))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -739,7 +733,6 @@ public class ThuocJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
-    private javax.swing.JButton btn_tim;
     private javax.swing.JButton btn_xoa;
     private javax.swing.JButton btn_xoa1;
     private javax.swing.JFileChooser fileChooser;
