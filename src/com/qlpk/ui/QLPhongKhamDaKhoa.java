@@ -193,16 +193,16 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         txtMaBenhNhan = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        txtSDT = new javax.swing.JTextField();
+        txtSDTPK = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
-        txtDiaChi1 = new javax.swing.JTextField();
+        txtDiaChiPK = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
-        txtNgheNghiep1 = new javax.swing.JTextField();
+        txtNgheNghiepPK = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
         txtGT = new javax.swing.JTextField();
         jLabel79 = new javax.swing.JLabel();
         txtTuoiPK = new javax.swing.JTextField();
-        txtHoTen1 = new javax.swing.JTextField();
+        txtHoTenPK = new javax.swing.JTextField();
         jPanel14 = new javax.swing.JPanel();
         pnlDieuchinh2 = new javax.swing.JPanel();
         btnInsert = new javax.swing.JButton();
@@ -1448,15 +1448,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         jLabel18.setText("SDT");
 
-        txtSDT.setEditable(false);
+        txtSDTPK.setEditable(false);
 
         jLabel76.setText("Địa Chỉ");
 
-        txtDiaChi1.setEditable(false);
+        txtDiaChiPK.setEditable(false);
 
         jLabel77.setText("Nghề Nghiệp");
 
-        txtNgheNghiep1.setEditable(false);
+        txtNgheNghiepPK.setEditable(false);
 
         jLabel78.setText("Giới Tính");
 
@@ -1468,8 +1468,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         txtTuoiPK.setEditable(false);
         txtTuoiPK.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtHoTen1.setEditable(false);
-        txtHoTen1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtHoTenPK.setEditable(false);
+        txtHoTenPK.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1483,15 +1483,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMaBenhNhan, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(txtSDT))
+                    .addComponent(txtSDTPK))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtDiaChi1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(txtHoTen1))
+                    .addComponent(txtDiaChiPK, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(txtHoTenPK))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel77)
@@ -1504,7 +1504,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                         .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtTuoiPK, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNgheNghiep1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNgheNghiepPK, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         jPanel12Layout.setVerticalGroup(
@@ -1519,15 +1519,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                     .addComponent(txtGT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel79)
                     .addComponent(txtTuoiPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHoTen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHoTenPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel76)
-                    .addComponent(txtDiaChi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiaChiPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSDTPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel77)
-                    .addComponent(txtNgheNghiep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNgheNghiepPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -2555,7 +2555,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             pnlFromNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFromNhanVienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabsNV, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE))
+                .addComponent(tabsNV))
         );
 
         tabs.addTab("tab7", pnlFromNhanVien);
@@ -2999,7 +2999,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         txtDiachi.setText(bn.getDiaChi());
         txtNgheNghiep.setText(bn.getNgheNghiep());
         txtGhichu.setText(bn.getGhiChu());
-        txtNgayTao.setText(XDate.toString(bn.getNgayTao(), "dd/MM/YYYY"));
     }
 
     void clearFormBenhNhan() {
@@ -3215,14 +3214,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     void setModelThongTinBN(BenhNhan bn){
         // Thong tin Benh Nhan
         txtMaBenhNhan.setText(bn.getMaBN());
-        txtHoTen.setText(bn.getTenBenhNhan());
+        txtHoTenPK.setText(bn.getTenBenhNhan());
         if(bn.isGioiTinh()==true){
             txtGT.setText("Nam");
         } else txtGT.setText("Nữ");
         txtTuoiPK.setText(String.valueOf(bn.getTuoi()));
-        txtSDT.setText(bn.getSDT());
-        txtDiaChi.setText(bn.getDiaChi());
-        txtNgheNghiep.setText(bn.getNgheNghiep());
+        txtSDTPK.setText(bn.getSDT());
+        txtDiaChiPK.setText(bn.getDiaChi());
+        txtNgheNghiepPK.setText(bn.getNgheNghiep());
     }
 
     void setModelThongTinPk(PhieuKham pk){
@@ -4458,7 +4457,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JTextField txtChieuCao;
     private javax.swing.JTextField txtChuanDoan;
     private javax.swing.JTextField txtDiaChi;
-    private javax.swing.JTextField txtDiaChi1;
+    private javax.swing.JTextField txtDiaChiPK;
     private javax.swing.JTextField txtDiachi;
     private javax.swing.JTextField txtDienthoai;
     private javax.swing.JTextField txtEmail;
@@ -4466,7 +4465,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JTextArea txtGhiChu;
     private javax.swing.JTextField txtGhichu;
     private javax.swing.JTextField txtHoTen;
-    private javax.swing.JTextField txtHoTen1;
+    private javax.swing.JTextField txtHoTenPK;
     private javax.swing.JTextField txtHoten;
     private javax.swing.JTextField txtHuyetAp;
     private javax.swing.JTextArea txtKetQuaDieuTri;
@@ -4480,11 +4479,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JTextField txtNgayKham;
     private javax.swing.JTextField txtNgayTao;
     private javax.swing.JTextField txtNgheNghiep;
-    private javax.swing.JTextField txtNgheNghiep1;
+    private javax.swing.JTextField txtNgheNghiepPK;
     private javax.swing.JTextField txtNhietDo;
     private javax.swing.JTextField txtNhipTim;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtSDT;
+    private javax.swing.JTextField txtSDTPK;
     private javax.swing.JTextField txtSoDT;
     private javax.swing.JTextField txtTenPK;
     private javax.swing.JTextField txtTuoi;

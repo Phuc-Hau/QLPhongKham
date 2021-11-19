@@ -2061,7 +2061,7 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="txtMaBenhNhan" alignment="0" pref="190" max="32767" attributes="0"/>
-                                              <Component id="txtSDT" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtSDTPK" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -2070,8 +2070,8 @@
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtDiaChi1" alignment="0" pref="190" max="32767" attributes="0"/>
-                                              <Component id="txtHoTen1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtDiaChiPK" alignment="0" pref="190" max="32767" attributes="0"/>
+                                              <Component id="txtHoTenPK" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2087,7 +2087,7 @@
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="txtTuoiPK" min="-2" pref="59" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="txtNgheNghiep1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                              <Component id="txtNgheNghiepPK" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       </Group>
@@ -2105,16 +2105,16 @@
                                               <Component id="txtGT" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel79" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtTuoiPK" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtHoTen1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtHoTenPK" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel76" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtDiaChi1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtDiaChiPK" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtSDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtSDTPK" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNgheNghiep1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtNgheNghiepPK" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace pref="14" max="32767" attributes="0"/>
                                       </Group>
@@ -2142,7 +2142,7 @@
                                     <Property name="text" type="java.lang.String" value="SDT"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtSDT">
+                                <Component class="javax.swing.JTextField" name="txtSDTPK">
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                   </Properties>
@@ -2152,7 +2152,7 @@
                                     <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a Ch&#x1ec9;"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtDiaChi1">
+                                <Component class="javax.swing.JTextField" name="txtDiaChiPK">
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                   </Properties>
@@ -2162,7 +2162,7 @@
                                     <Property name="text" type="java.lang.String" value="Ngh&#x1ec1; Nghi&#x1ec7;p"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtNgheNghiep1">
+                                <Component class="javax.swing.JTextField" name="txtNgheNghiepPK">
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                   </Properties>
@@ -2189,7 +2189,7 @@
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtHoTen1">
+                                <Component class="javax.swing.JTextField" name="txtHoTenPK">
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                     <Property name="horizontalAlignment" type="int" value="2"/>
@@ -3215,7 +3215,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tabsNV" pref="601" max="32767" attributes="0"/>
+                              <Component id="tabsNV" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

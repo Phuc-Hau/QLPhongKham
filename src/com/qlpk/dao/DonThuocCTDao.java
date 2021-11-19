@@ -29,7 +29,7 @@ public class DonThuocCTDao extends PhongKhamDao<DonThuocCT, Integer>{
 
     @Override
     public void update(DonThuocCT entity) {
-        String sql = "UPDATE DonThuocCT   LoaiThuoc=?, SoLuong=? WHERE DonThuoc=?";
+        String sql = "UPDATE DonThuocCT SET LoaiThuoc=?, SoLuong=? WHERE DonThuoc=?";
         JdbcHelper.Update(sql, 
                 
                 entity.getLoaiThuoc(),
@@ -45,7 +45,7 @@ public class DonThuocCTDao extends PhongKhamDao<DonThuocCT, Integer>{
 
     @Override
     public DonThuocCT selectByID(Integer id) {
-        String sql = "SELECT * FROM DonThuocCT WHERE DonThuoc=?";
+        String sql = "SELECT * FROM DonThuocCT WHERE DonThuoc= ?";
         List<DonThuocCT> list = this.selectBySql(sql, id);
         if(list.isEmpty()){
             return null;
@@ -82,6 +82,11 @@ public class DonThuocCTDao extends PhongKhamDao<DonThuocCT, Integer>{
              throw new RuntimeException(ex); 
         }
         return list;
+    }
+
+    public List<DonThuocCT> selectByDT(int id) {
+        String sql = "SELECT * FROM DonThuocCT WHERE DonThuoc= ?";
+        return selectBySql(sql,id);
     }
     
 }

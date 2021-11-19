@@ -30,7 +30,7 @@ public class DonThuocDao extends PhongKhamDao<DonThuoc, Integer>{
 
     @Override
     public void update(DonThuoc entity) {
-        String sql = "UPDATE DonThuoc SET  MaBN=?, MaPhieuKham=?,) WHERE DonThuoc=? ";
+        String sql = "UPDATE DonThuoc SET  MaBN=?, MaPhieuKham=?, WHERE DonThuoc=? ";
         JdbcHelper.Update(sql, 
                 entity.getMaBN(),
                 entity.getMaPhieuKham(),
