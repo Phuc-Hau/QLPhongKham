@@ -3686,7 +3686,7 @@
     <Container class="javax.swing.JToolBar" name="jToolBar1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e6" green="ff" red="0" type="rgb"/>
+          <Color blue="ff" green="99" red="66" type="rgb"/>
         </Property>
         <Property name="rollover" type="boolean" value="true"/>
       </Properties>
@@ -3696,7 +3696,7 @@
         <Component class="javax.swing.JButton" name="btnDangxuat">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e6" green="ff" red="0" type="rgb"/>
+              <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/qlpk/icon/Log out.png"/>
@@ -3713,7 +3713,7 @@
         <Component class="javax.swing.JButton" name="btnDoiPass">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e6" green="ff" red="0" type="rgb"/>
+              <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/qlpk/icon/Key.png"/>
@@ -3730,7 +3730,7 @@
         <Component class="javax.swing.JButton" name="btnThongKe">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e6" green="ff" red="0" type="rgb"/>
+              <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/qlpk/icon/Dollar.png"/>
@@ -3744,7 +3744,7 @@
         <Component class="javax.swing.JButton" name="btnGioiThieu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e6" green="ff" red="0" type="rgb"/>
+              <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/qlpk/icon/Globe.png"/>
@@ -3754,6 +3754,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGioiThieuActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
