@@ -12,6 +12,16 @@ public class Thuoc {
 	private int GiaBan;
 	private String GhiChu;
         private String Hinh;
+        private String SoLuong;
+
+    public String getSoLuong() {
+        return SoLuong;
+    }
+
+    public void setSoLuong(String SoLuong) {
+        this.SoLuong = SoLuong;
+    }
+        
 
     public String getHinh() {
         return Hinh;
