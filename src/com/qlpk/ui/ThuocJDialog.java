@@ -41,8 +41,6 @@ public class ThuocJDialog extends javax.swing.JDialog {
         this.fillTableThuoc();
         this.updateStatusThuoc();
         //Tabs.setSelectedIndex(1);
-        Tabs.remove(jPanel2);
-        Tabs.remove(jPanel4);
     }
     int rowDonThuocThuoc=-1;
     int rowThuoc = -1;
