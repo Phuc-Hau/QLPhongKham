@@ -2540,10 +2540,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jToolBar1.setBackground(new java.awt.Color(102, 153, 255));
+        jToolBar1.setBackground(new java.awt.Color(0, 255, 230));
         jToolBar1.setRollover(true);
 
-        btnDangxuat.setBackground(new java.awt.Color(102, 153, 255));
+        btnDangxuat.setBackground(new java.awt.Color(0, 255, 230));
         btnDangxuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Log out.png"))); // NOI18N
         btnDangxuat.setText("Đăng Xuất");
         btnDangxuat.setFocusable(false);
@@ -2556,7 +2556,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
         jToolBar1.add(btnDangxuat);
 
-        btnDoiPass.setBackground(new java.awt.Color(102, 153, 255));
+        btnDoiPass.setBackground(new java.awt.Color(0, 255, 230));
         btnDoiPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Key.png"))); // NOI18N
         btnDoiPass.setText("Đổi Mật Khẩu");
         btnDoiPass.setFocusable(false);
@@ -2569,7 +2569,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
         jToolBar1.add(btnDoiPass);
 
-        btnThongKe.setBackground(new java.awt.Color(102, 153, 255));
+        btnThongKe.setBackground(new java.awt.Color(0, 255, 230));
         btnThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Dollar.png"))); // NOI18N
         btnThongKe.setText("Thống Kê");
         btnThongKe.setFocusable(false);
@@ -2577,17 +2577,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnThongKe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnThongKe);
 
-        btnGioiThieu.setBackground(new java.awt.Color(102, 153, 255));
+        btnGioiThieu.setBackground(new java.awt.Color(0, 255, 230));
         btnGioiThieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Globe.png"))); // NOI18N
         btnGioiThieu.setText("Giới Thiệu");
         btnGioiThieu.setFocusable(false);
         btnGioiThieu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGioiThieu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnGioiThieu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGioiThieuActionPerformed(evt);
-            }
-        });
         jToolBar1.add(btnGioiThieu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -3908,10 +3903,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         fillCboBS();
     }//GEN-LAST:event_cboPhongKhamActionPerformed
-
-    private void btnGioiThieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGioiThieuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGioiThieuActionPerformed
 
     boolean ErrorNV(){
         if (Utility.checkNullText(txtMaNV)
