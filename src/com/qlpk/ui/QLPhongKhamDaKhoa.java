@@ -3753,7 +3753,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             //}
         }
     }
-    
+     
     //Đỗ dữ liệu vào tbl_danhsach
     void fillTableThuoc() {
         DefaultTableModel model = (DefaultTableModel) tbl_Thuoc.getModel();
