@@ -145,7 +145,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
             Msgbox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             kt=true;
-            Msgbox.alert(this, "Thêm mới thất bại!, Thiếu hình");      
+            Msgbox.alert(this, "Thêm mới thất bại!");      
         }
         }
     }
@@ -220,6 +220,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         th.setGiaBan(Integer.valueOf(txt_giaban.getText()));
         th.setGhiChu(txt_ghichu.getText());
         th.setHinh(lbl_anh.getToolTipText());
+        th.setSoLuong("1");
         return th;
     }
     
@@ -232,21 +233,42 @@ public class ThuocJDialog extends javax.swing.JDialog {
         btn_xoa.setEnabled(edit);
     }
     void fillTableThuocKham(int n){
+        int ret = JOptionPane.showConfirmDialog(this, "Do you want to delete?", "Confirm",
+        JOptionPane.YES_NO_OPTION);
+        if(ret != JOptionPane.YES_OPTION) {
+        return;
+        }
         DefaultTableModel model = (DefaultTableModel) tbl_thuoc.getModel();
         //model.setRowCount(0);
         model.removeRow(n);
+        if (ret != -1) {
+         JOptionPane.showMessageDialog(this, "Thuốc đã được xóa!");
+        }
         try {
-//            List<DonThuocCT> list = daoDTCT.selectAll();
-//            for (DonThuocCT dt : list) {
-//                Object[] row = {dt.getLoaiThuoc(),dt.getSoLuong()};
-//                model.addRow(row);
-//            }
+            List<Thuoc> list = daoThuoc.selectAll();
+            for (Thuoc th : list) {
+                Object[] row = {th.getLoaiThuoc(),th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan(), th.getSoLuong()};
+              model.addRow(row);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
-
+    void updateSoLuong(){      
+        try {
+        for(int i=0; i<tbl_thuoc.getRowCount(); i++){
+                String maThuoc = (String) tbl_thuoc.getValueAt(i, 0);
+                Thuoc hv = daoThuoc.selectByID(maThuoc);
+                hv.setSoLuong((String) tbl_thuoc.getValueAt(i, 4));            
+                daoThuoc.update(hv);                         
+            }    
+            Msgbox.alert(this, "Cập nhật điểm thành công!");
+            } catch (Exception e) {    
+                JOptionPane.showMessageDialog(this, "Lỗi điểm");
+                JOptionPane.showMessageDialog(this, e);
+        }
+    }
     DefaultTableModel modelProducts;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -646,6 +668,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
     private void tbl_thuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_thuocMouseClicked
         // TODO add your handling code here:
+        this.rowDonThuocThuoc = tbl_thuoc.getSelectedRow();
         if (evt.getClickCount() == 2) {
             this.rowThuoc = tbl_thuoc.getSelectedRow();
             this.editThuoc();
@@ -659,11 +682,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
     private void btn_luu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_luu1ActionPerformed
         // TODO add your handling code here:
-        if(txt_loaithuoc.getText()==null){
-            if (ErrorThuoc()) {
-                this.updateThuoc();
-            }
-        }
+            this.updateSoLuong();
     }//GEN-LAST:event_btn_luu1ActionPerformed
 
     private void btn_xoa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoa1ActionPerformed
