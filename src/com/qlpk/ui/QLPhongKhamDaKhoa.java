@@ -259,6 +259,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lbl_anh = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tbl_Thuoc = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel80 = new javax.swing.JLabel();
+        btn_tim = new javax.swing.JButton();
+        txt_timkiem = new javax.swing.JTextField();
         pnlFromNhanVien = new javax.swing.JPanel();
         tabsNV = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -2136,7 +2140,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbl_anh, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbl_Thuoc.setModel(new javax.swing.table.DefaultTableModel(
@@ -2162,6 +2166,43 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tbl_Thuoc);
 
+        jPanel13.setBackground(new java.awt.Color(19, 224, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel80.setText("Tìm kiếm:");
+
+        btn_tim.setText("Tìm");
+
+        txt_timkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_timkiemKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addComponent(jLabel80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_tim)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel80)
+                    .addComponent(btn_tim))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pnlFromThuocLayout = new javax.swing.GroupLayout(pnlFromThuoc);
         pnlFromThuoc.setLayout(pnlFromThuocLayout);
         pnlFromThuocLayout.setHorizontalGroup(
@@ -2169,15 +2210,18 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromThuocLayout.createSequentialGroup()
                 .addGroup(pnlFromThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
+                    .addComponent(jScrollPane4)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlFromThuocLayout.setVerticalGroup(
             pnlFromThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromThuocLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3570,6 +3614,18 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         new DoiPassJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnDoiPassActionPerformed
 
+    private void txt_timkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_timkiemKeyReleased
+        // TODO add your handling code here:
+        this.timkiem();
+    }//GEN-LAST:event_txt_timkiemKeyReleased
+    
+    private void timkiem(){
+        this.fillTableThuoc();
+        //this.clearForm();
+        this.rowThuoc = -1;
+        updateStatusThuoc();
+    }
+    
     private ImageIcon ResizeImage(String ImagePath) {
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
@@ -3703,7 +3759,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tbl_Thuoc.getModel();
         model.setRowCount(0);
         try {
-            List<Thuoc> list = daoThuoc.selectAll();
+            String keyword = txt_timkiem.getText();
+            List<Thuoc> list = daoThuoc.selectByKeyword(keyword);
             for (Thuoc th : list) {
                 Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
                 model.addRow(row);
@@ -4214,6 +4271,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
+    private javax.swing.JButton btn_tim;
     private javax.swing.JButton btn_xoa;
     private javax.swing.JButton btnfirstBN;
     private javax.swing.JButton btnlastBN;
@@ -4308,11 +4366,13 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
@@ -4427,6 +4487,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_gianhap;
     private javax.swing.JTextField txt_loaithuoc;
     private javax.swing.JTextField txt_tenthuoc;
+    private javax.swing.JTextField txt_timkiem;
     private javax.swing.JTextField txttimkiemBN;
     // End of variables declaration//GEN-END:variables
 }
