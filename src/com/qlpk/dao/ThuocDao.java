@@ -16,26 +16,27 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 
     @Override
     public void insert(Thuoc entity) {
-        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu, Hinh, SoLuong) VALUES (?,?,?,?,?,?,?)";
+        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu, SoLuong, Hinh) VALUES (?,?,?,?,?,?,?)";
         JdbcHelper.Update(Insert, 
                 entity.getLoaiThuoc(),
                 entity.getTenThuoc(),
                 entity.getGiaNhap(),
                 entity.getGiaBan(),
                 entity.getGhiChu(),
+                entity.getSoLuong(),
                 entity.getHinh()
                 );
     }
 
     @Override
     public void update(Thuoc entity) {
-        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =?, Hinh =?, SoLuong=? WHERE (LoaiThuoc = ?)";
+        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =?, SoLuong =?, Hinh=? WHERE (LoaiThuoc = ?)";
         JdbcHelper.Update(Update, 
                 entity.getTenThuoc(),
                 entity.getGiaNhap(),
                 entity.getGiaBan(),
                 entity.getGhiChu(),
-                entity.getHinh(),
+                entity.getSoLuong(),
                 entity.getHinh(),
                 entity.getLoaiThuoc()
                 );
@@ -74,16 +75,17 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
                     th.setGiaNhap(rs.getInt("GiaNhap"));
                     th.setGiaBan(rs.getInt("GiaBan"));       
                     th.setGhiChu(rs.getString("GhiChu"));
+                    th.setSoLuong(rs.getString("SoLuong"));
                     th.setHinh(rs.getString("Hinh"));
                     list.add(th);
                 }
             } finally {
                 rs.getStatement().getConnection().close();
+                  return list;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }
-        return list;
+        }   
     }
 
     public void delete(String loaith) {
