@@ -40,7 +40,9 @@ public class ThuocJDialog extends javax.swing.JDialog {
 
         this.fillTableThuoc();
         this.updateStatusThuoc();
-        Tabs.setSelectedIndex(1);
+        //Tabs.setSelectedIndex(1);
+        Tabs.remove(jPanel2);
+        Tabs.remove(jPanel4);
     }
     int rowDonThuocThuoc=-1;
     int rowThuoc = -1;
@@ -482,6 +484,8 @@ public class ThuocJDialog extends javax.swing.JDialog {
         );
 
         Tabs.addTab("Nội dung", jPanel2);
+        jPanel2.getAccessibleContext().setAccessibleName("Tabs1");
+        jPanel2.getAccessibleContext().setAccessibleDescription("");
 
         jLabel6.setText("Tìm kiếm:");
 
@@ -584,6 +588,7 @@ public class ThuocJDialog extends javax.swing.JDialog {
         );
 
         Tabs.addTab("Danh sách", jPanel4);
+        jPanel4.getAccessibleContext().setAccessibleName("Tabs2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
