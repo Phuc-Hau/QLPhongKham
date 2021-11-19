@@ -683,7 +683,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         this.fillTableDonThuocBenhNhan();
         this.fillTableBenhNhanDT();
         this.row = -1;
-        this.updateStatus();
+        this.updateStatusDT();
         tabsDonThuoc.setSelectedIndex(2);
     }
     int row = -1;
@@ -736,7 +736,7 @@ public class DonThuocJDialog extends javax.swing.JDialog {
         DonThuoc dt = daoDT.selectByID(th);
         this.setFormDT(dt);
         tabsDonThuoc.setSelectedIndex(0);
-        this.updateStatus();
+        this.updateStatusDT();
     }
 
     
