@@ -726,8 +726,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlFrom.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFrom.setBackground(new java.awt.Color(15, 14, 14));
         pnlFrom.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabs.setOpaque(true);
 
         pnlFromHome.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1184,7 +1186,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         pnlFromPhieuKham.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabsPK.setPreferredSize(new java.awt.Dimension(934, 837));
+        tabsPK.setPreferredSize(new java.awt.Dimension(965, 612));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(905, 612));
@@ -1779,7 +1781,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromPhieuKham.setLayout(pnlFromPhieuKhamLayout);
         pnlFromPhieuKhamLayout.setHorizontalGroup(
             pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+            .addComponent(tabsPK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlFromPhieuKhamLayout.setVerticalGroup(
             pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1937,9 +1939,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(pnlFromPhongKhamLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         tabs.addTab("tab4", pnlFromPhongKham);
@@ -2558,16 +2560,16 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         tabs.addTab("tab7", pnlFromNhanVien);
 
-        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 970, 640));
+        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, -1, -1));
 
         javax.swing.GroupLayout pnlChinhLayout = new javax.swing.GroupLayout(pnlChinh);
         pnlChinh.setLayout(pnlChinhLayout);
         pnlChinhLayout.setHorizontalGroup(
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addGap(276, 276, 276)
-                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(pnlChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlChinhLayout.createSequentialGroup()
                 .addGap(266, 266, 266)
                 .addComponent(pnlTieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2576,11 +2578,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChinhLayout.createSequentialGroup()
                 .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -2668,8 +2667,35 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tabs.setSelectedIndex(0);
         lblChucNang.setText("Home");
         this.GetDate();
-        //setExtendedState(JFrame.MAXIMIZED_BOTH);  
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
+        //BN
+        this.FillTableBenhNhan();
+        this.UpdateStatusBenhNhan();
+        txtNgayTao.setText(XDate.toString(new Date(),"dd-MM-yyyy"));
+        LoatMaBN();
+        
+        //PhieuKham
+        fillTablePhieuKham();
+        fillCboPhongKham();
+        fillCboNV();
+        fillBenhNhanVan();
+        txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
+        
+        //Phong
+        this.fillTablePhongKham();
+        this.updateStatusPhongKham();
+        //DonThuoc
+        
+        
+        //Thuoc
+        this.fillTableThuoc();
+        this.updateStatusThuoc();
+        
+        //NhanVien
+        this.fillTableNV();
+        this.fillCboChuyenNganh();
+        this.updateStatusNV();
     }
     
     void setColor(JPanel pane,JPanel indicators){
@@ -2728,11 +2754,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(1);
         lblChucNang.setText("Bệnh Nhân");
-        
-        this.FillTableBenhNhan();
-        this.UpdateStatusBenhNhan();
-        txtNgayTao.setText(XDate.toString(new Date(),"dd-MM-yyyy"));
-        LoatMaBN();
     }//GEN-LAST:event_pnlBenhNhanMousePressed
 
     private void pnlPhieuKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhieuKhamMousePressed
@@ -2742,12 +2763,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(2);
         lblChucNang.setText("Phiếu Khám");
-        
-        fillTablePhieuKham();
-        fillCboPhongKham();
-        fillCboNV();
-        fillBenhNhanVan();
-        txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
     }//GEN-LAST:event_pnlPhieuKhamMousePressed
 
     private void pnlPhongKhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPhongKhamMousePressed
@@ -2758,8 +2773,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tabs.setSelectedIndex(3);
         lblChucNang.setText("Phòng Khám");
         
-        this.fillTablePhongKham();
-        this.updateStatusPhongKham();
     }//GEN-LAST:event_pnlPhongKhamMousePressed
 
     private void pnlDonThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDonThuocMousePressed
@@ -2781,8 +2794,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         tabs.setSelectedIndex(5);
         lblChucNang.setText("Thuốc");
         
-        this.fillTableThuoc();
-        this.updateStatusThuoc();
     }//GEN-LAST:event_pnlThuocMousePressed
 
     private void pnlNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMousePressed
@@ -2792,10 +2803,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc,pnlThuoc});// reser color
         tabs.setSelectedIndex(6);
         lblChucNang.setText("Nhân Viên");
-        
-        this.fillTableNV();
-        this.fillCboChuyenNganh();
-        this.updateStatusNV();
     }//GEN-LAST:event_pnlNhanVienMousePressed
 
     
