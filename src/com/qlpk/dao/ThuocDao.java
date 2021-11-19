@@ -16,7 +16,7 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 
     @Override
     public void insert(Thuoc entity) {
-        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu, Hinh) VALUES (?,?,?,?,?,?)";
+        String Insert ="INSERT INTO Thuoc (LoaiThuoc, TenThuoc, GiaNhap, GiaBan, GhiChu, Hinh, SoLuong) VALUES (?,?,?,?,?,?,?)";
         JdbcHelper.Update(Insert, 
                 entity.getLoaiThuoc(),
                 entity.getTenThuoc(),
@@ -29,12 +29,13 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
 
     @Override
     public void update(Thuoc entity) {
-        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =?, Hinh =? WHERE (LoaiThuoc = ?)";
+        String Update ="UPDATE Thuoc SET TenThuoc =?, GiaNhap =?, GiaBan =?, GhiChu =?, Hinh =?, SoLuong=? WHERE (LoaiThuoc = ?)";
         JdbcHelper.Update(Update, 
                 entity.getTenThuoc(),
                 entity.getGiaNhap(),
                 entity.getGiaBan(),
                 entity.getGhiChu(),
+                entity.getHinh(),
                 entity.getHinh(),
                 entity.getLoaiThuoc()
                 );
