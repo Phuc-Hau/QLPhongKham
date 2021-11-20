@@ -393,9 +393,11 @@
                   <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txt_timkiem" min="-2" pref="409" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_tim" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btn_xoa1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_luu1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -406,7 +408,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txt_timkiem" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_tim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_luu1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_xoa1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -419,14 +422,25 @@
             <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_tim">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="T&#xec;m"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txt_timkiem">
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_timkiemKeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_luu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_luu1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_xoa1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_xoa1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
