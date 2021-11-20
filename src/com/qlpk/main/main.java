@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.qlpk.ui;
 
+package com.qlpk.main;
+
+import com.qlpk.ui.*;
 import com.qlpk.dao.NhanVienDao;
 import com.qlpk.entity.NhanVien;
 import com.qlpk.utils.Auth;
@@ -17,16 +14,10 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Huy PC
- */
-public class DangNhapJDialong extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DangNhapJDialong
-     */
-    public DangNhapJDialong(String MaNV) {
+public class main extends javax.swing.JFrame {
+
+    public main(String MaNV) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setIconImage(XImage.getAppIcon());
@@ -277,20 +268,23 @@ public class DangNhapJDialong extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DangNhapJDialong.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DangNhapJDialong.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DangNhapJDialong.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DangNhapJDialong.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DangNhapJDialong(null).setVisible(true);
+                new main(null).setVisible(true);
             }
         });
     }

@@ -28,7 +28,8 @@ public class Laymatkhau extends javax.swing.JFrame{
     public Laymatkhau() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.setTitle("Lấy lại mật khẩu EduSys");
+        this.setIconImage(XImage.getAppIcon());
+        this.setTitle("Lấy lại mật khẩu QL Phòng Khám");
     }
 
     /**

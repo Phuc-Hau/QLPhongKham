@@ -342,8 +342,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)), "Tìm Kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTimKiemKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
             }
         });
 
@@ -581,11 +581,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnXoaThuocActionPerformed
 
-    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
-        // TODO add your handling code here:
-        this.timKiem();
-    }//GEN-LAST:event_txtTimKiemKeyPressed
-
     private void tbldanhsachThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbldanhsachThuocMouseClicked
         // TODO add your handling code here:
         indexDanhsachThuoc=tbldanhsachThuoc.getSelectedRow();
@@ -613,6 +608,11 @@ public class QLDonThuoc extends javax.swing.JPanel {
             this.editDT();
         }
     }//GEN-LAST:event_tblDonThuocMouseClicked
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        // TODO add your handling code here:
+        this.timKiem();
+    }//GEN-LAST:event_txtTimKiemKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

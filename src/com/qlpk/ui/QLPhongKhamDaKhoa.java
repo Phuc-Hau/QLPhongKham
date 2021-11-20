@@ -1,36 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.qlpk.ui;  
   
+import com.qlpk.utils.Auth;
+import com.qlpk.utils.XImage;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar; 
+import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import javax.swing.table.DefaultTableModel;
-import com.qlpk.entity.*;
-import com.qlpk.dao.*;
-import com.qlpk.utils.*;
-import static java.awt.Color.white;
-import java.awt.Image;
-import java.io.File;
-import java.util.Date;
-import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
-/**
- *
- * @author fptshop
- */
+
 public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
     /**
@@ -110,6 +93,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromDonThuoc = new javax.swing.JPanel();
         pnlFromThuoc = new javax.swing.JPanel();
         pnlFromNhanVien = new javax.swing.JPanel();
+        pnlFromGioiThieu = new javax.swing.JPanel();
+        pnlFromThongKe = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         btnDangxuat = new javax.swing.JButton();
         btnDoiPass = new javax.swing.JButton();
@@ -765,6 +750,36 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         tabs.addTab("tab7", pnlFromNhanVien);
 
+        pnlFromGioiThieu.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlFromGioiThieuLayout = new javax.swing.GroupLayout(pnlFromGioiThieu);
+        pnlFromGioiThieu.setLayout(pnlFromGioiThieuLayout);
+        pnlFromGioiThieuLayout.setHorizontalGroup(
+            pnlFromGioiThieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 985, Short.MAX_VALUE)
+        );
+        pnlFromGioiThieuLayout.setVerticalGroup(
+            pnlFromGioiThieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 612, Short.MAX_VALUE)
+        );
+
+        tabs.addTab("tab8", pnlFromGioiThieu);
+
+        pnlFromThongKe.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlFromThongKeLayout = new javax.swing.GroupLayout(pnlFromThongKe);
+        pnlFromThongKe.setLayout(pnlFromThongKeLayout);
+        pnlFromThongKeLayout.setHorizontalGroup(
+            pnlFromThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 985, Short.MAX_VALUE)
+        );
+        pnlFromThongKeLayout.setVerticalGroup(
+            pnlFromThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 612, Short.MAX_VALUE)
+        );
+
+        tabs.addTab("tab9", pnlFromThongKe);
+
         pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 990, 640));
 
         javax.swing.GroupLayout pnlChinhLayout = new javax.swing.GroupLayout(pnlChinh);
@@ -823,6 +838,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnThongKe.setFocusable(false);
         btnThongKe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThongKe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThongKeActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnThongKe);
 
         btnGioiThieu.setBackground(new java.awt.Color(0, 255, 230));
@@ -831,6 +851,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnGioiThieu.setFocusable(false);
         btnGioiThieu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGioiThieu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGioiThieu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGioiThieuActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnGioiThieu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -859,6 +884,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private QLDonThuoc qLDonThuoc;
     private QLThuoc qLThuoc;
     private QLNhanVien qLNhanVien;
+    private GioiThieu gioiThieu;
+    private QLThongKe qLThongKe;
     
 
     
@@ -878,6 +905,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromDonThuoc.setLayout(layout);
         pnlFromThuoc.setLayout(layout);
         pnlFromNhanVien.setLayout(layout);
+        pnlFromGioiThieu.setLayout(layout);
+        pnlFromThongKe.setLayout(layout);
         
         qLBenhNhan = new QLBenhNhan();
         qLPhieuKham = new QLPhieuKham();
@@ -885,6 +914,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         qLDonThuoc = new QLDonThuoc();
         qLThuoc = new QLThuoc();
         qLNhanVien = new QLNhanVien();
+        gioiThieu = new GioiThieu();
+        qLThongKe = new QLThongKe();
     }
     
     void setColor(JPanel pane,JPanel indicators){
@@ -1007,6 +1038,20 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         new DoiPassJDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnDoiPassActionPerformed
+
+    private void btnGioiThieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGioiThieuActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(7);
+        lblChucNang.setText("Giới Thiệu");
+        pnlFromGioiThieu.add(gioiThieu);
+    }//GEN-LAST:event_btnGioiThieuActionPerformed
+
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(8);
+        lblChucNang.setText("Thống Kê");
+        pnlFromThongKe.add(qLThongKe);
+    }//GEN-LAST:event_btnThongKeActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1088,10 +1133,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFrom;
     private javax.swing.JPanel pnlFromBenhNhan;
     private javax.swing.JPanel pnlFromDonThuoc;
+    private javax.swing.JPanel pnlFromGioiThieu;
     private javax.swing.JPanel pnlFromHome;
     private javax.swing.JPanel pnlFromNhanVien;
     private javax.swing.JPanel pnlFromPhieuKham;
     private javax.swing.JPanel pnlFromPhongKham;
+    private javax.swing.JPanel pnlFromThongKe;
     private javax.swing.JPanel pnlFromThuoc;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlNhanVien;
