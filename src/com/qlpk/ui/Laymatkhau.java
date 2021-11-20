@@ -460,8 +460,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         NhanVien nv =getModel();
         try {
             daoNV.update(nv);
-            Msgbox.alert(this, "Đổi mật khẩu thành công");
-            new DangNhapJDialong(nv.getMaNV());
+            new DangNhapJDialong(nv.getMaNV()).setVisible(true);
             this.dispose();
         } catch (Exception e) {
             e.printStackTrace();

@@ -49,14 +49,20 @@ public class DangNhapJDialong extends javax.swing.JFrame {
     void dangnhap(){                
         String manv = txt_taikhoan.getText().toUpperCase().replaceAll(" ", "");
         String pass = new String(txt_pass.getPassword());
-        NhanVien nv = daoNV.selectByID(manv);      
-        if (pass.equals(nv.getPass()) && manv.equals(nv.getMaNV())) {
-            Auth.user = nv;
-            this.dispose();
-            new QLPhongKhamDaKhoa().setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(this, "Tên tài khoảng sai hoặt password!");
+        try {
+            NhanVien nv = daoNV.selectByID(manv);   
+            System.out.println(nv.getPass()+" "+nv.getMaNV());
+            if (pass.equals(nv.getPass()) && manv.equals(nv.getMaNV())) {
+                Auth.user = nv;
+                this.dispose();
+                new QLPhongKhamDaKhoa().setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "Tên tài khoản hoặc password sai!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
     }
 
         

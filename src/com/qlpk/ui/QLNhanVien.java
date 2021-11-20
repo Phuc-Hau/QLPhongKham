@@ -361,17 +361,17 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "MÃ NHÂN VIÊN", "HỌ TÊN", "GIỚI TÍNH", "NGÀY SINH", "SỐ ĐT", "EMAIL", "ĐỊA CHỈ", "CHỨC VỤ", "CHUYÊN NGÀNH", "LƯƠNG", "PASS", "HÌNH"
+                "MÃ NHÂN VIÊN", "HỌ TÊN", "GIỚI TÍNH", "NGÀY SINH", "SỐ ĐT", "EMAIL", "ĐỊA CHỈ", "CHỨC VỤ", "CHUYÊN NGÀNH", "LƯƠNG"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -384,6 +384,10 @@ public class QLNhanVien extends javax.swing.JPanel {
             }
         });
         jScrollPane6.setViewportView(tblNhanVien);
+        if (tblNhanVien.getColumnModel().getColumnCount() > 0) {
+            tblNhanVien.getColumnModel().getColumn(1).setPreferredWidth(125);
+            tblNhanVien.getColumnModel().getColumn(2).setPreferredWidth(50);
+        }
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -611,9 +615,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                     nv.getDiaChi(),
                     nv.getChucVu(),
                     nv.getChuyenNganh(),
-                    nv.getLuong(),
-                    nv.getPass(),
-                    nv.getHinh()
+                    nv.getLuong()
                 };
                 model.addRow(row);
 
