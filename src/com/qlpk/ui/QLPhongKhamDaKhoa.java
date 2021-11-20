@@ -856,6 +856,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private QLBenhNhan qLBenhNhan;
     private QLPhieuKham qLPhieuKham;
     private QLPhongKham qLPhongKham;
+    private QLDonThuoc qLDonThuoc;
     private QLThuoc qLThuoc;
     private QLNhanVien qLNhanVien;
     
@@ -874,12 +875,14 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromBenhNhan.setLayout(layout);
         pnlFromPhieuKham.setLayout(layout);
         pnlFromPhongKham.setLayout(layout);
+        pnlFromDonThuoc.setLayout(layout);
         pnlFromThuoc.setLayout(layout);
         pnlFromNhanVien.setLayout(layout);
         
         qLBenhNhan = new QLBenhNhan();
         qLPhieuKham = new QLPhieuKham();
         qLPhongKham = new QLPhongKham();
+        qLDonThuoc = new QLDonThuoc();
         qLThuoc = new QLThuoc();
         qLNhanVien = new QLNhanVien();
     }
@@ -970,8 +973,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlPhongKham,pnlThuoc,pnlNhanVien});// reser color
         tabs.setSelectedIndex(4);
         lblChucNang.setText("Đơn Thuốc");
-        
-        
+        pnlFromDonThuoc.add(qLDonThuoc);
     }//GEN-LAST:event_pnlDonThuocMousePressed
   
     private void pnlThuocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThuocMousePressed
