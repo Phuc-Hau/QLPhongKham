@@ -17,7 +17,6 @@ public class GioiThieu extends javax.swing.JPanel {
     public GioiThieu() {
         initComponents();
         
-        
     }
 
     /**
