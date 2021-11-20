@@ -912,7 +912,19 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
     //cap nhap trang thai cac nut
     void updateStatusDT() {
-   
+        boolean edit = (this.row >= 0);
+        boolean first = (this.row == 0);
+        boolean last = (this.row == tbldanhsachThuoc.getRowCount() - 1);
+        // Trạng thái form
+        btnThem.setEnabled(!edit);
+        btnMoi.setEnabled(!edit);
+        btnSua.setEnabled(edit);
+        btnXoa.setEnabled(edit);
+        // Trạng thái điều hướng
+        btnFirst.setEnabled(edit && !first);
+        btnPrev.setEnabled(edit && !first);
+        btnNext.setEnabled(edit && !last);
+        btnLast.setEnabled(edit && !last);
     }
     
     boolean CheckErrorDonThuoc(){
