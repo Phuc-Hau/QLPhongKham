@@ -69,8 +69,9 @@ public class QLThuoc extends javax.swing.JPanel {
         tbl_thuoc = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
         jLabel80 = new javax.swing.JLabel();
-        btn_tim = new javax.swing.JButton();
         txt_timkiem = new javax.swing.JTextField();
+        btn_luu1 = new javax.swing.JButton();
+        btn_xoa1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -276,11 +277,23 @@ public class QLThuoc extends javax.swing.JPanel {
 
         jLabel80.setText("Tìm kiếm:");
 
-        btn_tim.setText("Tìm");
-
         txt_timkiem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_timkiemKeyReleased(evt);
+            }
+        });
+
+        btn_luu1.setText("Lưu");
+        btn_luu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_luu1ActionPerformed(evt);
+            }
+        });
+
+        btn_xoa1.setText("Xóa");
+        btn_xoa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xoa1ActionPerformed(evt);
             }
         });
 
@@ -293,9 +306,11 @@ public class QLThuoc extends javax.swing.JPanel {
                 .addComponent(jLabel80)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_xoa1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_tim)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btn_luu1)
+                .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +319,8 @@ public class QLThuoc extends javax.swing.JPanel {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel80)
-                    .addComponent(btn_tim))
+                    .addComponent(btn_luu1)
+                    .addComponent(btn_xoa1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -381,13 +397,24 @@ public class QLThuoc extends javax.swing.JPanel {
         this.timkiem();
     }//GEN-LAST:event_txt_timkiemKeyReleased
 
+    private void btn_luu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_luu1ActionPerformed
+        // TODO add your handling code here:
+        this.updateSoLuong();
+    }//GEN-LAST:event_btn_luu1ActionPerformed
+
+    private void btn_xoa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoa1ActionPerformed
+        // TODO add your handling code here:
+        this.fillTableThuocKham(rowDonThuocThuoc);
+    }//GEN-LAST:event_btn_xoa1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_luu1;
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_sua;
     private javax.swing.JButton btn_them;
-    private javax.swing.JButton btn_tim;
     private javax.swing.JButton btn_xoa;
+    private javax.swing.JButton btn_xoa1;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel32;
@@ -607,27 +634,25 @@ public class QLThuoc extends javax.swing.JPanel {
         btn_xoa.setEnabled(edit);
     }
     void fillTableThuocKham(int n){
+        String loaith = txt_loaithuoc.getText();
         int ret = JOptionPane.showConfirmDialog(this, "Do you want to delete?", "Confirm",
         JOptionPane.YES_NO_OPTION);
         if(ret != JOptionPane.YES_OPTION) {
+            try {
+                    Thuoc th = daoThuoc.selectByID(loaith);
+                    daoThuoc.delete(loaith);
+                    this.fillTableThuoc();
+                    //this.clearFormThuoc();
+                    Msgbox.alert(this, "Xoá thành công!");
+                } catch (Exception e) {
+                    Msgbox.alert(this, "Xóa thất bại!");
+                }
         return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tbl_thuoc.getModel();
-        //model.setRowCount(0);
-        model.removeRow(n);
+        }    
+        DefaultTableModel model = (DefaultTableModel) tbl_thuoc.getModel();            
         if (ret != -1) {
          JOptionPane.showMessageDialog(this, "Thuốc đã được xóa!");
-        }
-        try {
-            List<Thuoc> list = daoThuoc.selectAll();
-            for (Thuoc th : list) {
-                Object[] row = {th.getLoaiThuoc(),th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan(), th.getSoLuong()};
-              model.addRow(row);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
-            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
-        }
+        }                
     }
     void updateSoLuong(){      
         try {
@@ -637,7 +662,7 @@ public class QLThuoc extends javax.swing.JPanel {
                 hv.setSoLuong((String) tbl_thuoc.getValueAt(i, 4));            
                 daoThuoc.update(hv);                         
             }    
-            Msgbox.alert(this, "Cập nhật điểm thành công!");
+            Msgbox.alert(this, "Cập nhật thuốc thành công!");
             } catch (Exception e) {    
                 JOptionPane.showMessageDialog(this, "Lỗi điểm");
                 JOptionPane.showMessageDialog(this, e);
