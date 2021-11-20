@@ -25,6 +25,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.setTitle("Phòng Khám Đa Khoa");
         this.setIconImage(XImage.getAppIcon());
         inti();
+        uiti();
     }
 
     /**
@@ -70,6 +71,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlcolorPhongKham = new javax.swing.JPanel();
         pnlTieu = new javax.swing.JPanel();
         lblChucNang = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         pnlFrom = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
         pnlFromHome = new javax.swing.JPanel();
@@ -100,8 +102,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         btnDoiPass = new javax.swing.JButton();
         btnThongKe = new javax.swing.JButton();
         btnGioiThieu = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblTile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlChinh.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -477,7 +483,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlChucNangLayout.setVerticalGroup(
             pnlChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChucNangLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(0, 0, 0)
                 .addComponent(pnlDichvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnlHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,32 +499,21 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addComponent(pnlThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
-        pnlTieu.setBackground(new java.awt.Color(207, 81, 255));
+        pnlTieu.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTieu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblChucNang.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblChucNang.setForeground(new java.awt.Color(229, 248, 4));
         lblChucNang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChucNang.setText("Home");
+        pnlTieu.add(lblChucNang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, 980, 50));
 
-        javax.swing.GroupLayout pnlTieuLayout = new javax.swing.GroupLayout(pnlTieu);
-        pnlTieu.setLayout(pnlTieuLayout);
-        pnlTieuLayout.setHorizontalGroup(
-            pnlTieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTieuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnlTieuLayout.setVerticalGroup(
-            pnlTieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTieuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/gadianDo.jpg"))); // NOI18N
+        pnlTieu.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -6, 1000, 70));
 
         pnlFrom.setBackground(new java.awt.Color(15, 14, 14));
         pnlFrom.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -531,7 +526,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Doingu.jpg"))); // NOI18N
 
         lblTill.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblTill.setForeground(new java.awt.Color(0, 102, 255));
+        lblTill.setForeground(new java.awt.Color(255, 0, 204));
         lblTill.setText("Phòng Khám Đa Khoa Y Tâm Cúc");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -787,21 +782,23 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlChinhLayout.setHorizontalGroup(
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addComponent(pnlChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(276, 276, 276)
+                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pnlChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(pnlChinhLayout.createSequentialGroup()
                 .addGap(266, 266, 266)
-                .addComponent(pnlTieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlChinhLayout.setVerticalGroup(
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getContentPane().add(pnlChinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 54, -1, 690));
 
         jToolBar1.setBackground(new java.awt.Color(0, 255, 230));
         jToolBar1.setRollover(true);
@@ -858,20 +855,37 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
         jToolBar1.add(btnGioiThieu);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlChinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 60));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
+
+        lblTile.setBackground(new java.awt.Color(102, 255, 102));
+        lblTile.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        lblTile.setForeground(new java.awt.Color(255, 0, 204));
+        lblTile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTile.setText("PHÒNG KHÁM DA KHOA Y TÂM CÚC");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblTile, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnlChinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(lblTile, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 0, 1000, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -887,7 +901,25 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private GioiThieu gioiThieu;
     private QLThongKe qLThongKe;
     
-
+    void uiti(){
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                String txt = lblTile.getText()+"             ";
+                while (true) {                    
+                    txt = txt.substring(1,txt.length())+txt.charAt(0);
+                    try {
+                        sleep(300);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    lblTile.setText(txt);
+                }
+            }
+            
+        };
+        t.start();
+    }
     
     void inti(){
         this.setColor(pnlcolorHome,pnlHome); // discoloration
@@ -1101,6 +1133,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1115,6 +1148,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblChucNang;
     private javax.swing.JLabel lblGiay;
@@ -1123,6 +1157,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel lblNgay;
     private javax.swing.JLabel lblPhuc;
     private javax.swing.JLabel lblThang;
+    private javax.swing.JLabel lblTile;
     private javax.swing.JLabel lblTill;
     private javax.swing.JPanel pnlBenhNhan;
     private javax.swing.JPanel pnlChinh;

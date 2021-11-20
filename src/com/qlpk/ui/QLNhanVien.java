@@ -359,6 +359,8 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
+
         tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -387,6 +389,9 @@ public class QLNhanVien extends javax.swing.JPanel {
         if (tblNhanVien.getColumnModel().getColumnCount() > 0) {
             tblNhanVien.getColumnModel().getColumn(1).setPreferredWidth(125);
             tblNhanVien.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblNhanVien.getColumnModel().getColumn(4).setPreferredWidth(75);
+            tblNhanVien.getColumnModel().getColumn(7).setPreferredWidth(75);
+            tblNhanVien.getColumnModel().getColumn(9).setPreferredWidth(75);
         }
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -402,8 +407,8 @@ public class QLNhanVien extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         tabsNV.addTab("Danh Sách", jPanel7);
