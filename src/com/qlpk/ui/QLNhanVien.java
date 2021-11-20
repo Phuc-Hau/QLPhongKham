@@ -652,7 +652,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         txtMaNV.setText(nv.getMaNV());
         txtHoTen.setText(nv.getHoTen());
         rdoNam.setSelected(nv.isGioiTinh());
-        rdoNu.setSelected(nv.isGioiTinh());
+        rdoNu.setSelected(!nv.isGioiTinh());
         DateNgaySinhNV.setDate(nv.getNgaySinh());
         txtSoDT.setText(nv.getSoDT());
         txtEmail.setText(nv.getEmail());
