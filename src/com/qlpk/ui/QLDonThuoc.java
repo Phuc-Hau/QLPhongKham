@@ -143,6 +143,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         btnThem.setBackground(new java.awt.Color(0, 255, 63));
         btnThem.setText("Thêm");
+        btnThem.setEnabled(false);
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
@@ -151,6 +152,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         btnSua.setBackground(new java.awt.Color(252, 255, 0));
         btnSua.setText("Sửa");
+        btnSua.setEnabled(false);
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuaActionPerformed(evt);
@@ -159,6 +161,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         btnXoa.setBackground(new java.awt.Color(255, 0, 0));
         btnXoa.setText("Xóa");
+        btnXoa.setEnabled(false);
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaActionPerformed(evt);
@@ -167,6 +170,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         btnMoi.setBackground(new java.awt.Color(255, 174, 0));
         btnMoi.setText("Mới");
+        btnMoi.setEnabled(false);
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoiActionPerformed(evt);
@@ -586,7 +590,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
         indexDanhsachThuoc=tbldanhsachThuoc.getSelectedRow();
         if(evt.getClickCount()==2){
             this.AddTableThuocKham();
-            tabsDonThuoc.setSelectedIndex(0);
         }
     }//GEN-LAST:event_tbldanhsachThuocMouseClicked
 
@@ -598,6 +601,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
             PhieuKham pk = daoPK.selectByID(Integer.valueOf(maPk));
             this.setDonThuocBenhNhan(pk);
             tabsDonThuoc.setSelectedIndex(0);
+            updateStatusDT(true);
         }
     }//GEN-LAST:event_tblPhieuKhamDTMouseClicked
 
@@ -671,7 +675,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
         this.fillTableDonThuocBenhNhan();
         this.fillTableBenhNhanDT();
         this.row = -1;
-        this.updateStatusDT();
         tabsDonThuoc.setSelectedIndex(2);
     }
 
@@ -715,7 +718,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         DonThuoc dt = daoDT.selectByID(th);
         this.setFormDT(dt);
         tabsDonThuoc.setSelectedIndex(0);
-        this.updateStatusDT();
+        this.updateStatusDT(false);
     }
 
     
@@ -830,16 +833,24 @@ public class QLDonThuoc extends javax.swing.JPanel {
     void AddTableThuocKham(){
         DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
         String LoaiThuoc = (String) tbldanhsachThuoc.getValueAt(indexDanhsachThuoc, 0);
-        try {
-            Thuoc thuoc = daoThuoc.selectByID(LoaiThuoc);
-            
+        
+        int error=0;
+        for (int i = 0; i < tblThuoc.getRowCount(); i++) {
+            if(LoaiThuoc.equals(tblThuoc.getValueAt(i, 0))){
+                tabsDonThuoc.setSelectedIndex(1);
+                error++;
+            }
+        }
+        if(error==0){
+            try {
+                Thuoc thuoc = daoThuoc.selectByID(LoaiThuoc);
                 Object[] row = {thuoc.getLoaiThuoc(),thuoc.getTenThuoc()};
                 model.addRow(row);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
-            Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
-        }
+                tabsDonThuoc.setSelectedIndex(0);
+            } catch (Exception e) {
+                Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
+            }
+        } else Msgbox.alert(this, "Thuoc Nay da chon");  
     }
     
     void fillTableDonThuocBenhNhan(){
@@ -911,15 +922,15 @@ public class QLDonThuoc extends javax.swing.JPanel {
     }
 
     //cap nhap trang thai cac nut
-    void updateStatusDT() {
+    void updateStatusDT(boolean x) {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
         boolean last = (this.row == tbldanhsachThuoc.getRowCount() - 1);
         // Trạng thái form
-        btnThem.setEnabled(!edit);
-        btnMoi.setEnabled(!edit);
-        btnSua.setEnabled(edit);
-        btnXoa.setEnabled(edit);
+        btnThem.setEnabled(x);
+        btnMoi.setEnabled(x);
+        btnSua.setEnabled(!x);
+        btnXoa.setEnabled(!x);
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
         btnPrev.setEnabled(edit && !first);
