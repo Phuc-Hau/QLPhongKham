@@ -922,14 +922,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     }
     
     void inti(){
-        this.setColor(pnlcolorHome,pnlHome); // discoloration
-        this.reserColor(new JPanel[]{pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
-                new JPanel[]{pnlBenhNhan,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien}); // reser color
-        tabs.setSelectedIndex(0);
-        lblChucNang.setText("Home");
-        this.GetDate();
+        this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
         pnlFromPhieuKham.setLayout(layout);
@@ -991,14 +985,18 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
     private void pnlHomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHomeMousePressed
         // TODO add your handling code here:
+        this.home();
+    }//GEN-LAST:event_pnlHomeMousePressed
+
+    void home(){
         this.setColor(pnlcolorHome,pnlHome); // discoloration
         this.reserColor(new JPanel[]{pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlBenhNhan,pnlPhieuKham,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien}); // reser color
         tabs.setSelectedIndex(0);
         lblChucNang.setText("Home");
         this.GetDate();
-    }//GEN-LAST:event_pnlHomeMousePressed
-
+    }
+    
     private void pnlBenhNhanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBenhNhanMousePressed
         // TODO add your handling code here:
         this.setColor(pnlColorBenhNhan,pnlBenhNhan);// discoloration
@@ -1065,7 +1063,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_pnlNhanVienMousePressed
 
-    
     private void btnDangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangxuatActionPerformed
         // TODO add your handling code here:
         new DangNhapJDialong(Auth.user.getMaNV()).setVisible(true);
