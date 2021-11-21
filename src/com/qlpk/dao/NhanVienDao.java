@@ -117,5 +117,9 @@ public class NhanVienDao extends PhongKhamDao<NhanVien,String>{
             throw new RuntimeException();
         }
     }
+     public List<NhanVien> selectByKeyword(String keyword){
+        String sql ="SELECT*FROM NhanVien WHERE HoTen LIKE ?";
+        return this.selectBySql(sql,"%"+keyword+"%");
+    }
    
 }

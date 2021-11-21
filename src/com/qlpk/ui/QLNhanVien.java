@@ -87,6 +87,8 @@ public class QLNhanVien extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtTimKiem = new javax.swing.JTextField();
 
         tabsNV.setBackground(new java.awt.Color(255, 255, 255));
         tabsNV.setOpaque(true);
@@ -394,21 +396,43 @@ public class QLNhanVien extends javax.swing.JPanel {
             tblNhanVien.getColumnModel().getColumn(9).setPreferredWidth(75);
         }
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setText("Tìm Nhân Viên:");
+
+        txtTimKiem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tabsNV.addTab("Danh Sách", jPanel7);
@@ -431,23 +455,23 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     NhanVienDao daoNV = new NhanVienDao();
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
-    
+
     int rowNV = -1;
-    
+
     private void cboChucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChucVuActionPerformed
         // TODO add your handling code here:
-        String []chucvu ={"Kế Toán","Bảo Vệ","Giữ Xe","Tình Nguyện Viên","Lao Công"};
-        int cv=0;
+        String[] chucvu = {"Kế Toán", "Bảo Vệ", "Giữ Xe", "Tình Nguyện Viên", "Lao Công"};
+        int cv = 0;
         for (int i = 0; i < chucvu.length; i++) {
-            if(cboChucVu.getItemAt(cboChucVu.getSelectedIndex()).equals(chucvu[i])){
+            if (cboChucVu.getItemAt(cboChucVu.getSelectedIndex()).equals(chucvu[i])) {
                 cv++;
             }
         }
 
-        if(cv==0){
+        if (cv == 0) {
             fillCboChuyenNganh();
             txtPass.setEnabled(true);
-        } else{
+        } else {
             cboChuyenNganh.removeAllItems();
             txtPass.setEnabled(false);
             txtPass.setText("");
@@ -456,11 +480,11 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     private void btnThemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNVActionPerformed
         // TODO add your handling code here:
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMaNV(txtMaNV)){
+        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMaNV(txtMaNV)) {
             if (ErrorNV()) {
                 this.InsertNV();
             }
-        } else{
+        } else {
             if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMaNV(txtMaNV)) {
                 this.InsertNV();
             }
@@ -474,12 +498,12 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     private void btnSuaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNVActionPerformed
         // TODO add your handling code here:
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null) {
             if (ErrorNV()) {
                 this.UpdateNV();
             }
-        } else{
-            if (ErrorNV()&&Utility.CheckPass(txtPass)) {
+        } else {
+            if (ErrorNV() && Utility.CheckPass(txtPass)) {
                 this.UpdateNV();
             }
         }
@@ -517,11 +541,16 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()==2) {
+        if (evt.getClickCount() == 2) {
             this.rowNV = tblNhanVien.getSelectedRow();
             this.editNV();
         }
     }//GEN-LAST:event_tblNhanVienMouseClicked
+
+    private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
+        // TODO add your handling code here:
+        fillTableNV();
+    }//GEN-LAST:event_txtTimKiemKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -537,6 +566,7 @@ public class QLNhanVien extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboChucVu;
     private javax.swing.JComboBox<String> cboChuyenNganh;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel47;
@@ -563,9 +593,10 @@ public class QLNhanVien extends javax.swing.JPanel {
     private javax.swing.JTextField txtMaNV;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtSoDT;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 
-    boolean ErrorNV(){
+    boolean ErrorNV() {
         if (Utility.checkNullText(txtMaNV)
                 && Utility.checkNullText(txtHoTen)
                 && Utility.checkNullText(txtSoDT)
@@ -573,29 +604,27 @@ public class QLNhanVien extends javax.swing.JPanel {
                 && Utility.checkNullText(txtEmail)
                 && Utility.parseEmail(txtEmail)
                 && Utility.checkNullText(txtDiaChi)
-                && Utility.checkNullText(txtLuong)
-                
-            ) {
+                && Utility.checkNullText(txtLuong)) {
             return true;
-        }else{
+        } else {
             Msgbox.alert(this, "Không bỏ trống thông tin");
             return false;
-        }  
-    }
-     
-    public  boolean checkTrungMaNV(JTextField txt){
-        txt.setBackground(white);
-        if (daoNV.selectByID(txt.getText())==null) {
-            return true;    
-        }else{
-            txt.setBackground(Color.red);
-           Msgbox.alert(this,txt.getName()+" Mã đã tồn tại");
-            return false;
-        
         }
-    } 
-    
-    void fillCboChuyenNganh(){
+    }
+
+    public boolean checkTrungMaNV(JTextField txt) {
+        txt.setBackground(white);
+        if (daoNV.selectByID(txt.getText()) == null) {
+            return true;
+        } else {
+            txt.setBackground(Color.red);
+            Msgbox.alert(this, txt.getName() + " Mã đã tồn tại");
+            return false;
+
+        }
+    }
+
+    void fillCboChuyenNganh() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboChuyenNganh.getModel();
         model.removeAllElements();
         List<PhongKham> list = daoPKBenh.selectAll();
@@ -603,12 +632,14 @@ public class QLNhanVien extends javax.swing.JPanel {
             model.addElement(pk.getTenPhongKham());
         }
     }
-    
+
     void fillTableNV() {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
         try {
-            List<NhanVien> list = daoNV.selectAll();
+            String keyword = txtTimKiem.getText();
+            List<NhanVien> list = daoNV.selectByKeyword(keyword);
+            // List<NhanVien> list = daoNV.selectAll();
             for (NhanVien nv : list) {
                 Object[] row = {
                     nv.getMaNV(),
@@ -661,7 +692,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         cboChuyenNganh.setSelectedItem(nv.getChuyenNganh());
         txtLuong.setText(String.valueOf(nv.getLuong()));
         txtPass.setText(nv.getPass());
-         if (nv.getHinh() != null) {
+        if (nv.getHinh() != null) {
             lblAnh.setToolTipText(nv.getHinh());
             lblAnh.setIcon(XImage.read(nv.getHinh()));
         }
@@ -677,13 +708,15 @@ public class QLNhanVien extends javax.swing.JPanel {
         nv.setSoDT(txtSoDT.getText());
         nv.setDiaChi(txtDiaChi.getText());
         nv.setChucVu(cboChucVu.getItemAt(cboChucVu.getSelectedIndex()));
-        if(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex())==null){
+        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null) {
             nv.setChuyenNganh("");
-        } else nv.setChuyenNganh(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()));
+        } else {
+            nv.setChuyenNganh(cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()));
+        }
         nv.setLuong(Float.valueOf(txtLuong.getText()));
         nv.setPass(new String(txtPass.getPassword()));
         nv.setHinh(lblAnh.getToolTipText());
-        return nv; 
+        return nv;
     }
 
     void clearFormNV() {
@@ -701,7 +734,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         txtPass.setText("");
         lblAnh.setToolTipText("");
         lblAnh.setIcon(XImage.read(""));
-       
+
         this.rowNV = -1;
         this.updateStatusNV();
     }
@@ -755,7 +788,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                 Msgbox.alert(this, "Xóa thất bại!");
                 e.printStackTrace();
                 // btn Xoa
-            } 
+            }
         }
 
     }
@@ -784,21 +817,22 @@ public class QLNhanVien extends javax.swing.JPanel {
         this.rowNV = tblNhanVien.getRowCount() - 1;
         this.editNV();
     }
-    
-  
-     String path="";
-     void chonAnhNV() {
-       JFileChooser fileChooser=new JFileChooser(path);
-        FileNameExtensionFilter image =new FileNameExtensionFilter("Anh logo","jpeg","jpg","png","gif");
+
+    String path = "";
+
+    void chonAnhNV() {
+        JFileChooser fileChooser = new JFileChooser(path);
+        FileNameExtensionFilter image = new FileNameExtensionFilter("Anh logo", "jpeg", "jpg", "png", "gif");
         fileChooser.setFileFilter(image);
         fileChooser.setDialogTitle("File Ảnh");
-        if(fileChooser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File file =fileChooser.getSelectedFile();
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
             XImage.save(file);
-            ImageIcon icon=XImage.read(file.getName());
+            ImageIcon icon = XImage.read(file.getName());
             lblAnh.setIcon(icon);
             lblAnh.setToolTipText(file.getName());
-            path=file.getAbsolutePath();
+            path = file.getAbsolutePath();
         }
     }
+
 }

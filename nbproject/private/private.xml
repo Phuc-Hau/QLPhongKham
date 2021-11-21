@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/ui/QuanLyNhanVienJDialog.java</file>
-            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/ui/QLPhongKhamJDialog.java</file>
             <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/ui/QLPhongKhamDaKhoa.java</file>
-            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/dao/ThuocDao.java</file>
-            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/ui/ThuocJDialog.java</file>
+            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/ui/GioiThieu.java</file>
+            <file>file:/D:/DA1/QLPhongKham/src/com/qlpk/entity/PhongKham.java</file>
         </group>
     </open-files>
 </project-private>
