@@ -26,7 +26,7 @@ public class QLThongKe extends javax.swing.JPanel {
      */
     public QLThongKe() {
         initComponents();
-        showBarChart();
+        showBarChart(); 
     }
 
     public void showBarChart(){

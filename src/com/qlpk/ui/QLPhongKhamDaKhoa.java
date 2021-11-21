@@ -1088,7 +1088,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         pnlFromThongKe.add(qLThongKe);
         tabs.setSelectedIndex(8);
-        lblChucNang.setText("Thống Kê");
+        lblChucNang.setText("Thống Kê"); 
     }//GEN-LAST:event_btnThongKeActionPerformed
     
     /**
