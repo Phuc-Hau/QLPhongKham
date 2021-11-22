@@ -71,7 +71,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlcolorPhongKham = new javax.swing.JPanel();
         pnlTieu = new javax.swing.JPanel();
         lblChucNang = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         pnlFrom = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
         pnlFromHome = new javax.swing.JPanel();
@@ -353,12 +352,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlcolorNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnlDichvu.setBackground(new java.awt.Color(153, 255, 255));
+        pnlDichvu.setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(45, 36, 246));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Dịch Vụ & Chức Nặng");
+        jLabel8.setText("Dịch Vụ & Chức Năng");
 
         javax.swing.GroupLayout pnlDichvuLayout = new javax.swing.GroupLayout(pnlDichvu);
         pnlDichvu.setLayout(pnlDichvuLayout);
@@ -502,7 +501,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap(124, Short.MAX_VALUE))
         );
 
-        pnlTieu.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTieu.setBackground(new java.awt.Color(0, 102, 255));
         pnlTieu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblChucNang.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -510,10 +509,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblChucNang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblChucNang.setText("Home");
         pnlTieu.add(lblChucNang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, 980, 50));
-
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/gadianDo.jpg"))); // NOI18N
-        pnlTieu.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -6, 1000, 70));
 
         pnlFrom.setBackground(new java.awt.Color(15, 14, 14));
         pnlFrom.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -606,7 +601,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNam)
-                        .addContainerGap(192, Short.MAX_VALUE))
+                        .addContainerGap(194, Short.MAX_VALUE))
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -785,22 +780,25 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGap(276, 276, 276)
                 .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(pnlChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlChinhLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlChinhLayout.setVerticalGroup(
             pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlChinhLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnlChinhLayout.createSequentialGroup()
+                .addGroup(pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlChinhLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlTieu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlChinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 54, -1, 690));
 
-        jToolBar1.setBackground(new java.awt.Color(0, 255, 230));
+        jToolBar1.setBackground(new java.awt.Color(51, 153, 255));
         jToolBar1.setRollover(true);
 
         btnDangxuat.setBackground(new java.awt.Color(0, 255, 230));
@@ -857,7 +855,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 60));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
         lblTile.setBackground(new java.awt.Color(102, 255, 102));
         lblTile.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
@@ -869,20 +867,13 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblTile, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(lblTile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(lblTile, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 5, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblTile, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 0, 1000, 60));
@@ -1136,7 +1127,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
