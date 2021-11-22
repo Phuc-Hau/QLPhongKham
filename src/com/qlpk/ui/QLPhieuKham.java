@@ -690,6 +690,11 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblBenhNhanVan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBenhNhanVanMouseClicked(evt);
+            }
+        });
         jScrollPane10.setViewportView(tblBenhNhanVan);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -782,8 +787,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
             tabsPK.setSelectedIndex(0);
         }
     }//GEN-LAST:event_tblPhieuKhamMouseClicked
-
-    private void tblBenhNhanVanMouseClicked(java.awt.event.MouseEvent evt) {                                            
+ 
+    private void tblBenhNhanVanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBenhNhanVanMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.indexVanToi=tblBenhNhanVan.getSelectedRow();
@@ -791,7 +796,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
             tabsPK.setSelectedIndex(0);
             this.setStatusPK(true);
         }
-    }     
+    }//GEN-LAST:event_tblBenhNhanVanMouseClicked
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatDau;
