@@ -108,7 +108,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTile = new javax.swing.JLabel();
         lblChucNang = new javax.swing.JLabel();
-        Avatar = new com.qlpk.swwng.ImageAvatar();
+        Avatar = new com.qlpk.swing.ImageAvatar();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lblMaNV = new javax.swing.JLabel();
@@ -1056,7 +1056,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             }
             
         };
-        t.start();
+        t.start(); 
     }
     
     void inti(){
@@ -1282,7 +1282,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.qlpk.swwng.ImageAvatar Avatar;
+    private com.qlpk.swing.ImageAvatar Avatar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

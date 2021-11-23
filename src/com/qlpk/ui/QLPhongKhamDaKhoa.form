@@ -1503,7 +1503,7 @@
             <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
         </Component>
-        <Container class="com.qlpk.swwng.ImageAvatar" name="Avatar">
+        <Container class="com.qlpk.swing.ImageAvatar" name="Avatar">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="true"/>
