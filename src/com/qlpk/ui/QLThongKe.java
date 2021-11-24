@@ -69,8 +69,9 @@ public class QLThongKe extends javax.swing.JPanel {
                     int SL = (int) i[2];
                     Thuoc th= daoTH.selectByID((String) i[0]);
                     int LoiNhuan = (th.getGiaBan()-th.getGiaNhap())* SL;
-                    model.addRow(new Object[]{i[0],i[1],i[2],LoiNhuan});
                     SumLoiNhuan += LoiNhuan;
+                    
+                    model.addRow(new Object[]{i[0],i[1],i[2],LoiNhuan});
                 }
             }        
         } catch (Exception e) {
@@ -125,14 +126,26 @@ public class QLThongKe extends javax.swing.JPanel {
     
     public void showBarChart(){
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.setValue(200, "Amount", "january");
-        dataset.setValue(150, "Amount", "february");
-        dataset.setValue(18, "Amount", "march");
-        dataset.setValue(100, "Amount", "april");
-        dataset.setValue(80, "Amount", "may");
-        dataset.setValue(250, "Amount", "june");
-        
-        JFreeChart chart = ChartFactory.createBarChart("contribution","monthly","amount", 
+        for (int i = 0; i < cboNam.getItemCount(); i++) {
+            int SumLoiNhuan=0;
+            int nam = Integer.valueOf(String.valueOf(cboNam.getItemAt(i)));
+            try {
+                List<Object[]> list = dao.getThuoc(nam);
+                for (Object[] u : list) {
+                    int SL = (int) u[2];
+                    Thuoc th= daoTH.selectByID((String) u[0]);
+                    int LoiNhuan = (th.getGiaBan()-th.getGiaNhap())* SL;
+                    SumLoiNhuan += LoiNhuan;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            dataset.setValue(SumLoiNhuan, "VND", cboNam.getItemAt(i));
+            SumLoiNhuan=0;
+            
+        }
+            
+        JFreeChart chart = ChartFactory.createBarChart("Doanh Thu","Năm","VND", 
                 dataset, PlotOrientation.VERTICAL, false,true,false);
         
         CategoryPlot categoryPlot = chart.getCategoryPlot();
@@ -143,9 +156,9 @@ public class QLThongKe extends javax.swing.JPanel {
         renderer.setSeriesPaint(0, clr3);
         
         ChartPanel barpChartPanel = new ChartPanel(chart);
-        pnlfrom.removeAll();
-        pnlfrom.add(barpChartPanel, BorderLayout.CENTER);
-        pnlfrom.validate();
+        pnlBieuDoDoanhThu.removeAll();
+        pnlBieuDoDoanhThu.add(barpChartPanel, BorderLayout.CENTER);
+        pnlBieuDoDoanhThu.validate();
         
     }
     /**
@@ -157,6 +170,7 @@ public class QLThongKe extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tabs = new javax.swing.JTabbedPane();
         pnlfrom = new javax.swing.JPanel();
         cboNam = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
@@ -175,6 +189,13 @@ public class QLThongKe extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtTong = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        lblBieuDo = new javax.swing.JLabel();
+        pnlBieuDo = new javax.swing.JPanel();
+        pnlBieuDoDoanhThu = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        lblThongKeNam = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlfrom.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -325,12 +346,22 @@ public class QLThongKe extends javax.swing.JPanel {
 
         jLabel5.setText("Tổng Lợ Nhận Của năm ");
 
+        lblBieuDo.setForeground(new java.awt.Color(0, 0, 255));
+        lblBieuDo.setText("Biểu Đồ Thống kê>>");
+        lblBieuDo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblBieuDoMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlfromLayout = new javax.swing.GroupLayout(pnlfrom);
         pnlfrom.setLayout(pnlfromLayout);
         pnlfromLayout.setHorizontalGroup(
             pnlfromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlfromLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
+                .addComponent(lblBieuDo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(txtTong, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,11 +375,12 @@ public class QLThongKe extends javax.swing.JPanel {
                         .addComponent(cboNam, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlfromLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlfromLayout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(pnlfromLayout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlfromLayout.setVerticalGroup(
             pnlfromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,22 +394,63 @@ public class QLThongKe extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(pnlfromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBieuDo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlfrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        tabs.addTab("tab1", pnlfrom);
+
+        pnlBieuDo.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnlBieuDoDoanhThu.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Biều Đồ Thống Kê Doanh Thu Hằng Năm");
+
+        lblThongKeNam.setForeground(new java.awt.Color(0, 0, 255));
+        lblThongKeNam.setText("Thống Kê Năm>> ");
+        lblThongKeNam.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblThongKeNamMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlBieuDoLayout = new javax.swing.GroupLayout(pnlBieuDo);
+        pnlBieuDo.setLayout(pnlBieuDoLayout);
+        pnlBieuDoLayout.setHorizontalGroup(
+            pnlBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBieuDoLayout.createSequentialGroup()
+                .addGroup(pnlBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBieuDoLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(pnlBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnlBieuDoDoanhThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)))
+                    .addGroup(pnlBieuDoLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(lblThongKeNam)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlfrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnlBieuDoLayout.setVerticalGroup(
+            pnlBieuDoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBieuDoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlBieuDoDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblThongKeNam)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
+
+        tabs.addTab("tab2", pnlBieuDo);
+
+        add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -38, -1, 650));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboNamActionPerformed
@@ -385,6 +458,17 @@ public class QLThongKe extends javax.swing.JPanel {
         showPieChart();
         fillTableSLThuoc();
     }//GEN-LAST:event_cboNamActionPerformed
+
+    private void lblBieuDoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBieuDoMousePressed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(1);
+        showBarChart();
+    }//GEN-LAST:event_lblBieuDoMousePressed
+
+    private void lblThongKeNamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeNamMousePressed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(0);
+    }//GEN-LAST:event_lblThongKeNamMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -394,16 +478,22 @@ public class QLThongKe extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBieuDo;
+    private javax.swing.JLabel lblThongKeNam;
     private javax.swing.JLabel lblTuoi18;
     private javax.swing.JLabel lblTuoi1860;
     private javax.swing.JLabel lblTuoiTren60;
+    private javax.swing.JPanel pnlBieuDo;
+    private javax.swing.JPanel pnlBieuDoDoanhThu;
     private javax.swing.JPanel pnlTuoi;
     private javax.swing.JPanel pnlfrom;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblThongKeThuoc;
     private javax.swing.JTextField txtTong;
     // End of variables declaration//GEN-END:variables
