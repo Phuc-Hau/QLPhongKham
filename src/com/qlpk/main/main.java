@@ -11,12 +11,9 @@ import com.qlpk.entity.NhanVien;
 import com.qlpk.utils.Auth;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
-import com.qlpk.utils.XImage;
-import java.awt.Color;
-import static java.awt.Color.white;
+import com.qlpk.utils.XImage; 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
