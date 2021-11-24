@@ -1,5 +1,5 @@
 package com.qlpk.swing;
- 
+  
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Dimension;
