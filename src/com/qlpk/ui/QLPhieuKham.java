@@ -897,6 +897,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
             Msgbox.alert(this, "Thêm Thành công");
             this.fillTablePhieuKham();
             this.fillBenhNhanVanToi();
+            this.fillBenhNhanVan();
             btnInPhieuKham.setEnabled(true);
             this.setStatusPK(false);
         } catch (Exception e) {
