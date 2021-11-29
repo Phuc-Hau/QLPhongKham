@@ -798,7 +798,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
                 g2d.setFont(new Font("bold",Font.PLAIN,12));
                 y+=rowTable+yShift;
-                g2d.drawString("                                              Thành Tiền : "+formatter.format(tongtien)+" VND",20,y);y+=3*yShift;
+                g2d.drawString("                                              Thanh Toán : "+formatter.format(tongtien)+" VND",20,y);y+=3*yShift;
                 g2d.drawString("   Người Nhận                                  Bác Sĩ khám", 40, y);y+=yShift;
 
                 } catch(Exception e){
