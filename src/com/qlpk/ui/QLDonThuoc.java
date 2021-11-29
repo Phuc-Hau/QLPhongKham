@@ -206,6 +206,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         });
 
         btnPrint.setText("In Đơn Thuốc");
+        btnPrint.setEnabled(false);
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
@@ -629,6 +630,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         this.deleteDonThuoc();
+        
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -684,6 +686,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
     private void tblPhieuKhamDTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuKhamDTMouseClicked
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
+        model.setRowCount(0);
         indexPK=tblPhieuKhamDT.getSelectedRow();
         String maPk = (String) tblPhieuKhamDT.getValueAt(indexPK, 0);
         if(evt.getClickCount()==2){
@@ -793,7 +797,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
                 g2d.setFont(new Font("bold",Font.PLAIN,12));
                 y+=rowTable+yShift;
-                g2d.drawString("                                               Thành Tiền: "+formatter.format(tongtien)+" VND",20,y);y+=3*yShift;
+                g2d.drawString("                                              Thành Tiền : "+formatter.format(tongtien)+" VND",20,y);y+=3*yShift;
                 g2d.drawString("   Người Nhận                                  Bác Sĩ khám", 40, y);y+=yShift;
 
                 } catch(Exception e){
@@ -897,6 +901,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         txtDonThuoc.setText("");
         txtBacSi.setText("");
         txtMaPhieuKham.setText("");
+        txtTenBenhNhan.setText("");
         DefaultTableModel model = (DefaultTableModel) tblThuoc.getModel();
         model.setRowCount(0);
         this.row = -1;
@@ -946,13 +951,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
             }
             this.fillTableDonThuoc();
             this.fillTableDonThuocBenhNhan();
-            this.clearForm();
             row = -1;
             indexDanhsachThuoc=-1;
             indexPK=-1;
             rowDonThuocThuoc=-1;
             Msgbox.alert(this, "Thêm mới thành công!");
             fillTablePrint();
+            this.updateStatusDT(false);
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Thêm mới thất bại!");
@@ -979,9 +984,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
     }
 
     void deleteDonThuoc() {
-        //if (!Auth.isManager()) {
-        //    MsgBox.alert(this, "Bạn không có quyền xóa Loại thuốc này!");
-        //} else {
             int MaDT = Integer.valueOf(txtDonThuoc.getText());
             if (Msgbox.confirm(this, "Bạn thực sự muốn xóa loại thuốc này?")) {
                 try {
@@ -990,12 +992,12 @@ public class QLDonThuoc extends javax.swing.JPanel {
                     this.fillTableDonThuocBenhNhan();
                     this.fillTableDonThuoc();
                     this.clearForm();
-                    
+                    this.updateStatusDT(true);
                     Msgbox.alert(this, "Xoá thành công!");
+                    tabsDonThuoc.setSelectedIndex(2);
                 } catch (Exception e) {
                     Msgbox.alert(this, "Xóa thất bại!");
                 }
-            //}
         }
     }
     //Đỗ dữ liệu vào tblDonThuoc

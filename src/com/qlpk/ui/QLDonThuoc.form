@@ -320,6 +320,7 @@
                 <Component class="javax.swing.JButton" name="btnPrint">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="In &#x110;&#x1a1;n Thu&#x1ed1;c"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
