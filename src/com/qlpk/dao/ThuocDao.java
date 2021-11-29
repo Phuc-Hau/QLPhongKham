@@ -95,7 +95,7 @@ public class ThuocDao extends PhongKhamDao<Thuoc, String>{
     
     //add tim kiem loai thuoc
     public List<Thuoc> selectByKeyword(String Keyword){
-        String sql = "SELECT * FROM Thuoc WHERE LoaiThuoc like ? ";
+        String sql = "SELECT * FROM Thuoc WHERE TenThuoc like ? ";
         return this.selectBySql(sql, "%" + Keyword + "%");
     }
 
