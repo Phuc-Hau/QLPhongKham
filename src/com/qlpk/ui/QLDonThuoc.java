@@ -568,8 +568,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
         sc.setViewportView(tblTable);
         if (tblTable.getColumnModel().getColumnCount() > 0) {
             tblTable.getColumnModel().getColumn(0).setPreferredWidth(25);
-            tblTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-            tblTable.getColumnModel().getColumn(2).setPreferredWidth(35);
+            tblTable.getColumnModel().getColumn(1).setPreferredWidth(110);
+            tblTable.getColumnModel().getColumn(2).setPreferredWidth(25);
         }
 
         javax.swing.GroupLayout pnlPrintLayout = new javax.swing.GroupLayout(pnlPrint);
@@ -780,14 +780,14 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 BenhNhan bn = daoBN.selectByID(pk.getMaBN());
                 SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss a");
                 SimpleDateFormat day = new SimpleDateFormat("dd-MM-YYYY");
-                g2d.drawString("             Ngày "+time.format(new Date())+" Giờ "+day.format(new Date()),20,y);y+=yShift+20;
+                g2d.drawString("              Ngày "+time.format(new Date())+" Giờ "+day.format(new Date()),20,y);y+=yShift+20;
                 g2d.drawString("   Số Phiếu      : "+txtDonThuoc.getText(), 20, y);y+=yShift;
                 g2d.drawString("   Người Mua     : "+txtTenBenhNhan.getText(),20,y);y+=yShift;
                 g2d.drawString("   Địa chỉ       : "+bn.getDiaChi(),20,y);y+=yShift;
                 g2d.drawString("   Chuẩn Đoán    : "+pk.getKetQuaDieuTri(),20,y);y+=yShift;
                 g2d.drawString("   Bác Sĩ kê đơn : "+txtBacSi.getText(),20,y);y+=yShift;
                 g2d.drawString("------------------------------------------------------------",20,y);y+=headerRectHeight;
-                g2d.drawString("STT |  Tên Thuốc     |  Số Lượng |  Đơn Giá | Thành Tiền",20,y);y+=yShift;
+                g2d.drawString("STT |   Tên Thuốc      | Số Lượng | Đơn Giá |  Thành Tiền",20,y);y+=yShift;
                 
                 int rowTable=27+rowIN*12;
                 tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
@@ -821,7 +821,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 i++;
                 tongtien+=thanhtien;
                 rowIN=i;
-                System.out.println(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1148,6 +1147,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         btnMoi.setEnabled(x);
         btnSua.setEnabled(!x);
         btnXoa.setEnabled(!x);
+        btnPrint.setEnabled(!x);
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
         btnPrev.setEnabled(edit && !first);
