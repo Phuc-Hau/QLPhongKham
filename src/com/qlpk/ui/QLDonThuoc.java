@@ -205,6 +205,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
             }
         });
 
+        btnPrint.setBackground(new java.awt.Color(153, 0, 255));
         btnPrint.setText("In Đơn Thuốc");
         btnPrint.setEnabled(false);
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
