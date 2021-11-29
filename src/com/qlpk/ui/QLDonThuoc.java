@@ -32,6 +32,7 @@ import static java.awt.print.Printable.NO_SUCH_PAGE;
 import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -93,10 +94,12 @@ public class QLDonThuoc extends javax.swing.JPanel {
         pnlBenhNhan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblPhieuKhamDT = new javax.swing.JTable();
-        pnlDanhsach = new javax.swing.JPanel();
+        pnlDanhSach = new javax.swing.JPanel();
+        tabsDanhsach = new javax.swing.JTabbedPane();
+        pnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDonThuoc = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
+        pnlPrint = new javax.swing.JPanel();
         sc = new javax.swing.JScrollPane();
         tblTable = new javax.swing.JTable();
 
@@ -492,7 +495,9 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tabsDonThuoc.addTab("Bệnh Nhân", pnlBenhNhan);
 
-        pnlDanhsach.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDanhSach.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnl.setBackground(new java.awt.Color(255, 255, 255));
 
         tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -520,24 +525,26 @@ public class QLDonThuoc extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblDonThuoc);
 
-        javax.swing.GroupLayout pnlDanhsachLayout = new javax.swing.GroupLayout(pnlDanhsach);
-        pnlDanhsach.setLayout(pnlDanhsachLayout);
-        pnlDanhsachLayout.setHorizontalGroup(
-            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDanhsachLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlLayout = new javax.swing.GroupLayout(pnl);
+        pnl.setLayout(pnlLayout);
+        pnlLayout.setHorizontalGroup(
+            pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 911, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
-        pnlDanhsachLayout.setVerticalGroup(
-            pnlDanhsachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDanhsachLayout.createSequentialGroup()
+        pnlLayout.setVerticalGroup(
+            pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        tabsDonThuoc.addTab("Danh sách", pnlDanhsach);
+        tabsDanhsach.addTab("tab1", pnl);
+
+        pnlPrint.setBackground(new java.awt.Color(255, 255, 255));
 
         tblTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -565,28 +572,33 @@ public class QLDonThuoc extends javax.swing.JPanel {
             tblTable.getColumnModel().getColumn(2).setPreferredWidth(35);
         }
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlPrintLayout = new javax.swing.GroupLayout(pnlPrint);
+        pnlPrint.setLayout(pnlPrintLayout);
+        pnlPrintLayout.setHorizontalGroup(
+            pnlPrintLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 980, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(pnlPrintLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrintLayout.createSequentialGroup()
                     .addContainerGap(264, Short.MAX_VALUE)
                     .addComponent(sc, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(396, Short.MAX_VALUE)))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(78, Short.MAX_VALUE)
+        pnlPrintLayout.setVerticalGroup(
+            pnlPrintLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 582, Short.MAX_VALUE)
+            .addGroup(pnlPrintLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrintLayout.createSequentialGroup()
+                    .addContainerGap(77, Short.MAX_VALUE)
                     .addComponent(sc, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(252, Short.MAX_VALUE)))
+                    .addContainerGap(251, Short.MAX_VALUE)))
         );
 
-        tabsDonThuoc.addTab("tab5", jPanel4);
+        tabsDanhsach.addTab("tab2", pnlPrint);
+
+        pnlDanhSach.add(tabsDanhsach, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -26, -1, 610));
+
+        tabsDonThuoc.addTab("Danh sách", pnlDanhSach);
+        pnlDanhSach.getAccessibleContext().setAccessibleName("");
 
         tabsDonThuoc.setSelectedIndex(3);
 
@@ -704,7 +716,6 @@ public class QLDonThuoc extends javax.swing.JPanel {
         pj.setPrintable(new QLDonThuoc.BillPrintable(),getPageFormat(pj));
         try {
              pj.print();
-             System.out.println("xong");
         }
          catch (PrinterException ex) {
                  ex.printStackTrace();
@@ -712,12 +723,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     int rowIN =0;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     
     public PageFormat getPageFormat(PrinterJob pj){
     
         PageFormat pf = pj.defaultPage();
         Paper paper = pf.getPaper();    
-        double bodyHeight = 2*rowIN;  
+        double bodyHeight = 6+rowIN;  
         double headerHeight = 5.0;                  
         double footerHeight = 5.0;        
         double width = cm_to_pp(12); 
@@ -769,18 +781,20 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss a");
                 SimpleDateFormat day = new SimpleDateFormat("dd-MM-YYYY");
                 g2d.drawString("             Ngày "+time.format(new Date())+" Giờ "+day.format(new Date()),20,y);y+=yShift+20;
-                g2d.drawString("   Số Phiếu     : "+txtDonThuoc.getText(), 20, y);y+=yShift;
-                g2d.drawString("   Người Mua    : "+txtTenBenhNhan.getText(),20,y);y+=yShift;
-                g2d.drawString("   Địa chỉ      : "+bn.getDiaChi(),20,y);y+=yShift;
-                g2d.drawString("   Chuẩn Đoán   : "+pk.getKetQuaDieuTri(),20,y);y+=yShift;
-                g2d.drawString("   Bác Sỹ kê đơn: "+txtBacSi.getText(),20,y);y+=yShift;
+                g2d.drawString("   Số Phiếu      : "+txtDonThuoc.getText(), 20, y);y+=yShift;
+                g2d.drawString("   Người Mua     : "+txtTenBenhNhan.getText(),20,y);y+=yShift;
+                g2d.drawString("   Địa chỉ       : "+bn.getDiaChi(),20,y);y+=yShift;
+                g2d.drawString("   Chuẩn Đoán    : "+pk.getKetQuaDieuTri(),20,y);y+=yShift;
+                g2d.drawString("   Bác Sĩ kê đơn : "+txtBacSi.getText(),20,y);y+=yShift;
                 g2d.drawString("------------------------------------------------------------",20,y);y+=headerRectHeight;
-                g2d.drawString("STT |  Tên Thuốc    |  Số Lượng |  Đơn Giá | Thành Tiền",20,y);y+=yShift;
+                g2d.drawString("STT |  Tên Thuốc     |  Số Lượng |  Đơn Giá | Thành Tiền",20,y);y+=yShift;
                 
                 int rowTable=27+rowIN*12;
                 tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
                 g2d.setFont(new Font("bold",Font.PLAIN,12));
-                g2d.drawString("                                               Thành Tiền: "+tongtien+" VND",20,y+rowTable+yShift);y+=yShift;
+                y+=rowTable+yShift;
+                g2d.drawString("                                               Thành Tiền: "+formatter.format(tongtien)+" VND",20,y);y+=3*yShift;
+                g2d.drawString("   Người Nhận                                  Bác Sĩ khám", 40, y);y+=yShift;
 
                 } catch(Exception e){
                     e.printStackTrace();
@@ -803,7 +817,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 Thuoc th = daoThuoc.selectByID(dtct.getLoaiThuoc());
                 int dongia=th.getGiaBan()-th.getGiaNhap();
                 int thanhtien = dongia*dtct.getSoLuong();
-                model.addRow(new Object[]{i,th.getTenThuoc(),dtct.getSoLuong(),dongia,thanhtien});
+                model.addRow(new Object[]{i,th.getTenThuoc(),dtct.getSoLuong(),formatter.format(dongia),formatter.format(thanhtien)});
                 i++;
                 tongtien+=thanhtien;
                 rowIN=i;
@@ -833,16 +847,18 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JPanel pnl;
     private javax.swing.JPanel pnlBenhNhan;
     private javax.swing.JPanel pnlCapnhap;
-    private javax.swing.JPanel pnlDanhsach;
+    private javax.swing.JPanel pnlDanhSach;
+    private javax.swing.JPanel pnlPrint;
     private javax.swing.JPanel pnlThuoc;
     private javax.swing.JScrollPane sc;
+    private javax.swing.JTabbedPane tabsDanhsach;
     private javax.swing.JTabbedPane tabsDonThuoc;
     private javax.swing.JTable tblDonThuoc;
     private javax.swing.JTable tblPhieuKhamDT;
