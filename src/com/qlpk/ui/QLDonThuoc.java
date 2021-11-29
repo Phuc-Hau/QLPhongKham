@@ -23,6 +23,19 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.ImageObserver;
+import java.awt.print.*;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import javax.swing.ImageIcon;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author fptshop
@@ -46,6 +59,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sc = new javax.swing.JScrollPane();
+        tblTable = new javax.swing.JTable();
         tabsDonThuoc = new javax.swing.JTabbedPane();
         pnlCapnhap = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,6 +81,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         btnXoa = new javax.swing.JButton();
         btnMoi = new javax.swing.JButton();
         btnXoaThuoc = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnFirst = new javax.swing.JButton();
         btnPrev = new javax.swing.JButton();
@@ -82,6 +98,27 @@ public class QLDonThuoc extends javax.swing.JPanel {
         pnlDanhsach = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDonThuoc = new javax.swing.JTable();
+
+        tblTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        sc.setViewportView(tblTable);
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -185,6 +222,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
             }
         });
 
+        btnPrint.setText("In Đơn Thuốc");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -200,18 +244,22 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 .addComponent(btnXoaThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnPrint)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoaThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPrint, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnXoaThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -618,6 +666,100 @@ public class QLDonThuoc extends javax.swing.JPanel {
         this.timKiem();
     }//GEN-LAST:event_txtTimKiemKeyReleased
 
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        // TODO add your handling code here:
+        
+        
+        PrinterJob pj = PrinterJob.getPrinterJob();        
+        pj.setPrintable(new QLDonThuoc.BillPrintable(),getPageFormat(pj));
+        try {
+             pj.print();
+        }
+         catch (PrinterException ex) {
+                 ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnPrintActionPerformed
+
+    int rowIN =3;
+    
+    public PageFormat getPageFormat(PrinterJob pj){
+    
+        PageFormat pf = pj.defaultPage();
+        Paper paper = pf.getPaper();    
+        double bodyHeight = 2*rowIN;  
+        double headerHeight = 5.0;                  
+        double footerHeight = 5.0;        
+        double width = cm_to_pp(12); 
+        double height = cm_to_pp(headerHeight+bodyHeight+footerHeight); 
+        paper.setSize(width, height);
+        paper.setImageableArea(0,10,width,height - cm_to_pp(1));  
+
+        pf.setOrientation(PageFormat.PORTRAIT);  
+        pf.setPaper(paper);    
+
+        return pf;
+    }
+        
+    protected static double cm_to_pp(double cm){            
+	 return toPPI(cm * 0.393600787);            
+    }
+    
+    protected static double toPPI(double inch){            
+	return inch * 72d;            
+    }
+    
+    public class BillPrintable implements Printable {
+  
+        public int print(Graphics graphics, PageFormat pageFormat,int pageIndex) throws PrinterException {    
+
+          ImageIcon icon=new ImageIcon("src/com/qlpk/icon/DaiDien.jpg"); 
+          int result = NO_SUCH_PAGE;    
+            if (pageIndex == 0) {                    
+
+                Graphics2D g2d = (Graphics2D) graphics;                            
+                g2d.translate((int) pageFormat.getImageableX(),(int) pageFormat.getImageableY()); 
+                 
+            try{
+                int y=20;
+                int yShift = 10;
+                int headerRectHeight=15;
+ 
+                g2d.setFont(new Font("Monospaced",Font.PLAIN,9));
+                    ImageObserver rootPane = null;
+                //g2d.drawImage(icon.getImage(), left, top, Width, Height, rootPane);y+=yShift+175;
+                g2d.drawImage(icon.getImage(), 120, 10, 140, 80, rootPane);y+=yShift+50;
+                g2d.drawString("------------------------------------------------------------",20,y);y+=yShift;
+                g2d.setFont(new Font("bold",Font.PLAIN,12));
+                g2d.drawString("                              Hóa Đơn Thanh Toán",20,y);y+=yShift+3;
+                g2d.setFont(new Font("Monospaced",Font.PLAIN,9));
+                
+                PhieuKham pk = daoPK.selectByID(Integer.valueOf(txtMaPhieuKham.getText()));
+                BenhNhan bn = daoBN.selectByID(pk.getMaBN());
+                SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss a");
+                SimpleDateFormat day = new SimpleDateFormat("dd-MM-YYYY");
+                g2d.drawString("             Ngày "+time.format(new Date())+" Giờ "+day.format(new Date()),20,y);y+=yShift+20;
+                g2d.drawString("   Số Phiếu     : "+txtDonThuoc.getText(), 20, y);y+=yShift;
+                g2d.drawString("   Người Mua    : "+txtTenBenhNhan.getText(),20,y);y+=yShift;
+                g2d.drawString("   Địa chỉ      : "+bn.getDiaChi(),20,y);y+=yShift;
+                g2d.drawString("   Chuẩn Đoán   :      "+pk.getKetQuaDieuTri(),20,y);y+=yShift;
+                g2d.drawString("   Bác Sỹ kê đơn:      "+txtBacSi.getText(),20,y);y+=yShift;
+                g2d.drawString("------------------------------------------------------------",20,y);y+=headerRectHeight;
+                g2d.drawString("STT   |  Tên Thuốc    |  Số Lượng |  Đơn Giá | Thành Tiền",20,y);y+=yShift;
+                
+                int rowTable=27+rowIN*12;
+                tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
+                g2d.setFont(new Font("bold",Font.PLAIN,12));
+                g2d.drawString("                                               Thành Tiền: ",20,y+rowTable+yShift);y+=yShift;
+
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
+
+                result = PAGE_EXISTS;    
+            }    
+                return result;    
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFirst;
@@ -625,6 +767,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JButton btnMoi;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrev;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
@@ -645,9 +788,11 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JPanel pnlCapnhap;
     private javax.swing.JPanel pnlDanhsach;
     private javax.swing.JPanel pnlThuoc;
+    private javax.swing.JScrollPane sc;
     private javax.swing.JTabbedPane tabsDonThuoc;
     private javax.swing.JTable tblDonThuoc;
     private javax.swing.JTable tblPhieuKhamDT;
+    private javax.swing.JTable tblTable;
     private javax.swing.JTable tblThuoc;
     private javax.swing.JTable tbldanhsachThuoc;
     private javax.swing.JTextField txtBacSi;
@@ -959,5 +1104,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         this.fillTableDanhSachThuoc();
         this.row = -1;
     }
+    
+    
     
 }
