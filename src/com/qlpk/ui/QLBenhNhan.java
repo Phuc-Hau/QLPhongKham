@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author fptshop
+ * @author fptshop 
  */
 public class QLBenhNhan extends javax.swing.JPanel {
 

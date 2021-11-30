@@ -15,7 +15,7 @@ import net.miginfocom.swing.MigLayout;
 
 
 public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
-
+ 
     /**
      * Creates new form QLPhongKhamDaKhoa
      */
