@@ -102,6 +102,12 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Mã nhân viên: ");
 
+        txt_taikhoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_taikhoanActionPerformed(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Mật khẩu: ");
 
@@ -261,6 +267,10 @@ public class DangNhapJDialong extends javax.swing.JFrame {
             chkShowPass.setText("Hiễn thị mật khẩu");
         }
     }//GEN-LAST:event_chkShowPassMouseClicked
+
+    private void txt_taikhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_taikhoanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_taikhoanActionPerformed
 
     /**
      * @param args the command line arguments
