@@ -1093,7 +1093,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     void setColor(JPanel pane,JPanel indicators){
         this.setBorder();
         pane.setBackground(new Color(14,227,250));
-        indicators.setBackground(new Color(222,175,239));
+        indicators.setBackground(new Color(250,206,13));
     }
     
     void reserColor(JPanel [] pane, JPanel [] indicators){
@@ -1102,7 +1102,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
         
         for (int i = 0; i < indicators.length; i++) {
-            indicators[i].setBackground(new Color(160,126,173));
+            indicators[i].setBackground(new Color(21,178,132));
         }
     }
     

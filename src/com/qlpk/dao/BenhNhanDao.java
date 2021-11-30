@@ -105,4 +105,9 @@ public class BenhNhanDao extends PhongKhamDao<BenhNhan, String>{
         return this.selectBySql(sql, "%" + Keyword + "%");
     }
     
+    public List<BenhNhan> selectBySDT(String Keyword){
+        String sql = "SELECT * FROM BenhNhan WHERE SDT LIKE ? ";
+        return this.selectBySql(sql, Keyword + "%");
+    }
+    
 }

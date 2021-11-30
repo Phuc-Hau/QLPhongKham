@@ -12,6 +12,7 @@ import com.qlpk.utils.Utility;
 import com.qlpk.utils.XDate;
 import java.awt.Color;
 import static java.awt.Color.white;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JTextField;
@@ -71,7 +72,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
         txtGhichu = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         txttimkiemBN = new javax.swing.JTextField();
-        btntim = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         DateNgaySinhBN = new com.toedter.calendar.JDateChooser();
         lblNgayTao = new javax.swing.JLabel();
         txtNgayTao = new javax.swing.JTextField();
@@ -200,20 +201,12 @@ public class QLBenhNhan extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txttimkiemBN.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txttimkiemBNKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txttimkiemBNKeyReleased(evt);
             }
         });
 
-        btntim.setText("Tìm");
-        btntim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btntimActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Tìm Kiếm");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -221,10 +214,10 @@ public class QLBenhNhan extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txttimkiemBN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btntim)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
+                .addComponent(txttimkiemBN, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +225,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txttimkiemBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btntim))
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
 
@@ -296,7 +289,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                         .addComponent(btnxoaBN)
                         .addGap(18, 18, 18)
                         .addComponent(btnthemmoiBN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnfirstBN)
                         .addGap(18, 18, 18)
                         .addComponent(btnprevBN)
@@ -350,10 +343,10 @@ public class QLBenhNhan extends javax.swing.JPanel {
                         .addComponent(jLabel45)
                         .addComponent(txtGhichu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(DateNgaySinhBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -376,9 +369,9 @@ public class QLBenhNhan extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,19 +436,10 @@ public class QLBenhNhan extends javax.swing.JPanel {
         this.lastBenhNhan();
     }//GEN-LAST:event_btnlastBNActionPerformed
 
-    private void txttimkiemBNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemBNKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttimkiemBNKeyPressed
-
     private void txttimkiemBNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemBNKeyReleased
         // TODO add your handling code here:
         this.timKiemBenhNhan();
     }//GEN-LAST:event_txttimkiemBNKeyReleased
-
-    private void btntimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntimActionPerformed
-        // TODO add your handling code here:
-        this.timKiemBenhNhan();
-    }//GEN-LAST:event_btntimActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -467,8 +451,8 @@ public class QLBenhNhan extends javax.swing.JPanel {
     private javax.swing.JButton btnsuaBN;
     private javax.swing.JButton btnthemBN;
     private javax.swing.JButton btnthemmoiBN;
-    private javax.swing.JButton btntim;
     private javax.swing.JButton btnxoaBN;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
@@ -536,7 +520,13 @@ public class QLBenhNhan extends javax.swing.JPanel {
         model.setRowCount(0);
         try {
             String keyword = txttimkiemBN.getText();
-            List<BenhNhan> list = daoBN.selectByKeyword(keyword);
+            List<BenhNhan> list = new ArrayList<>();
+            if(keyword.matches("-?\\d+(\\.\\d+)?")){
+                list = daoBN.selectBySDT(keyword);
+            } else{
+                list = daoBN.selectByKeyword(keyword);
+            }
+            
             for (BenhNhan bn : list) {
                 Object[] row = {
                     bn.getMaBN(),
@@ -552,6 +542,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                 };
                 model.addRow(row);
             }
+            
         } catch (Exception e) {
             e.printStackTrace();
             Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
@@ -630,7 +621,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
 
     void clearFormBenhNhan() {
         BenhNhan bn = new BenhNhan();
-        txtMaBN.setText("");
         DateNgaySinhBN.setDate(new Date());
         txtHoten.setText("");
         txtGhichu.setText("");
