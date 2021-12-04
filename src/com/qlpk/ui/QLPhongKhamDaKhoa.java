@@ -1203,7 +1203,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setColor(pnlcolorNhanVien,pnlNhanVien);// discoloration
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc}, 
-                new JPanel[]{pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc,pnlThuoc});// reser color
+                new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlDonThuoc,pnlPhongKham,pnlThuoc});// reser color
         pnlFromNhanVien.add(qLNhanVien);
         tabs.setSelectedIndex(6);
         lblChucNang.setText("Nhân Viên");
