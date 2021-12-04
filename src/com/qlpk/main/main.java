@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /** 
- *
+ * 
  * @author Huy PC
  */
 public class main extends javax.swing.JFrame {
