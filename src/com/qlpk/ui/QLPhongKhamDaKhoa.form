@@ -30,7 +30,7 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="pnlChinh" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanel1" alignment="1" pref="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="1282" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -80,7 +80,7 @@
         <Container class="javax.swing.JPanel" name="pnlChucNang">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="58" green="3" red="41" type="rgb"/>
+              <Color blue="de" green="de" red="de" type="rgb"/>
             </Property>
           </Properties>
 
@@ -125,7 +125,7 @@
             <Container class="javax.swing.JPanel" name="pnlDichvu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="3" red="41" type="rgb"/>
+                  <Color blue="de" green="de" red="de" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -172,11 +172,11 @@
                 <Container class="javax.swing.JPanel" name="pnlDangXuat">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="fa" green="e3" red="e" type="rgb"/>
+                      <Color blue="51" green="51" red="5" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
                       </Border>
                     </Property>
                   </Properties>
@@ -216,6 +216,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="da" green="f0" red="f3" type="rgb"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Xu&#x1ea5;t"/>
                       </Properties>
@@ -225,11 +228,11 @@
                 <Container class="javax.swing.JPanel" name="pnlThongKe">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="fa" green="e3" red="e" type="rgb"/>
+                      <Color blue="51" green="51" red="5" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
                       </Border>
                     </Property>
                   </Properties>
@@ -269,6 +272,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel31">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="da" green="f0" red="f3" type="rgb"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng K&#xea;"/>
                       </Properties>
@@ -278,7 +284,7 @@
                 <Container class="javax.swing.JPanel" name="pnlDoiMK">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="fa" green="e3" red="e" type="rgb"/>
+                      <Color blue="51" green="51" red="5" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -322,6 +328,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel33">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="da" green="f0" red="f3" type="rgb"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i MK"/>
                       </Properties>
@@ -331,11 +340,11 @@
                 <Container class="javax.swing.JPanel" name="pnlGioiThieu">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="fa" green="e3" red="e" type="rgb"/>
+                      <Color blue="51" green="51" red="5" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
                       </Border>
                     </Property>
                   </Properties>
@@ -375,6 +384,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel35">
                       <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="da" green="f0" red="f3" type="rgb"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Gi&#x1edb;i Thi&#x1ec7;u"/>
                       </Properties>
@@ -386,7 +398,7 @@
             <Container class="javax.swing.JPanel" name="pnlBenhNhan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -461,7 +473,7 @@
             <Container class="javax.swing.JPanel" name="pnlPhieuKham">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -536,7 +548,7 @@
             <Container class="javax.swing.JPanel" name="pnlDonThuoc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -611,7 +623,7 @@
             <Container class="javax.swing.JPanel" name="pnlThuoc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -686,7 +698,7 @@
             <Container class="javax.swing.JPanel" name="pnlNhanVien">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -761,7 +773,7 @@
             <Container class="javax.swing.JPanel" name="pnlHome">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -801,6 +813,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="14" style="1"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="da" green="f0" red="f3" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Home"/>
                   </Properties>
                 </Component>
@@ -836,7 +851,7 @@
             <Container class="javax.swing.JPanel" name="pnlPhongKham">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ad" green="7e" red="a0" type="rgb"/>
+                  <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -951,9 +966,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="lblTill" min="-2" pref="402" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                              <Component id="lblTill" min="-2" pref="409" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel16" min="-2" pref="40" max="-2" attributes="0"/>
@@ -967,7 +982,7 @@
                                       <Component id="jLabel26" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblNam" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="202" max="32767" attributes="0"/>
+                                      <EmptySpace pref="204" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel27" min="-2" pref="28" max="-2" attributes="0"/>
@@ -997,11 +1012,7 @@
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="lblTill" min="-2" pref="43" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1021,6 +1032,10 @@
                                           <Component id="lblGiay" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblTill" min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace pref="75" max="32767" attributes="0"/>
                           </Group>
@@ -1039,12 +1054,12 @@
                     <Component class="javax.swing.JLabel" name="lblTill">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="24" style="1"/>
+                          <Font name="Tahoma" size="36" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="0" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#xf2;ng Kh&#xe1;m &#x110;a Khoa Y T&#xe2;m C&#xfa;c"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#xf2;ng Kh&#xe1;m &#x110;a Khoa"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
@@ -1406,7 +1421,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="66" red="0" type="rgb"/>
+          <Color blue="51" green="51" red="5" type="rgb"/>
         </Property>
       </Properties>
 
@@ -1486,13 +1501,13 @@
               <Color blue="66" green="ff" red="66" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="36" style="3"/>
+              <Font name="Arial" size="36" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="0" red="ff" type="rgb"/>
+              <Color blue="da" green="f0" red="f3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="PH&#xd2;NG KH&#xc1;M DA KHOA Y T&#xc2;M C&#xda;C"/>
+            <Property name="text" type="java.lang.String" value="PH&#xd2;NG KH&#xc1;M &#x110;A KHOA Y T&#xc2;M C&#xda;C"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblChucNang">
@@ -1501,10 +1516,10 @@
               <Color blue="17" green="f4" red="f9" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="48" style="1"/>
+              <Font name="Arial" size="48" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="9" green="dd" red="fa" type="rgb"/>
+              <Color blue="da" green="f0" red="f3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Home"/>
