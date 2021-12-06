@@ -96,12 +96,14 @@ public class main extends javax.swing.JFrame {
         setTitle("Đăng nhâp");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(206, 83, 245));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(249, 229, 145));
         jLabel1.setText("Mã nhân viên: ");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(249, 229, 145));
         jLabel3.setText("Mật khẩu: ");
 
         btn_dangnhap.setBackground(new java.awt.Color(0, 255, 121));
@@ -127,16 +129,17 @@ public class main extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(5, 26, 249));
-        jLabel4.setText("Quên Mật Khẩu");
+        jLabel4.setForeground(new java.awt.Color(249, 229, 145));
+        jLabel4.setText("Quên Mật Khẩu ?");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
 
-        chkShowPass.setBackground(new java.awt.Color(206, 83, 245));
+        chkShowPass.setBackground(new java.awt.Color(0, 102, 204));
         chkShowPass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        chkShowPass.setForeground(new java.awt.Color(249, 229, 145));
         chkShowPass.setText("Hiễn thị mật khẩu");
         chkShowPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,7 +157,7 @@ public class main extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_taikhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_taikhoan))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(47, 47, 47)

@@ -1462,28 +1462,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                  <Component id="Avatar" min="-2" pref="122" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblTile" min="-2" pref="909" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="Avatar" min="-2" pref="122" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblTile" min="-2" pref="909" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel17" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="jLabel18" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblTen" pref="174" max="32767" attributes="0"/>
-                              <Component id="lblMaNV" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblChucNang" min="-2" pref="320" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="386" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel18" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jLabel17" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTen" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="lblMaNV" min="-2" pref="174" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblChucNang" min="-2" pref="320" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="386" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1500,14 +1497,14 @@
                       <Group type="102" attributes="0">
                           <Component id="Avatar" min="-2" pref="125" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblMaNV" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMaNV" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTen" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="1" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="jLabel17" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="lblTen" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
