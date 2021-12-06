@@ -47,7 +47,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ec" red="43" type="rgb"/>
+          <Color blue="e9" green="ad" red="33" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -128,11 +128,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="f0" red="f3" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; Ph&#xf2;ng Kh&#xe1;m:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel30">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="f0" red="f3" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="T&#xea;n Ph&#xf2;ng Kh&#xe1;m:"/>
           </Properties>
         </Component>
@@ -153,6 +159,9 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel31">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="da" green="f0" red="f3" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ghi Ch&#xfa;"/>
           </Properties>
         </Component>

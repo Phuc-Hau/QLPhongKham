@@ -75,21 +75,26 @@ public class QLThuoc extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 173, 233));
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(243, 240, 218));
         jLabel21.setText("Loại thuốc:");
 
         jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(243, 240, 218));
         jLabel32.setText("Tên thuốc:");
 
         jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(243, 240, 218));
         jLabel33.setText("Giá nhập:");
 
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(243, 240, 218));
         jLabel34.setText("Giá bán:");
 
         jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(243, 240, 218));
         jLabel35.setText("Ghi chú:");
 
         txt_loaithuoc.setMinimumSize(new java.awt.Dimension(6, 25));
@@ -107,7 +112,7 @@ public class QLThuoc extends javax.swing.JPanel {
         jLabel37.setForeground(new java.awt.Color(255, 224, 0));
         jLabel37.setText("VNĐ");
 
-        jPanel5.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel5.setBackground(new java.awt.Color(51, 173, 233));
 
         btn_sua.setBackground(new java.awt.Color(252, 255, 0));
         btn_sua.setText("SỬA");
@@ -272,8 +277,9 @@ public class QLThuoc extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbl_thuoc);
 
-        jPanel13.setBackground(new java.awt.Color(19, 224, 255));
+        jPanel13.setBackground(new java.awt.Color(119, 199, 239));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel13.setToolTipText("");
 
         jLabel80.setText("Tìm kiếm:");
 

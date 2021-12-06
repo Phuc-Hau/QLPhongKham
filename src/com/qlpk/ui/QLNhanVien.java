@@ -93,7 +93,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         tabsNV.setBackground(new java.awt.Color(255, 255, 255));
         tabsNV.setOpaque(true);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(51, 173, 233));
         jPanel6.setOpaque(false);
 
         jLabel17.setText("Mã Nhân Viên");
@@ -359,7 +359,7 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         tabsNV.addTab("Cập Nhật", jPanel6);
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(51, 173, 233));
 
         jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 

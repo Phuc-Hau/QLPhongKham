@@ -97,6 +97,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblGio = new javax.swing.JLabel();
         lblPhuc = new javax.swing.JLabel();
         lblGiay = new javax.swing.JLabel();
+        lblTill1 = new javax.swing.JLabel();
         pnlFromBenhNhan = new javax.swing.JPanel();
         pnlFromPhieuKham = new javax.swing.JPanel();
         pnlFromPhongKham = new javax.swing.JPanel();
@@ -123,7 +124,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         pnlDichvu.setBackground(new java.awt.Color(222, 222, 222));
 
-        pnlDangXuat.setBackground(new java.awt.Color(5, 81, 81));
+        pnlDangXuat.setBackground(new java.awt.Color(3, 121, 191));
         pnlDangXuat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -156,7 +157,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlThongKe.setBackground(new java.awt.Color(5, 81, 81));
+        pnlThongKe.setBackground(new java.awt.Color(3, 121, 191));
         pnlThongKe.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -189,7 +190,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlDoiMK.setBackground(new java.awt.Color(5, 81, 81));
+        pnlDoiMK.setBackground(new java.awt.Color(3, 121, 191));
         pnlDoiMK.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pnlDoiMK.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -222,7 +223,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlGioiThieu.setBackground(new java.awt.Color(5, 81, 81));
+        pnlGioiThieu.setBackground(new java.awt.Color(3, 121, 191));
         pnlGioiThieu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlGioiThieu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -286,14 +287,16 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlBenhNhan.setBackground(new java.awt.Color(102, 153, 255));
+        pnlBenhNhan.setBackground(new java.awt.Color(153, 153, 153));
         pnlBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 pnlBenhNhanMousePressed(evt);
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(14, 227, 250));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(243, 240, 218));
         jLabel1.setText("Bệnh Nhân");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/patient.png"))); // NOI18N
@@ -342,6 +345,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(243, 240, 218));
         jLabel4.setText("Phiếu Khám");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/PhieuKham.png"))); // NOI18N
@@ -390,6 +394,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(243, 240, 218));
         jLabel5.setText("Đơn Thuốc");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/DonThuoc.png"))); // NOI18N
@@ -438,6 +443,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(243, 240, 218));
         jLabel6.setText("Thuốc");
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/thuoc.png"))); // NOI18N
@@ -486,6 +492,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(243, 240, 218));
         jLabel7.setText("Nhân Viên");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/NhanVien.png"))); // NOI18N
@@ -583,6 +590,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(243, 240, 218));
         jLabel3.setText("Phòng Khám");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/phongkham.png"))); // NOI18N
@@ -669,7 +677,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/Doingu.jpg"))); // NOI18N
 
         lblTill.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblTill.setForeground(new java.awt.Color(255, 0, 204));
+        lblTill.setForeground(new java.awt.Color(51, 51, 51));
         lblTill.setText("Phòng Khám Đa Khoa");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -728,44 +736,49 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         lblGiay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGiay.setText("00");
 
+        lblTill1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblTill1.setForeground(new java.awt.Color(51, 51, 51));
+        lblTill1.setText("Y Tâm Cúc");
+
         javax.swing.GroupLayout pnlFromHomeLayout = new javax.swing.GroupLayout(pnlFromHome);
         pnlFromHome.setLayout(pnlFromHomeLayout);
         pnlFromHomeLayout.setHorizontalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblThang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNam)
-                        .addContainerGap(204, Short.MAX_VALUE))
-                    .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblGio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPhuc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel29)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblGiay)
-                        .addGap(135, 135, 135))))
-            .addGroup(pnlFromHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlFromHomeLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblThang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNam)
+                .addContainerGap(204, Short.MAX_VALUE))
+            .addGroup(pnlFromHomeLayout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(lblTill1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblGio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPhuc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblGiay)
+                .addGap(135, 135, 135))
         );
         pnlFromHomeLayout.setVerticalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -792,8 +805,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                             .addComponent(lblGiay)))
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTill1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab1", pnlFromHome);
@@ -940,7 +955,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(5, 81, 81));
+        jPanel1.setBackground(new java.awt.Color(3, 121, 191));
 
         lblTile.setBackground(new java.awt.Color(102, 255, 102));
         lblTile.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -1097,8 +1112,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     
     void setColor(JPanel pane,JPanel indicators){
         this.setBorder();
-        pane.setBackground(new Color(14,227,250));
-        indicators.setBackground(new Color(153,153,153));
+        pane.setBackground(new Color(77,182,234));
+        indicators.setBackground(new Color(77,182,234));
     }
     
     void reserColor(JPanel [] pane, JPanel [] indicators){
@@ -1107,7 +1122,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         }
         
         for (int i = 0; i < indicators.length; i++) {
-            indicators[i].setBackground(new Color(5,81,81));
+            indicators[i].setBackground(new Color(3,121,191));
         }
     }
     
@@ -1216,10 +1231,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlNhanVienMousePressed
 
     void setBorder(){
-        pnlDangXuat.setBackground(new Color(5,81,81));
-        pnlDoiMK.setBackground(new Color(5,81,81));
-        pnlGioiThieu.setBackground(new Color(5,81,81));
-        pnlThongKe.setBackground(new Color(5,81,81));
+        pnlDangXuat.setBackground(new Color(3,121,191));
+        pnlDoiMK.setBackground(new Color(3,121,191));
+        pnlGioiThieu.setBackground(new Color(3,121,191));
+        pnlThongKe.setBackground(new Color(3,121,191));
     }
     private void pnlDangXuatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDangXuatMousePressed
         // TODO add your handling code here:
@@ -1334,6 +1349,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private javax.swing.JLabel lblThang;
     private javax.swing.JLabel lblTile;
     private javax.swing.JLabel lblTill;
+    private javax.swing.JLabel lblTill1;
     private javax.swing.JPanel pnlBenhNhan;
     private javax.swing.JPanel pnlChinh;
     private javax.swing.JPanel pnlChucNang;

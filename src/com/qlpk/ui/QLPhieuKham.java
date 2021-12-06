@@ -121,7 +121,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.setPreferredSize(new java.awt.Dimension(965, 612));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(51, 173, 233));
         jPanel8.setPreferredSize(new java.awt.Dimension(905, 612));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -616,7 +616,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.addTab("Phiếu Khám", jPanel8);
 
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBackground(new java.awt.Color(51, 173, 233));
 
         jScrollPane9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -669,7 +669,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.addTab("Danh Sách", jPanel15);
 
-        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setBackground(new java.awt.Color(51, 173, 233));
 
         tblBenhNhanVan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

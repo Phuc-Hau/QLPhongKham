@@ -54,17 +54,20 @@ public class QLPhongKham extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(67, 236, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 173, 233));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
 
+        jLabel19.setForeground(new java.awt.Color(243, 240, 218));
         jLabel19.setText("Mã Phòng Khám:");
 
+        jLabel30.setForeground(new java.awt.Color(243, 240, 218));
         jLabel30.setText("Tên Phòng Khám:");
 
         txtGhiChu.setColumns(20);
         txtGhiChu.setRows(5);
         jScrollPane1.setViewportView(txtGhiChu);
 
+        jLabel31.setForeground(new java.awt.Color(243, 240, 218));
         jLabel31.setText("Ghi Chú");
 
         btnThem.setBackground(new java.awt.Color(0, 255, 63));

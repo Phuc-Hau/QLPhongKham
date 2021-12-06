@@ -77,21 +77,26 @@ public class QLBenhNhan extends javax.swing.JPanel {
         lblNgayTao = new javax.swing.JLabel();
         txtNgayTao = new javax.swing.JTextField();
 
-        jPanel3.setBackground(new java.awt.Color(255, 211, 19));
+        jPanel3.setBackground(new java.awt.Color(51, 173, 233));
         jPanel3.setPreferredSize(new java.awt.Dimension(985, 612));
 
+        jLabel38.setForeground(new java.awt.Color(243, 240, 218));
         jLabel38.setText("Mã BN :");
 
         txtMaBN.setEditable(false);
         txtMaBN.setForeground(new java.awt.Color(242, 0, 0));
         txtMaBN.setName("MaBN"); // NOI18N
 
+        jLabel39.setForeground(new java.awt.Color(243, 240, 218));
         jLabel39.setText("Họ và tên :");
 
+        jLabel40.setForeground(new java.awt.Color(243, 240, 218));
         jLabel40.setText("Giới tính :");
 
+        jLabel41.setForeground(new java.awt.Color(243, 240, 218));
         jLabel41.setText("Địa Chỉ :");
 
+        jLabel42.setForeground(new java.awt.Color(243, 240, 218));
         jLabel42.setText("Điện thoại :");
 
         tblDanhsachBenhNhan.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,19 +125,25 @@ public class QLBenhNhan extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(tblDanhsachBenhNhan);
 
+        jLabel43.setForeground(new java.awt.Color(243, 240, 218));
         jLabel43.setText("Ngày sinh :");
 
+        jLabel44.setForeground(new java.awt.Color(243, 240, 218));
         jLabel44.setText("Nghề nghiệp :");
 
+        jLabel45.setForeground(new java.awt.Color(243, 240, 218));
         jLabel45.setText("Ghi chú :");
 
+        jLabel46.setForeground(new java.awt.Color(243, 240, 218));
         jLabel46.setText("Tuổi :");
 
-        rdoNam.setBackground(new java.awt.Color(255, 211, 19));
+        rdoNam.setBackground(new java.awt.Color(51, 173, 233));
+        rdoNam.setForeground(new java.awt.Color(243, 240, 218));
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
-        rdoNu.setBackground(new java.awt.Color(255, 211, 19));
+        rdoNu.setBackground(new java.awt.Color(51, 173, 233));
+        rdoNu.setForeground(new java.awt.Color(243, 240, 218));
         rdoNu.setText("Nữ");
 
         btnthemmoiBN.setBackground(new java.awt.Color(255, 174, 0));
@@ -197,8 +208,8 @@ public class QLBenhNhan extends javax.swing.JPanel {
 
         txtDienthoai.setName("SDT"); // NOI18N
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setBackground(new java.awt.Color(119, 199, 239));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
         txttimkiemBN.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -206,6 +217,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(243, 240, 218));
         jLabel1.setText("Tìm Kiếm");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -233,6 +245,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
         DateNgaySinhBN.setDate(new Date());
         DateNgaySinhBN.setDateFormatString("dd-MM-yyyy");
 
+        lblNgayTao.setForeground(new java.awt.Color(243, 240, 218));
         lblNgayTao.setText("Ngày tạo :");
 
         txtNgayTao.setForeground(new java.awt.Color(255, 3, 3));
@@ -371,7 +384,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 996, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

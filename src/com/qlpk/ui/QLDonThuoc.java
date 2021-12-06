@@ -107,20 +107,24 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tabsDonThuoc.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlCapnhap.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCapnhap.setBackground(new java.awt.Color(51, 173, 233));
 
-        jLabel2.setText("Bác sĩ");
+        jLabel2.setForeground(new java.awt.Color(243, 240, 218));
+        jLabel2.setText("Bác sĩ: ");
 
         txtBacSi.setEditable(false);
 
+        jLabel3.setForeground(new java.awt.Color(243, 240, 218));
         jLabel3.setText("Mã Bệnh Nhân :");
 
         txtMaBN.setEditable(false);
 
+        jLabel4.setForeground(new java.awt.Color(243, 240, 218));
         jLabel4.setText("Đơn Thuốc :");
 
         txtDonThuoc.setEditable(false);
 
+        jLabel5.setForeground(new java.awt.Color(243, 240, 218));
         jLabel5.setText("Mã Phiếu Khám :");
 
         txtMaPhieuKham.setEditable(false);
@@ -157,9 +161,10 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         txtTenBenhNhan.setEditable(false);
 
+        jLabel6.setForeground(new java.awt.Color(243, 240, 218));
         jLabel6.setText("Tên Bệnh Nhân ");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 173, 233));
 
         btnThem.setBackground(new java.awt.Color(0, 255, 63));
         btnThem.setText("Thêm");
@@ -248,7 +253,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(51, 173, 233));
 
         btnFirst.setText("<|");
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +378,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tabsDonThuoc.addTab("Cập nhập", pnlCapnhap);
 
-        pnlThuoc.setBackground(new java.awt.Color(255, 255, 255));
+        pnlThuoc.setBackground(new java.awt.Color(51, 173, 233));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)), "Tìm Kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -444,7 +449,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tabsDonThuoc.addTab("Thuốc", pnlThuoc);
 
-        pnlBenhNhan.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBenhNhan.setBackground(new java.awt.Color(51, 173, 233));
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -499,7 +504,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         pnlDanhSach.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnl.setBackground(new java.awt.Color(255, 255, 255));
+        pnl.setBackground(new java.awt.Color(51, 173, 233));
 
         tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
