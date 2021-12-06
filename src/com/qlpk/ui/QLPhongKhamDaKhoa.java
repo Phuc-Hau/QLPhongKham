@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import net.miginfocom.swing.MigLayout;
 
- 
+  
 public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
  
     /**
