@@ -75,21 +75,21 @@ public class QLThuoc extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(89, 194, 246));
 
-        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel21.setText("Loại thuốc:");
 
-        jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel32.setText("Tên thuốc:");
 
-        jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel33.setText("Giá nhập:");
 
-        jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel34.setText("Giá bán:");
 
-        jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel35.setText("Ghi chú:");
 
         txt_loaithuoc.setMinimumSize(new java.awt.Dimension(6, 25));
@@ -100,11 +100,9 @@ public class QLThuoc extends javax.swing.JPanel {
         jScrollPane3.setViewportView(txt_ghichu);
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 224, 0));
         jLabel36.setText("VNĐ");
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 224, 0));
         jLabel37.setText("VNĐ");
 
         jPanel5.setBackground(new java.awt.Color(102, 204, 255));
@@ -215,7 +213,7 @@ public class QLThuoc extends javax.swing.JPanel {
                         .addComponent(jLabel36)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbl_anh, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +270,7 @@ public class QLThuoc extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbl_thuoc);
 
-        jPanel13.setBackground(new java.awt.Color(19, 224, 255));
+        jPanel13.setBackground(new java.awt.Color(136, 208, 244));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel80.setText("Tìm kiếm:");
@@ -332,7 +330,7 @@ public class QLThuoc extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

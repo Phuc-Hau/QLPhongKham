@@ -54,17 +54,20 @@ public class QLPhongKham extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(67, 236, 255));
+        jPanel1.setBackground(new java.awt.Color(89, 194, 246));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)));
 
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setText("Mã Phòng Khám:");
 
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setText("Tên Phòng Khám:");
 
         txtGhiChu.setColumns(20);
         txtGhiChu.setRows(5);
         jScrollPane1.setViewportView(txtGhiChu);
 
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setText("Ghi Chú");
 
         btnThem.setBackground(new java.awt.Color(0, 255, 63));
@@ -110,7 +113,7 @@ public class QLPhongKham extends javax.swing.JPanel {
                         .addComponent(jLabel30)
                         .addGap(18, 18, 18)
                         .addComponent(txtTenPK, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                         .addComponent(jLabel19)
                         .addGap(56, 56, 56)
                         .addComponent(txtMaPK, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))

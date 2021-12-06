@@ -93,39 +93,47 @@ public class QLNhanVien extends javax.swing.JPanel {
         tabsNV.setBackground(new java.awt.Color(255, 255, 255));
         tabsNV.setOpaque(true);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(89, 194, 246));
         jPanel6.setOpaque(false);
 
-        jLabel17.setText("Mã Nhân Viên");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("Mã Nhân Viên :");
 
         txtMaNV.setName("Mã Nhân Viên"); // NOI18N
 
         txtHoTen.setName("Họ Tên"); // NOI18N
 
-        jLabel25.setText("Họ Tên");
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setText("Họ Tên :");
 
-        jLabel47.setText("Giới Tính");
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel47.setText("Giới Tính :");
 
         rdoNam.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdoNam);
+        rdoNam.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
         rdoNu.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdoNu);
+        rdoNu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rdoNu.setText("Nữ");
 
         jLabel48.setText("Ngày Sinh (DD/MM/YYY)");
 
-        jLabel49.setText("Email");
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel49.setText("Email :");
 
         txtEmail.setName("Email"); // NOI18N
 
-        jLabel50.setText("Địa chỉ");
+        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel50.setText("Địa chỉ :");
 
         txtDiaChi.setName("Địa Chỉ"); // NOI18N
 
-        jLabel51.setText("Chức Vụ");
+        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel51.setText("Chức Vụ :");
 
         cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giám Đốc", "Phó Giám Đốc", "Bác Sĩ", "Điều Dưỡng", "Y Sĩ", "Kế Toán", "Bảo Vệ", "Lao Công", "Giữ Xe", "Tình Nguyện Viên" }));
         cboChucVu.addActionListener(new java.awt.event.ActionListener() {
@@ -134,17 +142,21 @@ public class QLNhanVien extends javax.swing.JPanel {
             }
         });
 
-        jLabel52.setText("Chuyên Ngành");
+        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel52.setText("Chuyên Ngành :");
+        jLabel52.setToolTipText("");
 
         jLabel53.setText("Số Điện Thoại");
 
         txtSoDT.setName("Số Điện Thoại"); // NOI18N
 
-        jLabel54.setText("Password");
+        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel54.setText("Password :");
 
         txtPass.setName("Password"); // NOI18N
 
-        jLabel55.setText("Lương");
+        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel55.setText("Lương :");
 
         txtLuong.setName("Lương"); // NOI18N
 
@@ -259,8 +271,6 @@ public class QLNhanVien extends javax.swing.JPanel {
                                             .addComponent(txtSoDT, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(63, 63, 63)))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(txtDiaChi, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +278,9 @@ public class QLNhanVien extends javax.swing.JPanel {
                             .addComponent(cboChucVu, 0, 200, Short.MAX_VALUE)
                             .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboChuyenNganh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtLuong))
+                            .addComponent(txtLuong)
+                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(113, 113, 113))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
@@ -290,7 +302,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLastNV, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +371,7 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         tabsNV.addTab("Cập Nhật", jPanel6);
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(89, 194, 246));
 
         jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 

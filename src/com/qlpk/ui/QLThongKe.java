@@ -200,7 +200,7 @@ public class QLThongKe extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlfrom.setBackground(new java.awt.Color(255, 255, 255));
+        pnlfrom.setBackground(new java.awt.Color(89, 194, 246));
 
         cboNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboNam.addActionListener(new java.awt.event.ActionListener() {

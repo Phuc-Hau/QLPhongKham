@@ -121,21 +121,26 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.setPreferredSize(new java.awt.Dimension(965, 612));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(89, 194, 246));
         jPanel8.setPreferredSize(new java.awt.Dimension(905, 612));
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBackground(new java.awt.Color(89, 194, 246));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thôn Tin Khám", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
-        jLabel22.setText("Mã Phiếu Khám");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel22.setText("Mã Phiếu Khám :");
 
-        jLabel56.setText("Phòng Khám");
+        jLabel56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel56.setText("Phòng Khám :");
 
-        jLabel57.setText("Y Tá");
+        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel57.setText("Y Tá :");
 
-        jLabel58.setText("Bác Sĩ");
+        jLabel58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel58.setText("Bác Sĩ :");
 
-        jLabel59.setText("Ngày Khám");
+        jLabel59.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel59.setText("Ngày Khám :");
 
         txtMaPhieuKham.setEditable(false);
 
@@ -156,36 +161,38 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
                     .addComponent(jLabel56))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMaPhieuKham)
-                    .addComponent(cboPhongKham, 0, 139, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
+                    .addComponent(cboPhongKham, 0, 189, Short.MAX_VALUE)
+                    .addComponent(txtMaPhieuKham))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel59)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel58)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboBacSi, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                        .addComponent(jLabel59)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cboBacSi, 0, 222, Short.MAX_VALUE)
+                    .addComponent(txtNgayKham))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel22)
                         .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel58)
+                        .addComponent(jLabel58))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel57)
                         .addComponent(cboBacSi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cboNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -193,34 +200,41 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel56)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboPhongKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel59)
-                        .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboPhongKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNgayKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBackground(new java.awt.Color(89, 194, 246));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khám Lâm Sàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
-        jLabel60.setText("Khám Lâm Sàng");
+        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel60.setText("Khám Lâm Sàng :");
 
-        jLabel61.setText("Bệnh Kèm");
+        jLabel61.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel61.setText("Bệnh Kèm :");
 
-        jLabel62.setText("Chuẩn Đoán");
+        jLabel62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel62.setText("Chuẩn Đoán :");
 
         txtKhamLamSang.setColumns(20);
         txtKhamLamSang.setRows(5);
         jScrollPane7.setViewportView(txtKhamLamSang);
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(89, 194, 246));
 
-        jLabel63.setText("Nhịp Tim");
+        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel63.setText("Nhịp Tim :");
 
-        jLabel64.setText("Nhiệt Độ");
+        jLabel64.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel64.setText("Nhiệt Độ :");
 
-        jLabel65.setText("Huyết Áp");
+        jLabel65.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel65.setText("Huyết Áp :");
 
-        jLabel66.setText("Cân Nặng");
+        jLabel66.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel66.setText("Cân Nặng :");
 
         txtNhipTim.setName("Nhịp Tim"); // NOI18N
 
@@ -230,7 +244,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         txtCanNang.setName("Cân Nặng"); // NOI18N
 
-        jLabel67.setText("Chiều Cao");
+        jLabel67.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel67.setText("Chiều Cao :");
 
         txtChieuCao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtChieuCao.setName("Chiều Cao"); // NOI18N
@@ -260,14 +275,14 @@ public class QLPhieuKham extends javax.swing.JPanel {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNhipTim, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel68)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel64)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNhietDo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -275,19 +290,19 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel65)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtHuyetAp, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                .addComponent(txtHuyetAp, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel66)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCanNang, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addComponent(txtCanNang, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel67)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtChieuCao, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addComponent(txtChieuCao, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -316,7 +331,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel73.setText("Kết Luận Điều Trị");
+        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel73.setText("Kết Luận Điều Trị :");
 
         txtKetQuaDieuTri.setColumns(20);
         txtKetQuaDieuTri.setRows(5);
@@ -371,33 +387,40 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBackground(new java.awt.Color(89, 194, 246));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông Tin Bệnh Nhân", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
-        jLabel74.setText("Mã Bênh Nhân");
+        jLabel74.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel74.setText("Mã Bênh Nhân :");
 
         txtMaBenhNhan.setEditable(false);
 
-        jLabel75.setText("Họ Tên");
+        jLabel75.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel75.setText("Họ Tên :");
 
-        jLabel18.setText("SDT");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel18.setText("Số điện thoại :");
 
         txtSDTPK.setEditable(false);
 
-        jLabel76.setText("Địa Chỉ");
+        jLabel76.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel76.setText("Địa Chỉ :");
 
         txtDiaChiPK.setEditable(false);
 
-        jLabel77.setText("Nghề Nghiệp");
+        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel77.setText("Nghề Nghiệp :");
 
         txtNgheNghiepPK.setEditable(false);
 
-        jLabel78.setText("Giới Tính");
+        jLabel78.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel78.setText("Giới Tính :");
 
         txtGT.setEditable(false);
         txtGT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel79.setText("Tuổi");
+        jLabel79.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel79.setText("Tuổi :");
 
         txtTuoiPK.setEditable(false);
         txtTuoiPK.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -411,18 +434,18 @@ public class QLPhieuKham extends javax.swing.JPanel {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel74)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMaBenhNhan, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(txtSDTPK))
                 .addGap(25, 25, 25)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel76, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtDiaChiPK, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(txtHoTenPK))
@@ -435,8 +458,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(txtGT, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel79, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTuoiPK, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNgheNghiepPK, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
@@ -465,9 +488,9 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setBackground(new java.awt.Color(89, 194, 246));
 
-        pnlDieuchinh2.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDieuchinh2.setBackground(new java.awt.Color(89, 194, 246));
 
         btnInsert.setBackground(new java.awt.Color(0, 255, 63));
         btnInsert.setText("Thêm");
@@ -598,7 +621,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,7 +639,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.addTab("Phiếu Khám", jPanel8);
 
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBackground(new java.awt.Color(89, 194, 246));
 
         jScrollPane9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -669,7 +692,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.addTab("Danh Sách", jPanel15);
 
-        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setBackground(new java.awt.Color(89, 194, 246));
 
         tblBenhNhanVan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
