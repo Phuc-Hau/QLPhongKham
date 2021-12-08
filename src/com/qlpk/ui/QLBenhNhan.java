@@ -62,10 +62,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
         btnthemBN = new javax.swing.JButton();
         btnxoaBN = new javax.swing.JButton();
         btnsuaBN = new javax.swing.JButton();
-        btnfirstBN = new javax.swing.JButton();
-        btnprevBN = new javax.swing.JButton();
-        btnnextBN = new javax.swing.JButton();
-        btnlastBN = new javax.swing.JButton();
         txtDienthoai = new javax.swing.JTextField();
         txtGhichu = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -181,34 +177,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
             }
         });
 
-        btnfirstBN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/next_1.png"))); // NOI18N
-        btnfirstBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfirstBNActionPerformed(evt);
-            }
-        });
-
-        btnprevBN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/forward-button_1.png"))); // NOI18N
-        btnprevBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnprevBNActionPerformed(evt);
-            }
-        });
-
-        btnnextBN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/forward-button.png"))); // NOI18N
-        btnnextBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnextBNActionPerformed(evt);
-            }
-        });
-
-        btnlastBN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/forward-button.png"))); // NOI18N
-        btnlastBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlastBNActionPerformed(evt);
-            }
-        });
-
         txtDienthoai.setName("SDT"); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(136, 208, 244));
@@ -270,17 +238,9 @@ public class QLBenhNhan extends javax.swing.JPanel {
                         .addComponent(btnxoaBN)
                         .addGap(18, 18, 18)
                         .addComponent(btnthemmoiBN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
-                        .addComponent(btnfirstBN)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnprevBN)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnnextBN)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnlastBN)
-                        .addGap(104, 104, 104))
+                        .addGap(104, 647, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 35, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(lblNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +284,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                                         .addComponent(txtNgheNghiep)))
                                 .addComponent(jScrollPane5)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(44, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,21 +327,12 @@ public class QLBenhNhan extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnlastBN)
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnnextBN)
-                            .addComponent(btnprevBN)
-                            .addComponent(btnfirstBN)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnthemmoiBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnxoaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnsuaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnthemBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnthemmoiBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnxoaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsuaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnthemBN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -435,26 +386,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnsuaBNActionPerformed
 
-    private void btnfirstBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstBNActionPerformed
-        // TODO add your handling code here:
-        this.firstBenhNhan();
-    }//GEN-LAST:event_btnfirstBNActionPerformed
-
-    private void btnprevBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprevBNActionPerformed
-        // TODO add your handling code here:
-        this.prevBenhNhan();
-    }//GEN-LAST:event_btnprevBNActionPerformed
-
-    private void btnnextBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextBNActionPerformed
-        // TODO add your handling code here:
-        this.nextBenhNhan();
-    }//GEN-LAST:event_btnnextBNActionPerformed
-
-    private void btnlastBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlastBNActionPerformed
-        // TODO add your handling code here:
-        this.lastBenhNhan();
-    }//GEN-LAST:event_btnlastBNActionPerformed
-
     private void txttimkiemBNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemBNKeyReleased
         // TODO add your handling code here:
         this.timKiemBenhNhan();
@@ -463,10 +394,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateNgaySinhBN;
-    private javax.swing.JButton btnfirstBN;
-    private javax.swing.JButton btnlastBN;
-    private javax.swing.JButton btnnextBN;
-    private javax.swing.JButton btnprevBN;
     private javax.swing.JButton btnsuaBN;
     private javax.swing.JButton btnthemBN;
     private javax.swing.JButton btnthemmoiBN;
@@ -670,11 +597,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
         btnthemBN.setEnabled(!edit);
         btnsuaBN.setEnabled(edit);
         btnxoaBN.setEnabled(edit);
-        // Trạng thái điều hướng
-        btnfirstBN.setEnabled(edit && !first);
-        btnprevBN.setEnabled(edit && !first);
-        btnnextBN.setEnabled(edit && !last);
-        btnlastBN.setEnabled(edit && !last);
+        
     }
 
     void firstBenhNhan() {

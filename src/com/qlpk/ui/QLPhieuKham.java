@@ -533,6 +533,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
             }
         });
 
+        btnInPhieuKham.setBackground(new java.awt.Color(204, 0, 255));
         btnInPhieuKham.setText("In phiếu Khám");
         btnInPhieuKham.setEnabled(false);
 
@@ -586,15 +587,16 @@ public class QLPhieuKham extends javax.swing.JPanel {
             pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDieuchinh2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsert)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete)
-                    .addComponent(btnNew)
-                    .addComponent(btnInPhieuKham)
-                    .addComponent(btnBatDau)
-                    .addComponent(btnNext)
-                    .addComponent(btnBoQua))
+                .addGroup(pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnInsert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDieuchinh2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate)
+                        .addComponent(btnDelete)
+                        .addComponent(btnNew)
+                        .addComponent(btnInPhieuKham)
+                        .addComponent(btnBatDau)
+                        .addComponent(btnNext)
+                        .addComponent(btnBoQua)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

@@ -281,7 +281,7 @@ public class main extends javax.swing.JFrame {
 //                    break;
 //                }
 //            }
-UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
