@@ -1080,9 +1080,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
-//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-//        lblMaNV.setText(Auth.user.getMaNV());
-//        lblTen.setText(Auth.user.getHoTen());
+        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+        lblMaNV.setText(Auth.user.getMaNV());
+        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
@@ -1175,7 +1175,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         pnlFromPhieuKham.add(qLPhieuKham);
-
         tabs.setSelectedIndex(2);
         lblChucNang.setText("Phiếu Khám");
         
