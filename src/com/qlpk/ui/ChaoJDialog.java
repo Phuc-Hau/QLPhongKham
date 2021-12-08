@@ -5,6 +5,7 @@
  */
 package com.qlpk.ui;
 
+import java.awt.Toolkit;
 import javax.swing.UIManager;
 
 /**
@@ -20,6 +21,8 @@ public class ChaoJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/com/qlpk/Icon/logo36.png"));
+        
         inti();
     }
 

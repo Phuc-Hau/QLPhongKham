@@ -29,7 +29,7 @@ public class main extends javax.swing.JFrame {
     public main(String MaNV) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("/com/qlpk/Icon/logo36.png"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/com/qlpk/Icon/logo36.png"));
         txt_taikhoan.setText(MaNV);
         init();
     } 
