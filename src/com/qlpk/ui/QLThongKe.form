@@ -326,7 +326,7 @@
                         <Column editable="false" title="Lo&#x1ea1;i Thu&#x1ed1;c" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xea;n Thu&#x1ed1;c" type="java.lang.Object"/>
                         <Column editable="false" title="S&#x1ed1; L&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
-                        <Column editable="false" title="L&#x1ee3;i Nhu&#x1ead;n" type="java.lang.Integer"/>
+                        <Column editable="false" title="L&#x1ee3;i Nhu&#x1ead;n" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
