@@ -1079,7 +1079,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     void inti(){
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        
+         
         Avatar.setIcon(XImage.read(Auth.user.getHinh()));
         lblMaNV.setText(Auth.user.getMaNV());
         lblTen.setText(Auth.user.getHoTen());

@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -408,11 +408,11 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Loại thuốc", "Tên thuốc", "Giá nhập", "Giá bán"
+                "Loại thuốc", "Tên thuốc", "Giá bán"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -455,21 +455,21 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tblPhieuKhamDT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Phiếu Khám", "Mã Bệnh Nhân", "Bác Sĩ", "Phòng Khám", "Ngày Khám"
+                "Mã Phiếu Khám", "Mã Bệnh Nhân", "Tên Bệnh Nhân", "Bác Sĩ", "Phòng Khám", "Ngày Khám"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -482,6 +482,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
             }
         });
         jScrollPane4.setViewportView(tblPhieuKhamDT);
+        if (tblPhieuKhamDT.getColumnModel().getColumnCount() > 0) {
+            tblPhieuKhamDT.getColumnModel().getColumn(0).setPreferredWidth(75);
+            tblPhieuKhamDT.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblPhieuKhamDT.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tblPhieuKhamDT.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tblPhieuKhamDT.getColumnModel().getColumn(4).setPreferredWidth(50);
+        }
 
         javax.swing.GroupLayout pnlBenhNhanLayout = new javax.swing.GroupLayout(pnlBenhNhan);
         pnlBenhNhan.setLayout(pnlBenhNhanLayout);
@@ -508,17 +515,17 @@ public class QLDonThuoc extends javax.swing.JPanel {
 
         tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Đơn Thuốc", "Mã Phiếu Khám", "Bệnh Nhân", "Bác Sĩ"
+                "Đơn Thuốc", "Mã Phiếu Khám", "Bệnh Nhân", "Tên Bệnh Nhân", "Bác Sĩ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -531,6 +538,12 @@ public class QLDonThuoc extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(tblDonThuoc);
+        if (tblDonThuoc.getColumnModel().getColumnCount() > 0) {
+            tblDonThuoc.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tblDonThuoc.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tblDonThuoc.getColumnModel().getColumn(2).setPreferredWidth(35);
+            tblDonThuoc.getColumnModel().getColumn(3).setPreferredWidth(175);
+        }
 
         javax.swing.GroupLayout pnlLayout = new javax.swing.GroupLayout(pnl);
         pnl.setLayout(pnlLayout);
@@ -1014,7 +1027,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
             List<DonThuoc> list = daoDT.selectAll();
             for (DonThuoc th : list) {
                 PhieuKham pk = daoPK.selectByID(th.getMaPhieuKham());
-                Object[] row = {th.getDonThuoc(), th.getMaPhieuKham(), th.getMaBN(),pk.getBS()};
+                BenhNhan bn = daoBN.selectByID(pk.getMaBN());
+                Object[] row = {th.getDonThuoc(), th.getMaPhieuKham(), th.getMaBN(),bn.getTenBenhNhan(),pk.getBS()};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -1030,7 +1044,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
             String keyWord = txtTimKiem.getText();
             List<Thuoc> list = daoThuoc.selectByKeyword(keyWord);
             for (Thuoc th : list) {
-                Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(), th.getGiaNhap(), th.getGiaBan()};
+                Object[] row = {th.getLoaiThuoc(), th.getTenThuoc(),formatter.format(th.getGiaBan())};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -1068,7 +1082,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         if(error==0){
             try {
                 Thuoc thuoc = daoThuoc.selectByID(LoaiThuoc);
-                Object[] row = {thuoc.getLoaiThuoc(),thuoc.getTenThuoc()};
+                Object[] row = {thuoc.getLoaiThuoc(),thuoc.getTenThuoc(),0};
                 model.addRow(row);
                 tabsDonThuoc.setSelectedIndex(0);
             } catch (Exception e) {
@@ -1084,7 +1098,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
             List<PhieuKham> list = daoPK.selectChuaCoDonThuoc();
             for (PhieuKham pk : list) {
                 PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
-                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
+                BenhNhan bn = daoBN.selectByID(pk.getMaBN());
+                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),bn.getTenBenhNhan(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1099,7 +1114,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
             List<PhieuKham> list = daoPK.selectBenhNhanNotDonThuoc();
             for (PhieuKham pk : list) {
                 PhongKham phongKham = daoPKBenh.selectByID(pk.getMaPK());
-                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
+                BenhNhan bn = daoBN.selectByID(pk.getMaBN());
+                model.addRow(new Object[]{pk.getMaPhieuKham(),pk.getMaBN(),bn.getTenBenhNhan(),pk.getBS(),phongKham.getTenPhongKham(),pk.getNgayKham()});
             }
         } catch (Exception e) {
             e.printStackTrace();

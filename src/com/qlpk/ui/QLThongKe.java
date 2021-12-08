@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,6 +10,7 @@ import com.qlpk.dao.ThuocDao;
 import com.qlpk.entity.Thuoc;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +58,7 @@ public class QLThongKe extends javax.swing.JPanel {
         }
     }
     
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     void fillTableSLThuoc(){
         DefaultTableModel model = (DefaultTableModel) tblThongKeThuoc.getModel();
         model.setRowCount(0);
@@ -71,13 +73,13 @@ public class QLThongKe extends javax.swing.JPanel {
                     int LoiNhuan = (th.getGiaBan()-th.getGiaNhap())* SL;
                     SumLoiNhuan += LoiNhuan;
                     
-                    model.addRow(new Object[]{i[0],i[1],i[2],LoiNhuan});
+                    model.addRow(new Object[]{i[0],i[1],i[2],formatter.format(LoiNhuan)});
                 }
             }        
         } catch (Exception e) {
             e.printStackTrace();
         }
-        txtTong.setText(String.valueOf(SumLoiNhuan+" VND"));
+        txtTong.setText(String.valueOf(formatter.format(SumLoiNhuan)+" VND"));
     }
     
     public void showPieChart(){

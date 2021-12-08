@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,6 +15,7 @@ import com.qlpk.utils.XImage;
 import java.awt.Color;
 import static java.awt.Color.white;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -35,11 +36,14 @@ public class QLNhanVien extends javax.swing.JPanel {
      */
     public QLNhanVien() {
         initComponents();
+        inti();
+    }
+
+    void inti(){
         this.fillTableNV();
         this.fillCboChuyenNganh();
         this.updateStatusNV();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -645,6 +649,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         }
     }
 
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     void fillTableNV() {
         DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
         model.setRowCount(0);
@@ -663,7 +668,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                     nv.getDiaChi(),
                     nv.getChucVu(),
                     nv.getChuyenNganh(),
-                    nv.getLuong()
+                    formatter.format(nv.getLuong())
                 };
                 model.addRow(row);
 

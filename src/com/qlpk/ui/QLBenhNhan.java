@@ -1,4 +1,4 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -124,6 +124,11 @@ public class QLBenhNhan extends javax.swing.JPanel {
             }
         });
         jScrollPane5.setViewportView(tblDanhsachBenhNhan);
+        if (tblDanhsachBenhNhan.getColumnModel().getColumnCount() > 0) {
+            tblDanhsachBenhNhan.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblDanhsachBenhNhan.getColumnModel().getColumn(2).setPreferredWidth(45);
+            tblDanhsachBenhNhan.getColumnModel().getColumn(5).setPreferredWidth(35);
+        }
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel43.setText("Ngày sinh :");
@@ -267,7 +272,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                         .addComponent(btnxoaBN)
                         .addGap(18, 18, 18)
                         .addComponent(btnthemmoiBN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                         .addComponent(btnfirstBN)
                         .addGap(18, 18, 18)
                         .addComponent(btnprevBN)
@@ -385,9 +390,9 @@ public class QLBenhNhan extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 996, Short.MAX_VALUE)
+            .addGap(0, 999, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
