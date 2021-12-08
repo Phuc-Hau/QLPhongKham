@@ -994,7 +994,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                             .addComponent(lblTen, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addGap(70, 70, 70)
                         .addComponent(Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1039,7 +1039,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlChinh, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlChinh, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1080,9 +1080,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
-        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-        lblMaNV.setText(Auth.user.getMaNV());
-        lblTen.setText(Auth.user.getHoTen());
+//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+//        lblMaNV.setText(Auth.user.getMaNV());
+//        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
@@ -1249,6 +1249,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setBorder();
         pnlThongKe.setBackground(new Color(0,204,204));
+        qLThongKe.inti();
         pnlFromThongKe.add(qLThongKe);
         tabs.setSelectedIndex(8);
         lblChucNang.setText("Thống Kê");

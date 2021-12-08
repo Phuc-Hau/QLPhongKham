@@ -121,10 +121,10 @@ public class QLPhieuKham extends javax.swing.JPanel {
 
         tabsPK.setPreferredSize(new java.awt.Dimension(965, 612));
 
-        jPanel8.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(905, 612));
 
-        jPanel9.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thôn Tin Khám", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -206,7 +206,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel10.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khám Lâm Sàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -222,7 +222,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
         txtKhamLamSang.setRows(5);
         jScrollPane7.setViewportView(txtKhamLamSang);
 
-        jPanel11.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel63.setText("Nhịp Tim :");
@@ -345,10 +345,10 @@ public class QLPhieuKham extends javax.swing.JPanel {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel60)
                         .addGap(18, 18, 18)
@@ -387,7 +387,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông Tin Bệnh Nhân", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -488,9 +488,9 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel14.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlDieuchinh2.setBackground(new java.awt.Color(89, 194, 246));
+        pnlDieuchinh2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnInsert.setBackground(new java.awt.Color(0, 255, 63));
         btnInsert.setText("Thêm");

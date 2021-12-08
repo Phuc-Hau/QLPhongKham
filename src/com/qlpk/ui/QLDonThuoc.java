@@ -1074,7 +1074,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
             } catch (Exception e) {
                 Msgbox.alert(this, "Lỗi truy vấn dữ liệu!");
             }
-        } else Msgbox.alert(this, "Thuoc Nay da chon");  
+        } else Msgbox.alert(this, "Thuốc Này đã chọn");  
     }
     
     void fillTableDonThuocBenhNhan(){
