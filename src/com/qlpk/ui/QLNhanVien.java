@@ -90,10 +90,10 @@ public class QLNhanVien extends javax.swing.JPanel {
         btnLastNV = new javax.swing.JButton();
         lblAnh = new javax.swing.JLabel();
         DateNgaySinhNV = new com.toedter.calendar.JDateChooser();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         txtTimKiem = new javax.swing.JTextField();
 
         tabsNV.setBackground(new java.awt.Color(255, 255, 255));
@@ -118,7 +118,6 @@ public class QLNhanVien extends javax.swing.JPanel {
         rdoNam.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdoNam);
         rdoNam.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rdoNam.setSelected(true);
         rdoNam.setText("Nam");
 
         rdoNu.setBackground(new java.awt.Color(255, 255, 255));
@@ -377,9 +376,10 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         tabsNV.addTab("Cập Nhật", jPanel6);
 
-        jPanel7.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel8.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel8.setOpaque(false);
 
-        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
 
         tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -405,7 +405,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                 tblNhanVienMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(tblNhanVien);
+        jScrollPane7.setViewportView(tblNhanVien);
         if (tblNhanVien.getColumnModel().getColumnCount() > 0) {
             tblNhanVien.getColumnModel().getColumn(1).setPreferredWidth(125);
             tblNhanVien.getColumnModel().getColumn(2).setPreferredWidth(50);
@@ -414,9 +414,9 @@ public class QLNhanVien extends javax.swing.JPanel {
             tblNhanVien.getColumnModel().getColumn(9).setPreferredWidth(75);
         }
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel1.setText("Tìm Nhân Viên:");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel2.setText("Tìm Nhân Viên:");
 
         txtTimKiem.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -425,35 +425,35 @@ public class QLNhanVien extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        tabsNV.addTab("Danh Sách", jPanel7);
+        tabsNV.addTab("Danh Sách", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -471,10 +471,66 @@ public class QLNhanVien extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    NhanVienDao daoNV = new NhanVienDao();
-    PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
-    DTable dTable = new DTable();
-    int rowNV = -1;
+    private void lblAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhMouseClicked
+        // TODO add your handling code here:
+        this.chonAnhNV();
+    }//GEN-LAST:event_lblAnhMouseClicked
+
+    private void btnLastNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastNVActionPerformed
+        // TODO add your handling code here:
+        this.lastNV();
+    }//GEN-LAST:event_btnLastNVActionPerformed
+
+    private void btnNextNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextNVActionPerformed
+        // TODO add your handling code here:
+        this.nextNV();
+    }//GEN-LAST:event_btnNextNVActionPerformed
+
+    private void btnPrevNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevNVActionPerformed
+        // TODO add your handling code here:
+        this.prevNV();
+    }//GEN-LAST:event_btnPrevNVActionPerformed
+
+    private void btnFirstNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstNVActionPerformed
+        // TODO add your handling code here:
+        this.firstNV();
+    }//GEN-LAST:event_btnFirstNVActionPerformed
+
+    private void btnMoiNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiNVActionPerformed
+        // TODO add your handling code here:
+        this.clearFormNV();
+    }//GEN-LAST:event_btnMoiNVActionPerformed
+
+    private void btnSuaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNVActionPerformed
+        // TODO add your handling code here:
+        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null) {
+            if (ErrorNV()) {
+                this.UpdateNV();
+            }
+        } else {
+            if (ErrorNV() && Utility.CheckPass(txtPass)) {
+                this.UpdateNV();
+            }
+        }
+    }//GEN-LAST:event_btnSuaNVActionPerformed
+
+    private void btnXoaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNVActionPerformed
+        // TODO add your handling code here:
+        this.DeleteNV();
+    }//GEN-LAST:event_btnXoaNVActionPerformed
+
+    private void btnThemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNVActionPerformed
+        // TODO add your handling code here:
+        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMaNV(txtMaNV)) {
+            if (ErrorNV()) {
+                this.InsertNV();
+            }
+        } else {
+            if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMaNV(txtMaNV)) {
+                this.InsertNV();
+            }
+        }
+    }//GEN-LAST:event_btnThemNVActionPerformed
 
     private void cboChucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChucVuActionPerformed
         // TODO add your handling code here:
@@ -496,67 +552,6 @@ public class QLNhanVien extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cboChucVuActionPerformed
 
-    private void btnThemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNVActionPerformed
-        // TODO add your handling code here:
-        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null && checkTrungMaNV(txtMaNV)) {
-            if (ErrorNV()) {
-                this.InsertNV();
-            }
-        } else {
-            if (ErrorNV() && Utility.CheckPass(txtPass) && checkTrungMaNV(txtMaNV)) {
-                this.InsertNV();
-            }
-        }
-    }//GEN-LAST:event_btnThemNVActionPerformed
-
-    private void btnXoaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNVActionPerformed
-        // TODO add your handling code here:
-        this.DeleteNV();
-    }//GEN-LAST:event_btnXoaNVActionPerformed
-
-    private void btnSuaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNVActionPerformed
-        // TODO add your handling code here:
-        if (cboChuyenNganh.getItemAt(cboChuyenNganh.getSelectedIndex()) == null) {
-            if (ErrorNV()) {
-                this.UpdateNV();
-            }
-        } else {
-            if (ErrorNV() && Utility.CheckPass(txtPass)) {
-                this.UpdateNV();
-            }
-        }
-    }//GEN-LAST:event_btnSuaNVActionPerformed
-
-    private void btnMoiNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiNVActionPerformed
-        // TODO add your handling code here:
-        this.clearFormNV();
-    }//GEN-LAST:event_btnMoiNVActionPerformed
-
-    private void btnFirstNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstNVActionPerformed
-        // TODO add your handling code here:
-        this.firstNV();
-    }//GEN-LAST:event_btnFirstNVActionPerformed
-
-    private void btnPrevNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevNVActionPerformed
-        // TODO add your handling code here:
-        this.prevNV();
-    }//GEN-LAST:event_btnPrevNVActionPerformed
-
-    private void btnNextNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextNVActionPerformed
-        // TODO add your handling code here:
-        this.nextNV();
-    }//GEN-LAST:event_btnNextNVActionPerformed
-
-    private void btnLastNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastNVActionPerformed
-        // TODO add your handling code here:
-        this.lastNV();
-    }//GEN-LAST:event_btnLastNVActionPerformed
-
-    private void lblAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnhMouseClicked
-        // TODO add your handling code here:
-        this.chonAnhNV();
-    }//GEN-LAST:event_lblAnhMouseClicked
-
     private void tblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNhanVienMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
@@ -567,8 +562,13 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
         // TODO add your handling code here:
-        fillTableNV();
+         fillTableNV();
     }//GEN-LAST:event_txtTimKiemKeyReleased
+
+    NhanVienDao daoNV = new NhanVienDao();
+    PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
+    DTable dTable = new DTable();
+    int rowNV = -1;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -584,8 +584,8 @@ public class QLNhanVien extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboChucVu;
     private javax.swing.JComboBox<String> cboChuyenNganh;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -597,8 +597,8 @@ public class QLNhanVien extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lblAnh;
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
