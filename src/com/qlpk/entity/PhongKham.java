@@ -52,13 +52,7 @@ public class PhongKham {
         return tenPhongKham;
     }
     
-    @Override
-    public boolean equals(Object obj) {
-        
-        final PhongKham other = (PhongKham) obj;
-        
-        return other.getMaPK().equals(getMaPK());
-    }
+    
     
     
 }
