@@ -1175,6 +1175,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhongKham,pnlcolorDonThuoc,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhongKham,pnlDonThuoc,pnlThuoc,pnlNhanVien});// reser color
         pnlFromPhieuKham.add(qLPhieuKham);
+
         tabs.setSelectedIndex(2);
         lblChucNang.setText("Phiếu Khám");
         
@@ -1197,6 +1198,8 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.reserColor(new JPanel[]{pnlcolorHome,pnlColorBenhNhan,pnlcolorPhieuKham,pnlcolorPhongKham,pnlcolorThuoc,pnlcolorNhanVien}, 
                 new JPanel[]{pnlHome,pnlBenhNhan ,pnlPhieuKham,pnlPhongKham,pnlThuoc,pnlNhanVien});// reser color
         pnlFromDonThuoc.add(qLDonThuoc);
+        qLDonThuoc.fillTableBenhNhanDT();
+        qLDonThuoc.fillTableDanhSachThuoc();
         tabs.setSelectedIndex(4);
         lblChucNang.setText("Đơn Thuốc");
         
@@ -1249,8 +1252,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setBorder();
         pnlThongKe.setBackground(new Color(0,204,204));
-        qLThongKe.inti();
+        pnlFromThongKe.removeAll();
         pnlFromThongKe.add(qLThongKe);
+        qLThongKe.inti();
         tabs.setSelectedIndex(8);
         lblChucNang.setText("Thống Kê");
     }//GEN-LAST:event_pnlThongKeMousePressed
