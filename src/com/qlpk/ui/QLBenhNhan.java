@@ -241,7 +241,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        DateNgaySinhBN.setBackground(new java.awt.Color(255, 211, 19));
+        DateNgaySinhBN.setBackground(new java.awt.Color(89, 194, 246));
         DateNgaySinhBN.setDate(new Date());
         DateNgaySinhBN.setDateFormatString("dd-MM-yyyy");
 

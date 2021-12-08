@@ -492,7 +492,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="DateNgaySinhBN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="13" green="d3" red="ff" type="rgb"/>
+              <Color blue="f6" green="c2" red="59" type="rgb"/>
             </Property>
             <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new Date()" type="code"/>
