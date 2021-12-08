@@ -59,9 +59,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtXacnhanmatkhau" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                               <Component id="txtMatkhaucu" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                               <Component id="btnHuy" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

@@ -841,7 +841,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 Thuoc th = daoThuoc.selectByID(dtct.getLoaiThuoc());
                 int dongia=th.getGiaBan()-th.getGiaNhap();
                 int thanhtien = dongia*dtct.getSoLuong();
-                model.addRow(new Object[]{i,th.getTenThuoc(),dtct.getSoLuong(),formatter.format(dongia),formatter.format(thanhtien)});
+                model.addRow(new Object[]{i,th.getLoaiThuoc(),dtct.getSoLuong(),formatter.format(dongia),formatter.format(thanhtien)});
                 i++;
                 tongtien+=thanhtien;
                 rowIN=i;
