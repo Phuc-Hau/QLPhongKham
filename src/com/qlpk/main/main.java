@@ -12,6 +12,7 @@ import com.qlpk.utils.Auth;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage; 
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -28,7 +29,7 @@ public class main extends javax.swing.JFrame {
     public main(String MaNV) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setIconImage(XImage.getAppIcon());
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("/com/qlpk/Icon/logo36.png"));
         txt_taikhoan.setText(MaNV);
         init();
     } 
