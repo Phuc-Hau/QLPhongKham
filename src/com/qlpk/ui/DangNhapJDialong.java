@@ -13,6 +13,7 @@ import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage;
 import java.awt.Color;
 import static java.awt.Color.white;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -29,7 +30,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
     public DangNhapJDialong(String MaNV) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setIconImage(XImage.getAppIcon());
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("/com/qlpk/Icon/logo36.png"));
         txt_taikhoan.setText(MaNV);
         init();
     } 

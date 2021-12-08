@@ -23,7 +23,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setTitle("Phòng Khám Đa Khoa");
-        this.setIconImage(XImage.getAppIcon());
         inti();
         uiti();
     }
@@ -1023,8 +1022,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                            .addComponent(lblTen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1036,10 +1034,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(pnlChinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1079,10 +1077,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     void inti(){
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-//         
-//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-//        lblMaNV.setText(Auth.user.getMaNV());
-//        lblTen.setText(Auth.user.getHoTen());
+         
+        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+        lblMaNV.setText(Auth.user.getMaNV());
+        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);

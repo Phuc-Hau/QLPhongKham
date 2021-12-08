@@ -803,7 +803,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 BenhNhan bn = daoBN.selectByID(pk.getMaBN());
                 SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss a");
                 SimpleDateFormat day = new SimpleDateFormat("dd-MM-YYYY");
-                g2d.drawString("              Ngày "+time.format(new Date())+" Giờ "+day.format(new Date()),20,y);y+=yShift+20;
+                g2d.drawString("             Ngày "+time.format(new Date())+"   Giờ "+day.format(new Date()),20,y);y+=yShift+20;
                 g2d.drawString("   Số Phiếu      : "+txtDonThuoc.getText(), 20, y);y+=yShift;
                 g2d.drawString("   Người Mua     : "+txtTenBenhNhan.getText(),20,y);y+=yShift;
                 g2d.drawString("   Địa chỉ       : "+bn.getDiaChi(),20,y);y+=yShift;
