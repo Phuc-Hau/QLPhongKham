@@ -945,9 +945,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGroup(pnlChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlChinhLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+                        .addComponent(pnlFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pnlChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
@@ -1031,15 +1031,15 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlChinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlChinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlChinh, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(176, 176, 176)
+                .addComponent(pnlChinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1079,10 +1079,10 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     void inti(){
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-         
-        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-        lblMaNV.setText(Auth.user.getMaNV());
-        lblTen.setText(Auth.user.getHoTen());
+//         
+//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+//        lblMaNV.setText(Auth.user.getMaNV());
+//        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
