@@ -287,7 +287,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlBenhNhan.setBackground(new java.awt.Color(160, 126, 173));
+        pnlBenhNhan.setBackground(new java.awt.Color(0, 102, 204));
         pnlBenhNhan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 pnlBenhNhanMousePressed(evt);
@@ -295,7 +295,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(249, 229, 145));
         jLabel1.setText("Bệnh Nhân");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/patient.png"))); // NOI18N
@@ -336,7 +335,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
             .addComponent(pnlColorBenhNhan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnlPhieuKham.setBackground(new java.awt.Color(160, 126, 173));
+        pnlPhieuKham.setBackground(new java.awt.Color(255, 255, 255));
         pnlPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 pnlPhieuKhamMousePressed(evt);
@@ -344,7 +343,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(249, 229, 145));
         jLabel4.setText("Phiếu Khám");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/PhieuKham.png"))); // NOI18N
@@ -393,7 +391,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(249, 229, 145));
         jLabel5.setText("Đơn Thuốc");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/DonThuoc.png"))); // NOI18N
@@ -442,7 +439,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(249, 229, 145));
         jLabel6.setText("Thuốc");
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/thuoc.png"))); // NOI18N
@@ -491,7 +487,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(249, 229, 145));
         jLabel7.setText("Nhân Viên");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/NhanVien.png"))); // NOI18N
@@ -540,7 +535,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(249, 229, 145));
         jLabel2.setText("Home");
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/home.png"))); // NOI18N
@@ -589,7 +583,6 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(249, 229, 145));
         jLabel3.setText("Phòng Khám");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/phongkham.png"))); // NOI18N
@@ -1116,11 +1109,11 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     
     void reserColor(JPanel [] pane, JPanel [] indicators){
         for (int i = 0; i < pane.length; i++) {
-            pane[i].setBackground(new Color(249,229,145));
+            pane[i].setBackground(new Color(0,102,204));
         }
         
         for (int i = 0; i < indicators.length; i++) {
-            indicators[i].setBackground(new Color(0,102,204));
+            indicators[i].setBackground(new Color(255,255,255));
         }
     }
     
