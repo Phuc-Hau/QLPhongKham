@@ -248,6 +248,8 @@ public class QLThuoc extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
         tbl_thuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
