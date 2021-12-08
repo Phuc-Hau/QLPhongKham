@@ -7,6 +7,7 @@ package com.qlpk.ui;
 
 import com.qlpk.dao.ThuocDao;
 import com.qlpk.entity.Thuoc;
+import com.qlpk.utils.DTable;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage;
@@ -440,10 +441,12 @@ public class QLThuoc extends javax.swing.JPanel {
     int rowDonThuocThuoc=-1;
     int rowThuoc = -1;
     ThuocDao daoThuoc = new ThuocDao();
+    DTable dTable = new DTable();
     
     void inti() {
         this.fillTableThuoc();
         this.updateStatusThuoc();
+        tbl_thuoc.setDefaultRenderer(tbl_thuoc.getColumnClass(0), dTable);
     }
     
     

@@ -8,6 +8,7 @@ package com.qlpk.ui;
 import com.qlpk.dao.ThongKeDao;
 import com.qlpk.dao.ThuocDao;
 import com.qlpk.entity.Thuoc;
+import com.qlpk.utils.DTable;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.DecimalFormat;
@@ -40,9 +41,12 @@ public class QLThongKe extends javax.swing.JPanel {
 
     ThongKeDao dao = new ThongKeDao();
     ThuocDao daoTH = new ThuocDao();
+    DTable dTable = new DTable();
+    
     void inti(){
         fillcoboNam();
         fillTableSLThuoc();
+        tblThongKeThuoc.setDefaultRenderer(tblThongKeThuoc.getColumnClass(0), dTable);
     }
     
     void fillcoboNam(){

@@ -17,6 +17,7 @@ import com.qlpk.entity.DonThuocCT;
 import com.qlpk.entity.PhieuKham;
 import com.qlpk.entity.PhongKham;
 import com.qlpk.entity.Thuoc;
+import com.qlpk.utils.DTable;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import java.util.List;
@@ -905,6 +906,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
     DonThuocDao daoDT = new DonThuocDao();
     DonThuocCTDao daoDTCT = new DonThuocCTDao();
+    DTable dTable = new DTable();
     
     void inti(){
         this.fillTableDonThuoc();
@@ -913,6 +915,10 @@ public class QLDonThuoc extends javax.swing.JPanel {
         this.fillTableBenhNhanDT();
         this.row = -1;
         tabsDonThuoc.setSelectedIndex(2);
+        tblThuoc.setDefaultRenderer(tblThuoc.getColumnClass(0), dTable);
+        tbldanhsachThuoc.setDefaultRenderer(tbldanhsachThuoc.getColumnClass(0), dTable);
+        tblPhieuKhamDT.setDefaultRenderer(tblPhieuKhamDT.getColumnClass(0), dTable);
+        tblDonThuoc.setDefaultRenderer(tblDonThuoc.getColumnClass(0), dTable);
     }
 
     void clearForm() {

@@ -9,6 +9,7 @@ import com.qlpk.dao.NhanVienDao;
 import com.qlpk.dao.PhongKhamBenhDao;
 import com.qlpk.entity.NhanVien;
 import com.qlpk.entity.PhongKham;
+import com.qlpk.utils.DTable;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import com.qlpk.utils.XImage;
@@ -43,6 +44,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         this.fillTableNV();
         this.fillCboChuyenNganh();
         this.updateStatusNV();
+        tblNhanVien.setDefaultRenderer(tblNhanVien.getColumnClass(0), dTable);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -471,7 +473,7 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     NhanVienDao daoNV = new NhanVienDao();
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
-
+    DTable dTable = new DTable();
     int rowNV = -1;
 
     private void cboChucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChucVuActionPerformed

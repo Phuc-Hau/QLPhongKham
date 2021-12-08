@@ -7,9 +7,7 @@ package com.qlpk.ui;
 
 import com.qlpk.dao.BenhNhanDao;
 import com.qlpk.entity.BenhNhan;
-import com.qlpk.utils.Msgbox;
-import com.qlpk.utils.Utility;
-import com.qlpk.utils.XDate;
+import com.qlpk.utils.*;
 import java.awt.Color;
 import static java.awt.Color.white;
 import java.util.ArrayList;
@@ -503,11 +501,13 @@ public class QLBenhNhan extends javax.swing.JPanel {
 
     BenhNhanDao daoBN = new BenhNhanDao();
     int rowBN = -1;
+    DTable dTable = new DTable();
     void inti(){
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
         txtNgayTao.setText(XDate.toString(new Date(),"dd-MM-yyyy"));
         LoatMaBN();
+        tblDanhsachBenhNhan.setDefaultRenderer(tblDanhsachBenhNhan.getColumnClass(0), dTable);
     }
     
     void LoatMaBN(){

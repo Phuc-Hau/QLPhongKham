@@ -76,6 +76,7 @@ public class ChaoJDialog extends javax.swing.JDialog {
         lblStatus.setText("Khởi động ứng dụng...");
 
         pgb.setBackground(new java.awt.Color(0, 255, 255));
+        pgb.setForeground(new java.awt.Color(215, 0, 154));
         pgb.setStringPainted(true);
 
         lblAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlpk/icon/DaiDien.jpg"))); // NOI18N

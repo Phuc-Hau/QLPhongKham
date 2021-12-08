@@ -8,6 +8,7 @@ package com.qlpk.ui;
 import com.qlpk.dao.PhieuKhamDao;
 import com.qlpk.dao.PhongKhamBenhDao;
 import com.qlpk.entity.PhongKham;
+import com.qlpk.utils.DTable;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import java.util.List;
@@ -258,9 +259,11 @@ public class QLPhongKham extends javax.swing.JPanel {
     
     
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
+    DTable dTable = new DTable();
     void inti(){
         this.fillTablePhongKham();
         this.updateStatusPhongKham();
+        tblPhongKham.setDefaultRenderer(tblPhongKham.getColumnClass(0), dTable);
     }
     
     int row = -1;

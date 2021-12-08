@@ -13,6 +13,7 @@ import com.qlpk.entity.BenhNhan;
 import com.qlpk.entity.NhanVien;
 import com.qlpk.entity.PhieuKham;
 import com.qlpk.entity.PhongKham;
+import com.qlpk.utils.DTable;
 import com.qlpk.utils.Msgbox;
 import com.qlpk.utils.Utility;
 import com.qlpk.utils.XDate;
@@ -915,6 +916,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
     PhongKhamBenhDao daoPKBenh = new PhongKhamBenhDao();
     NhanVienDao daoNV = new NhanVienDao();
     
+    DTable dTable = new DTable();
     int indexPK=-1;
     int indexVanToi =-1;
     
@@ -924,6 +926,8 @@ public class QLPhieuKham extends javax.swing.JPanel {
         fillCboNV();
         fillBenhNhanVan();
         txtNgayKham.setText(XDate.toString(new Date(), "dd-MM-yyyy"));
+        tblPhieuKham.setDefaultRenderer(tblPhieuKham.getColumnClass(0), dTable);
+        tblBenhNhanVan.setDefaultRenderer(tblBenhNhanVan.getColumnClass(0), dTable);
     }
     
     
