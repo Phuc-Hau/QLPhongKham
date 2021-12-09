@@ -125,6 +125,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlChucNang.setBackground(new java.awt.Color(204, 204, 204));
 
         pnlDichvu.setBackground(new java.awt.Color(204, 204, 204));
+        pnlDichvu.setOpaque(false);
 
         pnlDangXuat.setBackground(new java.awt.Color(14, 227, 250));
         pnlDangXuat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1079,9 +1080,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
          
-//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-//        lblMaNV.setText(Auth.user.getMaNV());
-//        lblTen.setText(Auth.user.getHoTen());
+        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+        lblMaNV.setText(Auth.user.getMaNV());
+        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
