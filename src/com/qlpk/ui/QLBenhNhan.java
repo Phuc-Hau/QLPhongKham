@@ -11,8 +11,10 @@ import com.qlpk.utils.*;
 import java.awt.Color;
 import static java.awt.Color.white;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -136,6 +138,12 @@ public class QLBenhNhan extends javax.swing.JPanel {
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel46.setText("Tuổi :");
 
+        txtTuoi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTuoiKeyReleased(evt);
+            }
+        });
+
         rdoNam.setBackground(new java.awt.Color(89, 194, 246));
         rdoNam.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rdoNam.setSelected(true);
@@ -219,7 +227,9 @@ public class QLBenhNhan extends javax.swing.JPanel {
         lblNgayTao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNgayTao.setText("Ngày tạo :");
 
-        txtNgayTao.setForeground(new java.awt.Color(255, 3, 3));
+        txtNgayTao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNgayTao.setForeground(new java.awt.Color(255, 0, 183));
+        txtNgayTao.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txtNgayTao.setFocusable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -391,6 +401,15 @@ public class QLBenhNhan extends javax.swing.JPanel {
         this.timKiemBenhNhan();
     }//GEN-LAST:event_txttimkiemBNKeyReleased
 
+    private void txtTuoiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTuoiKeyReleased
+        // TODO add your handling code here:
+        if(txtTuoi.getText().matches("-?\\d+(\\.\\d+)?")){
+            Calendar cal = Calendar.getInstance();
+            int Nam =cal.get(Calendar.YEAR);
+            int yy=Nam-Integer.valueOf(txtTuoi.getText());
+            DateNgaySinhBN.setDate(XDate.toDate("1-1-"+yy, "dd-MM-yyyy"));
+        }
+    }//GEN-LAST:event_txtTuoiKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateNgaySinhBN;
@@ -639,7 +658,8 @@ public class QLBenhNhan extends javax.swing.JPanel {
                 && Utility.checkNullText(txtDienthoai)
                 && Utility.checkSDT(txtDienthoai)
                 && Utility.checkNullText(txtTuoi)
-                && Utility.checkNullText(txtNgheNghiep)) {
+                && Utility.checkNullText(txtNgheNghiep)
+                && Utility.checkSoNguyen(txtTuoi)) {
             return true;
         } else {
             return false;
