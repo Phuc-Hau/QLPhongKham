@@ -756,7 +756,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNam)
-                        .addContainerGap(232, Short.MAX_VALUE))
+                        .addContainerGap(262, Short.MAX_VALUE))
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -814,7 +814,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromBenhNhan.setLayout(pnlFromBenhNhanLayout);
         pnlFromBenhNhanLayout.setHorizontalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromBenhNhanLayout.setVerticalGroup(
             pnlFromBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -829,7 +829,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromPhieuKham.setLayout(pnlFromPhieuKhamLayout);
         pnlFromPhieuKhamLayout.setHorizontalGroup(
             pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromPhieuKhamLayout.setVerticalGroup(
             pnlFromPhieuKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -844,7 +844,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromPhongKham.setLayout(pnlFromPhongKhamLayout);
         pnlFromPhongKhamLayout.setHorizontalGroup(
             pnlFromPhongKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromPhongKhamLayout.setVerticalGroup(
             pnlFromPhongKhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -859,7 +859,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromDonThuoc.setLayout(pnlFromDonThuocLayout);
         pnlFromDonThuocLayout.setHorizontalGroup(
             pnlFromDonThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromDonThuocLayout.setVerticalGroup(
             pnlFromDonThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -874,7 +874,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromThuoc.setLayout(pnlFromThuocLayout);
         pnlFromThuocLayout.setHorizontalGroup(
             pnlFromThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromThuocLayout.setVerticalGroup(
             pnlFromThuocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -889,7 +889,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromNhanVien.setLayout(pnlFromNhanVienLayout);
         pnlFromNhanVienLayout.setHorizontalGroup(
             pnlFromNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromNhanVienLayout.setVerticalGroup(
             pnlFromNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -904,7 +904,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromGioiThieu.setLayout(pnlFromGioiThieuLayout);
         pnlFromGioiThieuLayout.setHorizontalGroup(
             pnlFromGioiThieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromGioiThieuLayout.setVerticalGroup(
             pnlFromGioiThieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -919,7 +919,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromThongKe.setLayout(pnlFromThongKeLayout);
         pnlFromThongKeLayout.setHorizontalGroup(
             pnlFromThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 1055, Short.MAX_VALUE)
         );
         pnlFromThongKeLayout.setVerticalGroup(
             pnlFromThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,7 +928,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
 
         tabs.addTab("tab9", pnlFromThongKe);
 
-        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 1030, 650));
+        pnlFrom.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 1060, 650));
 
         javax.swing.GroupLayout pnlChinhLayout = new javax.swing.GroupLayout(pnlChinh);
         pnlChinh.setLayout(pnlChinhLayout);
@@ -1079,9 +1079,9 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         this.home();
         //setExtendedState(JFrame.MAXIMIZED_BOTH); 
          
-        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
-        lblMaNV.setText(Auth.user.getMaNV());
-        lblTen.setText(Auth.user.getHoTen());
+//        Avatar.setIcon(XImage.read(Auth.user.getHinh()));
+//        lblMaNV.setText(Auth.user.getMaNV());
+//        lblTen.setText(Auth.user.getHoTen());
         
         layout = new MigLayout();
         pnlFromBenhNhan.setLayout(layout);
