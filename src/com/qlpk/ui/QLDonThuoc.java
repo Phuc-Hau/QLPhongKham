@@ -90,11 +90,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
         pnlBenhNhan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblPhieuKhamDT = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         pnlDanhSach = new javax.swing.JPanel();
         tabsDanhsach = new javax.swing.JTabbedPane();
         pnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDonThuoc = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
         pnlPrint = new javax.swing.JPanel();
         sc = new javax.swing.JScrollPane();
         tblTable = new javax.swing.JTable();
@@ -314,9 +316,11 @@ public class QLDonThuoc extends javax.swing.JPanel {
         tabsDonThuoc.addTab("Cập nhập", pnlCapnhap);
 
         pnlThuoc.setBackground(new java.awt.Color(89, 194, 246));
+        pnlThuoc.setOpaque(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102), new java.awt.Color(102, 102, 102)), "Tìm Kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel1.setOpaque(false);
 
         txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -382,6 +386,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         tabsDonThuoc.addTab("Thuốc", pnlThuoc);
 
         pnlBenhNhan.setBackground(new java.awt.Color(89, 194, 246));
+        pnlBenhNhan.setOpaque(false);
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -422,21 +427,33 @@ public class QLDonThuoc extends javax.swing.JPanel {
             tblPhieuKhamDT.getColumnModel().getColumn(4).setPreferredWidth(50);
         }
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 190));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Bệnh Nhân Lấy Đơn Thuốc");
+
         javax.swing.GroupLayout pnlBenhNhanLayout = new javax.swing.GroupLayout(pnlBenhNhan);
         pnlBenhNhan.setLayout(pnlBenhNhanLayout);
         pnlBenhNhanLayout.setHorizontalGroup(
             pnlBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBenhNhanLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBenhNhanLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlBenhNhanLayout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         pnlBenhNhanLayout.setVerticalGroup(
             pnlBenhNhanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBenhNhanLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         tabsDonThuoc.addTab("Bệnh Nhân", pnlBenhNhan);
@@ -444,6 +461,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         pnlDanhSach.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnl.setBackground(new java.awt.Color(89, 194, 246));
+        pnl.setOpaque(false);
 
         tblDonThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -477,20 +495,32 @@ public class QLDonThuoc extends javax.swing.JPanel {
             tblDonThuoc.getColumnModel().getColumn(3).setPreferredWidth(175);
         }
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 190));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Bệnh Nhân Đã Có Đơn Thuốc");
+
         javax.swing.GroupLayout pnlLayout = new javax.swing.GroupLayout(pnl);
         pnl.setLayout(pnlLayout);
         pnlLayout.setHorizontalGroup(
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 964, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 964, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLayout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         pnlLayout.setVerticalGroup(
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
         );
 
@@ -769,11 +799,13 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnXoaThuoc;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

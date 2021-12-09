@@ -208,6 +208,7 @@ public class QLThongKe extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlfrom.setBackground(new java.awt.Color(89, 194, 246));
+        pnlfrom.setOpaque(false);
 
         cboNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboNam.addActionListener(new java.awt.event.ActionListener() {
@@ -363,7 +364,7 @@ public class QLThongKe extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblThongKeThuoc);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 242, 16));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Năm");
 
         txtTong.setEditable(false);
@@ -373,11 +374,11 @@ public class QLThongKe extends javax.swing.JPanel {
 
         jLabel5.setBackground(new java.awt.Color(255, 242, 16));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 242, 16));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
         jLabel5.setText("Tổng Lợi Nhuận Của năm ");
 
         lblBieuDo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblBieuDo.setForeground(new java.awt.Color(255, 242, 16));
+        lblBieuDo.setForeground(new java.awt.Color(0, 0, 255));
         lblBieuDo.setText("Biểu Đồ Thống kê>>");
         lblBieuDo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -433,6 +434,7 @@ public class QLThongKe extends javax.swing.JPanel {
         tabs.addTab("tab1", pnlfrom);
 
         pnlBieuDo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBieuDo.setOpaque(false);
 
         pnlBieuDoDoanhThu.setLayout(new java.awt.BorderLayout());
 
