@@ -10,6 +10,7 @@ import com.qlpk.entity.BenhNhan;
 import com.qlpk.utils.*;
 import java.awt.Color;
 import static java.awt.Color.white;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,6 +73,12 @@ public class QLBenhNhan extends javax.swing.JPanel {
         DateNgaySinhBN = new com.toedter.calendar.JDateChooser();
         lblNgayTao = new javax.swing.JLabel();
         txtNgayTao = new javax.swing.JTextField();
+
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(89, 194, 246));
         jPanel3.setPreferredSize(new java.awt.Dimension(985, 612));
@@ -401,15 +408,23 @@ public class QLBenhNhan extends javax.swing.JPanel {
         this.timKiemBenhNhan();
     }//GEN-LAST:event_txttimkiemBNKeyReleased
 
+    Calendar cal = Calendar.getInstance();
     private void txtTuoiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTuoiKeyReleased
         // TODO add your handling code here:
         if(txtTuoi.getText().matches("-?\\d+(\\.\\d+)?")){
-            Calendar cal = Calendar.getInstance();
             int Nam =cal.get(Calendar.YEAR);
             int yy=Nam-Integer.valueOf(txtTuoi.getText());
             DateNgaySinhBN.setDate(XDate.toDate("1-1-"+yy, "dd-MM-yyyy"));
         }
     }//GEN-LAST:event_txtTuoiKeyReleased
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        // TODO add your handling code here:
+        SimpleDateFormat Year = new SimpleDateFormat("yyyy");
+        int y = Integer.valueOf(cal.get(Calendar.YEAR))- Integer.valueOf(Year.format(DateNgaySinhBN.getDate()));
+        txtTuoi.setText(String.valueOf(y));
+        System.out.println("com.qlpk.ui.QLBenhNhan.formMouseMoved()");
+    }//GEN-LAST:event_formMouseMoved
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateNgaySinhBN;
@@ -448,10 +463,14 @@ public class QLBenhNhan extends javax.swing.JPanel {
     BenhNhanDao daoBN = new BenhNhanDao();
     int rowBN = -1;
     DTable dTable = new DTable();
+    
     void inti(){
         this.FillTableBenhNhan();
         this.UpdateStatusBenhNhan();
         txtNgayTao.setText(XDate.toString(new Date(),"dd-MM-yyyy"));
+        SimpleDateFormat Year = new SimpleDateFormat("yyyy");
+        int y = Integer.valueOf(cal.get(Calendar.YEAR))- Integer.valueOf(Year.format(DateNgaySinhBN.getDate()));
+        txtTuoi.setText(String.valueOf(y));
         LoatMaBN();
         tblDanhsachBenhNhan.setDefaultRenderer(tblDanhsachBenhNhan.getColumnClass(0), dTable);
     }
