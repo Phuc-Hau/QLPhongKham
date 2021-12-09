@@ -140,7 +140,7 @@ public class QLNhanVien extends javax.swing.JPanel {
         jLabel51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel51.setText("Chức Vụ :");
 
-        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giám Đốc", "Phó Giám Đốc", "Bác Sĩ", "Điều Dưỡng", "Y Sĩ", "Kế Toán", "Bảo Vệ", "Lao Công", "Giữ Xe", "Tình Nguyện Viên" }));
+        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giám Đốc", "Phó Giám Đốc", "Bác Sĩ", "Điều Dưỡng", "Y Tá", "Kế Toán", "Bảo Vệ", "Lao Công", "Giữ Xe", "Tình Nguyện Viên" }));
         cboChucVu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboChucVuActionPerformed(evt);

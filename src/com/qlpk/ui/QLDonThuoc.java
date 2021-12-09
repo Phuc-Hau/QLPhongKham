@@ -1,4 +1,4 @@
- /*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -811,7 +811,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 g2d.drawString("   Chuẩn Đoán    : "+pk.getKetQuaDieuTri(),20,y);y+=yShift;
                 g2d.drawString("   Bác Sĩ kê đơn : "+txtBacSi.getText(),20,y);y+=yShift;
                 g2d.drawString("------------------------------------------------------------",20,y);y+=headerRectHeight;
-                g2d.drawString("STT |   Tên Thuốc      | Số Lượng | Đơn Giá |  Thành Tiền",20,y);y+=yShift;
+                //g2d.drawString("STT |   Tên Thuốc      | Số Lượng | Đơn Giá |  Thành Tiền",20,y);y+=yShift;
                 
                 int rowTable=27+rowIN*12;
                 tblTable.print(g2d.create(20, y, 340, rowTable));y+=yShift;
