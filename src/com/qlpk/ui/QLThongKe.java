@@ -462,7 +462,7 @@ public class QLThongKe extends javax.swing.JPanel {
                             .addComponent(pnlBieuDoDoanhThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)))
                     .addGroup(pnlBieuDoLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(83, 83, 83)
                         .addComponent(lblThongKeNam)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -473,9 +473,9 @@ public class QLThongKe extends javax.swing.JPanel {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlBieuDoDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblThongKeNam)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", pnlBieuDo);

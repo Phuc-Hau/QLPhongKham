@@ -114,9 +114,11 @@ public class QLPhieuKham extends javax.swing.JPanel {
         jPanel15 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblPhieuKham = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         tblBenhNhanVan = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -648,6 +650,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
         tabsPK.addTab("Phiếu Khám", jPanel8);
 
         jPanel15.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel15.setOpaque(false);
 
         jScrollPane9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -674,33 +677,54 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblPhieuKham.setShowGrid(false);
+        tblPhieuKham.setShowHorizontalLines(true);
+        tblPhieuKham.setShowVerticalLines(true);
         tblPhieuKham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPhieuKhamMouseClicked(evt);
             }
         });
         jScrollPane9.setViewportView(tblPhieuKham);
+        if (tblPhieuKham.getColumnModel().getColumnCount() > 0) {
+            tblPhieuKham.getColumnModel().getColumn(0).setPreferredWidth(75);
+            tblPhieuKham.getColumnModel().getColumn(1).setPreferredWidth(75);
+            tblPhieuKham.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblPhieuKham.getColumnModel().getColumn(3).setPreferredWidth(75);
+        }
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 190));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Bệnh Nhân Đã Khám Bệnh");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 899, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap()
+                .addComponent(jScrollPane9)
+                .addContainerGap())
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         tabsPK.addTab("Danh Sách", jPanel15);
 
         jPanel16.setBackground(new java.awt.Color(89, 194, 246));
+        jPanel16.setOpaque(false);
 
         tblBenhNhanVan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -733,21 +757,32 @@ public class QLPhieuKham extends javax.swing.JPanel {
             tblBenhNhanVan.getColumnModel().getColumn(5).setPreferredWidth(35);
         }
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 190));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Bệnh Nhân Vắng Mặt");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jScrollPane10)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         tabsPK.addTab("Bệnh Nhân Vắn Mặt", jPanel16);
@@ -852,7 +887,9 @@ public class QLPhieuKham extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cboBacSi;
     private javax.swing.JComboBox<String> cboNhanVien;
     private javax.swing.JComboBox<String> cboPhongKham;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
