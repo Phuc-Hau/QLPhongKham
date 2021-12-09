@@ -423,7 +423,6 @@ public class QLBenhNhan extends javax.swing.JPanel {
         SimpleDateFormat Year = new SimpleDateFormat("yyyy");
         int y = Integer.valueOf(cal.get(Calendar.YEAR))- Integer.valueOf(Year.format(DateNgaySinhBN.getDate()));
         txtTuoi.setText(String.valueOf(y));
-        System.out.println("com.qlpk.ui.QLBenhNhan.formMouseMoved()");
     }//GEN-LAST:event_formMouseMoved
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
