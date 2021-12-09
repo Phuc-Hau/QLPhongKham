@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar; 
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -778,11 +779,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
         pnlFromHomeLayout.setVerticalGroup(
             pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel23)
-                .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(19, 19, 19)
                         .addGroup(pnlFromHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jLabel24)
@@ -797,14 +799,12 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                             .addComponent(jLabel29)
                             .addComponent(lblGio)
                             .addComponent(lblPhuc)
-                            .addComponent(lblGiay))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblGiay)))
                     .addGroup(pnlFromHomeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(lblTill1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addComponent(lblTill, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab1", pnlFromHome);
@@ -947,7 +947,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlChinhLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1078,7 +1078,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     
     void inti(){
         this.home();
-        //setExtendedState(JFrame.MAXIMIZED_BOTH); 
+//        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
          
         Avatar.setIcon(XImage.read(Auth.user.getHinh()));
         lblMaNV.setText(Auth.user.getMaNV());
