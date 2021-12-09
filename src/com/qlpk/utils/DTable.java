@@ -28,7 +28,7 @@ public class DTable extends DefaultTableCellRenderer{
         setForeground(Color.BLACK);
         
         JTableHeader theader= table.getTableHeader();
-        //theader.setBackground(Color.red);
+        theader.setBackground(new java.awt.Color(9,227,250));
 
         
         if(table.getSelectedRow()==row){

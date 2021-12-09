@@ -1,4 +1,4 @@
- /*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -284,6 +284,7 @@ public class QLThuoc extends javax.swing.JPanel {
             }
         });
 
+        btn_luu1.setBackground(new java.awt.Color(8, 238, 255));
         btn_luu1.setText("Lưu");
         btn_luu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,6 +292,7 @@ public class QLThuoc extends javax.swing.JPanel {
             }
         });
 
+        btn_xoa1.setBackground(new java.awt.Color(250, 9, 126));
         btn_xoa1.setText("Xóa");
         btn_xoa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
