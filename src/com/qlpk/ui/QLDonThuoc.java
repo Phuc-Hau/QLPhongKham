@@ -82,6 +82,8 @@ public class QLDonThuoc extends javax.swing.JPanel {
         btnMoi = new javax.swing.JButton();
         btnXoaThuoc = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
+        txtKetQua = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         pnlThuoc = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtTimKiem = new javax.swing.JTextField();
@@ -251,6 +253,11 @@ public class QLDonThuoc extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        txtKetQua.setEditable(false);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Kết Luận : ");
+
         javax.swing.GroupLayout pnlCapnhapLayout = new javax.swing.GroupLayout(pnlCapnhap);
         pnlCapnhap.setLayout(pnlCapnhapLayout);
         pnlCapnhapLayout.setHorizontalGroup(
@@ -258,30 +265,30 @@ public class QLDonThuoc extends javax.swing.JPanel {
             .addGroup(pnlCapnhapLayout.createSequentialGroup()
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCapnhapLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCapnhapLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtBacSi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDonThuoc, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
                         .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 952, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlCapnhapLayout.createSequentialGroup()
+                                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtBacSi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDonThuoc, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(72, 72, 72)
                                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtMaBN, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
                                 .addGap(76, 76, 76)
-                                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel8)
                                     .addComponent(jLabel6)
-                                    .addComponent(txtTenBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(pnlCapnhapLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 942, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlCapnhapLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtTenBenhNhan, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                    .addComponent(txtKetQua))))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         pnlCapnhapLayout.setVerticalGroup(
@@ -299,13 +306,16 @@ public class QLDonThuoc extends javax.swing.JPanel {
                         .addComponent(txtBacSi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTenBenhNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5))
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(pnlCapnhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDonThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaPhieuKham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKetQua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addGap(41, 41, 41)
@@ -806,6 +816,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -828,6 +839,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
     private javax.swing.JTable tbldanhsachThuoc;
     private javax.swing.JTextField txtBacSi;
     private javax.swing.JTextField txtDonThuoc;
+    private javax.swing.JTextField txtKetQua;
     private javax.swing.JTextField txtMaBN;
     private javax.swing.JTextField txtMaPhieuKham;
     private javax.swing.JTextField txtTenBenhNhan;
@@ -854,6 +866,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         this.row = -1;
         tabsDonThuoc.setSelectedIndex(2);
         tblThuoc.setDefaultRenderer(tblThuoc.getColumnClass(0), dTable);
+        tblThuoc.setDefaultRenderer(tblThuoc.getColumnClass(2), dTable);
         tbldanhsachThuoc.setDefaultRenderer(tbldanhsachThuoc.getColumnClass(0), dTable);
         tblPhieuKhamDT.setDefaultRenderer(tblPhieuKhamDT.getColumnClass(0), dTable);
         tblDonThuoc.setDefaultRenderer(tblDonThuoc.getColumnClass(0), dTable);
@@ -1076,6 +1089,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         PhieuKham pk = daoPK.selectByID(th.getMaPhieuKham());
         txtBacSi.setText(pk.getBS());
         txtTenBenhNhan.setText(bn.getTenBenhNhan());
+        txtKetQua.setText(pk.getKetQuaDieuTri());
         this.fillTableThuocKham();
     }
     
@@ -1086,6 +1100,7 @@ public class QLDonThuoc extends javax.swing.JPanel {
         BenhNhan bn = daoBN.selectByID(pk.getMaBN());
         txtTenBenhNhan.setText(bn.getTenBenhNhan());
         txtDonThuoc.setText(pk.getMaPhieuKham());
+        txtKetQua.setText(pk.getKetQuaDieuTri());
     }
 
     //tao donthuocct tu form

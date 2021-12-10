@@ -458,6 +458,7 @@ public class QLThuoc extends javax.swing.JPanel {
         this.fillTableThuoc();
         this.updateStatusThuoc();
         tbl_thuoc.setDefaultRenderer(tbl_thuoc.getColumnClass(0), dTable);
+        tbl_thuoc.setDefaultRenderer(tbl_thuoc.getColumnClass(4), dTable);
     }
     
     
