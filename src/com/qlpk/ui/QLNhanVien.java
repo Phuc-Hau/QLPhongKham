@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -120,11 +120,13 @@ public class QLNhanVien extends javax.swing.JPanel {
         buttonGroup1.add(rdoNam);
         rdoNam.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rdoNam.setText("Nam");
+        rdoNam.setOpaque(false);
 
         rdoNu.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdoNu);
         rdoNu.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rdoNu.setText("Nữ");
+        rdoNu.setOpaque(false);
 
         jLabel48.setText("Ngày Sinh (DD/MM/YYY)");
 
