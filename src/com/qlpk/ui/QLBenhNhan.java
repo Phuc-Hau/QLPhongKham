@@ -234,6 +234,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
         lblNgayTao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNgayTao.setText("Ngày tạo :");
 
+        txtNgayTao.setEditable(false);
         txtNgayTao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNgayTao.setForeground(new java.awt.Color(255, 0, 183));
         txtNgayTao.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
