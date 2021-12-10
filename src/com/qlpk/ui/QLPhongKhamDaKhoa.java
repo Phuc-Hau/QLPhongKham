@@ -1235,7 +1235,7 @@ public class QLPhongKhamDaKhoa extends javax.swing.JFrame {
     private void pnlDangXuatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlDangXuatMousePressed
         // TODO add your handling code here:
         this.setBorder();
-        new DangNhapJDialong(Auth.user.getMaNV()).setVisible(true);
+        new DangNhapJDialong(Auth.user.getMaNV(),null).setVisible(true);
         dispose();
     }//GEN-LAST:event_pnlDangXuatMousePressed
 

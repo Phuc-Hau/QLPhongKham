@@ -28,11 +28,12 @@ public class DangNhapJDialong extends javax.swing.JFrame {
     /**
      * Creates new form DangNhapJDialong
      */
-    public DangNhapJDialong(String MaNV) {
+    public DangNhapJDialong(String MaNV,String pass) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("/com/qlpk/Icon/logo36.png"));
         txt_taikhoan.setText(MaNV);
+        txt_pass.setText(pass);
         init();
     } 
     
@@ -303,7 +304,7 @@ public class DangNhapJDialong extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DangNhapJDialong(null).setVisible(true);
+                new DangNhapJDialong(null,null).setVisible(true);
             }
         });
     }

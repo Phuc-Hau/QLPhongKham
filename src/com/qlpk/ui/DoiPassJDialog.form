@@ -38,6 +38,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -60,8 +61,8 @@
                               <Component id="txtXacnhanmatkhau" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                               <Component id="txtMatkhaucu" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                              <Component id="btnHuy" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="btnHuy" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

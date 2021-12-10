@@ -71,6 +71,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlXacthuc.setBackground(new java.awt.Color(204, 255, 255));
+        pnlXacthuc.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 150, 27));
@@ -134,6 +135,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         tabs.addTab("tab1", pnlXacthuc);
 
         pnlXacMinh.setBackground(new java.awt.Color(204, 255, 255));
+        pnlXacMinh.setOpaque(false);
 
         btnxem.setBackground(new java.awt.Color(0, 255, 55));
         btnxem.setText("Xác nhận");
@@ -241,6 +243,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         tabs.addTab("tab2", pnlXacMinh);
 
         pnlDoipass.setBackground(new java.awt.Color(204, 255, 255));
+        pnlDoipass.setOpaque(false);
 
         btnDoipass.setBackground(new java.awt.Color(0, 255, 30));
         btnDoipass.setText("Đổi mật khẩu");
@@ -425,19 +428,19 @@ public class Laymatkhau extends javax.swing.JFrame{
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(" ").setVisible(true);
+        new DangNhapJDialong(" ",null).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
 
     private void btnHuy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy1ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(" ").setVisible(true);
+        new DangNhapJDialong(" ",null).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnHuy1ActionPerformed
 
     private void btnHuy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuy2ActionPerformed
         // TODO add your handling code here:
-        new DangNhapJDialong(" ").setVisible(true);
+        new DangNhapJDialong(" ",null).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnHuy2ActionPerformed
 
@@ -461,7 +464,7 @@ public class Laymatkhau extends javax.swing.JFrame{
         NhanVien nv =getModel();
         try {
             daoNV.update(nv);
-            new DangNhapJDialong(nv.getMaNV()).setVisible(true);
+            new DangNhapJDialong(nv.getMaNV(),nv.getPass()).setVisible(true);
             this.dispose();
         } catch (Exception e) {
             e.printStackTrace();
