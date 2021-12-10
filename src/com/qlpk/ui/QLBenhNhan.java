@@ -385,12 +385,27 @@ public class QLBenhNhan extends javax.swing.JPanel {
     private void btnthemBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemBNActionPerformed
         // TODO add your handling code here:
         if (checkTrungMaBenhNhan(txtMaBN)) {
-            if (ErrorBenhNhan()) {
+            if (ErrorBenhNhan() && er()) {
                 this.insertBenhNhan();
             }
         }
     }//GEN-LAST:event_btnthemBNActionPerformed
 
+    boolean er (){
+        if(txtTuoi.getText().matches("-?\\d+(\\.\\d+)?")){
+            int tuoi = Integer.valueOf(txtTuoi.getText());
+            if(tuoi<=120){
+                return true;
+            } else {
+                txtTuoi.setText("18");
+                Msgbox.alert(this, "Tuổi trong khoảnh 0-120");
+                return false;
+            }
+            
+        }
+        return false;
+    }
+    
     private void btnxoaBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaBNActionPerformed
         // TODO add your handling code here:
         this.deleteBenhNhan();
@@ -398,7 +413,7 @@ public class QLBenhNhan extends javax.swing.JPanel {
 
     private void btnsuaBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaBNActionPerformed
         // TODO add your handling code here:
-        if (ErrorBenhNhan()) {
+        if (ErrorBenhNhan() && er()) {
             this.updateBenhNhan();
         }
     }//GEN-LAST:event_btnsuaBNActionPerformed

@@ -258,9 +258,16 @@ public class QLThuoc extends javax.swing.JPanel {
                 "Loại thuốc", "Tên thuốc", "Giá nhập", "Giá bán", "Số lượng"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -670,7 +677,6 @@ public class QLThuoc extends javax.swing.JPanel {
             }    
             Msgbox.alert(this, "Cập nhật thuốc thành công!");
             } catch (Exception e) {    
-                JOptionPane.showMessageDialog(this, "Lỗi điểm");
                 JOptionPane.showMessageDialog(this, e);
         }
     }
