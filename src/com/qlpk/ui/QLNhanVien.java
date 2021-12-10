@@ -38,6 +38,7 @@ public class QLNhanVien extends javax.swing.JPanel {
     public QLNhanVien() {
         initComponents();
         inti();
+        
     }
 
     void inti(){
