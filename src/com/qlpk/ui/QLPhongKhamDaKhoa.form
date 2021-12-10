@@ -89,8 +89,8 @@
                   <Component id="pnlThuoc" alignment="0" max="32767" attributes="0"/>
                   <Component id="pnlNhanVien" alignment="0" max="32767" attributes="0"/>
                   <Component id="pnlHome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="pnlPhongKham" alignment="0" max="32767" attributes="0"/>
                   <Component id="pnlDichvu" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pnlPhongKham" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -102,9 +102,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlBenhNhan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlPhieuKham" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlPhongKham" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pnlPhieuKham" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlDonThuoc" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>

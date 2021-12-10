@@ -107,7 +107,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnNew = new javax.swing.JButton();
-        btnInPhieuKham = new javax.swing.JButton();
         btnBatDau = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         btnBoQua = new javax.swing.JButton();
@@ -535,10 +534,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
             }
         });
 
-        btnInPhieuKham.setBackground(new java.awt.Color(204, 0, 255));
-        btnInPhieuKham.setText("In phiếu Khám");
-        btnInPhieuKham.setEnabled(false);
-
         btnBatDau.setBackground(new java.awt.Color(0, 230, 255));
         btnBatDau.setText("Bắt Đầu Khám");
         btnBatDau.addActionListener(new java.awt.event.ActionListener() {
@@ -578,9 +573,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnInPhieuKham)
-                .addGap(56, 56, 56)
+                .addGap(177, 177, 177)
                 .addComponent(btnBatDau)
                 .addGap(18, 18, 18)
                 .addComponent(btnNext)
@@ -596,7 +589,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
                     .addComponent(btnBoQua, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(btnNext, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBatDau, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInPhieuKham, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNew, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -879,7 +871,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
     private javax.swing.JButton btnBatDau;
     private javax.swing.JButton btnBoQua;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnInPhieuKham;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnNext;
@@ -979,7 +970,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
             this.fillTablePhieuKham();
             this.fillBenhNhanVanToi();
             this.fillBenhNhanVan();
-            btnInPhieuKham.setEnabled(true);
             this.setStatusPK(false);
         } catch (Exception e) {
             e.printStackTrace();
@@ -1170,7 +1160,6 @@ public class QLPhieuKham extends javax.swing.JPanel {
         btnInsert.setEnabled(x);
         btnUpdate.setEnabled(!x);
         btnDelete.setEnabled(!x);
-        btnInPhieuKham.setEnabled(!x);
         btnNext.setEnabled(!x);
         btnNew.setEnabled(!x);
         btnBoQua.setEnabled(x);

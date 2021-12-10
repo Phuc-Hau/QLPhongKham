@@ -17,7 +17,7 @@ import com.qlpk.utils.JdbcHelper;
 public class ThongKeDao {
 
     public List<Integer> getNam(){
-        String sql ="select YEAR(NgayKham) as Nam from PhieuKham GROUP BY YEAR(NgayKham)";
+        String sql ="select YEAR(NgayKham) as Nam from PhieuKham GROUP BY YEAR(NgayKham) ORDER BY YEAR(NgayKham) DESC";
         List<Integer> list=new ArrayList<>();
         try {
             ResultSet rs=null;
