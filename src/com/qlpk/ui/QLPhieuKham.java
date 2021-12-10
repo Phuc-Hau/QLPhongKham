@@ -1155,7 +1155,7 @@ public class QLPhieuKham extends javax.swing.JPanel {
             
         }
     }
-    
+     
     void setStatusPK(boolean x){
         btnInsert.setEnabled(x);
         btnUpdate.setEnabled(!x);
